@@ -23,8 +23,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
@@ -141,7 +143,8 @@ class MainActivity : ComponentActivity()
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(IntrinsicSize.Min)
-                        .padding(16.dp),
+                        .padding(16.dp)
+                        .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Top
                 ) {
@@ -191,6 +194,7 @@ class MainActivity : ComponentActivity()
                     {
                         ShowDropDown(arrFeat, initIndex = featInit, onItemClick = { feat = arrFeat[it].key })
                         SpaceV()
+                        ShowFeat(feat = feat)
                     }
                     if(race == ERace.HALFELF || race == ERace.VARIANT_HUMAN)
                     {
@@ -213,7 +217,6 @@ class MainActivity : ComponentActivity()
         }
     }
 }
-
 fun configLibrary(assets : AssetManager): Boolean
 {
     if(!Res.configResStrings(assets.open(Res.STRINGS_FILE)))
@@ -231,7 +234,7 @@ fun configLibrary(assets : AssetManager): Boolean
         Log.e(APP_TAG, "Error config " + Res.FEATS_FILE);
         return false
     }
-    if(!Res.configResFeats(assets.open(Res.CLASSES_FILE)))
+    if(!Res.configResClasses(assets.open(Res.CLASSES_FILE)))
     {
         Log.e(APP_TAG, "Error config " + Res.CLASSES_FILE);
         return false
@@ -245,6 +248,31 @@ fun SpaceV() = Spacer(modifier = Modifier.height(6.dp))
 @Composable
 fun SpaceH() = Spacer(modifier = Modifier.width(6.dp))
 
+@Composable
+fun ShowFeat(feat : EFeat)
+{
+    var data = Res.getFeatLocale(feat)
+    var prerequisite : String = data[1]
+    var desc : String = data[2]
+
+    if(prerequisite.isNotEmpty())
+    {
+        Text(text = prerequisite,
+            modifier = Modifier.fillMaxWidth()
+                .padding(2.dp),
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+            fontStyle = FontStyle.Italic
+        )
+    }
+    Text(text = desc,
+        modifier = Modifier.fillMaxWidth()
+            .padding(2.dp),
+        fontSize = 18.sp,
+        fontWeight = FontWeight.Bold
+    )
+    SpaceV()
+}
 @Composable
 fun ShowRacialAbilities(race : ERace)
 {
