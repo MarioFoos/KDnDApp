@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Gral fonts -->
+    <dimen name="gral_font_size_large">30sp</dimen>
+    <dimen name="gral_font_size_normal">18sp</dimen>
+    <dimen name="gral_font_size_small">14sp</dimen>
+
+    <!-- Dialog -->
+    <dimen name="dialog_margin">16dp</dimen>
+    <dimen name="dialog_but_height">48dp</dimen>
+    <dimen name="dialog_but_width">48dp</dimen>
+    <dimen name="dialog_icon">80dp</dimen>
+    <dimen name="dialog_divider">15dp</dimen>
+
+    <!-- Controls margin -->
+    <dimen name="control_margin_normal">4dp</dimen>
+    <dimen name="control_margin_large">8dp</dimen>
+    <dimen name="but_margin">16dp</dimen>
+    <dimen name="but_margin_half">8dp</dimen>
+
+    <!-- Buttons -->
+    <dimen name="but_font_size">@dimen/gral_font_size_normal</dimen>
+    <dimen name="but_pad_lr">5dp</dimen>
+    <dimen name="but_corner_radius">5dp</dimen>
+    <dimen name="but_stroke">2dp</dimen>
+    <dimen name="but_updown_width">42dp</dimen>
+</resources>

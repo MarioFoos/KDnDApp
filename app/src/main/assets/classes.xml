@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<classes>
+	<barbarian>
+		<desc>Un feroz guerrero de origen primitivo que puede dejarse llevar por la furia en combate.</desc>
+	</barbarian>
+	<bard>
+		<desc>Un taumaturgo inspirador cuyo poder resuena con la música de la creación.</desc>
+	</bard>
+	<cleric>
+		<desc>Un campeón religioso que empuña la magia divina en servicio de un poder superior.</desc>
+	</cleric>
+	<druid>
+		<desc>Un sacerdote de la Antigua Fe, que adopta formas animales y empuña los poderes de la naturaleza; la luz lunar, el crecimiento de las plantas, el fuego y el relámpago.</desc>
+	</druid>
+	<fighter>
+		<desc>Un maestro del combate, experto en una gran variedad de armas y armaduras.</desc>
+	</fighter>
+	<monk>
+		<desc>Un maestro de las artes marciales, que recurre al poder de su cuerpo para alcanzar la perfección física y espiritual.</desc>
+	</monk>
+	<paladin>
+		<desc>Un guerrero sagrado atado a un juramento.</desc>
+	</paladin>
+	<ranger>
+		<desc>Un combatiente que recurre a la habilidad marcial y la magia de la naturaleza para enfrentarse a amenazas en los límites de la civilización.</desc>
+	</ranger>
+	<rouge>
+		<desc>Un canalla que emplea el sigilo y los engaños para superar obstáculos y enemigos.</desc>
+	</rouge>
+	<sorcerer>
+		<desc>Un lanzador de conjuros que emplea una magia innata, fruto de un don o su linaje.</desc>
+	</sorcerer>
+	<warlock>
+		<desc>Un lanzador de conjuros que obtiene su poder de un pacto con una entidad extraplanar.</desc>
+	</warlock>
+	<wizard>
+		<desc>Un estudioso de la magia capaz de manipular las estructuras de la realidad.</desc>
+	</wizard>
+</classes>
