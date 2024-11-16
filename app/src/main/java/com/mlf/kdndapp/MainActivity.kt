@@ -138,7 +138,7 @@ class MainActivity : ComponentActivity()
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         // Edad
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = age.toString() + " años", icon = R.drawable.d20, onItemClick = { age = ERace.genAge(race, stage)  })
+                            ShowButton(text = age.toString() + " " + Res.getLocale("years"), icon = R.drawable.dice, onItemClick = { age = ERace.genAge(race, stage)  })
                         }
                         SpaceH()
                         // Estadío
@@ -153,12 +153,12 @@ class MainActivity : ComponentActivity()
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         // Altura
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = height.toString() + " m", onItemClick = { height = ERace.genHeight(race) })
+                            ShowButton(text = height.toString() + " m", icon = R.drawable.dice, onItemClick = { height = ERace.genHeight(race) })
                         }
                         SpaceH()
                         // Peso
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = weight.toString() + " kg", onItemClick = { weight = ERace.genWeight(race) })
+                            ShowButton(text = weight.toString() + " kg", icon = R.drawable.dice, onItemClick = { weight = ERace.genWeight(race) })
                         }
                     }
                     SpaceV()
@@ -252,42 +252,37 @@ fun ShowFeat(feat : EFeat)
 fun ShowRacialAbilities(race : ERace)
 {
     val racialBonus = ERace.getAbilityBonus(race)
-
     if(racialBonus.isNotEmpty())
     {
-        var info1 : String = ""
-        var info2 : String = ""
-        racialBonus.entries.forEachIndexed{ index, entry ->
-            if(index %2 == 0)
-            {
-                info1 += Res.getLocale(entry.key) + " (+" + entry.value + ")"
-                if(index + 2 < racialBonus.entries.size)
-                {
-                    info1 += "\n"
-                }
-            }
-            else
-            {
-                info2 += Res.getLocale(entry.key) + " (+" + entry.value + ")"
-                if(index + 2 < racialBonus.entries.size)
-                {
-                    info2 += "\n"
-                }
+        val arr = ArrayList<String>()
+        racialBonus.forEach {
+            arr.add(Res.getLocale(it.key) + " (+" + it.value + ")")
+        }
+        val columns = Res.columns(arr)
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            columns.forEach {
+                Text(text = it,
+                    modifier = Modifier
+                        .weight(1f, true),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    overflow = TextOverflow.Ellipsis
+                )
             }
         }
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = info1,
-                modifier = Modifier
-                    .weight(1f, true),
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
-            )
-            Text(text = info2,
-                modifier = Modifier
-                    .weight(1f, true),
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
-            )
+        SpaceV()
+        var racialAbilities = ERace.getRacialAbilities(race)
+        var arr1 = Res.getLocale(racialAbilities)
+        if(arr1.isNotEmpty())
+        {
+            arr1.forEach {
+                Text(text = it.value,
+                    modifier = Modifier.fillMaxWidth(),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
         }
         SpaceV()
     }
@@ -298,7 +293,9 @@ fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, 
     val strokeColor = if(enabled)  colorResource(id = R.color.but_brown_enabled_border) else colorResource(id = R.color.yellow_dark)
 
     Button(
-        modifier = Modifier.fillMaxWidth().padding(0.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(0.dp),
         contentPadding = PaddingValues(8.dp, 0.dp),
         onClick = onItemClick,
         enabled = enabled,
@@ -314,7 +311,9 @@ fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, 
         Text(
             text = text,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(0.dp).weight(1f),
+            modifier = Modifier
+                .padding(0.dp)
+                .weight(1f),
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
             maxLines = 1,
@@ -324,9 +323,11 @@ fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, 
         {
             SpaceH()
             Icon(
-                modifier = Modifier.padding(0.dp).size(ButtonDefaults.IconSize),
+                modifier = Modifier
+                    .padding(0.dp)
+                    .size(ButtonDefaults.IconSize),
                 painter = painterResource(icon),
-                contentDescription = "d20",
+                contentDescription = null,
                 tint = colorResource(id = R.color.but_brown_enabled_text)
             )
         }
@@ -343,7 +344,7 @@ fun <T> ShowDropDown(
     var itemPosition = remember { mutableStateOf(initIndex) }
 
     Box {
-        ShowButton(text = items[itemPosition.value].value, onItemClick = { menuExpanded.value = true }, enabled = enabled)
+        ShowButton(text = items[itemPosition.value].value, icon = R.drawable.but_list, onItemClick = { menuExpanded.value = true }, enabled = enabled)
         DropdownMenu(
             expanded = menuExpanded.value,
             onDismissRequest = { menuExpanded.value = false}
