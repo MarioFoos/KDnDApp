@@ -46,6 +46,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dndlib.base.EAbility
@@ -57,6 +58,7 @@ import com.dndlib.base.ERace
 import com.dndlib.base.EStageOfLife
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.KDnDAppTheme
+import java.util.Locale
 import kotlin.system.exitProcess
 
 val APP_TAG = "AppTag"
@@ -138,7 +140,7 @@ class MainActivity : ComponentActivity()
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         // Edad
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = age.toString() + " " + Res.getLocale("years"), icon = R.drawable.dice, onItemClick = { age = ERace.genAge(race, stage)  })
+                            ShowButton(text = age.toString() + " " + Res.getLocale("years"), icon = R.drawable.d20, onItemClick = { age = ERace.genAge(race, stage)  })
                         }
                         SpaceH()
                         // Estadío
@@ -153,16 +155,16 @@ class MainActivity : ComponentActivity()
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         // Altura
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = height.toString() + " m", icon = R.drawable.dice, onItemClick = { height = ERace.genHeight(race) })
+                            ShowButton(text = height.toString() + " m", icon = R.drawable.d20, onItemClick = { height = ERace.genHeight(race) })
                         }
                         SpaceH()
                         // Peso
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = weight.toString() + " kg", icon = R.drawable.dice, onItemClick = { weight = ERace.genWeight(race) })
+                            ShowButton(text = weight.toString() + " kg", icon = R.drawable.d20, onItemClick = { weight = ERace.genWeight(race) })
                         }
                     }
                     SpaceV()
-                    ShowRacialAbilities(race = race)
+                    ShowAbilitiesForRace(race = race)
                     if(race == ERace.VARIANT_HUMAN)
                     {
                         ShowDropDown(arrFeat, initIndex = featInit, onItemClick = { feat = arrFeat[it].key })
@@ -184,7 +186,7 @@ class MainActivity : ComponentActivity()
                         SpaceV()
                     }
                     ShowDropDown(arrClass, initIndex = classInit, onItemClick = { klass = arrClass[it].key }, true)
-                    SpaceV()
+                    ShowAbilitiesForClass(klass = klass)
                     ShowDropDown(arrAlign, initIndex = alignInit, onItemClick = { align = arrAlign[it].key }, true)
                 }
             }
@@ -249,43 +251,119 @@ fun ShowFeat(feat : EFeat)
     )
 }
 @Composable
-fun ShowRacialAbilities(race : ERace)
+fun ShowAbilitiesForClass(klass : EClass)
+{
+    Text(text = Res.getLocaleClassDesc(klass),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = Res.getLocale("hit_point"),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+        fontWeight = FontWeight.Bold,
+    )
+    Text(text = "• " + Res.getLocale("hit_dice") + ": " + Res.getLocaleF("hit_dice", klass),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = "• " + Res.getLocale("hit_points_level_1") + ": " + Res.getLocaleF("hit_points_level_1", klass),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = "• " + Res.getLocale("hit_points_other") + ": " + Res.getLocaleF("hit_points_other", klass),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = Res.getLocale("class_features"),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+        fontWeight = FontWeight.Bold,
+    )
+    Text(text = "• " + Res.getLocale("armor") + ": " + Res.makeSentence(Res.getLocale(klass.armorTypes)).lowercase(),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = "• " + Res.getLocale("weapons") + ": " + Res.makeSentence(Res.getLocale(klass.weapons)).lowercase(),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = "• " + Res.getLocale("tools") + ": " + "COMPLETAR",
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = "• " + Res.getLocale("saving_throw") + ": " + Res.makeSentence(Res.getLocale(klass.savingThrow)).lowercase(),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = "• " + Res.getLocale("skills") + ": " + "COMPLETAR",
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    SpaceV()
+
+    /*val racialAbilities = ERace.getRacialAbilities(race)
+    if(racialAbilities.isNotEmpty())
+    {
+        Res.getLocale(racialAbilities).forEach {
+            Text(text = "• " + it.value,
+                modifier = Modifier.fillMaxWidth(),
+                fontSize = 18.sp,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
+    }*/
+}
+@Composable
+fun ShowAbilitiesForRace(race : ERace)
 {
     val racialBonus = ERace.getAbilityBonus(race)
     if(racialBonus.isNotEmpty())
     {
-        val arr = ArrayList<String>()
+        val arrCols = ArrayList<String>()
         racialBonus.forEach {
-            arr.add(Res.getLocale(it.key) + " (+" + it.value + ")")
+            arrCols.add(Res.getLocale(it.key) + " (+" + it.value + ")")
         }
-        val columns = Res.columns(arr)
+        val columns = Res.columns(arrCols)
+        Text(text = Res.getLocale("ability_bonus"),
+            modifier = Modifier.fillMaxWidth(),
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+        )
         Row(verticalAlignment = Alignment.CenterVertically) {
             columns.forEach {
                 Text(text = it,
                     modifier = Modifier
                         .weight(1f, true),
                     fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    overflow = TextOverflow.Ellipsis
-                )
-            }
-        }
-        SpaceV()
-        var racialAbilities = ERace.getRacialAbilities(race)
-        var arr1 = Res.getLocale(racialAbilities)
-        if(arr1.isNotEmpty())
-        {
-            arr1.forEach {
-                Text(text = it.value,
-                    modifier = Modifier.fillMaxWidth(),
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    overflow = TextOverflow.Ellipsis
                 )
             }
         }
         SpaceV()
     }
+    Text(text = Res.getLocale("racial_abilities"),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+        fontWeight = FontWeight.Bold,
+    )
+    Text(text = Res.getLocale("speed") + ": " + race.speed.toString(),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    Text(text = Res.getLocale("languages") + ": " + Res.makeSentence(Res.getLocale(race.languages)).lowercase(),
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = 18.sp,
+    )
+    val racialAbilities = ERace.getRacialAbilities(race)
+    if(racialAbilities.isNotEmpty())
+    {
+        Res.getLocale(racialAbilities).forEach {
+            Text(text = "• " + it.value,
+                modifier = Modifier.fillMaxWidth(),
+                fontSize = 18.sp,
+            )
+        }
+    }
+    SpaceV()
 }
 @Composable
 fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, icon : Int = 0)
@@ -311,9 +389,7 @@ fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, 
         Text(
             text = text,
             textAlign = TextAlign.Center,
-            modifier = Modifier
-                .padding(0.dp)
-                .weight(1f),
+            modifier = Modifier.weight(1f),
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
             maxLines = 1,
@@ -323,9 +399,7 @@ fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, 
         {
             SpaceH()
             Icon(
-                modifier = Modifier
-                    .padding(0.dp)
-                    .size(ButtonDefaults.IconSize),
+                modifier = Modifier.size(ButtonDefaults.IconSize),
                 painter = painterResource(icon),
                 contentDescription = null,
                 tint = colorResource(id = R.color.but_brown_enabled_text)

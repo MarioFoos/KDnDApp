@@ -330,8 +330,35 @@
 		</EDice>
 	</enums>
 	<misc>
+		<!-- GUI Race-->
 		<age>Edad</age>
 		<years>Años</years>
 		<speed>Velocidad</speed>
+		<ability_bonus>Mejora de Característica</ability_bonus>
+		<racial_abilities>Raciales</racial_abilities>
+		<languages>Idiomas</languages>
+		<!-- GUI Class-->
+		<primary_ability>Característica principal</primary_ability>
+		<hit_point>Puntos de golpe</hit_point>
+		<hit_dice>Dados de Golpe</hit_dice>
+		<hit_points_level_1>Puntos de Golpe a nivel 1</hit_points_level_1>
+		<hit_points_other>Puntos de Golpe a niveles superiores</hit_points_other>
+		<class_features>Competencias</class_features>
+		<armor>Armadura</armor>
+		<weapons>Armas</weapons>
+		<tools>Herramientas</tools>
+		<saving_throw>Tiradas de salvación</saving_throw>
+		<skills>Habilidades</skills>
 	</misc>
+	<formatted>
+		<hit_dice>1{klass_dice} por nivel de {klass}.</hit_dice>
+		<hit_points_level_1>{klass_dice} + tu modificador por Constitución.</hit_points_level_1>
+		<hit_points_other>1{klass_dice} (o {half_dice}) + tu modificador por Constitución por cada nivel de {klass} por encima del primero.</hit_points_other>
+	</formatted>
 </strings>
+
+
+
+
+
+
