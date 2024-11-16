@@ -11,6 +11,7 @@
 	</cleric>
 	<druid>
 		<desc>Un sacerdote de la Antigua Fe, que adopta formas animales y empuña los poderes de la naturaleza; la luz lunar, el crecimiento de las plantas, el fuego y el relámpago.</desc>
+		<armor_com>Los druidas nunca llevan armaduras ni escudos hechos de metal</armor_com>
 	</druid>
 	<fighter>
 		<desc>Un maestro del combate, experto en una gran variedad de armas y armaduras.</desc>

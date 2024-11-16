@@ -1,254 +1,337 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <strings>
-	<EAbility>
-		<strength>Fuerza</strength>
-		<dexterity>Destreza</dexterity>
-		<constitution>Constitución</constitution>
-		<intelligence>Inteligencia</intelligence>
-		<wisdom>Sabiduría</wisdom>
-		<charisma>Carisma</charisma>
-	</EAbility>
-	<EAlignment>
-		<unaligned>No alineado</unaligned>
-		<lawful_good>Legal bueno</lawful_good>
-		<neutral_good>Neutral bueno</neutral_good>
-		<chaotic_good>Caótico bueno</chaotic_good>
-		<lawful_neutral>Legal neutral</lawful_neutral>
-		<true_neutral>Neutral real</true_neutral>
-		<chaotic_neutral>Caótico neutral</chaotic_neutral>
-		<lawful_evil>Legal malo</lawful_evil>
-		<neutral_evil>Neutral malo</neutral_evil>
-		<chaotic_evil>Caótico malo</chaotic_evil>
-	</EAlignment>
-	<EClass>
-		<barbarian>Bárbaro</barbarian>
-		<bard>Bardo</bard>
-		<cleric>Clérigo</cleric>
-		<druid>Druida</druid>
-		<fighter>Guerrero</fighter>
-		<monk>Monje</monk>
-		<paladin>Paladín</paladin>
-		<ranger>Explorador</ranger>
-		<rouge>Pícaro</rouge>
-		<sorcerer>Hechicero</sorcerer>
-		<warlock>Brujo</warlock>
-		<wizard>Mago</wizard>
-	</EClass>
-	<EDamage>
-		<acid>Ácido</acid>
-		<bludgeoning>Contundente</bludgeoning>
-		<elemental>Elemental</elemental>
-		<physical>Físico</physical>
-		<cold>Frío</cold>
-		<fire>Fuego</fire>
-		<force>Fuerza</force>
-		<lightning>Relámpago</lightning>
-		<necrotic>Necrótico</necrotic>
-		<piercing>Perforante</piercing>
-		<poison>Veneno</poison>
-		<psychic>Psíquico</psychic>
-		<radiant>Radiante</radiant>
-		<slashing>Cortante</slashing>
-		<thunder>Trueno</thunder>
-	</EDamage>
-	<EDraconicAncestry>
-		<blue>Azul</blue>
-		<white>Blanco</white>
-		<bronze>Bronce</bronze>
-		<copper>Cobre</copper>
-		<black>Negro</black>
-		<gold>Oro</gold>
-		<brass>Oropel</brass>
-		<silver>Plata</silver>
-		<red>Rojo</red>
-		<green>Verde</green>
-	</EDraconicAncestry>
-	<EEthnicity>
-		<calishite>Calishita</calishite>
-		<chondathan>Chondathano</chondathan>
-		<damaran>Damarano</damaran>
-		<illuskan>Illuskano</illuskan>
-		<mulan>Mulano</mulan>
-		<rashemi>Rashemí</rashemi>
-		<shou>Shou</shou>
-		<tethyrian>Tethyriano</tethyrian>
-		<turami>Turami</turami>
-	</EEthnicity>
-	<EFeat>
-		<alert>Alerta</alert>
-		<athlete>Atleta</athlete>
-		<actor>Actor</actor>
-		<charger>Atacante a la Carga</charger>
-		<crossbow_expert>Experto en Ballestas</crossbow_expert>
-		<defensive_duelist>Duelista Defensivo</defensive_duelist>
-		<dual_wielder>Combatiente con Dos Armas</dual_wielder>
-		<dungeon_delver>Explorador de Mazmorras</dungeon_delver>
-		<durable>Resistente</durable>
-		<elemental_adept>Versado en un Elemento</elemental_adept>
-		<grappler>Apresador</grappler>
-		<great_weapon_master>Maestro en Armas Pesadas</great_weapon_master>
-		<healer>Sanador</healer>
-		<heavily_armored>Muy Acorzado</heavily_armored>
-		<heavy_armor_master>Maestro en Armaduras Pesadas</heavy_armor_master>
-		<inspiring_leader>Líder Inspirador</inspiring_leader>
-		<keen_mind>Mente Aguda</keen_mind>
-		<lightly_armored>Ligeramente Acorazado</lightly_armored>
-		<linguist>Lingüista</linguist>
-		<lucky>Afortunado</lucky>
-		<mage_slayer>Azote de Magos</mage_slayer>
-		<magic_initiate>Iniciado en la Magia</magic_initiate>
-		<martial_adept>Versado en las Armas</martial_adept>
-		<medium_armor_master>Maestro en Armaduras Medias</medium_armor_master>
-		<mobile>Móvil</mobile>
-		<moderately_armored>Moderadamente Acorazado</moderately_armored>
-		<mounted_combatant>Combatiente Montado</mounted_combatant>
-		<observant>Observador</observant>
-		<polearm_master>Maestro en Armas de Asta</polearm_master>
-		<resilient>Resiliente</resilient>
-		<ritual_caster>Lanzador Ritual</ritual_caster>
-		<savage_attacker>Atacante Salvaje</savage_attacker>
-		<sentinel>Centinela</sentinel>
-		<sharpshooter>Tirador de Primera</sharpshooter>
-		<shield_master>Maestro en Escudos</shield_master>
-		<skilled>Habilidoso</skilled>
-		<skulker>Acechador</skulker>
-		<spell_sniper>Lanzador Preciso</spell_sniper>
-		<tavern_brawler>Matón de Taberna</tavern_brawler>
-		<tough>Duro</tough>
-		<war_caster>Lanzador en Combate</war_caster>
-		<weapon_master>Maestro de Armas</weapon_master>
-	</EFeat>
-	<EGender>
-		<male>Masculino</male>
-		<female>Femenino</female>
-	</EGender>
-	<ELanguage>
-		<common>Común</common>
-		<elvish>Elfo</elvish>
-		<dwarvish>Enano</dwarvish>
-		<giant>Gigante</giant>
-		<gnomish>Gnómico</gnomish>
-		<goblin>Goblin</goblin>
-		<halfling>Mediano</halfling>
-		<orc>Orco</orc>
-		<abyssal>Abisal</abyssal>
-		<celestial>Celestial</celestial>
-		<draconic>Dracónico</draconic>
-		<deep_speech>Habla profunda</deep_speech>
-		<infernal>Infernal</infernal>
-		<undercommon>Infracomún</undercommon>
-		<primordial>Primordial</primordial>
-		<sylvan>Silvano</sylvan>
-		<prim_aquan>Aquan (Dialecto Primordial)</prim_aquan>
-		<prim_auran>Auran (Dialecto Primordial)</prim_auran>
-		<prim_ignan>Ignan (Dialecto Primordial)</prim_ignan>
-		<prim_terran>Treran (Dialecto Primordial)</prim_terran>
-		<druidic>Druídico</druidic>
-		<gnoll>Gnoll</gnoll>
-		<thieves_cant>Jerga de Ladrones</thieves_cant>
-	</ELanguage>
-	<ERace>
-		<dwarf>Enano</dwarf>
-		<hill_dwarf>Enano de las colinas </hill_dwarf>
-		<mountain_dwarf>Enano de las montañas</mountain_dwarf>
-		<duergar>Duergar/Enano gris</duergar>
-		<elf>Elfo</elf>
-		<high_elf>Alto elfo</high_elf>
-		<wood_elf>Elfo de los bosques</wood_elf>
-		<dark_elf>Elfo oscuro (Drow)</dark_elf>
-		<halfling>Mediano</halfling>
-		<lightfoot>Mediano Piesligeros</lightfoot>
-		<stout>Mediano Fornido</stout>
-		<human>Humano</human>
-		<variant_human>Humano variante</variant_human>
-		<dragonborn>Dracónido</dragonborn>
-		<gnome>Gnomo</gnome>
-		<forest_gnome>Gnomo del Bosque</forest_gnome>
-		<rock_gnome>Gnomo de la Roca</rock_gnome>
-		<halfelf>Semielfo</halfelf>
-		<halforc>Semiorco</halforc>
-		<tiefling>Tiflin</tiefling>
-	</ERace>
-	<ERacialAbility>
-		<darkvision>Visión en la Oscuridad</darkvision>
-		<dwarven_resilienee>Resistencia Enana</dwarven_resilienee>
-		<stoneeunning>Afinidad con la Piedra/Saber de la Roca</stoneeunning>
-		<dwarven_combat_training>Entrenamiento de Combate Enano</dwarven_combat_training>
-		<tool_proficieney>Competencia con Herramientas</tool_proficieney>
-		<dwarven_toughness>Aguante Enano</dwarven_toughness>
-		<dwarven_armor_training>Entrenamiento con Armadura Enana</dwarven_armor_training>
-		<fey_ancestry>Ascendencia Feérica</fey_ancestry>
-		<trance>Trance</trance>
-		<keen_senses>Sentidos Agudos</keen_senses>
-		<elf_weapon_training>Entrenamiento con Armas Élficas</elf_weapon_training>
-		<cantrip>Truco</cantrip>
-		<extra_language>Idioma adicional</extra_language>
-		<fleet_of_foot>Pies Veloces</fleet_of_foot>
-		<mask_of_the_wild>Máscara de la Naturaleza</mask_of_the_wild>
-		<sunlight_sensitivity>Sensibilidad a la Luz Solar</sunlight_sensitivity>
-		<drow_magic>Magia Drow</drow_magic>
-		<drow_weapon_training>Entrenamiento con Armas Drow</drow_weapon_training>
-		<lucky>Afortunado</lucky>
-		<brave>Valiente</brave>
-		<halfling_nimbleness>Agilidad de Mediano</halfling_nimbleness>
-		<naturally_stealthy>Sigiloso por Naturaleza</naturally_stealthy>
-		<stout_resilience>Resistencia de Fornido</stout_resilience>
-		<feat>Dote</feat>
-		<draconic_ancestry>Linaje dracónico</draconic_ancestry>
-		<breath_weapon>Ataque de Aliento</breath_weapon>
-		<damage_resistance>Resistencia al Daño</damage_resistance>
-		<gnome_cunning>Astucia de Gnomo</gnome_cunning>
-		<natural_illusionist>Ilusionista Innato</natural_illusionist>
-		<speak_with_small_beasts>Hablar con las Bestezuelas</speak_with_small_beasts>
-		<artificers_lore>Saber del Artificiero</artificers_lore>
-		<tinker>Manitas</tinker>
-		<skill_versatility>Versátil con Habilidades</skill_versatility>
-		<menacing>Amenazador</menacing>
-		<relentless_endurance>Agaunte Incansable</relentless_endurance>
-		<savage_attacks>Ataques Salvajes</savage_attacks>
-		<hellish_resistance>Resistencia Infernal</hellish_resistance>
-		<infernal_legacy>Linaje Infernal</infernal_legacy>
-	</ERacialAbility>
-	<ESkill>
-		<athletics>Atletismo</athletics>
-		<acrobatics>Acrobacias</acrobatics>
-		<sleight_of_hand>Juego de manos</sleight_of_hand>
-		<stealth>Sigilo</stealth>
-		<arcana>Conocimiento arcano</arcana>
-		<history>Historia</history>
-		<investigation>Investigación</investigation>
-		<nature>Naturaleza</nature>
-		<religion>Religión</religion>
-		<animal_handling>Trato con animales</animal_handling>
-		<insight>Perspicacia</insight>
-		<medicine>Medicina</medicine>
-		<perception>Percepción</perception>
-		<survival>Supervivencia</survival>
-		<deception>Engaño</deception>
-		<intimidation>Intimidación</intimidation>
-		<performance>Interpretación</performance>
-		<persuasion>Persuasión</persuasion>
-	</ESkill>
-	<EStageOfLife>
-		<childhood>Niño</childhood>
-		<youth>Joven</youth>
-		<adulthood>Adulto</adulthood>
-		<old_age>Viejo</old_age>
-	</EStageOfLife>
-	<EBackground>
-		<acolyte>Acólito</acolyte>
-		<charlatan>Charlatán</charlatan>
-		<criminal>Criminal</criminal>
-		<entertainer>Animador</entertainer>
-		<folk_hero>Héroe del pueblo</folk_hero>
-		<guild_artisan>Artesano gremial</guild_artisan>
-		<hermit>Ermitaño</hermit>
-		<noble>Noble</noble>
-		<orphan>Huérfano</orphan>
-		<outlander>Salvaje</outlander>
-		<sage>Erudito</sage>
-		<sailor>Marinero</sailor>
-		<soldier>Soldado</soldier>
-		<urchin>Erudito</urchin>
-	</EBackground>
+	<enums>
+		<EAbility>
+			<STRENGTH>Fuerza</STRENGTH>
+			<dexterity>Destreza</dexterity>
+			<constitution>Constitución</constitution>
+			<intelligence>Inteligencia</intelligence>
+			<wisdom>Sabiduría</wisdom>
+			<charisma>Carisma</charisma>
+		</EAbility>
+		<EAlignment>
+			<unaligned>No alineado</unaligned>
+			<lawful_good>Legal bueno</lawful_good>
+			<neutral_good>Neutral bueno</neutral_good>
+			<chaotic_good>Caótico bueno</chaotic_good>
+			<lawful_neutral>Legal neutral</lawful_neutral>
+			<true_neutral>Neutral real</true_neutral>
+			<chaotic_neutral>Caótico neutral</chaotic_neutral>
+			<lawful_evil>Legal malo</lawful_evil>
+			<neutral_evil>Neutral malo</neutral_evil>
+			<chaotic_evil>Caótico malo</chaotic_evil>
+		</EAlignment>
+		<EClass>
+			<barbarian>Bárbaro</barbarian>
+			<bard>Bardo</bard>
+			<cleric>Clérigo</cleric>
+			<druid>Druida</druid>
+			<fighter>Guerrero</fighter>
+			<monk>Monje</monk>
+			<paladin>Paladín</paladin>
+			<ranger>Explorador</ranger>
+			<rouge>Pícaro</rouge>
+			<sorcerer>Hechicero</sorcerer>
+			<warlock>Brujo</warlock>
+			<wizard>Mago</wizard>
+		</EClass>
+		<EDamage>
+			<acid>Ácido</acid>
+			<bludgeoning>Contundente</bludgeoning>
+			<elemental>Elemental</elemental>
+			<physical>Físico</physical>
+			<cold>Frío</cold>
+			<fire>Fuego</fire>
+			<force>Fuerza</force>
+			<lightning>Relámpago</lightning>
+			<necrotic>Necrótico</necrotic>
+			<piercing>Perforante</piercing>
+			<poison>Veneno</poison>
+			<psychic>Psíquico</psychic>
+			<radiant>Radiante</radiant>
+			<slashing>Cortante</slashing>
+			<thunder>Trueno</thunder>
+		</EDamage>
+		<EDraconicAncestry>
+			<blue>Azul</blue>
+			<white>Blanco</white>
+			<bronze>Bronce</bronze>
+			<copper>Cobre</copper>
+			<black>Negro</black>
+			<gold>Oro</gold>
+			<brass>Oropel</brass>
+			<silver>Plata</silver>
+			<red>Rojo</red>
+			<green>Verde</green>
+		</EDraconicAncestry>
+		<EEthnicity>
+			<calishite>Calishita</calishite>
+			<chondathan>Chondathano</chondathan>
+			<damaran>Damarano</damaran>
+			<illuskan>Illuskano</illuskan>
+			<mulan>Mulano</mulan>
+			<rashemi>Rashemí</rashemi>
+			<shou>Shou</shou>
+			<tethyrian>Tethyriano</tethyrian>
+			<turami>Turami</turami>
+		</EEthnicity>
+		<EFeat>
+			<alert>Alerta</alert>
+			<athlete>Atleta</athlete>
+			<actor>Actor</actor>
+			<charger>Atacante a la Carga</charger>
+			<crossbow_expert>Experto en Ballestas</crossbow_expert>
+			<defensive_duelist>Duelista Defensivo</defensive_duelist>
+			<dual_wielder>Combatiente con Dos Armas</dual_wielder>
+			<dungeon_delver>Explorador de Mazmorras</dungeon_delver>
+			<durable>Resistente</durable>
+			<elemental_adept>Versado en un Elemento</elemental_adept>
+			<grappler>Apresador</grappler>
+			<great_weapon_master>Maestro en Armas Pesadas</great_weapon_master>
+			<healer>Sanador</healer>
+			<heavily_armored>Muy Acorzado</heavily_armored>
+			<heavy_armor_master>Maestro en Armaduras Pesadas</heavy_armor_master>
+			<inspiring_leader>Líder Inspirador</inspiring_leader>
+			<keen_mind>Mente Aguda</keen_mind>
+			<lightly_armored>Ligeramente Acorazado</lightly_armored>
+			<linguist>Lingüista</linguist>
+			<lucky>Afortunado</lucky>
+			<mage_slayer>Azote de Magos</mage_slayer>
+			<magic_initiate>Iniciado en la Magia</magic_initiate>
+			<martial_adept>Versado en las Armas</martial_adept>
+			<medium_armor_master>Maestro en Armaduras Medias</medium_armor_master>
+			<mobile>Móvil</mobile>
+			<moderately_armored>Moderadamente Acorazado</moderately_armored>
+			<mounted_combatant>Combatiente Montado</mounted_combatant>
+			<observant>Observador</observant>
+			<polearm_master>Maestro en Armas de Asta</polearm_master>
+			<resilient>Resiliente</resilient>
+			<ritual_caster>Lanzador Ritual</ritual_caster>
+			<savage_attacker>Atacante Salvaje</savage_attacker>
+			<sentinel>Centinela</sentinel>
+			<sharpshooter>Tirador de Primera</sharpshooter>
+			<shield_master>Maestro en Escudos</shield_master>
+			<skilled>Habilidoso</skilled>
+			<skulker>Acechador</skulker>
+			<spell_sniper>Lanzador Preciso</spell_sniper>
+			<tavern_brawler>Matón de Taberna</tavern_brawler>
+			<tough>Duro</tough>
+			<war_caster>Lanzador en Combate</war_caster>
+			<weapon_master>Maestro de Armas</weapon_master>
+		</EFeat>
+		<EGender>
+			<male>Masc.</male>
+			<female>Fem.</female>
+		</EGender>
+		<ELanguage>
+			<common>Común</common>
+			<elvish>Elfo</elvish>
+			<dwarvish>Enano</dwarvish>
+			<giant>Gigante</giant>
+			<gnomish>Gnómico</gnomish>
+			<goblin>Goblin</goblin>
+			<halfling>Mediano</halfling>
+			<orc>Orco</orc>
+			<abyssal>Abisal</abyssal>
+			<celestial>Celestial</celestial>
+			<draconic>Dracónico</draconic>
+			<deep_speech>Habla profunda</deep_speech>
+			<infernal>Infernal</infernal>
+			<undercommon>Infracomún</undercommon>
+			<primordial>Primordial</primordial>
+			<sylvan>Silvano</sylvan>
+			<prim_aquan>Aquan (Dialecto Primordial)</prim_aquan>
+			<prim_auran>Auran (Dialecto Primordial)</prim_auran>
+			<prim_ignan>Ignan (Dialecto Primordial)</prim_ignan>
+			<prim_terran>Treran (Dialecto Primordial)</prim_terran>
+			<druidic>Druídico</druidic>
+			<gnoll>Gnoll</gnoll>
+			<thieves_cant>Jerga de Ladrones</thieves_cant>
+		</ELanguage>
+		<ERace>
+			<dwarf>Enano</dwarf>
+			<hill_dwarf>Enano de las colinas </hill_dwarf>
+			<mountain_dwarf>Enano de las montañas</mountain_dwarf>
+			<duergar>Enano gris (Duergar)</duergar>
+			<elf>Elfo</elf>
+			<high_elf>Alto elfo</high_elf>
+			<wood_elf>Elfo de los bosques</wood_elf>
+			<dark_elf>Elfo oscuro (Drow)</dark_elf>
+			<halfling>Mediano</halfling>
+			<lightfoot>Mediano Piesligeros</lightfoot>
+			<stout>Mediano Fornido</stout>
+			<human>Humano</human>
+			<variant_human>Humano variante</variant_human>
+			<dragonborn>Dracónido</dragonborn>
+			<gnome>Gnomo</gnome>
+			<forest_gnome>Gnomo del Bosque</forest_gnome>
+			<rock_gnome>Gnomo de la Roca</rock_gnome>
+			<halfelf>Semielfo</halfelf>
+			<halforc>Semiorco</halforc>
+			<tiefling>Tiflin</tiefling>
+		</ERace>
+		<ERacialAbility>
+			<darkvision>Visión en la Oscuridad</darkvision>
+			<dwarven_resilienee>Resistencia Enana</dwarven_resilienee>
+			<stoneeunning>Afinidad con la Piedra/Saber de la Roca</stoneeunning>
+			<dwarven_combat_training>Entrenamiento de Combate Enano</dwarven_combat_training>
+			<tool_proficieney>Competencia con Herramientas</tool_proficieney>
+			<dwarven_toughness>Aguante Enano</dwarven_toughness>
+			<dwarven_armor_training>Entrenamiento con Armadura Enana</dwarven_armor_training>
+			<fey_ancestry>Ascendencia Feérica</fey_ancestry>
+			<trance>Trance</trance>
+			<keen_senses>Sentidos Agudos</keen_senses>
+			<elf_weapon_training>Entrenamiento con Armas Élficas</elf_weapon_training>
+			<cantrip>Truco</cantrip>
+			<extra_language>Idioma adicional</extra_language>
+			<fleet_of_foot>Pies Veloces</fleet_of_foot>
+			<mask_of_the_wild>Máscara de la Naturaleza</mask_of_the_wild>
+			<sunlight_sensitivity>Sensibilidad a la Luz Solar</sunlight_sensitivity>
+			<drow_magic>Magia Drow</drow_magic>
+			<drow_weapon_training>Entrenamiento con Armas Drow</drow_weapon_training>
+			<lucky>Afortunado</lucky>
+			<brave>Valiente</brave>
+			<halfling_nimbleness>Agilidad de Mediano</halfling_nimbleness>
+			<naturally_stealthy>Sigiloso por Naturaleza</naturally_stealthy>
+			<stout_resilience>Resistencia de Fornido</stout_resilience>
+			<feat>Dote</feat>
+			<draconic_ancestry>Linaje dracónico</draconic_ancestry>
+			<breath_weapon>Ataque de Aliento</breath_weapon>
+			<damage_resistance>Resistencia al Daño</damage_resistance>
+			<gnome_cunning>Astucia de Gnomo</gnome_cunning>
+			<natural_illusionist>Ilusionista Innato</natural_illusionist>
+			<speak_with_small_beasts>Hablar con las Bestezuelas</speak_with_small_beasts>
+			<artificers_lore>Saber del Artificiero</artificers_lore>
+			<tinker>Manitas</tinker>
+			<skill_versatility>Versátil con Habilidades</skill_versatility>
+			<menacing>Amenazador</menacing>
+			<relentless_endurance>Agaunte Incansable</relentless_endurance>
+			<savage_attacks>Ataques Salvajes</savage_attacks>
+			<hellish_resistance>Resistencia Infernal</hellish_resistance>
+			<infernal_legacy>Linaje Infernal</infernal_legacy>
+		</ERacialAbility>
+		<ESkill>
+			<athletics>Atletismo</athletics>
+			<acrobatics>Acrobacias</acrobatics>
+			<sleight_of_hand>Juego de manos</sleight_of_hand>
+			<stealth>Sigilo</stealth>
+			<arcana>Conocimiento arcano</arcana>
+			<history>Historia</history>
+			<investigation>Investigación</investigation>
+			<nature>Naturaleza</nature>
+			<religion>Religión</religion>
+			<animal_handling>Trato con animales</animal_handling>
+			<insight>Perspicacia</insight>
+			<medicine>Medicina</medicine>
+			<perception>Percepción</perception>
+			<survival>Supervivencia</survival>
+			<deception>Engaño</deception>
+			<intimidation>Intimidación</intimidation>
+			<performance>Interpretación</performance>
+			<persuasion>Persuasión</persuasion>
+		</ESkill>
+		<EStageOfLife>
+			<childhood>Niño</childhood>
+			<youth>Joven</youth>
+			<adulthood>Adulto</adulthood>
+			<old_age>Viejo</old_age>
+		</EStageOfLife>
+		<EBackground>
+			<acolyte>Acólito</acolyte>
+			<charlatan>Charlatán</charlatan>
+			<criminal>Criminal</criminal>
+			<entertainer>Animador</entertainer>
+			<folk_hero>Héroe del pueblo</folk_hero>
+			<guild_artisan>Artesano gremial</guild_artisan>
+			<hermit>Ermitaño</hermit>
+			<noble>Noble</noble>
+			<orphan>Huérfano</orphan>
+			<outlander>Salvaje</outlander>
+			<sage>Erudito</sage>
+			<sailor>Marinero</sailor>
+			<soldier>Soldado</soldier>
+			<urchin>Erudito</urchin>
+		</EBackground>
+		<EArmor>
+			<PADDED>Acolchada</PADDED>
+			<LEATHER>Cuero</LEATHER>
+			<STUDDED_LEATHER>Cuero tachonado</STUDDED_LEATHER>
+			<CHAIN_SHIRT>Camisa de malla</CHAIN_SHIRT>
+			<SCALE_MAIL>Cota de escamas</SCALE_MAIL>
+			<BREASTPLATE>Coraza</BREASTPLATE>
+			<HAFPATE>Media armadura</HAFPATE>
+			<HIDE>Pieles</HIDE>
+			<SPLINT>Armadura de bandas</SPLINT>
+			<PLATE>Armadura de placas</PLATE>
+			<RING_MAIL>Cota guarnecida</RING_MAIL>
+			<CHAIN_MAIL>Cota de malla</CHAIN_MAIL>	
+		</EArmor>
+		<EArmorType>
+			<LIGHT_ARMOR>Armaduras ligeras</LIGHT_ARMOR>
+			<MEDIUM_ARMOR>Armaduras medias</MEDIUM_ARMOR>
+			<HEAVY_ARMOR>Armaduras pesadas</HEAVY_ARMOR>
+			<SHIELD>Escudo</SHIELD>
+			<NONE>Ninguna</NONE>
+		</EArmorType>
+		<EWeaponType>
+			<SIMPLE_MELEE_WEAPONS>Armas cuerpo a cuerpo sencillas</SIMPLE_MELEE_WEAPONS>
+			<SIMPLE_RANGED_WEAPONS>Armas a distancia sencillas</SIMPLE_RANGED_WEAPONS>
+			<MARTIAL_MELEE_WEAPONS>Armas cuerpo a cuerpo marciales</MARTIAL_MELEE_WEAPONS>
+			<MARTIAL_RANGED_WEAPONS>Armas a distancia marciales</MARTIAL_RANGED_WEAPONS>
+		</EWeaponType>
+		<EWeapon>
+			<QUARTERSTAFF>Bastón</QUARTERSTAFF>
+			<DAGGER>Daga</DAGGER>
+			<CLUB>Garrote</CLUB>
+			<GREATCLUB>Garrote grande</GREATCLUB>
+			<HANDAXE>Hacha de mano</HANDAXE>
+			<SICKLE>Hoz</SICKLE>
+			<JAVELIN>Jabalina</JAVELIN>
+			<SPEAR>Lanza</SPEAR>
+			<LIGHT_HAMMER>Martillo ligero</LIGHT_HAMMER>
+			<MACE>Maza</MACE>
+			<SHORTBOW>Arco corto</SHORTBOW>
+			<CROSSBOW>Ballesta ligera</CROSSBOW>
+			<DART>Dardo</DART>
+			<SLING>Honda</SLING>
+			<HALBERD>Alabarda</HALBERD>
+			<SCIMITAR>Cimitarra</SCIMITAR>
+			<SHORTSWORD>Espada corta</SHORTSWORD>
+			<LONGSWORD>Espada larga</LONGSWORD>
+			<GREATSWORD>Espadón</GREATSWORD>
+			<RAPIER>Estoque</RAPIER>
+			<FLAIL>Flagelo</FLAIL>
+			<GLAIVE>Guja</GLAIVE>
+			<GREATAXE>Hacha a dos manos</GREATAXE>
+			<BATTLEAXE>Hacha de guerra</BATTLEAXE>
+			<LANCE>Lanza de caballería</LANCE>
+			<WHIP>Látigo</WHIP>
+			<MORNINGSTA>Lucero del alba</MORNINGSTA>
+			<WARHAMMER>Martillo de guerra</WARHAMMER>
+			<MAUL>Maza a dos manos</MAUL>
+			<PIKE>Pica</PIKE>
+			<WAR_PICK>Pico de guerra</WAR_PICK>
+			<TRIDENT>Tridente</TRIDENT>
+			<LONGBOW>Arco largo</LONGBOW>
+			<CROSSBOW_HAND>Ballesta de mano</CROSSBOW_HAND>
+			<CROSSBOW_HEAVY>Ballesta pesada</CROSSBOW_HEAVY>
+			<BLOWGUN>Cerbatana</BLOWGUN>
+			<NET>Red</NET>		
+		</EWeapon>
+		<EDice>
+			<D2>d2</D2>
+			<D4>d4</D4>
+			<D6>d6</D6>
+			<D8>d8</D8>
+			<D10>d10</D10>
+			<D12>d12</D12>
+			<D20>d20</D20>
+			<D100>d100</D100>
+		</EDice>
+	</enums>
+	<misc>
+		<age>Edad</age>
+		<years>Años</years>
+		<speed>Velocidad</speed>
+	</misc>
 </strings>
