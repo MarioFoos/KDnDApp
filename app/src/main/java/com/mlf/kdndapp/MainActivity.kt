@@ -54,6 +54,7 @@ import com.dndlib.base.EAlignment
 import com.dndlib.base.EClass
 import com.dndlib.base.EFeat
 import com.dndlib.base.EGender
+import com.dndlib.base.EInfo
 import com.dndlib.base.ERace
 import com.dndlib.base.EStageOfLife
 import com.dndlib.res.Res
@@ -253,7 +254,19 @@ fun ShowFeat(feat : EFeat)
 @Composable
 fun ShowAbilitiesForClass(klass : EClass)
 {
-    Text(text = Res.getLocaleClassDesc(klass),
+    val weapons = Res.getValues(Res.getLocale(klass.weaponTypes))
+    weapons.addAll(Res.getValues(Res.getLocale(klass.weaponSingles)))
+    val tools = when(klass){
+        EClass.BARD -> Res.getLocale("bard_tools")
+        EClass.MONK -> Res.getLocale("monk_tools")
+        else -> Res.asSentence(Res.getLocale(klass.tools), Res.getLocale("no_tools"))
+    }
+    val skills = when(klass){
+        EClass.BARD -> Res.getLocale("bard_skill")
+        else -> Res.getLocaleF("sel_skills", klass).lowercase() + " " + Res.asSentence(Res.getLocale(klass.skills))
+    }
+
+    Text(text = Res.getLocaleInfo(klass, EInfo.DESC),
         modifier = Modifier.fillMaxWidth(),
         fontSize = 18.sp,
     )
@@ -279,23 +292,23 @@ fun ShowAbilitiesForClass(klass : EClass)
         fontSize = 18.sp,
         fontWeight = FontWeight.Bold,
     )
-    Text(text = "• " + Res.getLocale("armor") + ": " + Res.makeSentence(Res.getLocale(klass.armorTypes)).lowercase(),
+    Text(text = "• " + Res.getLocale("armor") + ": " + Res.asSentence(Res.getLocale(klass.armorTypes), Res.getLocale("no_armor")).lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = 18.sp,
     )
-    Text(text = "• " + Res.getLocale("weapons") + ": " + Res.makeSentence(Res.getLocale(klass.weapons)).lowercase(),
+    Text(text = "• " + Res.getLocale("weapons") + ": " + Res.asSentence(weapons).lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = 18.sp,
     )
-    Text(text = "• " + Res.getLocale("tools") + ": " + "COMPLETAR",
+    Text(text = "• " + Res.getLocale("tools") + ": " + tools.lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = 18.sp,
     )
-    Text(text = "• " + Res.getLocale("saving_throw") + ": " + Res.makeSentence(Res.getLocale(klass.savingThrow)).lowercase(),
+    Text(text = "• " + Res.getLocale("saving_throw") + ": " + Res.asSentence(Res.getLocale(klass.savingThrow)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = 18.sp,
     )
-    Text(text = "• " + Res.getLocale("skills") + ": " + "COMPLETAR",
+    Text(text = "• " + Res.getLocale("skills") + ": " + skills,
         modifier = Modifier.fillMaxWidth(),
         fontSize = 18.sp,
     )
@@ -349,7 +362,7 @@ fun ShowAbilitiesForRace(race : ERace)
         modifier = Modifier.fillMaxWidth(),
         fontSize = 18.sp,
     )
-    Text(text = Res.getLocale("languages") + ": " + Res.makeSentence(Res.getLocale(race.languages)).lowercase(),
+    Text(text = Res.getLocale("languages") + ": " + Res.asSentence(Res.getLocale(race.languages)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = 18.sp,
     )

@@ -274,10 +274,8 @@
 			<NONE>Ninguna</NONE>
 		</EArmorType>
 		<EWeaponType>
-			<SIMPLE_MELEE_WEAPONS>Armas cuerpo a cuerpo sencillas</SIMPLE_MELEE_WEAPONS>
-			<SIMPLE_RANGED_WEAPONS>Armas a distancia sencillas</SIMPLE_RANGED_WEAPONS>
-			<MARTIAL_MELEE_WEAPONS>Armas cuerpo a cuerpo marciales</MARTIAL_MELEE_WEAPONS>
-			<MARTIAL_RANGED_WEAPONS>Armas a distancia marciales</MARTIAL_RANGED_WEAPONS>
+			<SIMPLE>Armas sencillas</SIMPLE>
+			<MARTIAL>Armas marciales</MARTIAL>
 		</EWeaponType>
 		<EWeapon>
 			<QUARTERSTAFF>Bastón</QUARTERSTAFF>
@@ -328,6 +326,58 @@
 			<D20>d20</D20>
 			<D100>d100</D100>
 		</EDice>
+		<EToolTypes>
+			<NONE>Ninguna</NONE>
+			<ARLISANS_TOOLS>Herramientas de artesano</ARLISANS_TOOLS>
+			<DISGUISE_KIT>Útiles para disfrazarse</DISGUISE_KIT>
+			<FORGERY_KIT>Útiles para falsificar</FORGERY_KIT>
+			<GAMING_SET>Juegos</GAMING_SET>
+			<HERBALISM_KIT>Útiles de herborista</HERBALISM_KIT>
+			<MUSICAL_INSTRUMENT>Instrumentos musicales</MUSICAL_INSTRUMENT>
+			<NAVIGATORS_TOOLS>Herramientas de navegante</NAVIGATORS_TOOLS>
+			<POISONERS_KIT>Útiles de envenenador</POISONERS_KIT>
+			<THIEVES_TOOLS>Herramientas de ladrón</THIEVES_TOOLS>
+			<VEHICLES>Vehículos</VEHICLES>
+		</EToolTypes>
+		<ETool>
+			<ALCHEMISTS_SUPPLIES>Suministros de alquimista</ALCHEMISTS_SUPPLIES>
+			<BREWERS_SUPPLIES>Suministros de cervecero</BREWERS_SUPPLIES>
+			<CALLIGRAPHERS_SUPPLIES>Suministros de calígrafo</CALLIGRAPHERS_SUPPLIES>
+			<CARPENTERS_TOOLS>Herramientas de carpintero</CARPENTERS_TOOLS>
+			<CARTOGRAPHERS_TOOLS>Herramientas de cartógrafo</CARTOGRAPHERS_TOOLS>
+			<COBBLERS_TOOLS>Herramientas de zapatero</COBBLERS_TOOLS>
+			<COOKS_UTENSILS>Útiles de cocinero</COOKS_UTENSILS>
+			<GLASSBLOWERS_TOOLS>Herramientas de soplador de vidrio</GLASSBLOWERS_TOOLS>
+			<JEWELERS_TOOLS>Herramientas de joyero</JEWELERS_TOOLS>
+			<LEATHERWORKERS_TOOLS>Herramientas de curtidor</LEATHERWORKERS_TOOLS>
+			<MASONS_TOOLS>Herramientas de albañil</MASONS_TOOLS>
+			<PAINTERS_SUPPLIES>Suministros de pintor</PAINTERS_SUPPLIES>
+			<POTTERS_TOOLS>Herramientas de alfarero</POTTERS_TOOLS>
+			<SMITHS_TOOLS>Herramientas de herrero</SMITHS_TOOLS>
+			<TINKERS_TOOLS>Herramientas de manitas</TINKERS_TOOLS>
+			<WEAVERS_TOOLS>Herramientas de tejedor</WEAVERS_TOOLS>
+			<WOODCARVERS_TOOLS>Herramientas de ebanista</WOODCARVERS_TOOLS>
+			<DISGUISE_KIT>Útiles para disfrazarse</DISGUISE_KIT>
+			<FORGERY_KIT>Útiles para falsificar</FORGERY_KIT>
+			<DICE_SET>Dados</DICE_SET>
+			<DRAGONCHESS>Ajedrez de Dragón</DRAGONCHESS>
+			<PLAYING_CARD_SET>Naipes</PLAYING_CARD_SET>
+			<THREE_DRAGON_ANTE_SET>Apuesta de Tres Dragones</THREE_DRAGON_ANTE_SET>
+			<HERBALISM_KIT>Útiles de herborista</HERBALISM_KIT>
+			<BAGPIPES>Gaita</BAGPIPES>
+			<DRUM>Tambor</DRUM>
+			<DULCIMER>Dulcémele</DULCIMER>
+			<FLUTE>Flauta</FLUTE>
+			<LUTE>Laúd</LUTE>
+			<LYRE>Lira</LYRE>
+			<HORN>Cuerno</HORN>
+			<PAN_FLUTE>Flauta de pan</PAN_FLUTE>
+			<SHAWM>Chirimía</SHAWM>
+			<VIOL>Viola</VIOL>		
+			<NAVIGATORS_TOOLS>Herramientas de navegante</NAVIGATORS_TOOLS>
+			<POISONERS_KIT>Útiles de envenenador</POISONERS_KIT>
+			<THIEVES_TOOLS>Herramientas de ladrón</THIEVES_TOOLS>
+		</ETool>
 	</enums>
 	<misc>
 		<!-- GUI Race-->
@@ -345,18 +395,23 @@
 		<hit_points_other>Puntos de Golpe a niveles superiores</hit_points_other>
 		<class_features>Competencias</class_features>
 		<armor>Armadura</armor>
+		<no_armor>Ninguna</no_armor>
 		<weapons>Armas</weapons>
 		<tools>Herramientas</tools>
+		<bard_tools>Tres instrumentos musicales a tu elección.</bard_tools>
+		<monk_tools>Escoge un tipo de herramientas de artesano o un instrumento musical.</monk_tools>
+		<no_tools>Ninguna</no_tools>
 		<saving_throw>Tiradas de salvación</saving_throw>
 		<skills>Habilidades</skills>
+		<bard_skill>Escoge tres cualesquiera.</bard_skill>
 	</misc>
 	<formatted>
 		<hit_dice>1{klass_dice} por nivel de {klass}.</hit_dice>
 		<hit_points_level_1>{klass_dice} + tu modificador por Constitución.</hit_points_level_1>
 		<hit_points_other>1{klass_dice} (o {half_dice}) + tu modificador por Constitución por cada nivel de {klass} por encima del primero.</hit_points_other>
+		<sel_skills>Elige {klass_sel_skills} entre</sel_skills>
 	</formatted>
 </strings>
-
 
 
 
