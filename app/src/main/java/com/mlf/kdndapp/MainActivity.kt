@@ -6,6 +6,9 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +24,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -38,28 +42,51 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.dndlib.base.EAbility
 import com.dndlib.base.EAlignment
 import com.dndlib.base.EClass
+import com.dndlib.base.EEthnicity
 import com.dndlib.base.EFeat
 import com.dndlib.base.EGender
-import com.dndlib.base.EInfo
 import com.dndlib.base.ERace
 import com.dndlib.base.EStageOfLife
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.KDnDAppTheme
-import java.util.Locale
+import com.mlf.kdndapp.ui.theme.clButBrownDisBg
+import com.mlf.kdndapp.ui.theme.clButBrownDisStroke
+import com.mlf.kdndapp.ui.theme.clButBrownDisText
+import com.mlf.kdndapp.ui.theme.clButBrownEnBg
+import com.mlf.kdndapp.ui.theme.clButBrownEnStroke
+import com.mlf.kdndapp.ui.theme.clButBrownEnText
+import com.mlf.kdndapp.ui.theme.clEdCursor
+import com.mlf.kdndapp.ui.theme.clEdDisStroke
+import com.mlf.kdndapp.ui.theme.clEdDisText
+import com.mlf.kdndapp.ui.theme.clEdEnBg
+import com.mlf.kdndapp.ui.theme.clEdEnText
+import com.mlf.kdndapp.ui.theme.clEdFocusStroke
+import com.mlf.kdndapp.ui.theme.clEdNormalStroke
+import com.mlf.kdndapp.ui.theme.clYellow4
+import com.mlf.kdndapp.ui.theme.dimButCorner
+import com.mlf.kdndapp.ui.theme.dimButFont
+import com.mlf.kdndapp.ui.theme.dimButStroke
+import com.mlf.kdndapp.ui.theme.dimEdFocusStroke
+import com.mlf.kdndapp.ui.theme.dimEdNormalStroke
+import com.mlf.kdndapp.ui.theme.dimMainPadding
+import com.mlf.kdndapp.ui.theme.dimSpaceH
+import com.mlf.kdndapp.ui.theme.dimSpaceV
+import com.mlf.kdndapp.ui.theme.dimTextFont
+import com.mlf.kdndapp.ui.theme.edCursorBrush
+import com.mlf.kdndapp.ui.theme.edShape
 import kotlin.system.exitProcess
 
 val APP_TAG = "AppTag"
@@ -77,6 +104,7 @@ class MainActivity : ComponentActivity()
         }
         // Arrays
         val arrRace : ArrayList<Map.Entry<ERace, String>> = Res.getLocale(ERace.values())
+        val arrEthnic : ArrayList<Map.Entry<EEthnicity, String>> = Res.getLocale(EEthnicity.values())
         val arrClass : ArrayList<Map.Entry<EClass, String>> = Res.getLocale(EClass.values())
         val arrAlign : ArrayList<Map.Entry<EAlignment, String>> = Res.getLocale(EAlignment.values())
         val arrGender : ArrayList<Map.Entry<EGender, String>> = Res.getLocale(EGender.values())
@@ -86,6 +114,7 @@ class MainActivity : ComponentActivity()
 
         // Valores iniciales
         val raceInit : Int = Res.randomIndex(arrRace)
+        val ethnicInit : Int = Res.randomIndex(arrEthnic)
         val classInit : Int = Res.randomIndex(arrClass)
         val alignInit : Int = Res.randomIndex(arrAlign)
         val genderInit : Int  = Res.randomIndex(arrGender)
@@ -95,7 +124,9 @@ class MainActivity : ComponentActivity()
         val ability2Init : Int = Res.randomIndex(arrAbility)
         setContent {
             KDnDAppTheme {
+                var name by rememberSaveable { mutableStateOf("") }
                 var race by rememberSaveable { mutableStateOf(arrRace[raceInit].key) }
+                var ethnic by rememberSaveable { mutableStateOf(arrEthnic[ethnicInit].key) }
                 var gender by rememberSaveable { mutableStateOf(arrGender[genderInit].key) }
                 var klass by rememberSaveable { mutableStateOf(arrClass[classInit].key) }
                 var align by rememberSaveable { mutableStateOf(arrAlign[alignInit].key) }
@@ -119,11 +150,15 @@ class MainActivity : ComponentActivity()
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(IntrinsicSize.Min)
-                        .padding(16.dp)
+                        .padding(dimMainPadding)
                         .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Top
                 ) {
+                    // Nombre
+                    ShowEditText(text = name, onValueChange = { name = it })
+                    SpaceV()
+                    // Raza y género
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Column(Modifier.weight(1.4f, true)) {
                             ShowDropDown(arrRace, initIndex = raceInit, onItemClick = {
@@ -136,6 +171,16 @@ class MainActivity : ComponentActivity()
                         Column(Modifier.weight(0.6f, true)) {
                             ShowDropDown(arrGender, initIndex = genderInit, onItemClick = { gender = arrGender[it].key })
                         }
+                    }
+                    // Étnia
+                    if(race == ERace.VARIANT_HUMAN || race == ERace.HUMAN) {
+                        ShowDropDown(arrEthnic, initIndex = ethnicInit, onItemClick = { ethnic = arrEthnic[it].key })
+                        SpaceV()
+                        Text(text = Res.getLocale(ethnic, "desc"),
+                            modifier = Modifier.fillMaxWidth(),
+                            fontSize = dimTextFont,
+                        )
+                        SpaceV()
                     }
                     SpaceV()
                     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -165,6 +210,8 @@ class MainActivity : ComponentActivity()
                         }
                     }
                     SpaceV()
+                    ShowDropDown(arrAlign, initIndex = alignInit, onItemClick = { align = arrAlign[it].key }, true)
+                    SpaceV()
                     ShowAbilitiesForRace(race = race)
                     if(race == ERace.VARIANT_HUMAN)
                     {
@@ -188,7 +235,6 @@ class MainActivity : ComponentActivity()
                     }
                     ShowDropDown(arrClass, initIndex = classInit, onItemClick = { klass = arrClass[it].key }, true)
                     ShowAbilitiesForClass(klass = klass)
-                    ShowDropDown(arrAlign, initIndex = alignInit, onItemClick = { align = arrAlign[it].key }, true)
                 }
             }
         }
@@ -211,19 +257,14 @@ fun configLibrary(assets : AssetManager): Boolean
         Log.e(APP_TAG, "Error config " + Res.FEATS_FILE);
         return false
     }
-    if(!Res.configResClasses(assets.open(Res.CLASSES_FILE)))
-    {
-        Log.e(APP_TAG, "Error config " + Res.CLASSES_FILE);
-        return false
-    }
     return true
 }
 
 @Composable
-fun SpaceV() = Spacer(modifier = Modifier.height(4.dp))
+fun SpaceV() = Spacer(modifier = Modifier.height(dimSpaceV))
 
 @Composable
-fun SpaceH() = Spacer(modifier = Modifier.width(8.dp))
+fun SpaceH() = Spacer(modifier = Modifier.width(dimSpaceH))
 
 @Composable
 fun ShowFeat(feat : EFeat)
@@ -235,20 +276,15 @@ fun ShowFeat(feat : EFeat)
     if(prerequisite.isNotEmpty())
     {
         Text(text = prerequisite,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(2.dp),
-            fontSize = 18.sp,
+            modifier = Modifier.fillMaxWidth(),
+            fontSize = dimTextFont,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Italic
         )
     }
     Text(text = desc,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(2.dp),
-        fontSize = 18.sp,
-        fontWeight = FontWeight.Bold
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = dimTextFont
     )
 }
 @Composable
@@ -265,66 +301,60 @@ fun ShowAbilitiesForClass(klass : EClass)
         EClass.BARD -> Res.getLocale("bard_skill")
         else -> Res.getLocaleF("sel_skills", klass).lowercase() + " " + Res.asSentence(Res.getLocale(klass.skills))
     }
+    var armor = "• " + Res.getLocale("armor") + ": " + Res.asSentence(Res.getLocale(klass.armorTypes), Res.getLocale("no_armor")).lowercase()
+    val complement = Res.getLocale(klass, "armor_com")
+    if(complement.isNotEmpty())
+    {
+        armor += ". " + complement;
+    }
 
-    Text(text = Res.getLocaleInfo(klass, EInfo.DESC),
+    Text(text = Res.getLocale(klass, "desc"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = Res.getLocale("hit_point"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
         fontWeight = FontWeight.Bold,
     )
     Text(text = "• " + Res.getLocale("hit_dice") + ": " + Res.getLocaleF("hit_dice", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = "• " + Res.getLocale("hit_points_level_1") + ": " + Res.getLocaleF("hit_points_level_1", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = "• " + Res.getLocale("hit_points_other") + ": " + Res.getLocaleF("hit_points_other", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = Res.getLocale("class_features"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
         fontWeight = FontWeight.Bold,
     )
-    Text(text = "• " + Res.getLocale("armor") + ": " + Res.asSentence(Res.getLocale(klass.armorTypes), Res.getLocale("no_armor")).lowercase(),
+    Text(text = armor,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = "• " + Res.getLocale("weapons") + ": " + Res.asSentence(weapons).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = "• " + Res.getLocale("tools") + ": " + tools.lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = "• " + Res.getLocale("saving_throw") + ": " + Res.asSentence(Res.getLocale(klass.savingThrow)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = "• " + Res.getLocale("skills") + ": " + skills,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     SpaceV()
-
-    /*val racialAbilities = ERace.getRacialAbilities(race)
-    if(racialAbilities.isNotEmpty())
-    {
-        Res.getLocale(racialAbilities).forEach {
-            Text(text = "• " + it.value,
-                modifier = Modifier.fillMaxWidth(),
-                fontSize = 18.sp,
-                overflow = TextOverflow.Ellipsis
-            )
-        }
-    }*/
 }
 @Composable
 fun ShowAbilitiesForRace(race : ERace)
@@ -339,7 +369,7 @@ fun ShowAbilitiesForRace(race : ERace)
         val columns = Res.columns(arrCols)
         Text(text = Res.getLocale("ability_bonus"),
             modifier = Modifier.fillMaxWidth(),
-            fontSize = 18.sp,
+            fontSize = dimTextFont,
             fontWeight = FontWeight.Bold,
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -347,7 +377,7 @@ fun ShowAbilitiesForRace(race : ERace)
                 Text(text = it,
                     modifier = Modifier
                         .weight(1f, true),
-                    fontSize = 18.sp,
+                    fontSize = dimTextFont,
                 )
             }
         }
@@ -355,16 +385,16 @@ fun ShowAbilitiesForRace(race : ERace)
     }
     Text(text = Res.getLocale("racial_abilities"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
         fontWeight = FontWeight.Bold,
     )
     Text(text = Res.getLocale("speed") + ": " + race.speed.toString(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     Text(text = Res.getLocale("languages") + ": " + Res.asSentence(Res.getLocale(race.languages)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = 18.sp,
+        fontSize = dimTextFont,
     )
     val racialAbilities = ERace.getRacialAbilities(race)
     if(racialAbilities.isNotEmpty())
@@ -372,53 +402,127 @@ fun ShowAbilitiesForRace(race : ERace)
         Res.getLocale(racialAbilities).forEach {
             Text(text = "• " + it.value,
                 modifier = Modifier.fillMaxWidth(),
-                fontSize = 18.sp,
+                fontSize = dimTextFont,
             )
         }
     }
+    /*var arr = ArrayList<String>()
+    val racialAbilities = ERace.getRacialAbilities(race)
+    arr.add(Res.getLocale("speed") + ": " + race.speed.toString())
+    arr.add(Res.getLocale("languages") + ": " + Res.asSentence(Res.getLocale(race.languages)).lowercase())
+    if(racialAbilities.isNotEmpty())
+    {
+        Res.getLocale(racialAbilities).forEach {
+            arr.add("• " + it.value)
+        }
+    }
+    Text(text = Res.columns(arr, 1)[0],
+        modifier = Modifier.fillMaxWidth(),
+        fontSize = dimTextFont,
+    )*/
     SpaceV()
 }
 @Composable
-fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, icon : Int = 0)
+fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean = true)
 {
-    val strokeColor = if(enabled)  colorResource(id = R.color.but_brown_enabled_border) else colorResource(id = R.color.yellow_dark)
+    var clStroke by remember { mutableStateOf(clEdNormalStroke) }
+    var clText by remember { mutableStateOf(clEdEnText) }
+    var dimStroke by remember { mutableStateOf(dimEdNormalStroke) }
 
-    Button(
+    BasicTextField(
+        value = text,
+        onValueChange = onValueChange,
+        modifier = Modifier.fillMaxWidth()
+            .onFocusChanged {
+                dimStroke = if(it.hasFocus) dimEdFocusStroke else dimEdNormalStroke
+                clText = if(enabled) clEdEnText else clEdDisText
+                clStroke = if(enabled) { if(it.hasFocus) clEdFocusStroke else clEdNormalStroke } else { clEdDisStroke }
+            }.focusable(),
+        enabled = enabled,
+        textStyle = TextStyle(
+            fontSize = dimTextFont,
+            fontWeight = FontWeight.Bold,
+            color = clText
+        ),
+        cursorBrush = edCursorBrush,
+        singleLine = true,
+        decorationBox = { innerTextField ->
+            Row(Modifier.fillMaxWidth()
+                .background(clEdEnBg, edShape)
+                .border(dimStroke, clStroke, edShape)
+                .padding(16.dp, 12.dp)
+            ) {
+                innerTextField()
+            }
+        }
+    )
+    /*OutlinedTextField(
+        modifier = Modifier.fillMaxWidth()
+            .onFocusChanged {
+                if(enabled) {
+                    dimStroke = dimEdFocusStroke
+                    clStroke = if(it.hasFocus) clEdFocusStroke else clEdNormalStroke
+                }
+                else {
+                    dimStroke = dimNormalStroke
+                    clStroke = clEdDisStroke
+                }
+            }.focusable()
+            .background(clEdEnBg, myShape)
+            .clip(myShape).border(BorderStroke(dimStroke, clStroke)),
+        value = text,
+        onValueChange = onValueChange,
+        enabled = enabled,
+        textStyle = TextStyle(
+            fontSize = dimTextFont,
+            fontWeight = FontWeight.Bold
+        ),
+        singleLine = true,
+        colors = TextFieldDefaults.textFieldColors(
+            textColor = clEdEnText,
+            disabledTextColor = clEdDisText,
+            containerColor = clEdEnBg,
+            cursorColor = clEdCursor,
+            errorCursorColor = clRed4,
+            /*focusedIndicatorColor = clYellow5,
+            unfocusedIndicatorColor = clYellow4,
+            disabledIndicatorColor = clEdDisText,
+            errorIndicatorColor = clRed3*/
+        ),
+        shape = myShape
+    )*/
+    /*TextField(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(0.dp),
-        contentPadding = PaddingValues(8.dp, 0.dp),
-        onClick = onItemClick,
-        enabled = enabled,
-        colors = ButtonDefaults.buttonColors(
-            colorResource(id = R.color.but_brown_enabled_bg),
-            colorResource(id = R.color.but_brown_enabled_text),
-            colorResource(id = R.color.but_brown_dis_bg),
-            colorResource(id = R.color.but_brown_dis_text),
+            .onFocusChanged {
+                if(enabled)
+                {
+                    clStroke = if(it.hasFocus) clGreen4 else clYellow4
+                }
+                else
+                {
+                    clStroke = clRed4
+                }
+        }.focusable().clip(myShape).border(BorderStroke(5.dp, clStroke)),
+        textStyle = TextStyle(
+            fontSize = dimTextFont,
+            fontWeight = FontWeight.Bold
         ),
-        border = BorderStroke(dimensionResource(id = R.dimen.but_stroke), strokeColor),
-        shape = RoundedCornerShape(8.dp)
-    ) {
-        Text(
-            text = text,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.weight(1f),
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
-        )
-        if(icon > 0)
-        {
-            SpaceH()
-            Icon(
-                modifier = Modifier.size(ButtonDefaults.IconSize),
-                painter = painterResource(icon),
-                contentDescription = null,
-                tint = colorResource(id = R.color.but_brown_enabled_text)
-            )
-        }
-    }
+        value = text,
+        onValueChange = onValueChange,
+        enabled = enabled,
+        //isError = true,
+        singleLine = true,
+        colors = TextFieldDefaults.textFieldColors(
+            textColor = clEdEnText,
+            disabledTextColor = clEdDisText,
+            containerColor = clEdEnBg,
+            cursorColor = clEdCursor,
+            errorCursorColor = clRed4,
+        ),
+        shape = myShape
+    )*/
+    SpaceV()
 }
 @Composable
 fun <T> ShowDropDown(
@@ -440,16 +544,50 @@ fun <T> ShowDropDown(
                 DropdownMenuItem(modifier = Modifier,
                     text = {
                         Text(text = username.value,
-                        modifier = Modifier
-                            .padding(2.dp)
-                            .fillMaxWidth(),
-                        fontSize = 20.sp) },
+                        modifier = Modifier.fillMaxWidth(),
+                        fontSize = dimButFont) },
                     onClick = {
                         menuExpanded.value = false
                         itemPosition.value = index
                         onItemClick(index)
                     })
             }
+        }
+    }
+}
+@Composable
+fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, icon : Int = 0)
+{
+    val clStroke = if(enabled) clButBrownEnStroke else clButBrownDisStroke
+    val clTint = if(enabled) clButBrownEnText else clButBrownDisText
+
+    Button(
+        modifier = Modifier.fillMaxWidth().focusable(enabled),
+        contentPadding = PaddingValues(8.dp, 0.dp),
+        onClick = onItemClick,
+        enabled = enabled,
+        colors = ButtonDefaults.buttonColors(clButBrownEnBg, clButBrownEnText, clButBrownDisBg, clButBrownDisText),
+        border = BorderStroke(dimButStroke, clStroke),
+        shape = edShape
+    ) {
+        Text(
+            text = text,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.weight(1f),
+            fontSize = dimButFont,
+            fontWeight = FontWeight.Bold,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis
+        )
+        if(icon > 0)
+        {
+            SpaceH()
+            Icon(
+                modifier = Modifier.size(ButtonDefaults.IconSize),
+                painter = painterResource(icon),
+                contentDescription = null,
+                tint = clTint
+            )
         }
     }
 }
