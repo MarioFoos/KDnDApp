@@ -23,14 +23,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -43,7 +41,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -68,15 +65,12 @@ import com.mlf.kdndapp.ui.theme.clButBrownDisText
 import com.mlf.kdndapp.ui.theme.clButBrownEnBg
 import com.mlf.kdndapp.ui.theme.clButBrownEnStroke
 import com.mlf.kdndapp.ui.theme.clButBrownEnText
-import com.mlf.kdndapp.ui.theme.clEdCursor
 import com.mlf.kdndapp.ui.theme.clEdDisStroke
 import com.mlf.kdndapp.ui.theme.clEdDisText
 import com.mlf.kdndapp.ui.theme.clEdEnBg
 import com.mlf.kdndapp.ui.theme.clEdEnText
 import com.mlf.kdndapp.ui.theme.clEdFocusStroke
 import com.mlf.kdndapp.ui.theme.clEdNormalStroke
-import com.mlf.kdndapp.ui.theme.clYellow4
-import com.mlf.kdndapp.ui.theme.dimButCorner
 import com.mlf.kdndapp.ui.theme.dimButFont
 import com.mlf.kdndapp.ui.theme.dimButStroke
 import com.mlf.kdndapp.ui.theme.dimEdFocusStroke
@@ -86,14 +80,13 @@ import com.mlf.kdndapp.ui.theme.dimSpaceH
 import com.mlf.kdndapp.ui.theme.dimSpaceV
 import com.mlf.kdndapp.ui.theme.dimTextFont
 import com.mlf.kdndapp.ui.theme.edCursorBrush
-import com.mlf.kdndapp.ui.theme.edShape
+import com.mlf.kdndapp.ui.theme.controlShape
 import kotlin.system.exitProcess
 
 val APP_TAG = "AppTag"
 
 class MainActivity : ComponentActivity()
 {
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -156,7 +149,16 @@ class MainActivity : ComponentActivity()
                     verticalArrangement = Arrangement.Top
                 ) {
                     // Nombre
-                    ShowEditText(text = name, onValueChange = { name = it })
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1.8f, true)) {
+                            ShowEditText(text = name, onValueChange = { name = it })
+                        }
+                        SpaceH()
+                        Column(Modifier.weight(0.2f, true)) {
+                            ShowButton(icon = R.drawable.d20, onItemClick = { name = Res.genName(race, ethnic, gender, stage)  })
+                        }
+                    }
+                    //ShowEditText(text = name, onValueChange = { name = it })
                     SpaceV()
                     // Raza y género
                     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -172,6 +174,7 @@ class MainActivity : ComponentActivity()
                             ShowDropDown(arrGender, initIndex = genderInit, onItemClick = { gender = arrGender[it].key })
                         }
                     }
+                    SpaceV()
                     // Étnia
                     if(race == ERace.VARIANT_HUMAN || race == ERace.HUMAN) {
                         ShowDropDown(arrEthnic, initIndex = ethnicInit, onItemClick = { ethnic = arrEthnic[it].key })
@@ -182,7 +185,7 @@ class MainActivity : ComponentActivity()
                         )
                         SpaceV()
                     }
-                    SpaceV()
+                    // Edad
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         // Edad
                         Column(Modifier.weight(1f, true)) {
@@ -198,21 +201,23 @@ class MainActivity : ComponentActivity()
                         }
                     }
                     SpaceV()
+                    // Altura y Peso
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        // Altura
                         Column(Modifier.weight(1f, true)) {
                             ShowButton(text = height.toString() + " m", icon = R.drawable.d20, onItemClick = { height = ERace.genHeight(race) })
                         }
                         SpaceH()
-                        // Peso
                         Column(Modifier.weight(1f, true)) {
                             ShowButton(text = weight.toString() + " kg", icon = R.drawable.d20, onItemClick = { weight = ERace.genWeight(race) })
                         }
                     }
                     SpaceV()
+                    // Alineación
                     ShowDropDown(arrAlign, initIndex = alignInit, onItemClick = { align = arrAlign[it].key }, true)
                     SpaceV()
+                    // Características
                     ShowAbilitiesForRace(race = race)
+                    SpaceV()
                     if(race == ERace.VARIANT_HUMAN)
                     {
                         ShowDropDown(arrFeat, initIndex = featInit, onItemClick = { feat = arrFeat[it].key })
@@ -233,7 +238,9 @@ class MainActivity : ComponentActivity()
                         }
                         SpaceV()
                     }
+                    // Clase
                     ShowDropDown(arrClass, initIndex = classInit, onItemClick = { klass = arrClass[it].key }, true)
+                    SpaceV()
                     ShowAbilitiesForClass(klass = klass)
                 }
             }
@@ -307,7 +314,6 @@ fun ShowAbilitiesForClass(klass : EClass)
     {
         armor += ". " + complement;
     }
-
     Text(text = Res.getLocale(klass, "desc"),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimTextFont,
@@ -354,7 +360,6 @@ fun ShowAbilitiesForClass(klass : EClass)
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimTextFont,
     )
-    SpaceV()
 }
 @Composable
 fun ShowAbilitiesForRace(race : ERace)
@@ -381,7 +386,6 @@ fun ShowAbilitiesForRace(race : ERace)
                 )
             }
         }
-        SpaceV()
     }
     Text(text = Res.getLocale("racial_abilities"),
         modifier = Modifier.fillMaxWidth(),
@@ -420,7 +424,6 @@ fun ShowAbilitiesForRace(race : ERace)
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimTextFont,
     )*/
-    SpaceV()
 }
 @Composable
 fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean = true)
@@ -448,8 +451,8 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
         singleLine = true,
         decorationBox = { innerTextField ->
             Row(Modifier.fillMaxWidth()
-                .background(clEdEnBg, edShape)
-                .border(dimStroke, clStroke, edShape)
+                .background(clEdEnBg, controlShape)
+                .border(dimStroke, clStroke, controlShape)
                 .padding(16.dp, 12.dp)
             ) {
                 innerTextField()
@@ -522,7 +525,6 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
         ),
         shape = myShape
     )*/
-    SpaceV()
 }
 @Composable
 fun <T> ShowDropDown(
@@ -556,10 +558,12 @@ fun <T> ShowDropDown(
     }
 }
 @Composable
-fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, icon : Int = 0)
+fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = true, icon : Int = 0)
 {
     val clStroke = if(enabled) clButBrownEnStroke else clButBrownDisStroke
     val clTint = if(enabled) clButBrownEnText else clButBrownDisText
+    val hasText = text.isNotEmpty()
+    val hasIcon = (icon > 0)
 
     Button(
         modifier = Modifier.fillMaxWidth().focusable(enabled),
@@ -568,20 +572,26 @@ fun ShowButton(text: String, onItemClick: () -> Unit, enabled : Boolean = true, 
         enabled = enabled,
         colors = ButtonDefaults.buttonColors(clButBrownEnBg, clButBrownEnText, clButBrownDisBg, clButBrownDisText),
         border = BorderStroke(dimButStroke, clStroke),
-        shape = edShape
+        shape = controlShape
     ) {
-        Text(
-            text = text,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.weight(1f),
-            fontSize = dimButFont,
-            fontWeight = FontWeight.Bold,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
-        )
-        if(icon > 0)
+        if(hasText)
+        {
+            Text(
+                text = text,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.weight(1f),
+                fontSize = dimButFont,
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
+        if(hasText && hasIcon)
         {
             SpaceH()
+        }
+        if(hasIcon)
+        {
             Icon(
                 modifier = Modifier.size(ButtonDefaults.IconSize),
                 painter = painterResource(icon),

@@ -14,20 +14,23 @@ val clGray3 = Color(0xFFE0E0E0)
 val clGray4 = Color(0xFFFAFAFA)
 val clWhite = Color(0xFFFFFFFF)
 
-val clRed1 = Color(0xFF590000)
-val clRed2 = Color(0xFF790000)
-val clRed3 = Color(0xFF910000)
-val clRed4 = Color(0xFFb40000)
+val clRed1 = Color(0xFF540808)
+val clRed2 = Color(0xFF6e0b0b)
+val clRed3 = Color(0xFF6e0b0b)
+val clRed4 = Color(0xFFa61111)
+val clRed5 = Color(0xFFcc1414)
 
-val clGreen1 = Color(0xFF002100)
-val clGreen2 = Color(0xFF003500)
-val clGreen3 = Color(0xFF167a0d)
-val clGreen4 = Color(0xFF1b940f)
+val clGreen1 = Color(0xFF053305)
+val clGreen2 = Color(0xFF064206)
+val clGreen3 = Color(0xFF09560a)
+val clGreen4 = Color(0xFF0b730e)
+val clGreen5 = Color(0xFF0f9612)
 
-val clBlue1 = Color(0xFF000017)
-val clBlue2 = Color(0xFF00004e)
-val clBlue3 = Color(0xFF000070)
-val clBlue4 = Color(0xFF00009d)
+val clBlue1 = Color(0xFF01214d)
+val clBlue2 = Color(0xFF092f66)
+val clBlue3 = Color(0xFF0f3e7f)
+val clBlue4 = Color(0xFF1c55a6)
+val clBlue5 = Color(0xFF3d74bf)
 
 val clYellow1 = Color(0xFF4d4d00)
 val clYellow2 = Color(0xFF666600)
@@ -49,7 +52,7 @@ val dimMainPadding = 16.dp
 
 // Spacer
 val dimSpaceH = 8.dp
-val dimSpaceV = 4.dp
+val dimSpaceV = 2.dp
 
 // Botones
 val clButBrownEnBg = clBrown3
@@ -59,25 +62,8 @@ val clButBrownDisBg = clBrown4
 val clButBrownDisText = clYellow4
 val clButBrownDisStroke = clBrown4
 
-val dimButCorner = 8.dp
 val dimButFont = 18.sp
 val dimButStroke = 2.dp
-
-val clButRedEnBg = clRed3
-val clButRedEnText = clYellow4
-val clButRedEnStroke = clRed2
-
-val clButGreenEnBg = clGreen3
-val clButGreenEnText = clYellow4
-val clButGreenEnStroke = clGreen2
-
-val clButBlueEnBg = clBlue3
-val clButBlueEnText = clYellow4
-val clButBlueEnStroke = clBlue2
-
-val clButYellowEnBg = clYellow3
-val clButYellowEnText = clYellow4
-val clButYellowEnStroke = clYellow2
 
 // Edits
 val clEdEnBg = clBrown2
@@ -92,7 +78,7 @@ val dimEdFocusStroke = 4.dp
 val dimEdNormalStroke = 2.dp
 val dimTextFont = 18.sp
 
-val edShape = RoundedCornerShape(percent = 25)
+val controlShape = RoundedCornerShape(percent = 25)
 val edCursorBrush = SolidColor(clEdCursor)
 
 // Características
