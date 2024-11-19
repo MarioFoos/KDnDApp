@@ -158,7 +158,6 @@ class MainActivity : ComponentActivity()
                             ShowButton(icon = R.drawable.d20, onItemClick = { name = Res.genName(race, ethnic, gender, stage)  })
                         }
                     }
-                    //ShowEditText(text = name, onValueChange = { name = it })
                     SpaceV()
                     // Raza y género
                     Row(verticalAlignment = Alignment.CenterVertically) {
