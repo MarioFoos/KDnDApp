@@ -1,5 +1,6 @@
 package com.mlf.kdndapp
 
+import android.content.Intent
 import android.content.res.AssetManager
 import android.os.Bundle
 import android.util.Log
@@ -241,11 +242,27 @@ class MainActivity : ComponentActivity()
                     ShowDropDown(arrClass, initIndex = classInit, onItemClick = { klass = arrClass[it].key }, true)
                     SpaceV()
                     ShowAbilitiesForClass(klass = klass)
+                    SpaceV()
+                    ShowButton(text = Res.getLocale("next"), onItemClick = {
+                        // Crear el personaje
+                        showCharInfo(name)
+                    })
                 }
             }
         }
     }
+    /**
+     * Iniciar la otra activity
+     */
+    private fun showCharInfo(info : String = "")
+    {
+        var intent = Intent(this, CharActivity::class.java)
+        intent.putExtra("char", info)
+        startActivity(intent)
+        finish()
+    }
 }
+
 fun configLibrary(assets : AssetManager): Boolean
 {
     if(!Res.configResStrings(assets.open(Res.STRINGS_FILE)))

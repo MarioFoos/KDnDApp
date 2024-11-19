@@ -476,6 +476,7 @@
 		<saving_throw>Tiradas de salvación</saving_throw>
 		<skills>Habilidades</skills>
 		<bard_skill>Escoge tres cualesquiera.</bard_skill>
+		<next>Siguiente</next>
 	</misc>
 	<formatted>
 		<hit_dice>1{klass_dice} por nivel de {klass}.</hit_dice>

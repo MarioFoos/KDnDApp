@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KDnDApp</string>
+    <string name="title_activity_char">CharActivity</string>
 </resources>
