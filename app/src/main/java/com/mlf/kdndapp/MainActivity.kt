@@ -277,7 +277,7 @@ fun configLibrary(assets : AssetManager): Boolean
     }
     if(!Res.configResFeats(assets.open(Res.FEATS_FILE)))
     {
-        Log.e(APP_TAG, "Error config " + Res.FEATS_FILE);
+        Log.e(APP_TAG, "Error config " + Res.FEATS_FILE)
         return false
     }
     return true
@@ -328,7 +328,7 @@ fun ShowAbilitiesForClass(klass : EClass)
     val complement = Res.getLocale(klass, "armor_com")
     if(complement.isNotEmpty())
     {
-        armor += ". " + complement;
+        armor += ". " + complement
     }
     Text(text = Res.getLocale(klass, "desc"),
         modifier = Modifier.fillMaxWidth(),

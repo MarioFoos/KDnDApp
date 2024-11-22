@@ -170,7 +170,7 @@
 			<halforc>Semiorco</halforc>
 			<tiefling>Tiflin</tiefling>
 		</ERace>
-		<ERacialAbility>
+		<ERacialTrait>
 			<darkvision>Visión en la Oscuridad</darkvision>
 			<dwarven_resilienee>Resistencia Enana</dwarven_resilienee>
 			<stoneeunning>Afinidad con la Piedra</stoneeunning>
@@ -209,7 +209,7 @@
 			<savage_attacks>Ataques Salvajes</savage_attacks>
 			<hellish_resistance>Resistencia Infernal</hellish_resistance>
 			<infernal_legacy>Linaje Infernal</infernal_legacy>
-		</ERacialAbility>
+		</ERacialTrait>
 		<ESkill>
 			<athletics>Atletismo</athletics>
 			<acrobatics>Acrobacias</acrobatics>
@@ -271,7 +271,6 @@
 			<MEDIUM_ARMOR>Armaduras medias</MEDIUM_ARMOR>
 			<HEAVY_ARMOR>Armaduras pesadas</HEAVY_ARMOR>
 			<SHIELD>Escudo</SHIELD>
-			<NONE>Ninguna</NONE>
 		</EArmorType>
 		<EWeaponType>
 			<SIMPLE>Armas sencillas</SIMPLE>
@@ -327,7 +326,6 @@
 			<D100>d100</D100>
 		</EDice>
 		<EToolTypes>
-			<NONE>Ninguna</NONE>
 			<ARLISANS_TOOLS>Herramientas de artesano</ARLISANS_TOOLS>
 			<DISGUISE_KIT>Útiles para disfrazarse</DISGUISE_KIT>
 			<FORGERY_KIT>Útiles para falsificar</FORGERY_KIT>
