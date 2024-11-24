@@ -1,7 +1,6 @@
 package com.mlf.kdndapp
 
 import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -42,22 +41,37 @@ import com.dndlib.DNDCharManager
 import com.dndlib.base.EAbility
 import com.dndlib.base.EBackground
 import com.dndlib.base.EClass
+import com.dndlib.base.ECoin
+import com.dndlib.base.EEthnicity
 import com.dndlib.base.EFeat
 import com.dndlib.base.EGender
 import com.dndlib.base.ERace
+import com.dndlib.base.EStageOfLife
+import com.dndlib.res.ComTools
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.*
 
 
 class CharActivity : ComponentActivity()
 {
-    var imageCharacted : Drawable? = null
+    private val coinIcons = arrayOf(R.drawable.coin_platinum, R.drawable.coin_gold,  R.drawable.coin_electrum, R.drawable.coin_silver, R.drawable.coin_cupper)
+    private val coinTypes = arrayOf(ECoin.PLATINUM, ECoin.GOLD, ECoin.ELECTRUM, ECoin.SILVER, ECoin.CUPPER)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //val name = intent?.extras?.getString("char").toString()
 
-        val car = DNDChar("Nestor", Res.randomItem(ERace.values()), Res.randomItem(EClass.values()))
+        val race = Res.randomItem(ERace.values())
+        val klass = Res.randomItem(EClass.values())
+        val stageOfLife = Res.randomItem(EStageOfLife.values())
+        val ethnicity = Res.randomItem(EEthnicity.values())
+        val gender = Res.randomItem(EGender.values())
+        val name = Res.genName(race, ethnicity, gender, stageOfLife)
+
+        val car = DNDChar(name, race, klass)
+        car.genAge(stageOfLife)
+        car.setWealth(ComTools.random(30L, 500L))
+
         var ab = 10
 
         car.addFeat(EFeat.LUCKY)
@@ -97,15 +111,14 @@ class CharActivity : ComponentActivity()
                         .height(24.dp)
                         .background(clBrown1))
                 {
-                    val coins = arrayOf(R.drawable.coin_platinum, R.drawable.coin_gold,  R.drawable.coin_electrum, R.drawable.coin_silver, R.drawable.coin_cupper)
-
-                    coins.forEach {
+                    coinTypes.forEachIndexed {
+                        index, type ->
                         Text(
                             modifier = Modifier.padding(2.dp),
-                            text = " 12", fontSize = dimTextFont, color = clWhite)
+                            text = " " + car.wealth.get(type).toString(), fontSize = dimTextFont, color = clWhite)
                         Image(
                             modifier = Modifier.padding(2.dp),
-                            painter = painterResource(id = it),
+                            painter = painterResource(id = coinIcons[index]),
                             contentDescription = null)
                     }
                 }
@@ -188,7 +201,7 @@ fun ShowRoundImage(modifier: Modifier = Modifier,
                    stroke : Dp = dimStrokeContent,
                    tint : Boolean = true)
 {
-    
+
 
     Box(contentAlignment = Alignment.Center,
         modifier = modifier

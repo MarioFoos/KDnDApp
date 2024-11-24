@@ -50,6 +50,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.dndlib.DNDHeight
+import com.dndlib.DNDWeight
 import com.dndlib.base.EAbility
 import com.dndlib.base.EAlignment
 import com.dndlib.base.EClass
@@ -206,11 +208,11 @@ class MainActivity : ComponentActivity()
                     // Altura y Peso
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = height.toString() + " m", icon = R.drawable.d20, onItemClick = { height = ERace.genHeight(race) })
+                            ShowButton(text = DNDHeight.toString(height), icon = R.drawable.d20, onItemClick = { height = ERace.genHeight(race) })
                         }
                         SpaceH()
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = weight.toString() + " kg", icon = R.drawable.d20, onItemClick = { weight = ERace.genWeight(race) })
+                            ShowButton(text = DNDWeight.toString(weight), icon = R.drawable.d20, onItemClick = { weight = ERace.genWeight(race) })
                         }
                     }
                     SpaceV()
