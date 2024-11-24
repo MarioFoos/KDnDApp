@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
+import android.view.View
 import android.view.Window
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -29,7 +30,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -67,6 +67,7 @@ import com.dndlib.base.ERace
 import com.dndlib.base.EStageOfLife
 import com.dndlib.res.ComTools
 import com.dndlib.res.Res
+import kotlin.math.roundToInt
 
 class CharActivity : ComponentActivity()
 {
@@ -103,14 +104,17 @@ class CharActivity : ComponentActivity()
                 .fillMaxSize()
                 .paint(painterResource(id = R.drawable.bg_hoja_dnd), contentScale = ContentScale.FillBounds)
                 .focusable(true)
-                .clickable(enabled = true, onClick = { Log.e(APP_TAG, "clic box") })
             ){}
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(dimensionResource(R.dimen.dimMainPadding))
                     .verticalScroll(rememberScrollState())
-                    .pointerInput(Unit) { detectTapGestures { offset = it } },
+                    .pointerInput(Unit) {
+                        detectTapGestures {
+                            offset = it
+                            Log.e(APP_TAG, it.toString())
+                        }},
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top
             ) {
@@ -151,13 +155,32 @@ class CharActivity : ComponentActivity()
                             size = dimensionResource(R.dimen.dimProfile), tint = false)
 
                         ShowRoundContent(bitmap = getImageKlass(car.klass), size = dimensionResource(R.dimen.dimKlass),
-                            modifier = Modifier.align(alignment = Alignment.BottomEnd))
-
+                            modifier = Modifier.align(alignment = Alignment.BottomEnd),
+                            onClick = { offset ->
+                                dialogInfo(this@CharActivity,
+                                    posx = offset.x.roundToInt(),
+                                    posy = offset.y.roundToInt(),
+                                    title = Res.getLocale(car.klass),
+                                    desc = Res.getLocale(car.klass, "desc"))
+                            })
                         ShowRoundContent(bitmap = getImageGender(car.gender), size = dimensionResource(R.dimen.dimGender),
-                            modifier = Modifier.align(alignment = Alignment.BottomStart))
-
+                            modifier = Modifier.align(alignment = Alignment.BottomStart),
+                            onClick = { offset ->
+                                dialogInfo(this@CharActivity,
+                                    posx = offset.x.roundToInt(),
+                                    posy = offset.y.roundToInt(),
+                                    title = Res.getLocale("gender"),
+                                    desc = Res.getLocale("gender"))
+                            })
                         ShowRoundContent(number = car.level, size = dimensionResource(R.dimen.dimLevel),
-                            modifier = Modifier.align(alignment = Alignment.TopStart))
+                            modifier = Modifier.align(alignment = Alignment.TopStart),
+                            onClick = { offset ->
+                                dialogInfo(this@CharActivity,
+                                    posx = offset.x.roundToInt(),
+                                    posy = offset.y.roundToInt(),
+                                    title = Res.getLocale("level"),
+                                    desc = Res.getLocale("level_desc"))
+                            })
                     }
                     Column(modifier = Modifier.fillMaxWidth())
                     {
@@ -226,16 +249,38 @@ class CharActivity : ComponentActivity()
     }
 }
 
-private fun dialogInfo(context: Context, title: String, text: String,
+private fun dialogInfo(context: Context, title: String = "", desc: String = "",
                        posx : Int = -1, posy : Int = -1) {
     val dialog = Dialog(context)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setCancelable(true)
     dialog.setContentView(R.layout.dialog_info_layout)
 
-    val body = dialog.findViewById(R.id.textInfoTitle) as TextView
-    body.text = text
-
+    val textTitle = dialog.findViewById(R.id.textInfoTitle) as TextView
+    val textDesc = dialog.findViewById(R.id.textInfoDesc) as TextView
+    if(title.isEmpty() && desc.isEmpty())
+    {
+        Log.e(APP_TAG, "dialogInfo no title and no text")
+        return
+    }
+    if(title.isEmpty())
+    {
+        textTitle.visibility = View.GONE
+    }
+    else
+    {
+        textTitle.visibility = View.VISIBLE
+        textTitle.text = title
+    }
+    if(desc.isEmpty())
+    {
+        textDesc.visibility = View.GONE
+    }
+    else
+    {
+        textDesc.visibility = View.VISIBLE
+        textDesc.text = desc
+    }
     if(posx >= 0 && posy >= 0)
     {
         val wmlp = dialog.window!!.attributes
@@ -243,7 +288,6 @@ private fun dialogInfo(context: Context, title: String, text: String,
         wmlp.x = posx
         wmlp.y = posy
     }
-
     dialog.show()
 }
 
@@ -256,15 +300,9 @@ fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
                      bitmap: ImageBitmap? = null,
                      number: Int = 0,
                      tint : Boolean = true,
-                     onClick: ()->Unit = {})
+                     onClick: (offset: Offset)->Unit = { _ -> },
+                     onLongClick: (offset: Offset)->Unit = { _ -> })
 {
-    /*
-        dialogInfo(context = this@CharActivity,
-            posx = offset.x.roundToInt(), posy = offset.y.roundToInt(),
-            title = "Titulo",
-            text = "Texto de prueba")
-    */
-
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
@@ -276,10 +314,14 @@ fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
                 width = dimensionResource(R.dimen.dimStrokeContent),
                 color = colorResource(R.color.clContentStroke)
             )
-            .padding(dimensionResource(R.dimen.dimStrokeContent)),
+            .padding(dimensionResource(R.dimen.dimStrokeContent))
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = { offset -> onClick(offset) },
+                    onLongPress = { offset ->  onLongClick(offset) }
+                )}
     )
     {
-        //
         if(number > 0)
         {
             Text(

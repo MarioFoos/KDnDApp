@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/clWhite"
+    android:orientation="vertical"
+    android:padding="@dimen/dimDialogPadding">
 
     <TextView
         android:id="@+id/textInfoTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimDialogPadding"
-        android:layout_marginTop="@dimen/dimDialogPadding"
-        android:layout_marginEnd="@dimen/dimDialogPadding"
         android:textAlignment="viewStart"
+        android:textColor="@color/clBlack"
         android:textSize="@dimen/dimFontLarge"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Titulo del cuadro" />
+        tools:text="Titulo de prueba" />
 
     <TextView
         android:id="@+id/textInfoDesc"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimDialogPadding"
-        android:layout_marginTop="@dimen/control_margin_normal"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/dimSpaceV"
         android:textAlignment="viewStart"
+        android:textColor="@color/clBlack"
         android:textSize="@dimen/dimFontNormal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInfoTitle"
-        tools:text="Texto informativo y descriptivo" />
+        tools:text="Texto de prueba de la descripción" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

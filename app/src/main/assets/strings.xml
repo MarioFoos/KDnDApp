@@ -376,6 +376,98 @@
 			<POISONERS_KIT>Útiles de envenenador</POISONERS_KIT>
 			<THIEVES_TOOLS>Herramientas de ladrón</THIEVES_TOOLS>
 		</ETool>
+		<EItemType>
+			<OBJECT>Objeto</OBJECT>
+			<ARCANE_FOCUS>Foco arcano</ARCANE_FOCUS>
+			<DRUIDIC_FOCUS>Foco druídico</DRUIDIC_FOCUS>
+			<AMMUNITION>Munición</AMMUNITION>
+			<HOLY_SYMBOL>Símbolo sagrado</HOLY_SYMBOL>		
+		</EItemType>
+		<EGear>
+			<ABACUS>Ábaco</ABACUS>
+			<CALTROPS_20>Abrojos (bolsa de 20)</CALTROPS_20>
+			<OIL_FLASK>Aceite (frasco)</OIL_FLASK>
+			<ACID_VIAL>Ácido (vial)</ACID_VIAL>
+			<HOLY_WATER_FLASK>Agua bendita (frasco)</HOLY_WATER_FLASK>
+			<QUIVER>Aljaba</QUIVER>
+			<SIGNET_RING>Anillo de sello</SIGNET_RING>
+			<ANTITOXIN_VIAL>Antitoxina (vial)</ANTITOXIN_VIAL>
+			<TORCH>Antorcha</TORCH>
+			<FISHING_TACKLE>Aparejo de pesca</FISHING_TACKLE>
+			<BLOCK_AND_TACKLE>Aparejo de poleas</BLOCK_AND_TACKLE>
+			<RAM_PORTABLE>Ariete portátil</RAM_PORTABLE>
+			<SCALE_MERCHANT>Balanza de mercader</SCALE_MERCHANT>
+			<BARREL>Barril</BARREL>
+			<BALL_BEARINGS_1000>Bolas de metal (bolsa de 1000)</BALL_BEARINGS_1000>
+			<POUCH>Bolsa</POUCH>
+			<COMPONENT_POUCH>Bolsa de componentes</COMPONENT_POUCH>
+			<BOTLLE_GLASS>Botella de cristal</BOTLLE_GLASS>
+			<CHAIN_10_FEET>Cadena (10 pies)</CHAIN_10_FEET>
+			<BELL>Campana</BELL>
+			<SPYGLASS>Catalejo</SPYGLASS>
+			<LOCK>Cerradura</LOCK>
+			<BASKET>Cesto</BASKET>
+			<CHEST>Cofre</CHEST>
+			<BUCKET>Cubo</BUCKET>
+			<ROPE_HEMPEN_50>Cuerda de cáñamo (50 pies)</ROPE_HEMPEN_50>
+			<ROPE_SILK_50>Cuerda de seda (50 pies)</ROPE_SILK_50>
+			<LADDER_10_FOOT>Escalera (10 pies)</LADDER_10_FOOT>
+			<MIRROR_STEEL>Espejo de acero</MIRROR_STEEL>
+			<MANACLES>Esposas</MANACLES>
+			<CASE_MAP_OR_SCROLL>Estuche para mapas o pergaminos</CASE_MAP_OR_SCROLL>
+			<CASE_CROSSBOW_BOLT>Estuche para virotes de ballesta</CASE_CROSSBOW_BOLT>
+			<MESS_KIT>Fiambrera</MESS_KIT>
+			<FLASK_OR_TANKARD>Frasco o jarra de metal</FLASK_OR_TANKARD>
+			<ALCH_FIRE_FLASK>Fuego de alquimista (frasco)</ALCH_FIRE_FLASK>
+			<GRAPPLING_HOOK>Garfio de escalada</GRAPPLING_HOOK>
+			<SOAP>Jabón</SOAP>
+			<JUG_OR_PITCHER>Jarro o jarra</JUG_OR_PITCHER>
+			<CLIMBERS_KIT>Kit de escalada</CLIMBERS_KIT>
+			<HEALERS_KIT>Kit de sanador</HEALERS_KIT>
+			<SEALING_WAX>Lacre</SEALING_WAX>
+			<LAMP>Lámpara</LAMP>
+			<TINDERBOX>Lata de yesca</TINDERBOX>
+			<MAGNIFYING_GLASS>Lente de aumento</MAGNIFYING_GLASS>
+			<BOOK>Libro</BOOK>
+			<SPELLBOOK>Libro de conjuros</SPELLBOOK>
+			<LANTERN_HOODED>Linterna con capuchón</LANTERN_HOODED>
+			<LANTERN_BULLSEYE>Linterna de ojo de buey</LANTERN_BULLSEYE>
+			<BLANKET>Manta</BLANKET>
+			<HAMMER>Martillo</HAMMER>
+			<HAMMER_SLEDGE>Mazo</HAMMER_SLEDGE>
+			<BACKPACK>Mochila</BACKPACK>
+			<WATERSKIN>Odre</WATERSKIN>
+			<POT_IRON>Olla de hierro</POT_IRON>
+			<SHOVEL>Pala</SHOVEL>
+			<CROWBAR>Palanca</CROWBAR>
+			<PAPER_ONE_SHEET>Papel (una hoja)</PAPER_ONE_SHEET>
+			<PERFUME_VIAL>Perfume (vial)</PERFUME_VIAL>
+			<PARCHMENT_ONE_SHEET>Pergamino (una hoja)</PARCHMENT_ONE_SHEET>
+			<POLE_10_FOOT>Pértiga (10 pies)</POLE_10_FOOT>
+			<PIEK_MINERS>Pico de minero</PIEK_MINERS>
+			<WHETSTONE>Piedra de afilar</WHETSTONE>
+			<SPIKES_IRON_10>Piquetas de hierro (10)</SPIKES_IRON_10>
+			<PITON>Pitón</PITON>
+			<INK_PEN>Pluma de escritura</INK_PEN>
+			<POLION_OF_HEALING>Poción de curación</POLION_OF_HEALING>
+			<RATIONS_1_DAY>Raciones (1 día)</RATIONS_1_DAY>
+			<HOURGLASS>Reloj de arena</HOURGLASS>
+			<CLOTHES_COMMON>Ropa común</CLOTHES_COMMON>
+			<CLOTHES_COSTUME>Ropa de disfraz</CLOTHES_COSTUME>
+			<CLOTHES_TRAVELERS>Ropa de viajero</CLOTHES_TRAVELERS>
+			<CLOTHES_FINE>Ropa fina</CLOTHES_FINE>
+			<SACK>Saco</SACK>
+			<BEDROLL>Saco de dormir</BEDROLL>
+			<SIGNAL_WHISTLE>Silbato de señales</SIGNAL_WHISTLE>
+			<TENT_TWO_PERSON>Tienda de campaña para dos personas</TENT_TWO_PERSON>
+			<INK_1_OUNCE_BOTTLE>Tinta (botella de 1 onza)</INK_1_OUNCE_BOTTLE>
+			<CHALK_L_PIECE>Tiza (1 trozo)</CHALK_L_PIECE>
+			<HUNTING_TRAP>Trampa de cazador</HUNTING_TRAP>
+			<ROBES>Túnica</ROBES>
+			<CANDLE>Vela</CANDLE>
+			<POISON_BASIC_VIAL>Veneno básico (vial)</POISON_BASIC_VIAL>
+			<VIAL>Vial</VIAL>
+		</EGear>
 	</enums>
 	<info>
 		<EEthnicity>
@@ -475,6 +567,10 @@
 		<skills>Habilidades</skills>
 		<bard_skill>Escoge tres cualesquiera.</bard_skill>
 		<next>Siguiente</next>
+		<!-- GUI Page-->
+		<level>Nivel</level>
+		<level_desc>Nivel del personaje</level_desc>
+		<gender>Género</gender>
 	</misc>
 	<formatted>
 		<hit_dice>1{klass_dice} por nivel de {klass}.</hit_dice>

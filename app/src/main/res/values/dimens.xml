@@ -28,7 +28,7 @@
     <dimen name="dimLevelFont">@dimen/dimFontLarge</dimen>
 
     <!-- Dialog -->
-    <dimen name="dimDialogPadding">16dp</dimen>
+    <dimen name="dimDialogPadding">8dp</dimen>
 
     <!-- Controls margin -->
     <dimen name="control_margin_normal">4dp</dimen>
