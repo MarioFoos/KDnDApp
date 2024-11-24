@@ -96,6 +96,8 @@ class MainActivity : ComponentActivity()
         {
             exitProcess(-1)
         }
+        showCharInfo()
+
         // Arrays
         val arrRace : ArrayList<Map.Entry<ERace, String>> = Res.getLocale(ERace.values())
         val arrEthnic : ArrayList<Map.Entry<EEthnicity, String>> = Res.getLocale(EEthnicity.values())
