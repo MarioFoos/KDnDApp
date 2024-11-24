@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Gral fonts -->
-    <dimen name="gral_font_size_large">20</dimen>
-    <dimen name="gral_font_size_normal">18</dimen>
-    <dimen name="gral_font_size_small">14sp</dimen>
+    <dimen name="dimFontLarge">20sp</dimen>
+    <dimen name="dimFontNormal">18sp</dimen>
+    <dimen name="dimFontSmall">16sp</dimen>
+    <dimen name="dimButFont">18sp</dimen>
+    <dimen name="dimTextFont">18sp</dimen>
+
+    <!-- SPACER -->
+    <dimen name="dimSpaceH">8dp</dimen>
+    <dimen name="dimSpaceV">2dp</dimen>
+
+    <!-- BOTONES -->
+    <dimen name="dimButStroke">2dp</dimen>
+
+    <!-- TEXTFIELD -->
+    <dimen name="dimEdFocusStroke">4dp</dimen>
+    <dimen name="dimEdNormalStroke">2dp</dimen>
+
+    <!-- PÁGINA DE PERSONAJE -->
+    <dimen name="dimMainPadding">16dp</dimen>
+    <dimen name="dimStrokeContent">3dp</dimen>
+    <dimen name="dimProfile">150dp</dimen>
+    <dimen name="dimKlass">50dp</dimen>
+    <dimen name="dimGender">40dp</dimen>
+    <dimen name="dimLevel">40dp</dimen>
+    <dimen name="dimLevelFont">@dimen/dimFontLarge</dimen>
 
     <!-- Dialog -->
-    <dimen name="dialog_margin">16dp</dimen>
-    <dimen name="dialog_but_height">48dp</dimen>
-    <dimen name="dialog_but_width">48dp</dimen>
-    <dimen name="dialog_icon">80dp</dimen>
-    <dimen name="dialog_divider">15dp</dimen>
+    <dimen name="dimDialogPadding">16dp</dimen>
 
     <!-- Controls margin -->
     <dimen name="control_margin_normal">4dp</dimen>
     <dimen name="control_margin_large">8dp</dimen>
-    <dimen name="but_margin">16dp</dimen>
-    <dimen name="but_margin_half">8dp</dimen>
 
-    <!-- Buttons -->
-    <dimen name="but_font_size">@dimen/gral_font_size_normal</dimen>
-    <dimen name="but_pad_lr">5dp</dimen>
-    <dimen name="but_corner_radius">5dp</dimen>
-    <dimen name="but_stroke">2dp</dimen>
-    <dimen name="but_updown_width">42dp</dimen>
 </resources>

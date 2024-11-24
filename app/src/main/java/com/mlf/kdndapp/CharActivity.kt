@@ -1,16 +1,26 @@
 package com.mlf.kdndapp
 
+import android.app.Dialog
+import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.view.Window
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,25 +29,33 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.dndlib.DNDChar
-import com.dndlib.DNDCharManager
 import com.dndlib.base.EAbility
 import com.dndlib.base.EBackground
 import com.dndlib.base.EClass
@@ -49,8 +67,6 @@ import com.dndlib.base.ERace
 import com.dndlib.base.EStageOfLife
 import com.dndlib.res.ComTools
 import com.dndlib.res.Res
-import com.mlf.kdndapp.ui.theme.*
-
 
 class CharActivity : ComponentActivity()
 {
@@ -59,7 +75,8 @@ class CharActivity : ComponentActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //val name = intent?.extras?.getString("char").toString()
+
+        var offset: Offset = Offset(0f, 0f)
 
         val race = Res.randomItem(ERace.values())
         val klass = Res.randomItem(EClass.values())
@@ -71,10 +88,9 @@ class CharActivity : ComponentActivity()
         val car = DNDChar(name, race, klass)
         car.genAge(stageOfLife)
         car.setWealth(ComTools.random(30L, 500L))
+        car.addFeat(EFeat.LUCKY)
 
         var ab = 10
-
-        car.addFeat(EFeat.LUCKY)
         for (ability in EAbility.values()) {
             car.setAbilityBase(ability, ab++)
         }
@@ -82,24 +98,19 @@ class CharActivity : ComponentActivity()
         car.setAbilityExtraBonus(EAbility.STRENGTH, 1)
         car.background = EBackground.ACOLYTE
 
-        val strChar = DNDCharManager.toString(car)
-        Log.e(APP_TAG, "--------------- JSON ---------------------")
-        Log.e(APP_TAG, strChar)
-
         setContent {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .paint(
-                        painterResource(id = R.drawable.bg_hoja_dnd),
-                        contentScale = ContentScale.FillBounds
-                    )
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .paint(painterResource(id = R.drawable.bg_hoja_dnd), contentScale = ContentScale.FillBounds)
+                .focusable(true)
+                .clickable(enabled = true, onClick = { Log.e(APP_TAG, "clic box") })
             ){}
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(dimMainPadding)
-                    .verticalScroll(rememberScrollState()),
+                    .padding(dimensionResource(R.dimen.dimMainPadding))
+                    .verticalScroll(rememberScrollState())
+                    .pointerInput(Unit) { detectTapGestures { offset = it } },
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top
             ) {
@@ -109,13 +120,15 @@ class CharActivity : ComponentActivity()
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(24.dp)
-                        .background(clBrown1))
+                        .background(colorResource(R.color.clBrown1)))
                 {
                     coinTypes.forEachIndexed {
                         index, type ->
                         Text(
                             modifier = Modifier.padding(2.dp),
-                            text = " " + car.wealth.get(type).toString(), fontSize = dimTextFont, color = clWhite)
+                            text = " " + car.wealth.get(type).toString(),
+                            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+                            color = colorResource(id = R.color.clWhite))
                         Image(
                             modifier = Modifier.padding(2.dp),
                             painter = painterResource(id = coinIcons[index]),
@@ -131,44 +144,64 @@ class CharActivity : ComponentActivity()
                         .fillMaxWidth())
                 {
                     Box(contentAlignment = Alignment.Center,
-                        modifier = Modifier.size(140.dp)
+                        modifier = Modifier.size(dimensionResource(R.dimen.dimProfile))
                     )
                     {
-                        ShowRoundImage(bitmap = getImageRace(race = car.race, gender = car.gender), size = 140.dp, tint = false)
+                        ShowRoundContent(bitmap = getImageRace(race = car.race, gender = car.gender),
+                            size = dimensionResource(R.dimen.dimProfile), tint = false)
 
-                        ShowRoundImage(bitmap = getImageKlass(car.klass), size = 50.dp,
+                        ShowRoundContent(bitmap = getImageKlass(car.klass), size = dimensionResource(R.dimen.dimKlass),
                             modifier = Modifier.align(alignment = Alignment.BottomEnd))
 
-                        ShowRoundImage(bitmap = getImageGender(car.gender), size = 40.dp,
+                        ShowRoundContent(bitmap = getImageGender(car.gender), size = dimensionResource(R.dimen.dimGender),
                             modifier = Modifier.align(alignment = Alignment.BottomStart))
 
+                        ShowRoundContent(number = car.level, size = dimensionResource(R.dimen.dimLevel),
+                            modifier = Modifier.align(alignment = Alignment.TopStart))
                     }
                     Column(modifier = Modifier.fillMaxWidth())
                     {
-                        Text(text = "Nombre",
+                        Text(
+                            text = car.name,
                             modifier = Modifier.fillMaxWidth(),
-                            fontSize = dimTextFont,
+                            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center,
                         )
+                        Button(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .focusable(true),
+                            contentPadding = PaddingValues(8.dp, 0.dp),
+                            onClick = { },
+                            enabled = true,
+                            colors = ButtonDefaults.buttonColors(
+                                colorResource(R.color.clButBrownEnBg),
+                                colorResource(R.color.clButBrownEnText),
+                                colorResource(R.color.clButBrownDisBg),
+                                colorResource(R.color.clButBrownDisText)),
+                            border = BorderStroke(dimensionResource(R.dimen.dimButStroke),
+                                colorResource(R.color.clButBrownEnStroke)),
+                            shape =  controlShape
+                        ) {}
                     }
                 }
             }
         }
     }
-    fun getImageGender(gender : EGender) : ImageBitmap
+    private fun getImageGender(gender : EGender) : ImageBitmap
     {
         var file = "imgs/gender/" + gender.name.lowercase() + ".png"
         var img = BitmapFactory.decodeStream(assets.open(file))
         return img.asImageBitmap()
     }
-    fun getImageKlass(klass : EClass) : ImageBitmap
+    private fun getImageKlass(klass : EClass) : ImageBitmap
     {
         var file = "imgs/klass/" + klass.name.lowercase() + ".png"
         var img = BitmapFactory.decodeStream(assets.open(file))
         return img.asImageBitmap()
     }
-    fun getImageRace(race : ERace, gender : EGender) : ImageBitmap
+    private fun getImageRace(race : ERace, gender : EGender) : ImageBitmap
     {
         var file = "imgs/race/"
 
@@ -188,48 +221,85 @@ class CharActivity : ComponentActivity()
         file += if(gender == EGender.MALE){ "m"} else { "f" }
         file += ".png"
 
-        Log.e(APP_TAG, "----> IMG: " + file)
-
         var img = BitmapFactory.decodeStream(assets.open(file))
         return img.asImageBitmap()
     }
 }
+
+private fun dialogInfo(context: Context, title: String, text: String,
+                       posx : Int = -1, posy : Int = -1) {
+    val dialog = Dialog(context)
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.dialog_info_layout)
+
+    val body = dialog.findViewById(R.id.textInfoTitle) as TextView
+    body.text = text
+
+    if(posx >= 0 && posy >= 0)
+    {
+        val wmlp = dialog.window!!.attributes
+        wmlp.gravity = Gravity.TOP or Gravity.START
+        wmlp.x = posx
+        wmlp.y = posy
+    }
+
+    dialog.show()
+}
+
+/******************************************************************************************************************
+*                                               COMPOSABLES
+*******************************************************************************************************************/
+
 @Composable
-fun ShowRoundImage(modifier: Modifier = Modifier,
-                   bitmap: ImageBitmap,
-                   size : Dp,
-                   stroke : Dp = dimStrokeContent,
-                   tint : Boolean = true)
+fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
+                     bitmap: ImageBitmap? = null,
+                     number: Int = 0,
+                     tint : Boolean = true,
+                     onClick: ()->Unit = {})
 {
+    /*
+        dialogInfo(context = this@CharActivity,
+            posx = offset.x.roundToInt(), posy = offset.y.roundToInt(),
+            title = "Titulo",
+            text = "Texto de prueba")
+    */
 
-
-    Box(contentAlignment = Alignment.Center,
+    Box(
+        contentAlignment = Alignment.Center,
         modifier = modifier
             .size(size)
             .clip(CircleShape)
-            .background(clContentBg)
-            .border(shape = CircleShape, width = stroke, color = clContentStroke)
-            .padding(stroke),
+            .background(colorResource(R.color.clContentBg))
+            .border(
+                shape = CircleShape,
+                width = dimensionResource(R.dimen.dimStrokeContent),
+                color = colorResource(R.color.clContentStroke)
+            )
+            .padding(dimensionResource(R.dimen.dimStrokeContent)),
     )
     {
-        Image(contentDescription = null,
-            bitmap = bitmap,
-            contentScale = ContentScale.Fit,
-            colorFilter = if(tint){ ColorFilter.tint(clYellow4, BlendMode.SrcAtop) } else { null },
-            modifier = Modifier.fillMaxSize()
-        )
+        //
+        if(number > 0)
+        {
+            Text(
+                text = number.toString(),
+                textAlign = TextAlign.Center,
+                fontSize = dimensionResource(R.dimen.dimLevelFont).value.sp,
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                color = colorResource(R.color.clContentStroke)
+            )
+        }
+        else if(bitmap != null)
+        {
+            Image(contentDescription = null,
+                bitmap = bitmap,
+                contentScale = ContentScale.Fit,
+                colorFilter = if(tint){ ColorFilter.tint(colorResource(R.color.clYellow4), BlendMode.SrcAtop) } else { null },
+                modifier = Modifier.fillMaxSize()
+            )
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

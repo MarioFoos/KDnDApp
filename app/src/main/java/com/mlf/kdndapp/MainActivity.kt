@@ -24,6 +24,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -42,7 +43,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
@@ -50,6 +54,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.dndlib.DNDHeight
 import com.dndlib.DNDWeight
 import com.dndlib.base.EAbility
@@ -62,31 +67,10 @@ import com.dndlib.base.ERace
 import com.dndlib.base.EStageOfLife
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.KDnDAppTheme
-import com.mlf.kdndapp.ui.theme.clButBrownDisBg
-import com.mlf.kdndapp.ui.theme.clButBrownDisStroke
-import com.mlf.kdndapp.ui.theme.clButBrownDisText
-import com.mlf.kdndapp.ui.theme.clButBrownEnBg
-import com.mlf.kdndapp.ui.theme.clButBrownEnStroke
-import com.mlf.kdndapp.ui.theme.clButBrownEnText
-import com.mlf.kdndapp.ui.theme.clEdDisStroke
-import com.mlf.kdndapp.ui.theme.clEdDisText
-import com.mlf.kdndapp.ui.theme.clEdEnBg
-import com.mlf.kdndapp.ui.theme.clEdEnText
-import com.mlf.kdndapp.ui.theme.clEdFocusStroke
-import com.mlf.kdndapp.ui.theme.clEdNormalStroke
-import com.mlf.kdndapp.ui.theme.dimButFont
-import com.mlf.kdndapp.ui.theme.dimButStroke
-import com.mlf.kdndapp.ui.theme.dimEdFocusStroke
-import com.mlf.kdndapp.ui.theme.dimEdNormalStroke
-import com.mlf.kdndapp.ui.theme.dimMainPadding
-import com.mlf.kdndapp.ui.theme.dimSpaceH
-import com.mlf.kdndapp.ui.theme.dimSpaceV
-import com.mlf.kdndapp.ui.theme.dimTextFont
-import com.mlf.kdndapp.ui.theme.edCursorBrush
-import com.mlf.kdndapp.ui.theme.controlShape
 import kotlin.system.exitProcess
 
 val APP_TAG = "AppTag"
+val controlShape = RoundedCornerShape(percent = 25)
 
 class MainActivity : ComponentActivity()
 {
@@ -148,7 +132,9 @@ class MainActivity : ComponentActivity()
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(IntrinsicSize.Min)
-                        .padding(dimMainPadding)
+                        .padding(
+                            dimensionResource(R.dimen.dimMainPadding)
+                        )
                         .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Top
@@ -185,7 +171,7 @@ class MainActivity : ComponentActivity()
                         SpaceV()
                         Text(text = Res.getLocale(ethnic, "desc"),
                             modifier = Modifier.fillMaxWidth(),
-                            fontSize = dimTextFont,
+                            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
                         )
                         SpaceV()
                     }
@@ -288,10 +274,10 @@ fun configLibrary(assets : AssetManager): Boolean
 }
 
 @Composable
-fun SpaceV() = Spacer(modifier = Modifier.height(dimSpaceV))
+fun SpaceV() = Spacer(modifier = Modifier.height(dimensionResource(R.dimen.dimSpaceV)))
 
 @Composable
-fun SpaceH() = Spacer(modifier = Modifier.width(dimSpaceH))
+fun SpaceH() = Spacer(modifier = Modifier.width(dimensionResource(R.dimen.dimSpaceH)))
 
 @Composable
 fun ShowFeat(feat : EFeat)
@@ -304,14 +290,14 @@ fun ShowFeat(feat : EFeat)
     {
         Text(text = prerequisite,
             modifier = Modifier.fillMaxWidth(),
-            fontSize = dimTextFont,
+            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Italic
         )
     }
     Text(text = desc,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp
     )
 }
 @Composable
@@ -336,49 +322,49 @@ fun ShowAbilitiesForClass(klass : EClass)
     }
     Text(text = Res.getLocale(klass, "desc"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = Res.getLocale("hit_point"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
         fontWeight = FontWeight.Bold,
     )
     Text(text = "• " + Res.getLocale("hit_dice") + ": " + Res.getLocaleF("hit_dice", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = "• " + Res.getLocale("hit_points_level_1") + ": " + Res.getLocaleF("hit_points_level_1", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = "• " + Res.getLocale("hit_points_other") + ": " + Res.getLocaleF("hit_points_other", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = Res.getLocale("class_features"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
         fontWeight = FontWeight.Bold,
     )
     Text(text = armor,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = "• " + Res.getLocale("weapons") + ": " + Res.asSentence(weapons).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = "• " + Res.getLocale("tools") + ": " + tools.lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = "• " + Res.getLocale("saving_throw") + ": " + Res.asSentence(Res.getLocale(klass.savingThrow)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = "• " + Res.getLocale("skills") + ": " + skills,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
 }
 @Composable
@@ -394,7 +380,7 @@ fun ShowAbilitiesForRace(race : ERace)
         val columns = Res.columns(arrCols)
         Text(text = Res.getLocale("ability_bonus"),
             modifier = Modifier.fillMaxWidth(),
-            fontSize = dimTextFont,
+            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
             fontWeight = FontWeight.Bold,
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -402,23 +388,23 @@ fun ShowAbilitiesForRace(race : ERace)
                 Text(text = it,
                     modifier = Modifier
                         .weight(1f, true),
-                    fontSize = dimTextFont,
+                    fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
                 )
             }
         }
     }
     Text(text = Res.getLocale("racial_abilities"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
         fontWeight = FontWeight.Bold,
     )
     Text(text = Res.getLocale("speed") + ": " + race.speed.toString(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     Text(text = Res.getLocale("languages") + ": " + Res.asSentence(Res.getLocale(race.languages)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )
     val racialAbilities = ERace.getRacialAbilities(race)
     if(racialAbilities.isNotEmpty())
@@ -426,7 +412,7 @@ fun ShowAbilitiesForRace(race : ERace)
         Res.getLocale(racialAbilities).forEach {
             Text(text = "• " + it.value,
                 modifier = Modifier.fillMaxWidth(),
-                fontSize = dimTextFont,
+                fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
             )
         }
     }
@@ -442,38 +428,46 @@ fun ShowAbilitiesForRace(race : ERace)
     }
     Text(text = Res.columns(arr, 1)[0],
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimTextFont,
+        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
     )*/
 }
 @Composable
 fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean = true)
 {
-    var clStroke by remember { mutableStateOf(clEdNormalStroke) }
-    var clText by remember { mutableStateOf(clEdEnText) }
-    var dimStroke by remember { mutableStateOf(dimEdNormalStroke) }
+    var clStroke by remember { mutableStateOf(R.color.clEdNormalStroke) }
+    var clText by remember { mutableStateOf(R.color.clEdEnText) }
+    var dimStroke by remember { mutableStateOf(R.dimen.dimEdNormalStroke) }
 
     BasicTextField(
         value = text,
         onValueChange = onValueChange,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
             .onFocusChanged {
-                dimStroke = if(it.hasFocus) dimEdFocusStroke else dimEdNormalStroke
-                clText = if(enabled) clEdEnText else clEdDisText
-                clStroke = if(enabled) { if(it.hasFocus) clEdFocusStroke else clEdNormalStroke } else { clEdDisStroke }
-            }.focusable(),
+                dimStroke = if (it.hasFocus) R.dimen.dimEdFocusStroke else R.dimen.dimEdNormalStroke
+                clText = if (enabled) R.color.clEdEnText else R.color.clEdDisText
+                clStroke = if (enabled) {
+                    if (it.hasFocus) R.color.clEdFocusStroke else R.color.clEdNormalStroke
+                } else {
+                    R.color.clEdDisStroke
+                }
+            }
+            .focusable(),
         enabled = enabled,
         textStyle = TextStyle(
-            fontSize = dimTextFont,
+            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
             fontWeight = FontWeight.Bold,
-            color = clText
+            color = colorResource(clText)
         ),
-        cursorBrush = edCursorBrush,
+        cursorBrush = SolidColor(colorResource(R.color.clEdCursor)),
         singleLine = true,
         decorationBox = { innerTextField ->
-            Row(Modifier.fillMaxWidth()
-                .background(clEdEnBg, controlShape)
-                .border(dimStroke, clStroke, controlShape)
-                .padding(16.dp, 12.dp)
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .background(colorResource(R.color.clEdEnBg), controlShape)
+                    .border(dimensionResource(dimStroke), colorResource(clStroke), controlShape)
+                    .padding(16.dp, 12.dp)
             ) {
                 innerTextField()
             }
@@ -497,7 +491,7 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
         onValueChange = onValueChange,
         enabled = enabled,
         textStyle = TextStyle(
-            fontSize = dimTextFont,
+            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
             fontWeight = FontWeight.Bold
         ),
         singleLine = true,
@@ -528,7 +522,7 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
                 }
         }.focusable().clip(myShape).border(BorderStroke(5.dp, clStroke)),
         textStyle = TextStyle(
-            fontSize = dimTextFont,
+            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
             fontWeight = FontWeight.Bold
         ),
         value = text,
@@ -567,7 +561,7 @@ fun <T> ShowDropDown(
                     text = {
                         Text(text = username.value,
                         modifier = Modifier.fillMaxWidth(),
-                        fontSize = dimButFont) },
+                        fontSize = dimensionResource(R.dimen.dimButFont).value.sp) },
                     onClick = {
                         menuExpanded.value = false
                         itemPosition.value = index
@@ -580,18 +574,24 @@ fun <T> ShowDropDown(
 @Composable
 fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = true, icon : Int = 0)
 {
-    val clStroke = if(enabled) clButBrownEnStroke else clButBrownDisStroke
-    val clTint = if(enabled) clButBrownEnText else clButBrownDisText
+    val clStroke = colorResource(if(enabled) R.color.clButBrownEnStroke else R.color.clButBrownDisStroke)
+    val clTint = colorResource(if(enabled) R.color.clButBrownEnText else R.color.clButBrownDisText)
     val hasText = text.isNotEmpty()
     val hasIcon = (icon > 0)
 
     Button(
-        modifier = Modifier.fillMaxWidth().focusable(enabled),
+        modifier = Modifier
+            .fillMaxWidth()
+            .focusable(enabled),
         contentPadding = PaddingValues(8.dp, 0.dp),
         onClick = onItemClick,
         enabled = enabled,
-        colors = ButtonDefaults.buttonColors(clButBrownEnBg, clButBrownEnText, clButBrownDisBg, clButBrownDisText),
-        border = BorderStroke(dimButStroke, clStroke),
+        colors = ButtonDefaults.buttonColors(
+            colorResource(R.color.clButBrownEnBg),
+            colorResource(R.color.clButBrownEnText),
+            colorResource(R.color.clButBrownDisBg),
+            colorResource(R.color.clButBrownDisText)),
+        border = BorderStroke(dimensionResource(R.dimen.dimButStroke), clStroke),
         shape = controlShape
     ) {
         if(hasText)
@@ -600,7 +600,7 @@ fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = t
                 text = text,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
-                fontSize = dimButFont,
+                fontSize = dimensionResource(R.dimen.dimButFont).value.sp,
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis

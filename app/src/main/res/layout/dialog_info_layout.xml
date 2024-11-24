@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimDialogPadding"
+        android:layout_marginTop="@dimen/dimDialogPadding"
+        android:layout_marginEnd="@dimen/dimDialogPadding"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/dimFontLarge"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Titulo del cuadro" />
+
+    <TextView
+        android:id="@+id/textInfoDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimDialogPadding"
+        android:layout_marginTop="@dimen/control_margin_normal"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/dimFontNormal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoTitle"
+        tools:text="Texto informativo y descriptivo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

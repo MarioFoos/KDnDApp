@@ -1,5 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- PALESTAS -->
+    <color name="clNone">#00000000</color>
+    <color name="clBlack">#FF000000</color>
+    <color name="clGray1">#FF606060</color>
+    <color name="clGray2">#FFC0C0C0</color>
+    <color name="clGray3">#FFE0E0E0</color>
+    <color name="clGray4">#FFFAFAFA</color>
+    <color name="clWhite">#FFFFFFFF</color>
+
+    <color name="clRed1">#FF540808</color>
+    <color name="clRed2">#FF6e0b0b</color>
+    <color name="clRed3">#FF6e0b0b</color>
+    <color name="clRed4">#FFa61111</color>
+    <color name="clRed5">#FFcc1414</color>
+
+    <color name="clGreen1">#FF053305</color>
+    <color name="clGreen2">#FF064206</color>
+    <color name="clGreen3">#FF09560a</color>
+    <color name="clGreen4">#FF0b730e</color>
+    <color name="clGreen5">#FF0f9612</color>
+
+    <color name="clBlue1">#FF01214d</color>
+    <color name="clBlue2">#FF092f66</color>
+    <color name="clBlue3">#FF0f3e7f</color>
+    <color name="clBlue4">#FF1c55a6</color>
+    <color name="clBlue5">#FF3d74bf</color>
+
+    <color name="clYellow1">#FF4d4d00</color>
+    <color name="clYellow2">#FF666600</color>
+    <color name="clYellow3">#FF8c8c00</color>
+    <color name="clYellow4">#FFcccc00</color>
+    <color name="clYellow5">#FFf2f200</color>
+
+    <color name="clBrown1">#FF332217</color>
+    <color name="clBrown2">#FF533825</color>
+    <color name="clBrown3">#FF734e34</color>
+    <color name="clBrown4">#FF996744</color>
+    <color name="clBrown5">#FFcc895b</color>
+
+    <!-- SHAPES -->
     <color name="cl_start">#FFf8f8f7</color>
     <color name="cl_end">#FF5b5c5c</color>
+
+    <!-- TEMA   -->
+    <color name="clPrimary">@color/clBrown3</color>
+    <color name="clSecondary">@color/clBrown4</color>
+    <color name="clTertiary">@color/clBrown5</color>
+
+    <!-- CONTENIDO  -->
+    <color name="clContentStroke">@color/clYellow4</color>
+    <color name="clContentBg">@color/clBrown3</color>
+
+    <!-- BOTONES  -->
+    <color name="clButBrownEnBg">@color/clBrown3</color>
+    <color name="clButBrownEnText">@color/clYellow5</color>
+    <color name="clButBrownEnStroke">@color/clBrown2</color>
+    <color name="clButBrownDisBg">@color/clBrown4</color>
+    <color name="clButBrownDisText">@color/clYellow4</color>
+    <color name="clButBrownDisStroke">@color/clBrown4</color>
+
+    <!-- TEXTFIELDS -->
+    <color name="clEdEnBg">@color/clBrown2</color>
+    <color name="clEdEnText">@color/clYellow5</color>
+    <color name="clEdDisText">@color/clYellow3</color>
+    <color name="clEdDisStroke">@color/clYellow3</color>
+    <color name="clEdNormalStroke">@color/clYellow4</color>
+    <color name="clEdFocusStroke">@color/clYellow5</color>
+    <color name="clEdCursor">@color/clYellow5</color>
+
+    <!-- CARACTERÍSTICAS / ABILITIES -->
+    <color name="clStrength">#FFFF4C4C</color>
+    <color name="clDexterity">#FFB366FF</color>
+    <color name="clConstitution">#FF33FF33</color>
+    <color name="clIntelligence">#FF80c0ff</color>
+    <color name="clWisdom">#FFE5E500</color>
+    <color name="clCharisma">#FFE57300</color>
+
 </resources>

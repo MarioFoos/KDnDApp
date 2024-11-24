@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">KDnDApp</string>
     <string name="title_activity_char">CharActivity</string>
+    <string name="title_activity_show_info">ShowInfoActivity</string>
 </resources>
