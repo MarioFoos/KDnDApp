@@ -18,11 +18,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,6 +35,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.dndlib.DNDChar
 import com.dndlib.DNDCharManager
@@ -44,16 +45,8 @@ import com.dndlib.base.EClass
 import com.dndlib.base.EFeat
 import com.dndlib.base.EGender
 import com.dndlib.base.ERace
-import com.mlf.kdndapp.ui.theme.clBrown1
-import com.mlf.kdndapp.ui.theme.clBrown2
-import com.mlf.kdndapp.ui.theme.clBrown3
-import com.mlf.kdndapp.ui.theme.clBrown5
-import com.mlf.kdndapp.ui.theme.clWhite
-import com.mlf.kdndapp.ui.theme.clYellow3
-import com.mlf.kdndapp.ui.theme.clYellow4
-import com.mlf.kdndapp.ui.theme.dimButStroke
-import com.mlf.kdndapp.ui.theme.dimMainPadding
-import com.mlf.kdndapp.ui.theme.dimTextFont
+import com.dndlib.res.Res
+import com.mlf.kdndapp.ui.theme.*
 
 
 class CharActivity : ComponentActivity()
@@ -64,7 +57,7 @@ class CharActivity : ComponentActivity()
         super.onCreate(savedInstanceState)
         //val name = intent?.extras?.getString("char").toString()
 
-        val car = DNDChar("Nestor", ERace.DUERGAR, EClass.FIGHTER)
+        val car = DNDChar("Nestor", Res.randomItem(ERace.values()), Res.randomItem(EClass.values()))
         var ab = 10
 
         car.addFeat(EFeat.LUCKY)
@@ -78,9 +71,6 @@ class CharActivity : ComponentActivity()
         val strChar = DNDCharManager.toString(car)
         Log.e(APP_TAG, "--------------- JSON ---------------------")
         Log.e(APP_TAG, strChar)
-
-        val fileKlass = "klass/" + car.klass.name.lowercase() + ".png"
-        val fileGender = "gender/" + car.gender.name.lowercase() + ".png"
 
         setContent {
             Box(
@@ -131,34 +121,14 @@ class CharActivity : ComponentActivity()
                         modifier = Modifier.size(140.dp)
                     )
                     {
-                        Image(contentDescription = "",
-                            bitmap = getImageRace(race = car.race, gender = car.gender),
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .clip(CircleShape)
-                                .border(shape = CircleShape, width = dimButStroke, color = clBrown3),
-                        )
-                        Image(contentDescription = "",
-                            bitmap = getImageKlass(klass = car.klass),
-                            contentScale = ContentScale.Fit,
-                            colorFilter = ColorFilter.tint(clYellow4, BlendMode.SrcAtop),
-                            modifier = Modifier
-                                .size(50.dp).
-                                align(alignment = Alignment.BottomEnd)
-                                .clip(CircleShape).background(clBrown2)
-                                .border(shape = CircleShape, width = 3.dp, color = clYellow4),
-                        )
-                        Image(contentDescription = "",
-                            bitmap = getImageGender(gender = car.gender),
-                            contentScale = ContentScale.Fit,
-                            colorFilter = ColorFilter.tint(clYellow4, BlendMode.SrcAtop),
-                            modifier = Modifier
-                                .size(30.dp)
-                                .align(alignment = Alignment.TopEnd)
-                                .clip(CircleShape).background(clBrown2)
-                                .border(shape = CircleShape, width = 3.dp, color = clYellow4),
-                        )
+                        ShowRoundImage(bitmap = getImageRace(race = car.race, gender = car.gender), size = 140.dp, tint = false)
+
+                        ShowRoundImage(bitmap = getImageKlass(car.klass), size = 50.dp,
+                            modifier = Modifier.align(alignment = Alignment.BottomEnd))
+
+                        ShowRoundImage(bitmap = getImageGender(car.gender), size = 40.dp,
+                            modifier = Modifier.align(alignment = Alignment.BottomStart))
+
                     }
                     Column(modifier = Modifier.fillMaxWidth())
                     {
@@ -211,7 +181,32 @@ class CharActivity : ComponentActivity()
         return img.asImageBitmap()
     }
 }
+@Composable
+fun ShowRoundImage(modifier: Modifier = Modifier,
+                   bitmap: ImageBitmap,
+                   size : Dp,
+                   stroke : Dp = dimStrokeContent,
+                   tint : Boolean = true)
+{
+    
 
+    Box(contentAlignment = Alignment.Center,
+        modifier = modifier
+            .size(size)
+            .clip(CircleShape)
+            .background(clContentBg)
+            .border(shape = CircleShape, width = stroke, color = clContentStroke)
+            .padding(stroke),
+    )
+    {
+        Image(contentDescription = null,
+            bitmap = bitmap,
+            contentScale = ContentScale.Fit,
+            colorFilter = if(tint){ ColorFilter.tint(clYellow4, BlendMode.SrcAtop) } else { null },
+            modifier = Modifier.fillMaxSize()
+        )
+    }
+}
 
 
 

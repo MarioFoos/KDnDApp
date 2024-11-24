@@ -49,6 +49,9 @@ val clSecondary = clBrown4
 val clTertiary = clBrown5
 
 val dimMainPadding = 16.dp
+val dimStrokeContent = 3.dp
+val clContentStroke = clYellow4
+val clContentBg = clBrown3
 
 // Spacer
 val dimSpaceH = 8.dp
