@@ -570,7 +570,21 @@
 		<!-- GUI Page-->
 		<level>Nivel</level>
 		<level_desc>Nivel del personaje</level_desc>
+		<inspiration>Inspiración</inspiration>
+		<inspiration_desc>Si posees inspiración, puedes gastarla cuando hagas una tirada de ataque, tirada de salvación o prueba de característica para obtener ventaja en la tirada en cuestión.
+Asimismo, si tienes inspiración podrás recompensar a otro personaje por una buena interpretación, una idea inteligente o simplemente por realizar algo emocionante durante la partida. Cuando otro personaje haga un acto que verdaderamente aporte un elemento divertido o interesante a la historia, podrás renunciar a tu inspiración para dársela a él.
+		</inspiration_desc>
 		<gender>Género</gender>
+		<height>Altura</height>
+		<weight>Peso</weight>
+		<age>Edad</age>
+		<speed>Velocidad</speed>
+		<alignment>Alineamiento</alignment>
+		
+		<racials>Raciales</racials>
+		<no_racials>Ninguna</no_racials>
+		<languages>Idiomas</languages>
+		<feats>Dotes</feats>
 	</misc>
 	<formatted>
 		<hit_dice>1{klass_dice} por nivel de {klass}.</hit_dice>

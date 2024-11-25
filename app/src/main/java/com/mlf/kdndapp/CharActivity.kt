@@ -11,17 +11,14 @@ import android.view.Window
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,8 +28,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -57,6 +52,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dndlib.DNDChar
 import com.dndlib.base.EAbility
+import com.dndlib.base.EAlignment
 import com.dndlib.base.EBackground
 import com.dndlib.base.EClass
 import com.dndlib.base.ECoin
@@ -69,15 +65,22 @@ import com.dndlib.res.ComTools
 import com.dndlib.res.Res
 import kotlin.math.roundToInt
 
+private val coinIcons = arrayOf(R.drawable.coin_platinum, R.drawable.coin_gold,  R.drawable.coin_electrum, R.drawable.coin_silver, R.drawable.coin_cupper)
+private val coinTypes = arrayOf(ECoin.PLATINUM, ECoin.GOLD, ECoin.ELECTRUM, ECoin.SILVER, ECoin.CUPPER)
+
+data class DEntry(val key: String, val value: String)
+
 class CharActivity : ComponentActivity()
 {
-    private val coinIcons = arrayOf(R.drawable.coin_platinum, R.drawable.coin_gold,  R.drawable.coin_electrum, R.drawable.coin_silver, R.drawable.coin_cupper)
-    private val coinTypes = arrayOf(ECoin.PLATINUM, ECoin.GOLD, ECoin.ELECTRUM, ECoin.SILVER, ECoin.CUPPER)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
 
-        var offset: Offset = Offset(0f, 0f)
+//        val sp_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 18f, resources.displayMetrics);
+//        Log.e(APP_TAG, "PX: " + sp_px)
+//        val dp_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18f, resources.displayMetrics);
+//        Log.e(APP_TAG, "PX: " + dp_px)
+//        Log.e(APP_TAG, "density: " + resources.displayMetrics.density)
 
         val race = Res.randomItem(ERace.values())
         val klass = Res.randomItem(EClass.values())
@@ -89,6 +92,7 @@ class CharActivity : ComponentActivity()
         val car = DNDChar(name, race, klass)
         car.genAge(stageOfLife)
         car.setWealth(ComTools.random(30L, 500L))
+        car.alignment = Res.randomItem(EAlignment.values())
         car.addFeat(EFeat.LUCKY)
 
         var ab = 10
@@ -109,42 +113,19 @@ class CharActivity : ComponentActivity()
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(dimensionResource(R.dimen.dimMainPadding))
-                    .verticalScroll(rememberScrollState())
-                    .pointerInput(Unit) {
-                        detectTapGestures {
-                            offset = it
-                            Log.e(APP_TAG, it.toString())
-                        }},
+                    .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top
             ) {
                 // Oro
-                Row(verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.End,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(24.dp)
-                        .background(colorResource(R.color.clBrown1)))
-                {
-                    coinTypes.forEachIndexed {
-                        index, type ->
-                        Text(
-                            modifier = Modifier.padding(2.dp),
-                            text = " " + car.wealth.get(type).toString(),
-                            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
-                            color = colorResource(id = R.color.clWhite))
-                        Image(
-                            modifier = Modifier.padding(2.dp),
-                            painter = painterResource(id = coinIcons[index]),
-                            contentDescription = null)
-                    }
-                }
+                ShowWealth(car = car)
+                SpaceV()
                 // Raza, clase, género
                 // Básicos
                 Row(verticalAlignment = Alignment.Top,
                     horizontalArrangement = Arrangement.Start,
                     modifier = Modifier
-                        .height(140.dp)
+                        .height(dimensionResource(R.dimen.dimProfile))
                         .fillMaxWidth())
                 {
                     Box(contentAlignment = Alignment.Center,
@@ -169,8 +150,7 @@ class CharActivity : ComponentActivity()
                                 dialogInfo(this@CharActivity,
                                     posx = offset.x.roundToInt(),
                                     posy = offset.y.roundToInt(),
-                                    title = Res.getLocale("gender"),
-                                    desc = Res.getLocale("gender"))
+                                    title = Res.getLocale("gender"))
                             })
                         ShowRoundContent(number = car.level, size = dimensionResource(R.dimen.dimLevel),
                             modifier = Modifier.align(alignment = Alignment.TopStart),
@@ -181,32 +161,20 @@ class CharActivity : ComponentActivity()
                                     title = Res.getLocale("level"),
                                     desc = Res.getLocale("level_desc"))
                             })
+                        ShowRoundContent(number = car.inspiration, size = dimensionResource(R.dimen.dimLevel),
+                            modifier = Modifier.align(alignment = Alignment.TopEnd),
+                            onClick = { offset ->
+                                dialogInfo(this@CharActivity,
+                                    posx = offset.x.roundToInt(),
+                                    posy = offset.y.roundToInt(),
+                                    title = Res.getLocale("inspiration"),
+                                    desc = Res.getLocale("inspiration_desc"))
+                            })
                     }
+                    SpaceH()
                     Column(modifier = Modifier.fillMaxWidth())
                     {
-                        Text(
-                            text = car.name,
-                            modifier = Modifier.fillMaxWidth(),
-                            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
-                            fontWeight = FontWeight.Bold,
-                            textAlign = TextAlign.Center,
-                        )
-                        Button(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .focusable(true),
-                            contentPadding = PaddingValues(8.dp, 0.dp),
-                            onClick = { },
-                            enabled = true,
-                            colors = ButtonDefaults.buttonColors(
-                                colorResource(R.color.clButBrownEnBg),
-                                colorResource(R.color.clButBrownEnText),
-                                colorResource(R.color.clButBrownDisBg),
-                                colorResource(R.color.clButBrownDisText)),
-                            border = BorderStroke(dimensionResource(R.dimen.dimButStroke),
-                                colorResource(R.color.clButBrownEnStroke)),
-                            shape =  controlShape
-                        ) {}
+                        ShowBasics(car)
                     }
                 }
             }
@@ -295,10 +263,95 @@ private fun dialogInfo(context: Context, title: String = "", desc: String = "",
 *                                               COMPOSABLES
 *******************************************************************************************************************/
 
+
+@Composable
+fun ShowBasics(car: DNDChar)
+{
+    var arrSimple : ArrayList<DEntry> = ArrayList()
+
+    arrSimple.add(DEntry(Res.getLocale("height") + ": ", car.height.toString()))
+    arrSimple.add(DEntry(Res.getLocale("weight") + ": ", car.weight.toString()))
+    arrSimple.add(DEntry(Res.getLocale("age") + ": ", car.age.toString() + " " + Res.getLocale("years")))
+    arrSimple.add(DEntry(Res.getLocale("alignment") + ": ", Res.getLocale(car.alignment)))
+    arrSimple.add(DEntry(Res.getLocale("speed") + ": ", car.speed.toString()))
+
+    Column(modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.Top)
+    {
+        // Nombre
+        Text(
+            text = car.name,
+            modifier = Modifier.fillMaxWidth(),
+            fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+        )
+        // Características básicas
+        arrSimple.forEachIndexed { index, dEntry ->
+            Row(modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.Top)
+            {
+                Text(text = arrSimple[index].key,
+                    fontSize = dimensionResource(R.dimen.dimFontBasics).value.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(text = arrSimple[index].value,
+                    fontSize = dimensionResource(R.dimen.dimFontBasics).value.sp,
+                    fontWeight = FontWeight.Normal
+                )
+            }
+        }
+    }
+    /*Text(text = strRacials + ": ",
+        fontSize = dimensionResource(R.dimen.dimFontBasics).value.sp,
+        fontWeight = FontWeight.Bold
+    )
+    Row(modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.Top)
+    {
+        arrRacials.forEachIndexed { index, mutableEntry ->
+            Text(modifier = Modifier.border(1.dp, Color.Green),
+                text = mutableEntry.value,
+                fontSize = dimensionResource(R.dimen.dimFontBasics).value.sp,
+                fontWeight = FontWeight.Normal
+            )
+        }
+    }*/
+}
+@Composable
+fun ShowWealth(car: DNDChar)
+{
+    Row(verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.End,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(colorResource(R.color.clBrown1))
+            .padding(dimensionResource(R.dimen.dimCoinPadding))
+    )
+    {
+        coinTypes.forEachIndexed { index, type ->
+            Text(text = car.wealth.get(type).toString(),
+                fontSize = dimensionResource(R.dimen.dimFontWealth).value.sp,
+                fontWeight = FontWeight.Bold,
+                color = colorResource(id = R.color.clWhite)
+            )
+            Image(
+                modifier = Modifier
+                    .padding(dimensionResource(R.dimen.dimCoinPadding), 0.dp)
+                    .height(dimensionResource(R.dimen.dimFontWealth).value.dp),
+                painter = painterResource(id = coinIcons[index]),
+                contentDescription = null
+            )
+        }
+    }
+}
 @Composable
 fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
                      bitmap: ImageBitmap? = null,
-                     number: Int = 0,
+                     number: Int? = null,
                      tint : Boolean = true,
                      onClick: (offset: Offset)->Unit = { _ -> },
                      onLongClick: (offset: Offset)->Unit = { _ -> })
@@ -318,11 +371,12 @@ fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = { offset -> onClick(offset) },
-                    onLongPress = { offset ->  onLongClick(offset) }
-                )}
+                    onLongPress = { offset -> onLongClick(offset) }
+                )
+            }
     )
     {
-        if(number > 0)
+        if(number != null)
         {
             Text(
                 text = number.toString(),

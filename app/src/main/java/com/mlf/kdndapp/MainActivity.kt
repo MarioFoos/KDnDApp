@@ -171,7 +171,7 @@ class MainActivity : ComponentActivity()
                         SpaceV()
                         Text(text = Res.getLocale(ethnic, "desc"),
                             modifier = Modifier.fillMaxWidth(),
-                            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+                            fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
                         )
                         SpaceV()
                     }
@@ -290,14 +290,14 @@ fun ShowFeat(feat : EFeat)
     {
         Text(text = prerequisite,
             modifier = Modifier.fillMaxWidth(),
-            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+            fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Italic
         )
     }
     Text(text = desc,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp
     )
 }
 @Composable
@@ -322,49 +322,49 @@ fun ShowAbilitiesForClass(klass : EClass)
     }
     Text(text = Res.getLocale(klass, "desc"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = Res.getLocale("hit_point"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
         fontWeight = FontWeight.Bold,
     )
     Text(text = "• " + Res.getLocale("hit_dice") + ": " + Res.getLocaleF("hit_dice", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = "• " + Res.getLocale("hit_points_level_1") + ": " + Res.getLocaleF("hit_points_level_1", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = "• " + Res.getLocale("hit_points_other") + ": " + Res.getLocaleF("hit_points_other", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = Res.getLocale("class_features"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
         fontWeight = FontWeight.Bold,
     )
     Text(text = armor,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = "• " + Res.getLocale("weapons") + ": " + Res.asSentence(weapons).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = "• " + Res.getLocale("tools") + ": " + tools.lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = "• " + Res.getLocale("saving_throw") + ": " + Res.asSentence(Res.getLocale(klass.savingThrow)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = "• " + Res.getLocale("skills") + ": " + skills,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
 }
 @Composable
@@ -380,7 +380,7 @@ fun ShowAbilitiesForRace(race : ERace)
         val columns = Res.columns(arrCols)
         Text(text = Res.getLocale("ability_bonus"),
             modifier = Modifier.fillMaxWidth(),
-            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+            fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
             fontWeight = FontWeight.Bold,
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -388,23 +388,23 @@ fun ShowAbilitiesForRace(race : ERace)
                 Text(text = it,
                     modifier = Modifier
                         .weight(1f, true),
-                    fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+                    fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
                 )
             }
         }
     }
     Text(text = Res.getLocale("racial_abilities"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
         fontWeight = FontWeight.Bold,
     )
     Text(text = Res.getLocale("speed") + ": " + race.speed.toString(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     Text(text = Res.getLocale("languages") + ": " + Res.asSentence(Res.getLocale(race.languages)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+        fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
     )
     val racialAbilities = ERace.getRacialAbilities(race)
     if(racialAbilities.isNotEmpty())
@@ -412,7 +412,7 @@ fun ShowAbilitiesForRace(race : ERace)
         Res.getLocale(racialAbilities).forEach {
             Text(text = "• " + it.value,
                 modifier = Modifier.fillMaxWidth(),
-                fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+                fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
             )
         }
     }
@@ -455,7 +455,7 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
             .focusable(),
         enabled = enabled,
         textStyle = TextStyle(
-            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
+            fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
             fontWeight = FontWeight.Bold,
             color = colorResource(clText)
         ),
@@ -561,7 +561,7 @@ fun <T> ShowDropDown(
                     text = {
                         Text(text = username.value,
                         modifier = Modifier.fillMaxWidth(),
-                        fontSize = dimensionResource(R.dimen.dimButFont).value.sp) },
+                        fontSize = dimensionResource(R.dimen.dimFontBut).value.sp) },
                     onClick = {
                         menuExpanded.value = false
                         itemPosition.value = index
@@ -600,7 +600,7 @@ fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = t
                 text = text,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
-                fontSize = dimensionResource(R.dimen.dimButFont).value.sp,
+                fontSize = dimensionResource(R.dimen.dimFontBut).value.sp,
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis

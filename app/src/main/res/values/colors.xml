@@ -48,6 +48,8 @@
     <color name="clSecondary">@color/clBrown4</color>
     <color name="clTertiary">@color/clBrown5</color>
 
+    <color name="clDialogBg">#f1ebd5</color>
+
     <!-- CONTENIDO  -->
     <color name="clContentStroke">@color/clYellow4</color>
     <color name="clContentBg">@color/clBrown3</color>

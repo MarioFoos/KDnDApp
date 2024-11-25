@@ -4,8 +4,11 @@
     <dimen name="dimFontLarge">20sp</dimen>
     <dimen name="dimFontNormal">18sp</dimen>
     <dimen name="dimFontSmall">16sp</dimen>
-    <dimen name="dimButFont">18sp</dimen>
-    <dimen name="dimTextFont">18sp</dimen>
+
+    <dimen name="dimFontBut">18sp</dimen>
+    <dimen name="dimFontText">18sp</dimen>
+    <dimen name="dimFontWealth">20sp</dimen>
+    <dimen name="dimFontBasics">16sp</dimen>
 
     <!-- SPACER -->
     <dimen name="dimSpaceH">8dp</dimen>
@@ -29,6 +32,15 @@
 
     <!-- Dialog -->
     <dimen name="dimDialogPadding">8dp</dimen>
+    <dimen name="dimDialogStroke">2dp</dimen>
+
+    <!-- HOJA DE PERSONAJE -->
+    <dimen name="dimRowWealth">32dp</dimen>
+    <dimen name="dimCoinPadding">4dp</dimen>
+    <dimen name="dimRowChar">150dp</dimen>
+
+    <!-- RIQUEZA -->
+    <dimen name="dimCoindPaddin">4dp</dimen>
 
     <!-- Controls margin -->
     <dimen name="control_margin_normal">4dp</dimen>
