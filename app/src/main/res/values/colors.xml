@@ -50,9 +50,14 @@
 
     <color name="clDialogBg">#f1ebd5</color>
 
+    <!-- RACIAL TEXT  -->
+    <color name="racialFace">@color/clBlack</color>
+    <color name="racialBg">#80FFFFFF</color>
+
     <!-- CONTENIDO  -->
-    <color name="clContentStroke">@color/clYellow4</color>
-    <color name="clContentBg">@color/clBrown3</color>
+    <color name="contentFace">@color/clYellow5</color>
+    <color name="contentBg">@color/clBrown3</color>
+    <color name="contentStroke">@color/clYellow5</color>
 
     <!-- BOTONES  -->
     <color name="clButBrownEnBg">@color/clBrown3</color>

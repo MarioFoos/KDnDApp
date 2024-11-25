@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="viewStart"
         android:textColor="@color/clBlack"
-        android:textSize="@dimen/dimFontLarge"
+        android:textSize="@dimen/fontLarge"
         android:textStyle="bold"
         tools:text="Titulo de prueba" />
 
@@ -23,9 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimSpaceV"
+        android:overScrollMode="ifContentScrolls"
         android:textAlignment="viewStart"
         android:textColor="@color/clBlack"
-        android:textSize="@dimen/dimFontNormal"
+        android:textSize="@dimen/fontNormal"
         tools:text="Texto de prueba de la descripción" />
 
 </LinearLayout>

@@ -178,7 +178,7 @@
 			<tool_proficieney>Competencia con Herramientas</tool_proficieney>
 			<dwarven_toughness>Aguante Enano</dwarven_toughness>
 			<dwarven_armor_training>Entrenamiento con Armadura Enana</dwarven_armor_training>
-			<fey_ancestry>Ascendencia Feérica</fey_ancestry>
+			<fey_ancestry>Linaje Feérico</fey_ancestry>
 			<trance>Trance</trance>
 			<keen_senses>Sentidos Agudos</keen_senses>
 			<elf_weapon_training>Entrenamiento con Armas Élficas</elf_weapon_training>
@@ -187,6 +187,7 @@
 			<fleet_of_foot>Pies Veloces</fleet_of_foot>
 			<mask_of_the_wild>Máscara de la Naturaleza</mask_of_the_wild>
 			<sunlight_sensitivity>Sensibilidad a la Luz Solar</sunlight_sensitivity>
+			<SUPERIOR_DARKVISION>Visión en la Oscuridad Superior</SUPERIOR_DARKVISION>
 			<drow_magic>Magia Drow</drow_magic>
 			<drow_weapon_training>Entrenamiento con Armas Drow</drow_weapon_training>
 			<lucky>Afortunado</lucky>
@@ -470,6 +471,101 @@
 		</EGear>
 	</enums>
 	<info>
+		<ERace>
+			<DWARF>
+				<DARKVISION>Acostumbrado a la vida bajo tierra, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+				<DWARVEN_RESILIENEE>Tienes ventaja en las tiradas de salvación contra veneno y posees resistencia al daño de veneno (como se explica en el capítulo 9: “Combate”).	</DWARVEN_RESILIENEE>
+				<STONEEUNNING> Cuando hagas una prueba de Inteligencia (Historia) que tenga relación con el origen de un trabajo en piedra, se te considerará competente en la habilidad Historia y añadirás dos veces tu bonificador por competencia a la tirada, en lugar de solo una.</STONEEUNNING>
+				<DWARVEN_COMBAT_TRAINING>Eres competente con hachas de guerra, hachas de mano, martillos de guerra y martillos ligeros.</DWARVEN_COMBAT_TRAINING>
+				<TOOL_PROFICIENEY>Eres competente con las herramientas de artesano que elijas de entre las siguientes: herramientas de albañil, herramientas de herrero o suministros de cervecero.</TOOL_PROFICIENEY>
+			</DWARF>
+			<HILL_DWARF>
+				<DWARVEN_TOUGHNESS>Tus puntos de golpe máximos se incrementan en 1, y aumentarán en 1 más cada vez que subas un nivel.</DWARVEN_TOUGHNESS>
+			</HILL_DWARF>
+			<MOUNTAIN_DWARF>
+				<DWARVEN_ARMOR_TRAINING>Eres competente con armaduras ligeras y medias.</DWARVEN_ARMOR_TRAINING>
+			</MOUNTAIN_DWARF>
+			<DUERGAR>
+			</DUERGAR>
+			<ELF>
+				<DARKVISION>Acostumbrado a la penumbra de los bosques y el cielo nocturno, puedes ver bien en la oscuridad o con poca luz. Hasta a un máximo de 60 pies, eres capaz de ver con luz tenue como si hubiera luz brillante y en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+				<KEEN_SENSES>Eres competente en la habilidad Percepción.</KEEN_SENSES>
+				<FEY_ANCESTRY>Tienes ventaja en las tiradas de salvación para evitar ser hechizado y la magia no puede dormirte.</FEY_ANCESTRY>
+				<TRANCE>Los elfos no necesitan dormir. Meditan profundamente, en un estado semiconsciente, durante 4 horas al día. La palabra en común para referirse a esta meditación es “trance”. Mientras meditas, experimentas algo parecido a sueños, que en realidad son ejercicios mentales que se han vuelto automáticos tras años de práctica. Este trance es suficiente para obtener los mismos beneficios que un humano recibe de 8 horas de sueño.</TRANCE>
+			</ELF>
+			<HIGH_ELF>
+				<ELF_WEAPON_TRAINING>Eres competente con espadas cortas, espadas largas, arcos cortos y arcos largos.</ELF_WEAPON_TRAINING>
+				<CANTRIP>Conoces un truco de tu elección escogido de entre los de la lista de conjuros de mago. La Inteligencia es tu aptitud mágica para lanzarlo.</CANTRIP>
+			</HIGH_ELF>
+			<WOOD_ELF>
+				<ELF_WEAPON_TRAINING>Eres competente con espadas cortas, espadas largas, arcos cortos y arcos largos.</ELF_WEAPON_TRAINING>
+				<FLEET_OF_FOOT>Tu velocidad caminando base aumenta a 35 pies.</FLEET_OF_FOOT>
+				<MASK_OF_THE_WILD>Puedes intentar esconderte incluso cuando estés en un lugar solo ligeramente oscuro, siempre que lo que te tape sea follaje, una lluvia fuerte, nieve que cae, niebla o cualquier otro fenómeno natural.</MASK_OF_THE_WILD>
+			</WOOD_ELF>
+			<DARK_ELF>
+				<SUPERIOR_DARKVISION>Tu Visión en la Oscuridad posee un radio de 120 pies.</SUPERIOR_DARKVISION>
+				<SUNLIGHT_SENSITIVITY>Tienes desventaja en las tiradas de ataque y las pruebas de Sabiduría (Percepción) que dependan de la vista realizadas cuando tú, el objetivo de tu ataque o lo que sea que intentas percibir esté bajo la luz solar directa.</SUNLIGHT_SENSITIVITY>
+				<DROW_MAGIC>Conoces el truco luces danzantes. Cuando llegas a nivel 3, puedes lanzar el conjuro fuego feérico una vez usando este tributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. Cuando alcanzas el nivel 5, eres capaz de lanzar el conjuro oscuridad una vez empleando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. El Carisma es tu aptitud mágica para estos conjuros.</DROW_MAGIC>
+				<DROW_WEAPON_TRAINING>Eres competente con estoques, espadas cortas y ballestas de mano.</DROW_WEAPON_TRAINING>
+			</DARK_ELF>
+			<HALFLING>
+				<LUCKY>Cuando saques un 1 en el dado al hacer una tirada de ataque, prueba de característica o tirada de salvación, puedes volver a tirar el dado, pero tendrás que utilizar el resultado nuevo.</LUCKY>
+				<BRAVE>Posees ventaja en las tiradas de salvación para evitar ser asustado.</BRAVE>
+				<HALFLING_NIMBLENESS>Puedes moverte a través del espacio ocupado por una criatura cuyo tamaño sea, al menos, una categoría superior al tuyo.</HALFLING_NIMBLENESS>
+			</HALFLING>
+			<LIGHTFOOT>
+				<NATURALLY_STEALTHY>Puedes intentar esconderte incluso tras una criatura cuyo tamaño sea, al menos, una categoría superior al tuyo.</NATURALLY_STEALTHY>
+			</LIGHTFOOT>
+			<STOUT>
+				<STOUT_RESILIENCE>Tienes ventaja en las tiradas de salvación contra veneno y posees resistencia al daño de veneno.</STOUT_RESILIENCE>
+			</STOUT>
+			<HUMAN>
+			</HUMAN>
+			<VARIANT_HUMAN>
+				<FEAT>Obtienes una dote de tu elección.</FEAT>
+			</VARIANT_HUMAN>
+			<DRAGONBORN>
+				<DRACONIC_ANCESTRY>Posees la sangre de dragones. Escoge de qué tipo en la tabla “linaje dracónico”. Tu Ataque de Aliento y Resistencia al Daño vendrán determinadas por el tipo de dragón, tal y como se indica en dicha tabla.</DRACONIC_ANCESTRY>
+				<BREATH_WEAPON>Puedes utilizar tu acción para exhalar energía destructora. Tu Linaje Dracónico determina el tamaño, forma y tipo de daño del aliento.
+Cuando uses tu Ataque de Aliento, las criaturas que se encuentren en la zona cubierta por este deberán hacer una tirada de salvación, cuyo tipo viene definido por tu linaje. La CD de
+esta tirada de salvación es de 8 + tu modificador por Constitu ción + tu bonificador por competencia. Las criaturas sufrirán 2d6 de daño si fallan la tirada o la mitad de ese daño si la superan. El daño aumenta a 3d6 cuando alcanzas el nivel 6, a 4d6 a nivel 11 y a 5d6 a nivel 16.
+Una vez utilizado el Ataque de Aliento, no podrás volver a emplearlo hasta que finalices un descanso corto o largo.</BREATH_WEAPON>
+				<DAMAGE_RESISTANCE>Posees resistencia al tipo de daño asociado a tu Linaje Dracónico.</DAMAGE_RESISTANCE>
+			</DRAGONBORN>
+			<GNOME>
+				<DARKVISION>Acostumbrado a la vida bajo tierra, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+				<GNOME_CUNNING>Tienes ventaja en las tiradas de salvación de Inteligencia, Sabiduría y Carisma contra magia.</GNOME_CUNNING>
+			</GNOME>
+			<FOREST_GNOME>
+				<NATURAL_ILLUSIONIST>Conoces el truco ilusión menor. La Inteligencia es tu aptitud mágica para lanzarlo.</NATURAL_ILLUSIONIST>
+				<SPEAK_WITH_SMALL_BEASTS>Puedes comunicar ideas sencillas a bestias de tamaño Pequeño o inferior usando gestos y sonidos. Los gnomos de los bosques adoran a los animales y en ocasiones adoptan ardillas, tejones, conejos, topos, pájaros carpinteros y otras criaturas similares como mascotas.</SPEAK_WITH_SMALL_BEASTS>
+			</FOREST_GNOME>
+			<ROCK_GNOME>
+				<ARTIFICERS_LORE>Cuando hagas una prueba de Inteligencia (Historia) que tenga relación con objetos mágicos, alquímicos o tecnológicos, se te considerará competente en la habilidad Historia y añadirás dos veces tu bonificador por competencia a la tirada, en lugar de solo una.</ARTIFICERS_LORE>
+				<TINKER>Eres competente con las siguientes herramientas de artesano: herramientas de manitas. Usándolas, puedes invertir 1 hora y materiales valorados en 10 po para construir un dispositivo de relojería de tamaño Diminuto (CA 5, 1 punto de golpe). Este dispositivo deja de funcionar pasadas 24 horas (salvo si dedicas 1 hora a repararlo para mantenerlo a punto) o si usas una acción para desmantelarlo. De hacer esto último, puedes recuperar los materiales que usaste en la construcción. Puedes tener hasta tres dispositivos de este tipo funcionando al mismo tiempo.
+Cada vez que construyas un dispositivo, elige de entre las siguientes opciones:
+• Juguete de relojería. Este juguete mecánico posee forma de un animal, monstruo o persona. Como, por ejemplo, de una rana, un ratón, un dragón o un soldado. Tras depositarlo en
+el suelo, se moverá 5 pies en una dirección aleatoria en cada uno de tus turnos. Hace ruidos apropiados para el ser que representa.
+• Encendedor. Este dispositivo produce una llama en miniatura, que puedes utilizar para encender una vela, antorcha u hoguera. Para usarlo es necesario invertir una acción.
+• Caja de música. Al abrirse, esta caja de música reproduce una única canción a un volumen moderado. La caja deja de sonar cuando la canción se acaba o es cerrada.</TINKER>
+			</ROCK_GNOME>
+			<HALFELF>
+				<DARKVISION>Debido a tu sangre élfica, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+				<FEY_ANCESTRY>Tienes ventaja en las tiradas de salvación para evitar ser hechizado y la magia no puede dormirte.</FEY_ANCESTRY>
+				<SKILL_VERSATILITY>Ganas competencia en dos habilidades de tu elección.</SKILL_VERSATILITY>
+			</HALFELF>
+			<HALFORC>
+				<DARKVISION>Debido a tu sangre orca, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+				<MENACING>Eres competente en la habilidad Intimidación.</MENACING>
+				<RELENTLESS_ENDURANCE>Cuando tus puntos de golpe se reducen a 0 pero no mueres instantáneamente, puedes volver a tener 1 punto de golpe. Una vez utilizado este atributo, deberás terminar un descanso largo para poder volver a usarlo otra vez.</RELENTLESS_ENDURANCE>
+				<SAVAGE_ATTACKS>Cuando hagas un crítico con un ataque con arma cuerpo a cuerpo, podrás tirar uno de los dados de daño del arma una vez más y añadir el resultado al daño adicional causado por el crítico.</SAVAGE_ATTACKS>
+			</HALFORC>
+			<TIEFLING>
+				<DARKVISION>Debido a tu sangre infernal, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+				<HELLISH_RESISTANCE>Posees resistencia al daño de fuego.</HELLISH_RESISTANCE>
+				<INFERNAL_LEGACY>Conoces el truco taumaturgia. Cuando llegas a nivel 3, puedes lanzar el conjuro reprensión infernal como conjuro de nivel 2 una vez usando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. Cuando alcanzas el nivel 5, eres capaz de lanzar el conjuro oscuridad una vez empleando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. El Carisma es tu aptitud mágica para estos conjuros.</INFERNAL_LEGACY>
+			</TIEFLING>
+		</ERace>
 		<EEthnicity>
 			<CALISHITE>
 				<desc>Más bajos y delgados que la mayoría de las otras etnias humanas, los calishitas tienen la tez morena, al igual que el pelo y los ojos. Se los encuentra sobre todo en el suroeste de Faerûn.</desc>
@@ -580,9 +676,7 @@ Asimismo, si tienes inspiración podrás recompensar a otro personaje por una bu
 		<age>Edad</age>
 		<speed>Velocidad</speed>
 		<alignment>Alineamiento</alignment>
-		
 		<racials>Raciales</racials>
-		<no_racials>Ninguna</no_racials>
 		<languages>Idiomas</languages>
 		<feats>Dotes</feats>
 	</misc>

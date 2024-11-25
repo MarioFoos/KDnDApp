@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -16,15 +17,18 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -46,6 +50,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -68,7 +73,7 @@ import kotlin.math.roundToInt
 private val coinIcons = arrayOf(R.drawable.coin_platinum, R.drawable.coin_gold,  R.drawable.coin_electrum, R.drawable.coin_silver, R.drawable.coin_cupper)
 private val coinTypes = arrayOf(ECoin.PLATINUM, ECoin.GOLD, ECoin.ELECTRUM, ECoin.SILVER, ECoin.CUPPER)
 
-data class DEntry(val key: String, val value: String)
+data class DEntry(val key: String = "", val value: String = "", val title: String = "", val desc: String = "")
 
 class CharActivity : ComponentActivity()
 {
@@ -82,7 +87,7 @@ class CharActivity : ComponentActivity()
 //        Log.e(APP_TAG, "PX: " + dp_px)
 //        Log.e(APP_TAG, "density: " + resources.displayMetrics.density)
 
-        val race = Res.randomItem(ERace.values())
+        val race = ERace.ROCK_GNOME//Res.randomItem(ERace.values())
         val klass = Res.randomItem(EClass.values())
         val stageOfLife = Res.randomItem(EStageOfLife.values())
         val ethnicity = Res.randomItem(EEthnicity.values())
@@ -120,14 +125,14 @@ class CharActivity : ComponentActivity()
                 // Oro
                 ShowWealth(car = car)
                 SpaceV()
-                // Raza, clase, género
-                // Básicos
+                // Pefil y Básicos
                 Row(verticalAlignment = Alignment.Top,
                     horizontalArrangement = Arrangement.Start,
                     modifier = Modifier
                         .height(dimensionResource(R.dimen.dimProfile))
                         .fillMaxWidth())
                 {
+                    // Perfil
                     Box(contentAlignment = Alignment.Center,
                         modifier = Modifier.size(dimensionResource(R.dimen.dimProfile))
                     )
@@ -139,36 +144,30 @@ class CharActivity : ComponentActivity()
                             modifier = Modifier.align(alignment = Alignment.BottomEnd),
                             onClick = { offset ->
                                 dialogInfo(this@CharActivity,
-                                    posx = offset.x.roundToInt(),
-                                    posy = offset.y.roundToInt(),
                                     title = Res.getLocale(car.klass),
-                                    desc = Res.getLocale(car.klass, "desc"))
+                                    desc = Res.getLocale(car.klass, "desc"),
+                                    offset = offset)
                             })
                         ShowRoundContent(bitmap = getImageGender(car.gender), size = dimensionResource(R.dimen.dimGender),
                             modifier = Modifier.align(alignment = Alignment.BottomStart),
                             onClick = { offset ->
-                                dialogInfo(this@CharActivity,
-                                    posx = offset.x.roundToInt(),
-                                    posy = offset.y.roundToInt(),
-                                    title = Res.getLocale("gender"))
+                                dialogInfo(context = this@CharActivity, title = Res.getLocale("gender"), offset = offset)
                             })
                         ShowRoundContent(number = car.level, size = dimensionResource(R.dimen.dimLevel),
                             modifier = Modifier.align(alignment = Alignment.TopStart),
                             onClick = { offset ->
                                 dialogInfo(this@CharActivity,
-                                    posx = offset.x.roundToInt(),
-                                    posy = offset.y.roundToInt(),
                                     title = Res.getLocale("level"),
-                                    desc = Res.getLocale("level_desc"))
+                                    desc = Res.getLocale("level_desc"),
+                                    offset = offset)
                             })
                         ShowRoundContent(number = car.inspiration, size = dimensionResource(R.dimen.dimLevel),
                             modifier = Modifier.align(alignment = Alignment.TopEnd),
                             onClick = { offset ->
                                 dialogInfo(this@CharActivity,
-                                    posx = offset.x.roundToInt(),
-                                    posy = offset.y.roundToInt(),
                                     title = Res.getLocale("inspiration"),
-                                    desc = Res.getLocale("inspiration_desc"))
+                                    desc = Res.getLocale("inspiration_desc"),
+                                    offset = offset)
                             })
                     }
                     SpaceH()
@@ -176,6 +175,13 @@ class CharActivity : ComponentActivity()
                     {
                         ShowBasics(car)
                     }
+                }
+                SpaceV()
+                Row(verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Start,
+                    modifier = Modifier.fillMaxWidth())
+                {
+                    ShowRacials(car = car, context = this@CharActivity)
                 }
             }
         }
@@ -216,9 +222,8 @@ class CharActivity : ComponentActivity()
         return img.asImageBitmap()
     }
 }
-
-private fun dialogInfo(context: Context, title: String = "", desc: String = "",
-                       posx : Int = -1, posy : Int = -1) {
+private fun dialogInfo(context: Context, title: String = "", desc: String = "", offset: Offset? = null)
+{
     val dialog = Dialog(context)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setCancelable(true)
@@ -248,13 +253,15 @@ private fun dialogInfo(context: Context, title: String = "", desc: String = "",
     {
         textDesc.visibility = View.VISIBLE
         textDesc.text = desc
+        textDesc.movementMethod = ScrollingMovementMethod()
+        //        tv1.setMovementMethod(new ScrollingMovementMethod());
     }
-    if(posx >= 0 && posy >= 0)
+    if(offset != null)
     {
         val wmlp = dialog.window!!.attributes
         wmlp.gravity = Gravity.TOP or Gravity.START
-        wmlp.x = posx
-        wmlp.y = posy
+        wmlp.x = offset.x.roundToInt()
+        wmlp.y = offset.y.roundToInt()
     }
     dialog.show()
 }
@@ -262,8 +269,71 @@ private fun dialogInfo(context: Context, title: String = "", desc: String = "",
 /******************************************************************************************************************
 *                                               COMPOSABLES
 *******************************************************************************************************************/
+@Composable
+fun ShowProfile(car: DNDChar, context: Context)
+{
 
+}
+@Composable
+fun ShowRacials(car: DNDChar, context: Context)
+{
+    var traits = ArrayList<DEntry>()
 
+    car.racialTraits.forEach {  item ->
+        traits.add(DEntry(value = Res.getLocale(item), title = Res.getLocale(item), desc = Res.getLocale(car.race, item)))
+    }
+
+    Text(text = Res.getLocale("racials") + ": ",
+        fontSize = dimensionResource(R.dimen.dimFontRacials).value.sp,
+        fontWeight = FontWeight.Bold
+    )
+    Row(modifier = Modifier
+        .fillMaxWidth()
+        .horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically)
+    {
+        traits.forEach { entry ->
+
+            /*Box(modifier = Modifier
+                .background(colorResource(R.color.contentBg))
+                .border(dimensionResource(R.dimen.contentStroke), colorResource(R.color.contentStroke))
+                .padding(dimensionResource(R.dimen.textPaddingX), dimensionResource(R.dimen.textPaddingY))
+            )*/
+            Box(modifier = Modifier
+                .background(colorResource(R.color.racialBg))
+                //.border(dimensionResource(R.dimen.contentStroke), colorResource(R.color.contentStroke))
+                .padding(dimensionResource(R.dimen.textPaddingX), 0.dp /*dimensionResource(R.dimen.textPaddingY)*/)
+            )
+            {
+                Text(text = entry.value,
+                    fontSize = dimensionResource(R.dimen.dimFontRacials).value.sp,
+                    fontWeight = FontWeight.Normal,
+                    textDecoration = TextDecoration.Underline,
+                    modifier = Modifier
+                        .pointerInput(Unit) {
+                            detectTapGestures(
+                                onTap = { offset -> dialogInfo(context, entry.title, entry.desc, offset) }
+                            )
+                        },
+                    color = colorResource(R.color.racialFace)
+                )
+                /*Text(text = entry.value,
+                    fontSize = dimensionResource(R.dimen.dimFontRacials).value.sp,
+                    fontWeight = FontWeight.Normal,
+                    modifier = Modifier
+                        .pointerInput(Unit) {
+                            detectTapGestures(
+                                onTap = { offset -> dialogInfo(context, entry.title, entry.desc, offset) }
+                            )
+                        },
+                    color = colorResource(R.color.contentFace)
+                )*/
+            }
+            Spacer(modifier = Modifier.width(dimensionResource(R.dimen.contentSpaceX)))
+        }
+    }
+}
 @Composable
 fun ShowBasics(car: DNDChar)
 {
@@ -283,7 +353,7 @@ fun ShowBasics(car: DNDChar)
         Text(
             text = car.name,
             modifier = Modifier.fillMaxWidth(),
-            fontSize = dimensionResource(R.dimen.dimFontText).value.sp,
+            fontSize = dimensionResource(R.dimen.fontText).value.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
         )
@@ -304,22 +374,6 @@ fun ShowBasics(car: DNDChar)
             }
         }
     }
-    /*Text(text = strRacials + ": ",
-        fontSize = dimensionResource(R.dimen.dimFontBasics).value.sp,
-        fontWeight = FontWeight.Bold
-    )
-    Row(modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.Top)
-    {
-        arrRacials.forEachIndexed { index, mutableEntry ->
-            Text(modifier = Modifier.border(1.dp, Color.Green),
-                text = mutableEntry.value,
-                fontSize = dimensionResource(R.dimen.dimFontBasics).value.sp,
-                fontWeight = FontWeight.Normal
-            )
-        }
-    }*/
 }
 @Composable
 fun ShowWealth(car: DNDChar)
@@ -328,23 +382,29 @@ fun ShowWealth(car: DNDChar)
         horizontalArrangement = Arrangement.End,
         modifier = Modifier
             .fillMaxWidth()
-            .background(colorResource(R.color.clBrown1))
-            .padding(dimensionResource(R.dimen.dimCoinPadding))
+            .background(colorResource(R.color.clBrown2))
+            .border(dimensionResource(R.dimen.contentStroke), colorResource(R.color.contentStroke))
+            .padding(dimensionResource(R.dimen.contentPadding))
     )
     {
         coinTypes.forEachIndexed { index, type ->
-            Text(text = car.wealth.get(type).toString(),
+            Text(
+                text = car.wealth.get(type).toString(),
                 fontSize = dimensionResource(R.dimen.dimFontWealth).value.sp,
                 fontWeight = FontWeight.Bold,
                 color = colorResource(id = R.color.clWhite)
             )
             Image(
                 modifier = Modifier
-                    .padding(dimensionResource(R.dimen.dimCoinPadding), 0.dp)
-                    .height(dimensionResource(R.dimen.dimFontWealth).value.dp),
+                    .height(dimensionResource(R.dimen.dimFontWealth).value.dp)
+                    .padding(dimensionResource(R.dimen.dimCoinPadding), 0.dp),
                 painter = painterResource(id = coinIcons[index]),
                 contentDescription = null
             )
+            if(index < coinTypes.size - 1)
+            {
+                SpaceH()
+            }
         }
     }
 }
@@ -361,13 +421,14 @@ fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
         modifier = modifier
             .size(size)
             .clip(CircleShape)
-            .background(colorResource(R.color.clContentBg))
+            .background(colorResource(R.color.contentBg))
+            .padding(dimensionResource(R.dimen.contentStroke))
             .border(
                 shape = CircleShape,
-                width = dimensionResource(R.dimen.dimStrokeContent),
-                color = colorResource(R.color.clContentStroke)
+                width = dimensionResource(R.dimen.contentStroke),
+                color = colorResource(R.color.contentFace)
             )
-            .padding(dimensionResource(R.dimen.dimStrokeContent))
+            .padding(dimensionResource(R.dimen.contentStroke))
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = { offset -> onClick(offset) },
@@ -385,7 +446,7 @@ fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
-                color = colorResource(R.color.clContentStroke)
+                color = colorResource(R.color.contentFace)
             )
         }
         else if(bitmap != null)
@@ -393,8 +454,11 @@ fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
             Image(contentDescription = null,
                 bitmap = bitmap,
                 contentScale = ContentScale.Fit,
-                colorFilter = if(tint){ ColorFilter.tint(colorResource(R.color.clYellow4), BlendMode.SrcAtop) } else { null },
-                modifier = Modifier.fillMaxSize()
+                colorFilter = if(tint){ ColorFilter.tint(colorResource(R.color.contentFace), BlendMode.SrcAtop) } else { null },
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(CircleShape)
+
             )
         }
     }

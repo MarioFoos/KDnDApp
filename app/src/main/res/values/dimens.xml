@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Gral fonts -->
-    <dimen name="dimFontLarge">20sp</dimen>
-    <dimen name="dimFontNormal">18sp</dimen>
-    <dimen name="dimFontSmall">16sp</dimen>
+    <dimen name="fontLarge">20sp</dimen>
+    <dimen name="fontNormal">18sp</dimen>
+    <dimen name="fontSmall">16sp</dimen>
 
-    <dimen name="dimFontBut">18sp</dimen>
-    <dimen name="dimFontText">18sp</dimen>
-    <dimen name="dimFontWealth">20sp</dimen>
-    <dimen name="dimFontBasics">16sp</dimen>
+    <dimen name="fontBut">@dimen/fontNormal</dimen>
+    <dimen name="fontText">@dimen/fontNormal</dimen>
+    <dimen name="dimFontWealth">@dimen/fontLarge</dimen>
+    <dimen name="dimFontBasics">@dimen/fontSmall</dimen>
+    <dimen name="dimFontRacials">@dimen/fontSmall</dimen>
 
     <!-- SPACER -->
     <dimen name="dimSpaceH">8dp</dimen>
-    <dimen name="dimSpaceV">2dp</dimen>
+    <dimen name="dimSpaceV">4dp</dimen>
 
     <!-- BOTONES -->
     <dimen name="dimButStroke">2dp</dimen>
+
+    <!-- CONTENIDO -->
+    <dimen name="contentStroke">2dp</dimen>
+    <dimen name="contentPadding">4dp</dimen>
+    <dimen name="contentSpaceX">4dp</dimen>
+    <dimen name="contentSpaceY">2dp</dimen>
+
+    <!-- TEXT -->
+    <dimen name="textPaddingX">8dp</dimen>
+    <dimen name="textPaddingY">4dp</dimen>
 
     <!-- TEXTFIELD -->
     <dimen name="dimEdFocusStroke">4dp</dimen>
     <dimen name="dimEdNormalStroke">2dp</dimen>
 
+
     <!-- PÁGINA DE PERSONAJE -->
     <dimen name="dimMainPadding">16dp</dimen>
-    <dimen name="dimStrokeContent">3dp</dimen>
     <dimen name="dimProfile">150dp</dimen>
     <dimen name="dimKlass">50dp</dimen>
     <dimen name="dimGender">40dp</dimen>
     <dimen name="dimLevel">40dp</dimen>
-    <dimen name="dimLevelFont">@dimen/dimFontLarge</dimen>
+    <dimen name="dimLevelFont">@dimen/fontLarge</dimen>
 
     <!-- Dialog -->
     <dimen name="dimDialogPadding">8dp</dimen>
@@ -36,7 +47,7 @@
 
     <!-- HOJA DE PERSONAJE -->
     <dimen name="dimRowWealth">32dp</dimen>
-    <dimen name="dimCoinPadding">4dp</dimen>
+    <dimen name="dimCoinPadding">2dp</dimen>
     <dimen name="dimRowChar">150dp</dimen>
 
     <!-- RIQUEZA -->
