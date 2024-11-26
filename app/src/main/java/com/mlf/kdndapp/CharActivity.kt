@@ -130,8 +130,9 @@ class CharActivity : ComponentActivity()
                     // Oro
                     ShowName(this@CharActivity, car)
                     SpaceV()
-                    ShowWealth2(context = this@CharActivity, wealth = carWealth, onChange = { wealth ->
+                    ShowWealth(context = this@CharActivity, wealth = carWealth, onChange = { wealth ->
                         carWealth = wealth
+                        car.wealth.total = wealth
                     })
                     SpaceV()
                     // Pefil y Básicos
@@ -237,27 +238,101 @@ class CharActivity : ComponentActivity()
         return img.asImageBitmap()
     }
 }
-private fun dialogWealth(context: Context,
-                         wealth: Long,
-                         onAccept: (newWealth: Long)->Unit = { _ -> })
+private fun dialogWealth(context: Context, wealth: Long, onAccept: (newWealth: Long)->Unit = { _ -> })
 {
+    var curWealth = DNDWealth(wealth)
+
     val dialog = Dialog(context)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setCancelable(true)
     dialog.setContentView(R.layout.wealth_layout)
 
     val butOk = dialog.findViewById(R.id.butOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butCancel)  as Button
+
+    val textPlatinum = dialog.findViewById(R.id.textPlatinum) as TextView
     val textGold = dialog.findViewById(R.id.textGold) as TextView
+    val textElectrum = dialog.findViewById(R.id.textElectrum) as TextView
+    val textSilver = dialog.findViewById(R.id.textSilver) as TextView
+    val textCupper = dialog.findViewById(R.id.textCupper) as TextView
 
+    val butPlatinumInc = dialog.findViewById(R.id.butPlatinumInc)  as Button
+    val butPlatinumDec = dialog.findViewById(R.id.butPlatinumDec)  as Button
+    val butGoldInc = dialog.findViewById(R.id.butGoldInc)  as Button
+    val butGoldDec = dialog.findViewById(R.id.butGoldDec)  as Button
+    val butElectrumInc = dialog.findViewById(R.id.butElectrumInc)  as Button
+    val butElectrumDec = dialog.findViewById(R.id.butElectrumDec)  as Button
+    val butSilverInc = dialog.findViewById(R.id.butSilverInc)  as Button
+    val butSilverDec = dialog.findViewById(R.id.butSilverDec)  as Button
+    val butCupperInc = dialog.findViewById(R.id.butCupperInc)  as Button
+    val butCupperDec = dialog.findViewById(R.id.butCupperDec)  as Button
+
+    fun showData()
+    {
+        var platinum = curWealth.get(ECoin.PLATINUM)
+        var gold = curWealth.get(ECoin.GOLD)
+        var electrum = curWealth.get(ECoin.ELECTRUM)
+        var silver = curWealth.get(ECoin.SILVER)
+        var cupper = curWealth.get(ECoin.CUPPER)
+
+        textPlatinum.text = platinum.toString()
+        textGold.text = gold.toString()
+        textElectrum.text = electrum.toString()
+        textSilver.text = silver.toString()
+        textCupper.text = cupper.toString()
+    }
+
+    butPlatinumInc.setOnClickListener {
+        curWealth.add(ECoin.PLATINUM, 1);
+        showData()
+    }
+    butPlatinumDec.setOnClickListener {
+        curWealth.substract(ECoin.PLATINUM, 1);
+        showData()
+    }
+    butGoldInc.setOnClickListener {
+        curWealth.add(ECoin.GOLD, 1);
+        showData()
+    }
+    butGoldDec.setOnClickListener {
+        curWealth.substract(ECoin.GOLD, 1);
+        showData()
+    }
+    butElectrumInc.setOnClickListener {
+        curWealth.add(ECoin.ELECTRUM, 1);
+        showData()
+    }
+    butElectrumDec.setOnClickListener {
+        curWealth.substract(ECoin.ELECTRUM, 1);
+        showData()
+    }
+    butSilverInc.setOnClickListener {
+        curWealth.add(ECoin.SILVER, 1);
+        showData()
+    }
+    butSilverDec.setOnClickListener {
+        curWealth.substract(ECoin.SILVER, 1);
+        showData()
+    }
+    butCupperInc.setOnClickListener {
+        curWealth.add(ECoin.CUPPER, 1);
+        showData()
+    }
+    butCupperDec.setOnClickListener {
+        curWealth.substract(ECoin.CUPPER, 1);
+        showData()
+    }
     butOk.setOnClickListener {
-        val gold = textGold.text.toString().toLong()
-        var curWealth = DNDWealth(wealth)
 
-        curWealth.add(ECoin.GOLD, gold)
         dialog.cancel()
         Log.e(APP_TAG, "onAccept: " + curWealth)
         onAccept(curWealth.total)
     }
+    butCancel.setOnClickListener {
+        dialog.cancel()
+    }
+
+    showData()
     dialog.show()
 }
 private fun dialogInfo(context: Context,
@@ -328,7 +403,7 @@ fun ShowName(context: Context, car: DNDChar)
     }
 }
 @Composable
-fun ShowWealth2(context: Context, wealth: Long, onChange: (newWealth: Long)->Unit = { _ -> })
+fun ShowWealth(context: Context, wealth: Long, onChange: (newWealth: Long)->Unit = { _ -> })
 {
     var showWealth by rememberSaveable { mutableStateOf(wealth) }
     val dndWealth = DNDWealth(showWealth)
@@ -357,52 +432,6 @@ fun ShowWealth2(context: Context, wealth: Long, onChange: (newWealth: Long)->Uni
         coinTypes.forEachIndexed { index, type ->
             Text(
                 text = dndWealth.get(type).toString(),
-                fontSize = dimensionResource(R.dimen.dimFontWealth).value.sp,
-                fontWeight = FontWeight.Bold,
-                color = colorResource(id = R.color.clWhite)
-            )
-            Image(
-                modifier = Modifier
-                    .height(dimensionResource(R.dimen.dimFontWealth).value.dp)
-                    .padding(dimensionResource(R.dimen.dimCoinPadding), 0.dp),
-                painter = painterResource(id = coinIcons[index]),
-                contentDescription = null
-            )
-            if(index < coinTypes.size - 1)
-            {
-                SpaceH()
-            }
-        }
-    }
-}
-@Composable
-fun ShowWealth(context: Context, wealth: Long, onChange: (newWealth: Long)->Unit = { _ -> })
-{
-    Log.e(APP_TAG, "ShowWealth: " + wealth)
-
-    val curWealth = DNDWealth(wealth)
-
-    Row(verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.End,
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(colorResource(R.color.clBrown2))
-            .border(dimensionResource(R.dimen.contentStroke), colorResource(R.color.contentStroke))
-            .padding(dimensionResource(R.dimen.contentPadding))
-            .pointerInput(Unit) {
-                detectTapGestures(
-                    onTap = { _ ->
-                        dialogWealth(context = context,
-                            wealth = wealth,
-                            onAccept = onChange)
-                    }
-                )
-            }
-    )
-    {
-        coinTypes.forEachIndexed { index, type ->
-            Text(
-                text = curWealth.get(type).toString(),
                 fontSize = dimensionResource(R.dimen.dimFontWealth).value.sp,
                 fontWeight = FontWeight.Bold,
                 color = colorResource(id = R.color.clWhite)

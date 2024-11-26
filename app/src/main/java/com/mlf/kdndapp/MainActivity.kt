@@ -434,9 +434,9 @@ fun ShowAbilitiesForRace(race : ERace)
 @Composable
 fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean = true)
 {
-    var clStroke by remember { mutableStateOf(R.color.clEdNormalStroke) }
-    var clText by remember { mutableStateOf(R.color.clEdEnText) }
-    var dimStroke by remember { mutableStateOf(R.dimen.dimEdNormalStroke) }
+    var clStroke by remember { mutableStateOf(R.color.editNormalStroke) }
+    var clText by remember { mutableStateOf(R.color.editNormalText) }
+    var dimStroke by remember { mutableStateOf(R.dimen.editNormalStroke) }
 
     BasicTextField(
         value = text,
@@ -444,12 +444,12 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
         modifier = Modifier
             .fillMaxWidth()
             .onFocusChanged {
-                dimStroke = if (it.hasFocus) R.dimen.dimEdFocusStroke else R.dimen.dimEdNormalStroke
-                clText = if (enabled) R.color.clEdEnText else R.color.clEdDisText
+                dimStroke = if (it.hasFocus) R.dimen.editFocusStroke else R.dimen.editNormalStroke
+                clText = if (enabled) R.color.editNormalText else R.color.editDisableText
                 clStroke = if (enabled) {
-                    if (it.hasFocus) R.color.clEdFocusStroke else R.color.clEdNormalStroke
+                    if (it.hasFocus) R.color.editFocusStroke else R.color.editNormalStroke
                 } else {
-                    R.color.clEdDisStroke
+                    R.color.editDisableStroke
                 }
             }
             .focusable(),
@@ -459,13 +459,13 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
             fontWeight = FontWeight.Bold,
             color = colorResource(clText)
         ),
-        cursorBrush = SolidColor(colorResource(R.color.clEdCursor)),
+        cursorBrush = SolidColor(colorResource(R.color.editCursor)),
         singleLine = true,
         decorationBox = { innerTextField ->
             Row(
                 Modifier
                     .fillMaxWidth()
-                    .background(colorResource(R.color.clEdEnBg), controlShape)
+                    .background(colorResource(R.color.editNormalBg), controlShape)
                     .border(dimensionResource(dimStroke), colorResource(clStroke), controlShape)
                     .padding(16.dp, 12.dp)
             ) {
@@ -574,8 +574,8 @@ fun <T> ShowDropDown(
 @Composable
 fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = true, icon : Int = 0)
 {
-    val clStroke = colorResource(if(enabled) R.color.clButBrownEnStroke else R.color.clButBrownDisStroke)
-    val clTint = colorResource(if(enabled) R.color.clButBrownEnText else R.color.clButBrownDisText)
+    val clStroke = colorResource(if(enabled) R.color.buttonNormalStroke else R.color.buttonDisableStroke)
+    val clTint = colorResource(if(enabled) R.color.buttonNormalText else R.color.buttonDisableText)
     val hasText = text.isNotEmpty()
     val hasIcon = (icon > 0)
 
@@ -587,11 +587,11 @@ fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = t
         onClick = onItemClick,
         enabled = enabled,
         colors = ButtonDefaults.buttonColors(
-            colorResource(R.color.clButBrownEnBg),
-            colorResource(R.color.clButBrownEnText),
-            colorResource(R.color.clButBrownDisBg),
-            colorResource(R.color.clButBrownDisText)),
-        border = BorderStroke(dimensionResource(R.dimen.dimButStroke), clStroke),
+            colorResource(R.color.buttonNormalBg),
+            colorResource(R.color.buttonNormalText),
+            colorResource(R.color.buttonDisableBg),
+            colorResource(R.color.buttonDisableText)),
+        border = BorderStroke(dimensionResource(R.dimen.butStroke), clStroke),
         shape = controlShape
     ) {
         if(hasText)

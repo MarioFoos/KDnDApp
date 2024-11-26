@@ -60,21 +60,25 @@
     <color name="contentStroke">@color/clYellow5</color>
 
     <!-- BOTONES  -->
-    <color name="clButBrownEnBg">@color/clBrown3</color>
-    <color name="clButBrownEnText">@color/clYellow5</color>
-    <color name="clButBrownEnStroke">@color/clBrown2</color>
-    <color name="clButBrownDisBg">@color/clBrown4</color>
-    <color name="clButBrownDisText">@color/clYellow4</color>
-    <color name="clButBrownDisStroke">@color/clBrown4</color>
+    <color name="buttonNormalBg">@color/clBrown3</color>
+    <color name="buttonNormalText">@color/clYellow5</color>
+    <color name="buttonNormalStroke">@color/clBrown2</color>
+    <color name="buttonDisableBg">@color/clBrown4</color>
+    <color name="buttonDisableText">@color/clYellow4</color>
+    <color name="buttonDisableStroke">@color/clBrown4</color>
+    <color name="buttonPressedBg">@color/clBrown2</color>
+    <color name="buttonPressedText">@color/clYellow5</color>
+    <color name="buttonPressedStroke">@color/clBrown1</color>
 
     <!-- TEXTFIELDS -->
-    <color name="clEdEnBg">@color/clBrown2</color>
-    <color name="clEdEnText">@color/clYellow5</color>
-    <color name="clEdDisText">@color/clYellow3</color>
-    <color name="clEdDisStroke">@color/clYellow3</color>
-    <color name="clEdNormalStroke">@color/clYellow4</color>
-    <color name="clEdFocusStroke">@color/clYellow5</color>
-    <color name="clEdCursor">@color/clYellow5</color>
+    <color name="editNormalBg">@color/clBrown2</color>
+    <color name="editNormalText">@color/clYellow5</color>
+    <color name="editNormalStroke">@color/clYellow4</color>
+    <color name="editDisableBg">@color/editNormalBg</color>
+    <color name="editDisableText">@color/clYellow3</color>
+    <color name="editDisableStroke">@color/clYellow3</color>
+    <color name="editFocusStroke">@color/clYellow5</color>
+    <color name="editCursor">@color/clYellow5</color>
 
     <!-- CARACTERÍSTICAS / ABILITIES -->
     <color name="clStrength">#FFFF4C4C</color>

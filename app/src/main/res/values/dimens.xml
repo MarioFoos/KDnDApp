@@ -15,8 +15,19 @@
     <dimen name="dimSpaceH">8dp</dimen>
     <dimen name="dimSpaceV">4dp</dimen>
 
+    <dimen name="marginControls">2dp</dimen>
+
     <!-- BOTONES -->
-    <dimen name="dimButStroke">2dp</dimen>
+    <dimen name="butStroke">2dp</dimen>
+    <dimen name="butCorner">6dp</dimen>
+    <dimen name="butWealthW">48dp</dimen>
+    <dimen name="butWealthH">36dp</dimen>
+
+    <!-- TEXTFIELD/EDIT -->
+    <dimen name="editFocusStroke">4dp</dimen>
+    <dimen name="editNormalStroke">2dp</dimen>
+    <dimen name="editPaddingX">4dp</dimen>
+    <dimen name="editPaddingY">2dp</dimen>
 
     <!-- CONTENIDO -->
     <dimen name="contentStroke">2dp</dimen>
@@ -24,9 +35,6 @@
     <dimen name="contentSpaceX">4dp</dimen>
     <dimen name="contentSpaceY">2dp</dimen>
 
-    <!-- TEXTFIELD -->
-    <dimen name="dimEdFocusStroke">4dp</dimen>
-    <dimen name="dimEdNormalStroke">2dp</dimen>
 
 
     <!-- PÁGINA DE PERSONAJE -->
