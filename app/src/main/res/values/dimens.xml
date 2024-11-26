@@ -7,9 +7,10 @@
 
     <dimen name="fontBut">@dimen/fontNormal</dimen>
     <dimen name="fontText">@dimen/fontNormal</dimen>
-    <dimen name="dimFontWealth">@dimen/fontLarge</dimen>
-    <dimen name="dimFontBasics">@dimen/fontSmall</dimen>
-    <dimen name="dimFontRacials">@dimen/fontSmall</dimen>
+
+    <dimen name="fontWealth">@dimen/fontLarge</dimen>
+    <dimen name="fontBasics">@dimen/fontSmall</dimen>
+    <dimen name="fontClickeable">@dimen/fontSmall</dimen>
 
     <!-- SPACER -->
     <dimen name="dimSpaceH">8dp</dimen>
@@ -35,11 +36,13 @@
     <dimen name="contentSpaceX">4dp</dimen>
     <dimen name="contentSpaceY">2dp</dimen>
 
-
-
     <!-- PÁGINA DE PERSONAJE -->
     <dimen name="dimMainPadding">16dp</dimen>
-    <dimen name="dimProfile">150dp</dimen>
+
+    <dimen name="profile">150dp</dimen>
+    <dimen name="xpW">@dimen/profile</dimen>
+    <dimen name="xpH">16dp</dimen>
+
     <dimen name="dimKlass">50dp</dimen>
     <dimen name="dimGender">40dp</dimen>
     <dimen name="dimLevel">40dp</dimen>

@@ -51,8 +51,8 @@
     <color name="clDialogBg">#f1ebd5</color>
 
     <!-- RACIAL TEXT  -->
-    <color name="racialFace">@color/clBlack</color>
-    <color name="racialBg">#C0FFFFFF</color>
+    <color name="clickeableFace">@color/clBlack</color>
+    <color name="clickeableBg">#C0FFFFFF</color>
 
     <!-- CONTENIDO  -->
     <color name="contentFace">@color/clYellow5</color>

@@ -140,12 +140,7 @@
 			<undercommon>Infracomún</undercommon>
 			<primordial>Primordial</primordial>
 			<sylvan>Silvano</sylvan>
-			<prim_aquan>Aquan (Dialecto Primordial)</prim_aquan>
-			<prim_auran>Auran (Dialecto Primordial)</prim_auran>
-			<prim_ignan>Ignan (Dialecto Primordial)</prim_ignan>
-			<prim_terran>Treran (Dialecto Primordial)</prim_terran>
 			<druidic>Druídico</druidic>
-			<gnoll>Gnoll</gnoll>
 			<thieves_cant>Jerga de Ladrones</thieves_cant>
 		</ELanguage>
 		<ERace>
@@ -471,6 +466,67 @@
 		</EGear>
 	</enums>
 	<info>
+		<ELanguage>
+			<COMMON>
+				<desc>Hablantes típicos: Humanos. Alfabeto: Común.</desc>
+			</COMMON>
+			<ELVISH>
+				<desc>Hablantes típicos: Elfos. Alfabeto: Elfo.</desc>
+			</ELVISH>
+			<DWARVISH>
+				<desc>Hablantes típicos: Enanos. Alfabeto: Enano.</desc>
+			</DWARVISH>
+			<GIANT>
+				<desc>Hablantes típicos: Ogros, gigantes. Alfabeto: Enano.</desc>
+			</GIANT>
+			<GNOMISH>
+				<desc>Hablantes típicos: Gnomos. Alfabeto: Enano.</desc>
+			</GNOMISH>
+			<GOBLIN>
+				<desc>Hablantes típicos: Trasgos. Alfabeto: Enano.</desc>
+			</GOBLIN>
+			<HALFLING>
+				<desc>Hablantes típicos: Medianos. Alfabeto: Común.</desc>
+			</HALFLING>
+			<ORC>
+				<desc>Hablantes típicos: Orcos. Alfabeto: Enano.</desc>
+			</ORC>
+			<ABYSSAL>
+				<desc>Hablantes típicos: Demonios. Alfabeto: Infernal.</desc>
+			</ABYSSAL>
+			<CELESTIAL>
+				<desc>Hablantes típicos: Celestiales. Alfabeto: Celestial.</desc>
+			</CELESTIAL>
+			<DRACONIC>
+				<desc>Hablantes típicos: Dragones, dracónidos. Alfabeto: Dracónico.</desc>
+			</DRACONIC>
+			<DEEP_SPEECH>
+				<desc>Hablantes típicos: Azotamentes, contempladores. Alfabeto: -.</desc>
+			</DEEP_SPEECH>
+			<INFERNAL>
+				<desc>Hablantes típicos: Diablos. Alfabeto: Infernal.</desc>
+			</INFERNAL>
+			<UNDERCOMMON>
+				<desc>Hablantes típicos: Mercaderes del Underdark. Alfabeto: Elfo.</desc>
+			</UNDERCOMMON>
+			<PRIMORDIAL>
+				<desc>Hablantes típicos: Elementales. Alfabeto: Enano.</desc>
+			</PRIMORDIAL>
+			<SYLVAN>
+				<desc>Hablantes típicos: Seres feéricos. Alfabeto: Elfo.</desc>
+			</SYLVAN>
+			<DRUIDIC>
+				<desc>Conoces el druídico, el idioma secreto de los druidas. Puedes hablarlo y utilizarlo para dejar mensajes ocultos. Tanto tu como cualquiera que conozca este idioma advertiréis inmediatamente de la presencia de estos mensajes. Los demás deberán superar una prueba de Sabiduría (Percepción) CD 15 para detectarlos, pero no podrán descifrarlos sin recurrir a la magia.</desc>
+			</DRUIDIC>
+			<GNOLL>
+				<desc>Hablantes típicos: Humanos. Alfabeto: Común.</desc>
+			</GNOLL>
+			<THIEVES_CANT>
+				<desc>Durante tu entrenamiento como pícaro aprendiste la jerga de ladrones, una mezcla de dialecto, argot y código secreto que te permite esconder mensajes en lo que parece una conversación normal y corriente. Únicamente aquellas criaturas que conozcan la jerga de ladrones podrán en tender estos mensajes. Expresar un mensaje utilizando esta jerga precisa de cuatro veces el tiempo que tardarías en comunicar la misma idea directamente.
+			Además, también comprendes un conjunto de señales y símbolos secretos que se usan para dejar mensajes cortos y sencillos, como el hecho de que una zona sea peligrosa o el territorio
+			de un gremio de ladrones, si hay o no botín cerca, o si los lugareños de los alrededores son presas fáciles o pueden proporcionar un piso franco para ladrones a la fuga.</desc>
+			</THIEVES_CANT>
+		</ELanguage>
 		<ERace>
 			<DWARF>
 				<DARKVISION>Acostumbrado a la vida bajo tierra, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
@@ -751,6 +807,8 @@ Asimismo, si tienes inspiración podrás recompensar a otro personaje por una bu
 		<backgroud>Trasfondo</backgroud>
 		<languages>Idiomas</languages>
 		<feats>Dotes</feats>
+		<but_ok>Aceptar</but_ok>
+		<but_cancel>Cancelar</but_cancel>
 	</misc>
 	<formatted>
 		<hit_dice>1{klass_dice} por nivel de {klass}.</hit_dice>
