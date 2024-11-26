@@ -27,9 +27,9 @@ val clSecondary = Color(0xFF996744)
 val clTertiary = Color(0xFFcc895b)
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Serif,
+        fontFamily = FontFamily.SansSerif,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
+        fontSize = 18.sp,
         lineHeight = 18.sp,
         letterSpacing = 0.5.sp
     )

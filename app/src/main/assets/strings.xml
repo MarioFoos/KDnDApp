@@ -634,6 +634,77 @@ el suelo, se moverá 5 pies en una dirección aleatoria en cada uno de tus turno
 				<desc>Un estudioso de la magia capaz de manipular las estructuras de la realidad.</desc>
 			</WIZARD>
 		</EClass>
+		<EBackground>
+			<ACOLYTE>
+				<desc>• Competencias en habilidades: Perspicacia, Religión.
+• Idiomas: dos de tu elección.
+• Equipo: símbolo sagrado (un regalo de cuando fuiste ordenado sacerdote), devocionario o rueda de oraciones, 5 varas de incienso, vestiduras, muda de ropas comunes y una bolsa con 15 po.</desc>
+			</ACOLYTE>
+			<CHARLATAN>
+				<desc>• Competencias en habilidades: Engaño, Juego de Manos.
+• Competencias con herramientas: útiles para disfrazarse, útiles para falsificar.
+• Equipo: muda de ropas de calidad, útiles para disfrazarse, herramientas para un timo de tu elección (diez botellas con tapones de corcho llenas de un líquido coloreado, un juego de dados trucados, una baraja de naipes marcada, un anillo de sellar de un duque imaginario) y una bolsa con 15 po.</desc>
+			</CHARLATAN>
+			<CRIMINAL>
+				<desc>• Competencias en habilidades: Engaño, Sigilo.
+• Competencias con herramientas: un tipo de juego a tu elección, herramientas de ladrón.
+• Equipo: palanqueta, muda de ropas corrientes de color oscuro y con capucha, una bolsa con 15 po.</desc>
+			</CRIMINAL>
+			<ENTERTAINER>
+				<desc>• Competencias en habilidades: Acrobacias, Interpretación.
+• Competencias con herramientas: útiles para disfrazarse, un tipo de instrumento musical.
+• Equipo: instrumento musical (a tu elección), el favor de un admirador (carta de amor, bucle de cabello o bagatela), disfraz y una bolsa con 15 po.</desc>
+			</ENTERTAINER>
+			<FOLK_HERO>
+				<desc>• Competencias en habilidades: Supervivencia, Trato con Animales.
+• Competencias con herramientas: un tipo de herramientas de artesano, vehículos terrestres.
+• Equipo: herramientas de artesano (un tipo a tu elección), pala, olla de hierro, muda de ropas comunes y una bolsa con 10 po.</desc>
+			</FOLK_HERO>
+			<GUILD_ARTISAN>
+				<desc>• Competencias en habilidades: Perspicacia, Persuasión.
+• Competencias con herramientas: un tipo de herramientas de artesano.
+• Idiomas: uno de tu elección.
+• Equipo: herramientas de artesano (un tipo a tu elección), carta de presentación de tu gremio, muda de ropas de viaje y una bolsa con 15 po.</desc>
+			</GUILD_ARTISAN>
+			<HERMIT>
+				<desc>• Competencias en habilidades: Medicina, Religión.
+• Competencias con herramientas: útiles de herborista.
+• Idiomas: uno de tu elección.
+• Equipo: estuche para pergaminos lleno de notas de tus estudios u oraciones, manta para el invierno, muda de ropas comunes, útiles de herborista y 5 po.</desc>
+			</HERMIT>
+			<NOBLE>
+				<desc>• Competencias en habilidades: Historia, Persuasión.
+• Competencias con herramientas: un tipo de juego a tu elección.
+• Idiomas: uno de tu elección.
+• Equipo: muda de ropas de calidad, anillo de sellar, documento que acredita el linaje y un monedero con 25 po.</desc>
+			</NOBLE>
+			<OUTLANDER>
+				<desc>• Competencias en habilidades: Atletismo, Supervivencia.
+• Competencias con herramientas: un tipo de instrumento musical.
+• Idiomas: uno de tu elección.
+• Equipo: bastón, trampa para cazar, trofeo de un animal al que has matado, muda de ropas de viaje y una bolsa con 10 po.</desc>
+			</OUTLANDER>
+			<SAGE>
+				<desc>• Competencias en habilidades: Conocimiento Arcano, Historia.
+• Idiomas: dos de tu elección.
+• Equipo: botella de tinta negra, pluma, cuchillo pequeño, carta de un colega muerto que te plantea una pregunta que aún no eres capaz de responder, muda de ropas comunes y una bolsa con 10 po.</desc>
+			</SAGE>
+			<SAILOR>
+				<desc>• Competencias en habilidades: Atletismo, Percepción.
+• Competencias con herramientas: herramientas de navegante, vehículos acuáticos.
+• Equipo: cabilla (garrote), 50 pies de cuerda de seda, amuleto de la suerte como una pata de conejo o una piedra pequeña con un agujero en el centro (o puedes tirar en la tabla “bagatelas” del capítulo 5), muda de ropas comunes y una bolsa con 10 po.</desc>
+			</SAILOR>
+			<SOLDIER>
+				<desc>• Competencias en habilidades: Atletismo, Intimidación.
+• Competencias con herramientas: un tipo de juego a tu elección, vehículos terrestres.
+• Equipo: insignia de tu rango, trofeo tomado de un enemigo muerto (una daga, un filo rota o un pedazo de tela de un estandarte), juego de dados o baraja de cartas, muda de ropas comunes y una bolsa con 10 po.</desc>
+			</SOLDIER>
+			<URCHIN>
+				<desc>• Competencias en habilidades: Juego de Manos, Sigilo.
+• Competencias con herramientas: herramientas de ladrón, útiles para disfrazarse.
+• Equipo: cuchillo pequeño, mapa de la ciudad en la que creciste, ratón (tu mascota), recuerdo de tus padres, muda de ropas comunes y una bolsa con 10 po.</desc>
+			</URCHIN>
+		</EBackground>
 	</info>
 	<misc>
 		<!-- GUI Race-->
@@ -677,6 +748,7 @@ Asimismo, si tienes inspiración podrás recompensar a otro personaje por una bu
 		<speed>Velocidad</speed>
 		<alignment>Alineamiento</alignment>
 		<racials>Raciales</racials>
+		<backgroud>Trasfondo</backgroud>
 		<languages>Idiomas</languages>
 		<feats>Dotes</feats>
 	</misc>

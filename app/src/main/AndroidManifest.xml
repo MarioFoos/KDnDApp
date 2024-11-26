@@ -13,11 +13,6 @@
         android:theme="@style/Theme.KDnDApp"
         tools:targetApi="31">
         <activity
-            android:name=".ShowInfoActivity"
-            android:exported="false"
-            android:label="@string/title_activity_show_info"
-            android:theme="@style/Theme.KDnDApp" />
-        <activity
             android:name=".CharActivity"
             android:exported="false"
             android:label="@string/title_activity_char"

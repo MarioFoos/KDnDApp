@@ -52,7 +52,7 @@
 
     <!-- RACIAL TEXT  -->
     <color name="racialFace">@color/clBlack</color>
-    <color name="racialBg">#80FFFFFF</color>
+    <color name="racialBg">#C0FFFFFF</color>
 
     <!-- CONTENIDO  -->
     <color name="contentFace">@color/clYellow5</color>

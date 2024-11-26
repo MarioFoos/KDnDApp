@@ -24,10 +24,6 @@
     <dimen name="contentSpaceX">4dp</dimen>
     <dimen name="contentSpaceY">2dp</dimen>
 
-    <!-- TEXT -->
-    <dimen name="textPaddingX">8dp</dimen>
-    <dimen name="textPaddingY">4dp</dimen>
-
     <!-- TEXTFIELD -->
     <dimen name="dimEdFocusStroke">4dp</dimen>
     <dimen name="dimEdNormalStroke">2dp</dimen>
@@ -42,8 +38,8 @@
     <dimen name="dimLevelFont">@dimen/fontLarge</dimen>
 
     <!-- Dialog -->
-    <dimen name="dimDialogPadding">8dp</dimen>
-    <dimen name="dimDialogStroke">2dp</dimen>
+    <dimen name="dialogPadding">8dp</dimen>
+    <dimen name="dialogStroke">2dp</dimen>
 
     <!-- HOJA DE PERSONAJE -->
     <dimen name="dimRowWealth">32dp</dimen>
