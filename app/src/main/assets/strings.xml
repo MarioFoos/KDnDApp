@@ -2,787 +2,198 @@
 <strings>
 	<enums>
 		<EAbility>
-			<STRENGTH>Fuerza</STRENGTH>
-			<dexterity>Destreza</dexterity>
-			<constitution>Constitución</constitution>
-			<intelligence>Inteligencia</intelligence>
-			<wisdom>Sabiduría</wisdom>
-			<charisma>Carisma</charisma>
+			<STRENGTH>
+				<name>Fuerza</name>
+				<desc>La Fuerza indica la condición física, el entrenamiento atlético y la cantidad de fuerza bruta que se puede ejercer.</desc>
+			</STRENGTH>
+			<DEXTERITY>
+				<name>Destreza</name>
+				<desc>La Destreza indica la agilidad, los reflejos y el equilibrio.</desc>
+			</DEXTERITY>
+			<CONSTITUTION>
+				<name>Constitución</name>
+				<desc>La Constitución indica el estado de salud, el aguante y la fuerza vital</desc>
+			</CONSTITUTION>
+			<INTELLIGENCE>
+				<name>Inteligencia</name>
+				<desc>La Inteligencia indica la agudeza mental, la retentiva y la capacidad para razonar.</desc>
+			</INTELLIGENCE>
+			<WISDOM>
+				<name>Sabiduría</name>
+				<desc>La Sabiduría indica hasta qué punto estás en sintonía con el mundo que te rodea, reflejando tu perspicacia e intuición.</desc>
+			</WISDOM>
+			<CHARISMA>
+				<name>Carisma</name>
+				<desc>El Carisma indica tu capacidad para interaccionar con los demás de forma efectiva. Incluye aspectos como la confianza y la elocuencia, y también puede representar una personalidad encantadora o imponente.</desc>
+			</CHARISMA>
 		</EAbility>
 		<EAlignment>
-			<unaligned>No alineado</unaligned>
-			<lawful_good>Legal bueno</lawful_good>
-			<neutral_good>Neutral bueno</neutral_good>
-			<chaotic_good>Caótico bueno</chaotic_good>
-			<lawful_neutral>Legal neutral</lawful_neutral>
-			<true_neutral>Neutral real</true_neutral>
-			<chaotic_neutral>Caótico neutral</chaotic_neutral>
-			<lawful_evil>Legal malo</lawful_evil>
-			<neutral_evil>Neutral malo</neutral_evil>
-			<chaotic_evil>Caótico malo</chaotic_evil>
-		</EAlignment>
-		<EClass>
-			<barbarian>Bárbaro</barbarian>
-			<bard>Bardo</bard>
-			<cleric>Clérigo</cleric>
-			<druid>Druida</druid>
-			<fighter>Guerrero</fighter>
-			<monk>Monje</monk>
-			<paladin>Paladín</paladin>
-			<ranger>Explorador</ranger>
-			<rouge>Pícaro</rouge>
-			<sorcerer>Hechicero</sorcerer>
-			<warlock>Brujo</warlock>
-			<wizard>Mago</wizard>
-		</EClass>
-		<EDamage>
-			<acid>Ácido</acid>
-			<bludgeoning>Contundente</bludgeoning>
-			<elemental>Elemental</elemental>
-			<physical>Físico</physical>
-			<cold>Frío</cold>
-			<fire>Fuego</fire>
-			<force>Fuerza</force>
-			<lightning>Relámpago</lightning>
-			<necrotic>Necrótico</necrotic>
-			<piercing>Perforante</piercing>
-			<poison>Veneno</poison>
-			<psychic>Psíquico</psychic>
-			<radiant>Radiante</radiant>
-			<slashing>Cortante</slashing>
-			<thunder>Trueno</thunder>
-		</EDamage>
-		<EDraconicAncestry>
-			<blue>Azul</blue>
-			<white>Blanco</white>
-			<bronze>Bronce</bronze>
-			<copper>Cobre</copper>
-			<black>Negro</black>
-			<gold>Oro</gold>
-			<brass>Oropel</brass>
-			<silver>Plata</silver>
-			<red>Rojo</red>
-			<green>Verde</green>
-		</EDraconicAncestry>
-		<EEthnicity>
-			<calishite>Calishita</calishite>
-			<chondathan>Chondathano</chondathan>
-			<damaran>Damarano</damaran>
-			<illuskan>Illuskano</illuskan>
-			<mulan>Mulano</mulan>
-			<rashemi>Rashemí</rashemi>
-			<shou>Shou</shou>
-			<tethyrian>Tethyriano</tethyrian>
-			<turami>Turami</turami>
-		</EEthnicity>
-		<EFeat>
-			<alert>Alerta</alert>
-			<athlete>Atleta</athlete>
-			<actor>Actor</actor>
-			<charger>Atacante a la Carga</charger>
-			<crossbow_expert>Experto en Ballestas</crossbow_expert>
-			<defensive_duelist>Duelista Defensivo</defensive_duelist>
-			<dual_wielder>Combatiente con Dos Armas</dual_wielder>
-			<dungeon_delver>Explorador de Mazmorras</dungeon_delver>
-			<durable>Resistente</durable>
-			<elemental_adept>Versado en un Elemento</elemental_adept>
-			<grappler>Apresador</grappler>
-			<great_weapon_master>Maestro en Armas Pesadas</great_weapon_master>
-			<healer>Sanador</healer>
-			<heavily_armored>Muy Acorzado</heavily_armored>
-			<heavy_armor_master>Maestro en Armaduras Pesadas</heavy_armor_master>
-			<inspiring_leader>Líder Inspirador</inspiring_leader>
-			<keen_mind>Mente Aguda</keen_mind>
-			<lightly_armored>Ligeramente Acorazado</lightly_armored>
-			<linguist>Lingüista</linguist>
-			<lucky>Afortunado</lucky>
-			<mage_slayer>Azote de Magos</mage_slayer>
-			<magic_initiate>Iniciado en la Magia</magic_initiate>
-			<martial_adept>Versado en las Armas</martial_adept>
-			<medium_armor_master>Maestro en Armaduras Medias</medium_armor_master>
-			<mobile>Móvil</mobile>
-			<moderately_armored>Moderadamente Acorazado</moderately_armored>
-			<mounted_combatant>Combatiente Montado</mounted_combatant>
-			<observant>Observador</observant>
-			<polearm_master>Maestro en Armas de Asta</polearm_master>
-			<resilient>Resiliente</resilient>
-			<ritual_caster>Lanzador Ritual</ritual_caster>
-			<savage_attacker>Atacante Salvaje</savage_attacker>
-			<sentinel>Centinela</sentinel>
-			<sharpshooter>Tirador de Primera</sharpshooter>
-			<shield_master>Maestro en Escudos</shield_master>
-			<skilled>Habilidoso</skilled>
-			<skulker>Acechador</skulker>
-			<spell_sniper>Lanzador Preciso</spell_sniper>
-			<tavern_brawler>Matón de Taberna</tavern_brawler>
-			<tough>Duro</tough>
-			<war_caster>Lanzador en Combate</war_caster>
-			<weapon_master>Maestro de Armas</weapon_master>
-		</EFeat>
-		<EGender>
-			<male>Masc.</male>
-			<female>Fem.</female>
-		</EGender>
-		<ELanguage>
-			<common>Común</common>
-			<elvish>Elfo</elvish>
-			<dwarvish>Enano</dwarvish>
-			<giant>Gigante</giant>
-			<gnomish>Gnómico</gnomish>
-			<goblin>Goblin</goblin>
-			<halfling>Mediano</halfling>
-			<orc>Orco</orc>
-			<abyssal>Abisal</abyssal>
-			<celestial>Celestial</celestial>
-			<draconic>Dracónico</draconic>
-			<deep_speech>Habla profunda</deep_speech>
-			<infernal>Infernal</infernal>
-			<undercommon>Infracomún</undercommon>
-			<primordial>Primordial</primordial>
-			<sylvan>Silvano</sylvan>
-			<druidic>Druídico</druidic>
-			<thieves_cant>Jerga de Ladrones</thieves_cant>
-		</ELanguage>
-		<ERace>
-			<dwarf>Enano</dwarf>
-			<hill_dwarf>Enano de las colinas </hill_dwarf>
-			<mountain_dwarf>Enano de las montañas</mountain_dwarf>
-			<duergar>Enano gris (Duergar)</duergar>
-			<elf>Elfo</elf>
-			<high_elf>Alto elfo</high_elf>
-			<wood_elf>Elfo de los bosques</wood_elf>
-			<dark_elf>Elfo oscuro (Drow)</dark_elf>
-			<halfling>Mediano</halfling>
-			<lightfoot>Mediano Piesligeros</lightfoot>
-			<stout>Mediano Fornido</stout>
-			<human>Humano</human>
-			<variant_human>Humano variante</variant_human>
-			<dragonborn>Dracónido</dragonborn>
-			<gnome>Gnomo</gnome>
-			<forest_gnome>Gnomo del Bosque</forest_gnome>
-			<rock_gnome>Gnomo de la Roca</rock_gnome>
-			<halfelf>Semielfo</halfelf>
-			<halforc>Semiorco</halforc>
-			<tiefling>Tiflin</tiefling>
-		</ERace>
-		<ERacialTrait>
-			<darkvision>Visión en la Oscuridad</darkvision>
-			<dwarven_resilienee>Resistencia Enana</dwarven_resilienee>
-			<stoneeunning>Afinidad con la Piedra</stoneeunning>
-			<dwarven_combat_training>Entrenamiento de Combate Enano</dwarven_combat_training>
-			<tool_proficieney>Competencia con Herramientas</tool_proficieney>
-			<dwarven_toughness>Aguante Enano</dwarven_toughness>
-			<dwarven_armor_training>Entrenamiento con Armadura Enana</dwarven_armor_training>
-			<fey_ancestry>Linaje Feérico</fey_ancestry>
-			<trance>Trance</trance>
-			<keen_senses>Sentidos Agudos</keen_senses>
-			<elf_weapon_training>Entrenamiento con Armas Élficas</elf_weapon_training>
-			<cantrip>Truco</cantrip>
-			<extra_language>Idioma adicional</extra_language>
-			<fleet_of_foot>Pies Veloces</fleet_of_foot>
-			<mask_of_the_wild>Máscara de la Naturaleza</mask_of_the_wild>
-			<sunlight_sensitivity>Sensibilidad a la Luz Solar</sunlight_sensitivity>
-			<SUPERIOR_DARKVISION>Visión en la Oscuridad Superior</SUPERIOR_DARKVISION>
-			<drow_magic>Magia Drow</drow_magic>
-			<drow_weapon_training>Entrenamiento con Armas Drow</drow_weapon_training>
-			<lucky>Afortunado</lucky>
-			<brave>Valiente</brave>
-			<halfling_nimbleness>Agilidad de Mediano</halfling_nimbleness>
-			<naturally_stealthy>Sigiloso por Naturaleza</naturally_stealthy>
-			<stout_resilience>Resistencia de Fornido</stout_resilience>
-			<feat>Dote</feat>
-			<draconic_ancestry>Linaje dracónico</draconic_ancestry>
-			<breath_weapon>Ataque de Aliento</breath_weapon>
-			<damage_resistance>Resistencia al Daño</damage_resistance>
-			<gnome_cunning>Astucia de Gnomo</gnome_cunning>
-			<natural_illusionist>Ilusionista Innato</natural_illusionist>
-			<speak_with_small_beasts>Hablar con las Bestezuelas</speak_with_small_beasts>
-			<artificers_lore>Saber del Artificiero</artificers_lore>
-			<tinker>Manitas</tinker>
-			<skill_versatility>Versátil con Habilidades</skill_versatility>
-			<menacing>Amenazador</menacing>
-			<relentless_endurance>Agaunte Incansable</relentless_endurance>
-			<savage_attacks>Ataques Salvajes</savage_attacks>
-			<hellish_resistance>Resistencia Infernal</hellish_resistance>
-			<infernal_legacy>Linaje Infernal</infernal_legacy>
-		</ERacialTrait>
-		<ESkill>
-			<athletics>Atletismo</athletics>
-			<acrobatics>Acrobacias</acrobatics>
-			<sleight_of_hand>Juego de manos</sleight_of_hand>
-			<stealth>Sigilo</stealth>
-			<arcana>Conocimiento arcano</arcana>
-			<history>Historia</history>
-			<investigation>Investigación</investigation>
-			<nature>Naturaleza</nature>
-			<religion>Religión</religion>
-			<animal_handling>Trato con animales</animal_handling>
-			<insight>Perspicacia</insight>
-			<medicine>Medicina</medicine>
-			<perception>Percepción</perception>
-			<survival>Supervivencia</survival>
-			<deception>Engaño</deception>
-			<intimidation>Intimidación</intimidation>
-			<performance>Interpretación</performance>
-			<persuasion>Persuasión</persuasion>
-		</ESkill>
-		<EStageOfLife>
-			<childhood>Niño</childhood>
-			<youth>Joven</youth>
-			<adulthood>Adulto</adulthood>
-			<old_age>Viejo</old_age>
-		</EStageOfLife>
-		<EBackground>
-			<acolyte>Acólito</acolyte>
-			<charlatan>Charlatán</charlatan>
-			<criminal>Criminal</criminal>
-			<entertainer>Animador</entertainer>
-			<folk_hero>Héroe del pueblo</folk_hero>
-			<guild_artisan>Artesano gremial</guild_artisan>
-			<hermit>Ermitaño</hermit>
-			<noble>Noble</noble>
-			<orphan>Huérfano</orphan>
-			<outlander>Salvaje</outlander>
-			<sage>Erudito</sage>
-			<sailor>Marinero</sailor>
-			<soldier>Soldado</soldier>
-			<urchin>Erudito</urchin>
-		</EBackground>
-		<EArmor>
-			<PADDED>Acolchada</PADDED>
-			<LEATHER>Cuero</LEATHER>
-			<STUDDED_LEATHER>Cuero tachonado</STUDDED_LEATHER>
-			<CHAIN_SHIRT>Camisa de malla</CHAIN_SHIRT>
-			<SCALE_MAIL>Cota de escamas</SCALE_MAIL>
-			<BREASTPLATE>Coraza</BREASTPLATE>
-			<HAFPATE>Media armadura</HAFPATE>
-			<HIDE>Pieles</HIDE>
-			<SPLINT>Armadura de bandas</SPLINT>
-			<PLATE>Armadura de placas</PLATE>
-			<RING_MAIL>Cota guarnecida</RING_MAIL>
-			<CHAIN_MAIL>Cota de malla</CHAIN_MAIL>	
-		</EArmor>
-		<EArmorType>
-			<LIGHT_ARMOR>Armaduras ligeras</LIGHT_ARMOR>
-			<MEDIUM_ARMOR>Armaduras medias</MEDIUM_ARMOR>
-			<HEAVY_ARMOR>Armaduras pesadas</HEAVY_ARMOR>
-			<SHIELD>Escudo</SHIELD>
-		</EArmorType>
-		<EWeaponType>
-			<SIMPLE>Armas sencillas</SIMPLE>
-			<MARTIAL>Armas marciales</MARTIAL>
-		</EWeaponType>
-		<EWeapon>
-			<QUARTERSTAFF>Bastón</QUARTERSTAFF>
-			<DAGGER>Daga</DAGGER>
-			<CLUB>Garrote</CLUB>
-			<GREATCLUB>Garrote grande</GREATCLUB>
-			<HANDAXE>Hacha de mano</HANDAXE>
-			<SICKLE>Hoz</SICKLE>
-			<JAVELIN>Jabalina</JAVELIN>
-			<SPEAR>Lanza</SPEAR>
-			<LIGHT_HAMMER>Martillo ligero</LIGHT_HAMMER>
-			<MACE>Maza</MACE>
-			<SHORTBOW>Arco corto</SHORTBOW>
-			<CROSSBOW>Ballesta ligera</CROSSBOW>
-			<DART>Dardo</DART>
-			<SLING>Honda</SLING>
-			<HALBERD>Alabarda</HALBERD>
-			<SCIMITAR>Cimitarra</SCIMITAR>
-			<SHORTSWORD>Espada corta</SHORTSWORD>
-			<LONGSWORD>Espada larga</LONGSWORD>
-			<GREATSWORD>Espadón</GREATSWORD>
-			<RAPIER>Estoque</RAPIER>
-			<FLAIL>Flagelo</FLAIL>
-			<GLAIVE>Guja</GLAIVE>
-			<GREATAXE>Hacha a dos manos</GREATAXE>
-			<BATTLEAXE>Hacha de guerra</BATTLEAXE>
-			<LANCE>Lanza de caballería</LANCE>
-			<WHIP>Látigo</WHIP>
-			<MORNINGSTA>Lucero del alba</MORNINGSTA>
-			<WARHAMMER>Martillo de guerra</WARHAMMER>
-			<MAUL>Maza a dos manos</MAUL>
-			<PIKE>Pica</PIKE>
-			<WAR_PICK>Pico de guerra</WAR_PICK>
-			<TRIDENT>Tridente</TRIDENT>
-			<LONGBOW>Arco largo</LONGBOW>
-			<CROSSBOW_HAND>Ballesta de mano</CROSSBOW_HAND>
-			<CROSSBOW_HEAVY>Ballesta pesada</CROSSBOW_HEAVY>
-			<BLOWGUN>Cerbatana</BLOWGUN>
-			<NET>Red</NET>		
-		</EWeapon>
-		<EDice>
-			<D2>d2</D2>
-			<D4>d4</D4>
-			<D6>d6</D6>
-			<D8>d8</D8>
-			<D10>d10</D10>
-			<D12>d12</D12>
-			<D20>d20</D20>
-			<D100>d100</D100>
-		</EDice>
-		<EToolTypes>
-			<ARLISANS_TOOLS>Herramientas de artesano</ARLISANS_TOOLS>
-			<DISGUISE_KIT>Útiles para disfrazarse</DISGUISE_KIT>
-			<FORGERY_KIT>Útiles para falsificar</FORGERY_KIT>
-			<GAMING_SET>Juegos</GAMING_SET>
-			<HERBALISM_KIT>Útiles de herborista</HERBALISM_KIT>
-			<MUSICAL_INSTRUMENT>Instrumentos musicales</MUSICAL_INSTRUMENT>
-			<NAVIGATORS_TOOLS>Herramientas de navegante</NAVIGATORS_TOOLS>
-			<POISONERS_KIT>Útiles de envenenador</POISONERS_KIT>
-			<THIEVES_TOOLS>Herramientas de ladrón</THIEVES_TOOLS>
-			<VEHICLES>Vehículos</VEHICLES>
-		</EToolTypes>
-		<ETool>
-			<ALCHEMISTS_SUPPLIES>Suministros de alquimista</ALCHEMISTS_SUPPLIES>
-			<BREWERS_SUPPLIES>Suministros de cervecero</BREWERS_SUPPLIES>
-			<CALLIGRAPHERS_SUPPLIES>Suministros de calígrafo</CALLIGRAPHERS_SUPPLIES>
-			<CARPENTERS_TOOLS>Herramientas de carpintero</CARPENTERS_TOOLS>
-			<CARTOGRAPHERS_TOOLS>Herramientas de cartógrafo</CARTOGRAPHERS_TOOLS>
-			<COBBLERS_TOOLS>Herramientas de zapatero</COBBLERS_TOOLS>
-			<COOKS_UTENSILS>Útiles de cocinero</COOKS_UTENSILS>
-			<GLASSBLOWERS_TOOLS>Herramientas de soplador de vidrio</GLASSBLOWERS_TOOLS>
-			<JEWELERS_TOOLS>Herramientas de joyero</JEWELERS_TOOLS>
-			<LEATHERWORKERS_TOOLS>Herramientas de curtidor</LEATHERWORKERS_TOOLS>
-			<MASONS_TOOLS>Herramientas de albañil</MASONS_TOOLS>
-			<PAINTERS_SUPPLIES>Suministros de pintor</PAINTERS_SUPPLIES>
-			<POTTERS_TOOLS>Herramientas de alfarero</POTTERS_TOOLS>
-			<SMITHS_TOOLS>Herramientas de herrero</SMITHS_TOOLS>
-			<TINKERS_TOOLS>Herramientas de manitas</TINKERS_TOOLS>
-			<WEAVERS_TOOLS>Herramientas de tejedor</WEAVERS_TOOLS>
-			<WOODCARVERS_TOOLS>Herramientas de ebanista</WOODCARVERS_TOOLS>
-			<DISGUISE_KIT>Útiles para disfrazarse</DISGUISE_KIT>
-			<FORGERY_KIT>Útiles para falsificar</FORGERY_KIT>
-			<DICE_SET>Dados</DICE_SET>
-			<DRAGONCHESS>Ajedrez de Dragón</DRAGONCHESS>
-			<PLAYING_CARD_SET>Naipes</PLAYING_CARD_SET>
-			<THREE_DRAGON_ANTE_SET>Apuesta de Tres Dragones</THREE_DRAGON_ANTE_SET>
-			<HERBALISM_KIT>Útiles de herborista</HERBALISM_KIT>
-			<BAGPIPES>Gaita</BAGPIPES>
-			<DRUM>Tambor</DRUM>
-			<DULCIMER>Dulcémele</DULCIMER>
-			<FLUTE>Flauta</FLUTE>
-			<LUTE>Laúd</LUTE>
-			<LYRE>Lira</LYRE>
-			<HORN>Cuerno</HORN>
-			<PAN_FLUTE>Flauta de pan</PAN_FLUTE>
-			<SHAWM>Chirimía</SHAWM>
-			<VIOL>Viola</VIOL>		
-			<NAVIGATORS_TOOLS>Herramientas de navegante</NAVIGATORS_TOOLS>
-			<POISONERS_KIT>Útiles de envenenador</POISONERS_KIT>
-			<THIEVES_TOOLS>Herramientas de ladrón</THIEVES_TOOLS>
-		</ETool>
-		<EItemType>
-			<OBJECT>Objeto</OBJECT>
-			<ARCANE_FOCUS>Foco arcano</ARCANE_FOCUS>
-			<DRUIDIC_FOCUS>Foco druídico</DRUIDIC_FOCUS>
-			<AMMUNITION>Munición</AMMUNITION>
-			<HOLY_SYMBOL>Símbolo sagrado</HOLY_SYMBOL>		
-		</EItemType>
-		<EGear>
-			<ABACUS>Ábaco</ABACUS>
-			<CALTROPS_20>Abrojos (bolsa de 20)</CALTROPS_20>
-			<OIL_FLASK>Aceite (frasco)</OIL_FLASK>
-			<ACID_VIAL>Ácido (vial)</ACID_VIAL>
-			<HOLY_WATER_FLASK>Agua bendita (frasco)</HOLY_WATER_FLASK>
-			<QUIVER>Aljaba</QUIVER>
-			<SIGNET_RING>Anillo de sello</SIGNET_RING>
-			<ANTITOXIN_VIAL>Antitoxina (vial)</ANTITOXIN_VIAL>
-			<TORCH>Antorcha</TORCH>
-			<FISHING_TACKLE>Aparejo de pesca</FISHING_TACKLE>
-			<BLOCK_AND_TACKLE>Aparejo de poleas</BLOCK_AND_TACKLE>
-			<RAM_PORTABLE>Ariete portátil</RAM_PORTABLE>
-			<SCALE_MERCHANT>Balanza de mercader</SCALE_MERCHANT>
-			<BARREL>Barril</BARREL>
-			<BALL_BEARINGS_1000>Bolas de metal (bolsa de 1000)</BALL_BEARINGS_1000>
-			<POUCH>Bolsa</POUCH>
-			<COMPONENT_POUCH>Bolsa de componentes</COMPONENT_POUCH>
-			<BOTLLE_GLASS>Botella de cristal</BOTLLE_GLASS>
-			<CHAIN_10_FEET>Cadena (10 pies)</CHAIN_10_FEET>
-			<BELL>Campana</BELL>
-			<SPYGLASS>Catalejo</SPYGLASS>
-			<LOCK>Cerradura</LOCK>
-			<BASKET>Cesto</BASKET>
-			<CHEST>Cofre</CHEST>
-			<BUCKET>Cubo</BUCKET>
-			<ROPE_HEMPEN_50>Cuerda de cáñamo (50 pies)</ROPE_HEMPEN_50>
-			<ROPE_SILK_50>Cuerda de seda (50 pies)</ROPE_SILK_50>
-			<LADDER_10_FOOT>Escalera (10 pies)</LADDER_10_FOOT>
-			<MIRROR_STEEL>Espejo de acero</MIRROR_STEEL>
-			<MANACLES>Esposas</MANACLES>
-			<CASE_MAP_OR_SCROLL>Estuche para mapas o pergaminos</CASE_MAP_OR_SCROLL>
-			<CASE_CROSSBOW_BOLT>Estuche para virotes de ballesta</CASE_CROSSBOW_BOLT>
-			<MESS_KIT>Fiambrera</MESS_KIT>
-			<FLASK_OR_TANKARD>Frasco o jarra de metal</FLASK_OR_TANKARD>
-			<ALCH_FIRE_FLASK>Fuego de alquimista (frasco)</ALCH_FIRE_FLASK>
-			<GRAPPLING_HOOK>Garfio de escalada</GRAPPLING_HOOK>
-			<SOAP>Jabón</SOAP>
-			<JUG_OR_PITCHER>Jarro o jarra</JUG_OR_PITCHER>
-			<CLIMBERS_KIT>Kit de escalada</CLIMBERS_KIT>
-			<HEALERS_KIT>Kit de sanador</HEALERS_KIT>
-			<SEALING_WAX>Lacre</SEALING_WAX>
-			<LAMP>Lámpara</LAMP>
-			<TINDERBOX>Lata de yesca</TINDERBOX>
-			<MAGNIFYING_GLASS>Lente de aumento</MAGNIFYING_GLASS>
-			<BOOK>Libro</BOOK>
-			<SPELLBOOK>Libro de conjuros</SPELLBOOK>
-			<LANTERN_HOODED>Linterna con capuchón</LANTERN_HOODED>
-			<LANTERN_BULLSEYE>Linterna de ojo de buey</LANTERN_BULLSEYE>
-			<BLANKET>Manta</BLANKET>
-			<HAMMER>Martillo</HAMMER>
-			<HAMMER_SLEDGE>Mazo</HAMMER_SLEDGE>
-			<BACKPACK>Mochila</BACKPACK>
-			<WATERSKIN>Odre</WATERSKIN>
-			<POT_IRON>Olla de hierro</POT_IRON>
-			<SHOVEL>Pala</SHOVEL>
-			<CROWBAR>Palanca</CROWBAR>
-			<PAPER_ONE_SHEET>Papel (una hoja)</PAPER_ONE_SHEET>
-			<PERFUME_VIAL>Perfume (vial)</PERFUME_VIAL>
-			<PARCHMENT_ONE_SHEET>Pergamino (una hoja)</PARCHMENT_ONE_SHEET>
-			<POLE_10_FOOT>Pértiga (10 pies)</POLE_10_FOOT>
-			<PIEK_MINERS>Pico de minero</PIEK_MINERS>
-			<WHETSTONE>Piedra de afilar</WHETSTONE>
-			<SPIKES_IRON_10>Piquetas de hierro (10)</SPIKES_IRON_10>
-			<PITON>Pitón</PITON>
-			<INK_PEN>Pluma de escritura</INK_PEN>
-			<POLION_OF_HEALING>Poción de curación</POLION_OF_HEALING>
-			<RATIONS_1_DAY>Raciones (1 día)</RATIONS_1_DAY>
-			<HOURGLASS>Reloj de arena</HOURGLASS>
-			<CLOTHES_COMMON>Ropa común</CLOTHES_COMMON>
-			<CLOTHES_COSTUME>Ropa de disfraz</CLOTHES_COSTUME>
-			<CLOTHES_TRAVELERS>Ropa de viajero</CLOTHES_TRAVELERS>
-			<CLOTHES_FINE>Ropa fina</CLOTHES_FINE>
-			<SACK>Saco</SACK>
-			<BEDROLL>Saco de dormir</BEDROLL>
-			<SIGNAL_WHISTLE>Silbato de señales</SIGNAL_WHISTLE>
-			<TENT_TWO_PERSON>Tienda de campaña para dos personas</TENT_TWO_PERSON>
-			<INK_1_OUNCE_BOTTLE>Tinta (botella de 1 onza)</INK_1_OUNCE_BOTTLE>
-			<CHALK_L_PIECE>Tiza (1 trozo)</CHALK_L_PIECE>
-			<HUNTING_TRAP>Trampa de cazador</HUNTING_TRAP>
-			<ROBES>Túnica</ROBES>
-			<CANDLE>Vela</CANDLE>
-			<POISON_BASIC_VIAL>Veneno básico (vial)</POISON_BASIC_VIAL>
-			<VIAL>Vial</VIAL>
-		</EGear>
-	</enums>
-	<info>
-		<EAlignment>
 			<UNALIGNED>
+				<name>No alineado</name>
 				<desc>No alineado</desc>
 			</UNALIGNED>
 			<LAWFUL_GOOD>
+				<name>Legal bueno</name>
 				<desc>Las criaturas legales buenas (LB) realizarán lo que la sociedad considera como correcto. Los dragones de oro, los paladines y la mayoría de los enanos son legales buenos.</desc>
 			</LAWFUL_GOOD>
 			<NEUTRAL_GOOD>
+				<name>Neutral bueno</name>
 				<desc>Las personas neutrales buenas (NB) harán lo que esté en su mano para ayudar a los demás de acuerdo a sus necesidades. Muchos celestiales, algunos gigantes de las nubes y la mayoría de los gnomos son neutrales buenos.</desc>
 			</NEUTRAL_GOOD>
 			<CHAOTIC_GOOD>
+				<name>Caótico bueno</name>
 				<desc>Las criaturas caóticas buenas (CB) actúan siguiendo los dictados de sus conciencias, sin preocuparles lo que otros esperan de ellas. Los dragones de cobre, muchos elfos y los unicornios son caóticos buenos.</desc>
 			</CHAOTIC_GOOD>
 			<LAWFUL_NEUTRAL>
+				<name>Legal neutral</name>
 				<desc>Los individuos legales neutrales (LN) se comportan de acuerdo con la ley, la tradición o sus códigos de conducta personales. Muchos monjes y algunos magos son legales neutrales.</desc>
 			</LAWFUL_NEUTRAL>
 			<TRUE_NEUTRAL>
+				<name>Neutral real</name>
 				<desc>Neutral (N) es el alineamiento de aquellos que prefieren evitar las cuestiones éticas y no toman partido, haciendo lo que les parece mejor en cada momento. Los hombres lagarto, muchos druidas y la mayoría de humanos son neutrales.</desc>
 			</TRUE_NEUTRAL>
 			<CHAOTIC_NEUTRAL>
+				<name>Caótico neutral</name>
 				<desc>Las criaturas caóticas neutrales (CN) persiguen sus caprichos, valorando su libertad como individuos por encima de cualquier otra cosa. Muchos bárbaros y pícaros, así como algunos bardos, son caóticos neutrales.</desc>
 			</CHAOTIC_NEUTRAL>
 			<LAWFUL_EVIL>
+				<name>Legal malo</name>
 				<desc>Los seres legales malvados (LM) toman lo que les viene en gana, pero siempre de forma metódica y dentro de los límites que marca una tradición, una organización o su lealtad. Los diablos, los dragones azules y los hobgoblins son legales malvados.</desc>
 			</LAWFUL_EVIL>
 			<NEUTRAL_EVIL>
+				<name>Neutral malo</name>
 				<desc>Neutral malvado (NM) es el alineamiento de los que se salen con la suya siempre que se presenta la oportunidad, sin compasión o remordimiento alguno. Muchos drows, algunos gigantes de las nubes y los yugoloths son neutrales malvados.</desc>
 			</NEUTRAL_EVIL>
 			<CHAOTIC_EVIL>
+				<name>Caótico malo</name>
 				<desc>Las criaturas caóticas malvadas (CM) recurren a la violencia arbitrariamente, movidos por la codicia, el odio o el ansia de sangre. Los demonios, los dragones rojos y los orcos son caóticos malvados.</desc>
 			</CHAOTIC_EVIL>
 		</EAlignment>
-		<ELanguage>
-			<COMMON>
-				<desc>Hablantes típicos: Humanos. Alfabeto: Común.</desc>
-			</COMMON>
-			<ELVISH>
-				<desc>Hablantes típicos: Elfos. Alfabeto: Elfo.</desc>
-			</ELVISH>
-			<DWARVISH>
-				<desc>Hablantes típicos: Enanos. Alfabeto: Enano.</desc>
-			</DWARVISH>
-			<GIANT>
-				<desc>Hablantes típicos: Ogros, gigantes. Alfabeto: Enano.</desc>
-			</GIANT>
-			<GNOMISH>
-				<desc>Hablantes típicos: Gnomos. Alfabeto: Enano.</desc>
-			</GNOMISH>
-			<GOBLIN>
-				<desc>Hablantes típicos: Trasgos. Alfabeto: Enano.</desc>
-			</GOBLIN>
-			<HALFLING>
-				<desc>Hablantes típicos: Medianos. Alfabeto: Común.</desc>
-			</HALFLING>
-			<ORC>
-				<desc>Hablantes típicos: Orcos. Alfabeto: Enano.</desc>
-			</ORC>
-			<ABYSSAL>
-				<desc>Hablantes típicos: Demonios. Alfabeto: Infernal.</desc>
-			</ABYSSAL>
-			<CELESTIAL>
-				<desc>Hablantes típicos: Celestiales. Alfabeto: Celestial.</desc>
-			</CELESTIAL>
-			<DRACONIC>
-				<desc>Hablantes típicos: Dragones, dracónidos. Alfabeto: Dracónico.</desc>
-			</DRACONIC>
-			<DEEP_SPEECH>
-				<desc>Hablantes típicos: Azotamentes, contempladores. Alfabeto: -.</desc>
-			</DEEP_SPEECH>
-			<INFERNAL>
-				<desc>Hablantes típicos: Diablos. Alfabeto: Infernal.</desc>
-			</INFERNAL>
-			<UNDERCOMMON>
-				<desc>Hablantes típicos: Mercaderes del Underdark. Alfabeto: Elfo.</desc>
-			</UNDERCOMMON>
-			<PRIMORDIAL>
-				<desc>Hablantes típicos: Elementales. Alfabeto: Enano.</desc>
-			</PRIMORDIAL>
-			<SYLVAN>
-				<desc>Hablantes típicos: Seres feéricos. Alfabeto: Elfo.</desc>
-			</SYLVAN>
-			<DRUIDIC>
-				<desc>Conoces el druídico, el idioma secreto de los druidas. Puedes hablarlo y utilizarlo para dejar mensajes ocultos. Tanto tu como cualquiera que conozca este idioma advertiréis inmediatamente de la presencia de estos mensajes. Los demás deberán superar una prueba de Sabiduría (Percepción) CD 15 para detectarlos, pero no podrán descifrarlos sin recurrir a la magia.</desc>
-			</DRUIDIC>
-			<GNOLL>
-				<desc>Hablantes típicos: Humanos. Alfabeto: Común.</desc>
-			</GNOLL>
-			<THIEVES_CANT>
-				<desc>Durante tu entrenamiento como pícaro aprendiste la jerga de ladrones, una mezcla de dialecto, argot y código secreto que te permite esconder mensajes en lo que parece una conversación normal y corriente. Únicamente aquellas criaturas que conozcan la jerga de ladrones podrán en tender estos mensajes. Expresar un mensaje utilizando esta jerga precisa de cuatro veces el tiempo que tardarías en comunicar la misma idea directamente.
-			Además, también comprendes un conjunto de señales y símbolos secretos que se usan para dejar mensajes cortos y sencillos, como el hecho de que una zona sea peligrosa o el territorio
-			de un gremio de ladrones, si hay o no botín cerca, o si los lugareños de los alrededores son presas fáciles o pueden proporcionar un piso franco para ladrones a la fuga.</desc>
-			</THIEVES_CANT>
-		</ELanguage>
-		<ERace>
-			<DWARF>
-				<DARKVISION>Acostumbrado a la vida bajo tierra, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
-				<DWARVEN_RESILIENEE>Tienes ventaja en las tiradas de salvación contra veneno y posees resistencia al daño de veneno (como se explica en el capítulo 9: “Combate”).	</DWARVEN_RESILIENEE>
-				<STONEEUNNING> Cuando hagas una prueba de Inteligencia (Historia) que tenga relación con el origen de un trabajo en piedra, se te considerará competente en la habilidad Historia y añadirás dos veces tu bonificador por competencia a la tirada, en lugar de solo una.</STONEEUNNING>
-				<DWARVEN_COMBAT_TRAINING>Eres competente con hachas de guerra, hachas de mano, martillos de guerra y martillos ligeros.</DWARVEN_COMBAT_TRAINING>
-				<TOOL_PROFICIENEY>Eres competente con las herramientas de artesano que elijas de entre las siguientes: herramientas de albañil, herramientas de herrero o suministros de cervecero.</TOOL_PROFICIENEY>
-			</DWARF>
-			<HILL_DWARF>
-				<DWARVEN_TOUGHNESS>Tus puntos de golpe máximos se incrementan en 1, y aumentarán en 1 más cada vez que subas un nivel.</DWARVEN_TOUGHNESS>
-			</HILL_DWARF>
-			<MOUNTAIN_DWARF>
-				<DWARVEN_ARMOR_TRAINING>Eres competente con armaduras ligeras y medias.</DWARVEN_ARMOR_TRAINING>
-			</MOUNTAIN_DWARF>
-			<DUERGAR>
-			</DUERGAR>
-			<ELF>
-				<DARKVISION>Acostumbrado a la penumbra de los bosques y el cielo nocturno, puedes ver bien en la oscuridad o con poca luz. Hasta a un máximo de 60 pies, eres capaz de ver con luz tenue como si hubiera luz brillante y en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
-				<KEEN_SENSES>Eres competente en la habilidad Percepción.</KEEN_SENSES>
-				<FEY_ANCESTRY>Tienes ventaja en las tiradas de salvación para evitar ser hechizado y la magia no puede dormirte.</FEY_ANCESTRY>
-				<TRANCE>Los elfos no necesitan dormir. Meditan profundamente, en un estado semiconsciente, durante 4 horas al día. La palabra en común para referirse a esta meditación es “trance”. Mientras meditas, experimentas algo parecido a sueños, que en realidad son ejercicios mentales que se han vuelto automáticos tras años de práctica. Este trance es suficiente para obtener los mismos beneficios que un humano recibe de 8 horas de sueño.</TRANCE>
-			</ELF>
-			<HIGH_ELF>
-				<ELF_WEAPON_TRAINING>Eres competente con espadas cortas, espadas largas, arcos cortos y arcos largos.</ELF_WEAPON_TRAINING>
-				<CANTRIP>Conoces un truco de tu elección escogido de entre los de la lista de conjuros de mago. La Inteligencia es tu aptitud mágica para lanzarlo.</CANTRIP>
-			</HIGH_ELF>
-			<WOOD_ELF>
-				<ELF_WEAPON_TRAINING>Eres competente con espadas cortas, espadas largas, arcos cortos y arcos largos.</ELF_WEAPON_TRAINING>
-				<FLEET_OF_FOOT>Tu velocidad caminando base aumenta a 35 pies.</FLEET_OF_FOOT>
-				<MASK_OF_THE_WILD>Puedes intentar esconderte incluso cuando estés en un lugar solo ligeramente oscuro, siempre que lo que te tape sea follaje, una lluvia fuerte, nieve que cae, niebla o cualquier otro fenómeno natural.</MASK_OF_THE_WILD>
-			</WOOD_ELF>
-			<DARK_ELF>
-				<SUPERIOR_DARKVISION>Tu Visión en la Oscuridad posee un radio de 120 pies.</SUPERIOR_DARKVISION>
-				<SUNLIGHT_SENSITIVITY>Tienes desventaja en las tiradas de ataque y las pruebas de Sabiduría (Percepción) que dependan de la vista realizadas cuando tú, el objetivo de tu ataque o lo que sea que intentas percibir esté bajo la luz solar directa.</SUNLIGHT_SENSITIVITY>
-				<DROW_MAGIC>Conoces el truco luces danzantes. Cuando llegas a nivel 3, puedes lanzar el conjuro fuego feérico una vez usando este tributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. Cuando alcanzas el nivel 5, eres capaz de lanzar el conjuro oscuridad una vez empleando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. El Carisma es tu aptitud mágica para estos conjuros.</DROW_MAGIC>
-				<DROW_WEAPON_TRAINING>Eres competente con estoques, espadas cortas y ballestas de mano.</DROW_WEAPON_TRAINING>
-			</DARK_ELF>
-			<HALFLING>
-				<LUCKY>Cuando saques un 1 en el dado al hacer una tirada de ataque, prueba de característica o tirada de salvación, puedes volver a tirar el dado, pero tendrás que utilizar el resultado nuevo.</LUCKY>
-				<BRAVE>Posees ventaja en las tiradas de salvación para evitar ser asustado.</BRAVE>
-				<HALFLING_NIMBLENESS>Puedes moverte a través del espacio ocupado por una criatura cuyo tamaño sea, al menos, una categoría superior al tuyo.</HALFLING_NIMBLENESS>
-			</HALFLING>
-			<LIGHTFOOT>
-				<NATURALLY_STEALTHY>Puedes intentar esconderte incluso tras una criatura cuyo tamaño sea, al menos, una categoría superior al tuyo.</NATURALLY_STEALTHY>
-			</LIGHTFOOT>
-			<STOUT>
-				<STOUT_RESILIENCE>Tienes ventaja en las tiradas de salvación contra veneno y posees resistencia al daño de veneno.</STOUT_RESILIENCE>
-			</STOUT>
-			<HUMAN>
-			</HUMAN>
-			<VARIANT_HUMAN>
-				<FEAT>Obtienes una dote de tu elección.</FEAT>
-			</VARIANT_HUMAN>
-			<DRAGONBORN>
-				<DRACONIC_ANCESTRY>Posees la sangre de dragones. Escoge de qué tipo en la tabla “linaje dracónico”. Tu Ataque de Aliento y Resistencia al Daño vendrán determinadas por el tipo de dragón, tal y como se indica en dicha tabla.</DRACONIC_ANCESTRY>
-				<BREATH_WEAPON>Puedes utilizar tu acción para exhalar energía destructora. Tu Linaje Dracónico determina el tamaño, forma y tipo de daño del aliento.
-Cuando uses tu Ataque de Aliento, las criaturas que se encuentren en la zona cubierta por este deberán hacer una tirada de salvación, cuyo tipo viene definido por tu linaje. La CD de
-esta tirada de salvación es de 8 + tu modificador por Constitu ción + tu bonificador por competencia. Las criaturas sufrirán 2d6 de daño si fallan la tirada o la mitad de ese daño si la superan. El daño aumenta a 3d6 cuando alcanzas el nivel 6, a 4d6 a nivel 11 y a 5d6 a nivel 16.
-Una vez utilizado el Ataque de Aliento, no podrás volver a emplearlo hasta que finalices un descanso corto o largo.</BREATH_WEAPON>
-				<DAMAGE_RESISTANCE>Posees resistencia al tipo de daño asociado a tu Linaje Dracónico.</DAMAGE_RESISTANCE>
-			</DRAGONBORN>
-			<GNOME>
-				<DARKVISION>Acostumbrado a la vida bajo tierra, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
-				<GNOME_CUNNING>Tienes ventaja en las tiradas de salvación de Inteligencia, Sabiduría y Carisma contra magia.</GNOME_CUNNING>
-			</GNOME>
-			<FOREST_GNOME>
-				<NATURAL_ILLUSIONIST>Conoces el truco ilusión menor. La Inteligencia es tu aptitud mágica para lanzarlo.</NATURAL_ILLUSIONIST>
-				<SPEAK_WITH_SMALL_BEASTS>Puedes comunicar ideas sencillas a bestias de tamaño Pequeño o inferior usando gestos y sonidos. Los gnomos de los bosques adoran a los animales y en ocasiones adoptan ardillas, tejones, conejos, topos, pájaros carpinteros y otras criaturas similares como mascotas.</SPEAK_WITH_SMALL_BEASTS>
-			</FOREST_GNOME>
-			<ROCK_GNOME>
-				<ARTIFICERS_LORE>Cuando hagas una prueba de Inteligencia (Historia) que tenga relación con objetos mágicos, alquímicos o tecnológicos, se te considerará competente en la habilidad Historia y añadirás dos veces tu bonificador por competencia a la tirada, en lugar de solo una.</ARTIFICERS_LORE>
-				<TINKER>Eres competente con las siguientes herramientas de artesano: herramientas de manitas. Usándolas, puedes invertir 1 hora y materiales valorados en 10 po para construir un dispositivo de relojería de tamaño Diminuto (CA 5, 1 punto de golpe). Este dispositivo deja de funcionar pasadas 24 horas (salvo si dedicas 1 hora a repararlo para mantenerlo a punto) o si usas una acción para desmantelarlo. De hacer esto último, puedes recuperar los materiales que usaste en la construcción. Puedes tener hasta tres dispositivos de este tipo funcionando al mismo tiempo.
-Cada vez que construyas un dispositivo, elige de entre las siguientes opciones:
-• Juguete de relojería. Este juguete mecánico posee forma de un animal, monstruo o persona. Como, por ejemplo, de una rana, un ratón, un dragón o un soldado. Tras depositarlo en
-el suelo, se moverá 5 pies en una dirección aleatoria en cada uno de tus turnos. Hace ruidos apropiados para el ser que representa.
-• Encendedor. Este dispositivo produce una llama en miniatura, que puedes utilizar para encender una vela, antorcha u hoguera. Para usarlo es necesario invertir una acción.
-• Caja de música. Al abrirse, esta caja de música reproduce una única canción a un volumen moderado. La caja deja de sonar cuando la canción se acaba o es cerrada.</TINKER>
-			</ROCK_GNOME>
-			<HALFELF>
-				<DARKVISION>Debido a tu sangre élfica, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
-				<FEY_ANCESTRY>Tienes ventaja en las tiradas de salvación para evitar ser hechizado y la magia no puede dormirte.</FEY_ANCESTRY>
-				<SKILL_VERSATILITY>Ganas competencia en dos habilidades de tu elección.</SKILL_VERSATILITY>
-			</HALFELF>
-			<HALFORC>
-				<DARKVISION>Debido a tu sangre orca, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
-				<MENACING>Eres competente en la habilidad Intimidación.</MENACING>
-				<RELENTLESS_ENDURANCE>Cuando tus puntos de golpe se reducen a 0 pero no mueres instantáneamente, puedes volver a tener 1 punto de golpe. Una vez utilizado este atributo, deberás terminar un descanso largo para poder volver a usarlo otra vez.</RELENTLESS_ENDURANCE>
-				<SAVAGE_ATTACKS>Cuando hagas un crítico con un ataque con arma cuerpo a cuerpo, podrás tirar uno de los dados de daño del arma una vez más y añadir el resultado al daño adicional causado por el crítico.</SAVAGE_ATTACKS>
-			</HALFORC>
-			<TIEFLING>
-				<DARKVISION>Debido a tu sangre infernal, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
-				<HELLISH_RESISTANCE>Posees resistencia al daño de fuego.</HELLISH_RESISTANCE>
-				<INFERNAL_LEGACY>Conoces el truco taumaturgia. Cuando llegas a nivel 3, puedes lanzar el conjuro reprensión infernal como conjuro de nivel 2 una vez usando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. Cuando alcanzas el nivel 5, eres capaz de lanzar el conjuro oscuridad una vez empleando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. El Carisma es tu aptitud mágica para estos conjuros.</INFERNAL_LEGACY>
-			</TIEFLING>
-		</ERace>
-		<EEthnicity>
-			<CALISHITE>
-				<desc>Más bajos y delgados que la mayoría de las otras etnias humanas, los calishitas tienen la tez morena, al igual que el pelo y los ojos. Se los encuentra sobre todo en el suroeste de Faerûn.</desc>
-			</CALISHITE>
-			<CHONDATHAN>
-				<desc>Los chondathanos son esbeltos, de piel olivácea y con cabellos de varios tonos de marrón, que van desde prácticamente rubio hasta casi negro. La mayoría son altos y tienen los ojos verdes o marrones, pero no es siempre el caso. Los humanos de ascendencia chondathana dominan la zona central de Faerûn, alrededor del Mar Interior.</desc>
-			</CHONDATHAN>
-			<DAMARAN>
-				<desc>Los damaranos habitan sobre todo en el noroeste de Faerûn y son de altura y complexión medias, con tonos de piel que van desde la oliva hasta el blanco. Suelen tener el pelo castaño o negro y su color de ojos varía enormemente, aunque el marrón es el más común.</desc>
-			</DAMARAN>
-			<ILLUSKAN>
-				<desc>Los illuskanos son altos, de piel pálida y ojos azules o de un gris acerado. La mayoría tienen el pelo negro azabache, pero los que habitan más al noroeste poseen cabellos rubios, pelirrojos o castaños claros.</desc>
-			</ILLUSKAN>
-			<MULAN>
-				<desc>Amos de las costas este y sureste del Mar Interior, los mulanos suelen ser altos, delgados, de piel ambarina y ojos marrones o avellana. El color de sus cabellos va desde el negro hasta el marrón oscuro, aunque, en las zonas donde están más presentes, los nobles y otros muchos mulanos se afeitan la cabeza.</desc>
-			</MULAN>
-			<RASHEMI>
-				<desc>Los rashemíes están presentes sobre todo al este del Mar Interior y muchas veces se mezclan con los mulanos. Tienden a ser bajos, robustos y musculosos. Suelen tener la piel morena, los ojos oscuros y el cabello, muy espeso, de color negro.</desc>
-			</RASHEMI>
-			<SHOU>
-				<desc>Los shou son el grupo étnico más grande y poderoso de KaraTur, en el lejano oriente de Faerûn. Su piel es amarillenta y bronceada, y tienen los ojos oscuros y el pelo negro. Los apellidos shou suelen enunciarse antes del nombre propio.</desc>
-			</SHOU>
-			<TETHYRIAN>
-				<desc>Muy extendidos a lo largo de la Costa de la Espada, en la extrema occidental de Faerûn, los tethyrianos son de complexión y altura medias, con piel morena, aunque este color es tanto más claro cuanto más al norte habiten. Su color de pelo y ojos varía enormemente, pero el cabello marrón y los ojos azules son la combinación más común. Los tethyrianos suelen usar nombres chondathanos.</desc>
-			</TETHYRIAN>
-			<TURAMI>
-				<desc>Originarios de la costa sur del Mar Interior, los turami suelen ser altos y musculosos, de piel oscura, color caoba, pelo negro y rizado, y ojos oscuros.</desc>
-			</TURAMI>
-		</EEthnicity>
-		<EClass>
-			<BARBARIAN>
-				<desc>Un feroz guerrero de origen primitivo que puede dejarse llevar por la furia en combate.</desc>
-			</BARBARIAN>
-			<BARD>
-				<desc>Un taumaturgo inspirador cuyo poder resuena con la música de la creación.</desc>
-			</BARD>
-			<CLERIC>
-				<desc>Un campeón religioso que empuña la magia divina en servicio de un poder superior.</desc>
-			</CLERIC>
-			<DRUID>
-				<desc>Un sacerdote de la Antigua Fe, que adopta formas animales y empuña los poderes de la naturaleza; la luz lunar, el crecimiento de las plantas, el fuego y el relámpago.</desc>
-				<armor_com>Los druidas nunca llevan armaduras ni escudos hechos de metal.</armor_com>
-			</DRUID>
-			<FIGHTER>
-				<desc>Un maestro del combate, experto en una gran variedad de armas y armaduras.</desc>
-			</FIGHTER>
-			<MONK>
-				<desc>Un maestro de las artes marciales, que recurre al poder de su cuerpo para alcanzar la perfección física y espiritual.</desc>
-			</MONK>
-			<PALADIN>
-				<desc>Un guerrero sagrado atado a un juramento.</desc>
-			</PALADIN>
-			<RANGER>
-				<desc>Un combatiente que recurre a la habilidad marcial y la magia de la naturaleza para enfrentarse a amenazas en los límites de la civilización.</desc>
-			</RANGER>
-			<ROUGE>
-				<desc>Un canalla que emplea el sigilo y los engaños para superar obstáculos y enemigos.</desc>
-			</ROUGE>
-			<SORCERER>
-				<desc>Un lanzador de conjuros que emplea una magia innata, fruto de un don o su linaje.</desc>
-			</SORCERER>
-			<WARLOCK>
-				<desc>Un lanzador de conjuros que obtiene su poder de un pacto con una entidad extraplanar.</desc>
-			</WARLOCK>
-			<WIZARD>
-				<desc>Un estudioso de la magia capaz de manipular las estructuras de la realidad.</desc>
-			</WIZARD>
-		</EClass>
+		<EArmor>
+			<PADDED>
+				<name>Acolchada</name>
+			</PADDED>
+			<LEATHER>
+				<name>Cuero</name>
+			</LEATHER>
+			<STUDDED_LEATHER>
+				<name>Cuero tachonado</name>
+			</STUDDED_LEATHER>
+			<CHAIN_SHIRT>
+				<name>Camisa de malla</name>
+			</CHAIN_SHIRT>
+			<SCALE_MAIL>
+				<name>Cota de escamas</name>
+			</SCALE_MAIL>
+			<BREASTPLATE>
+				<name>Coraza</name>
+			</BREASTPLATE>
+			<HAFPATE>
+				<name>Media armadura</name>
+			</HAFPATE>
+			<HIDE>
+				<name>Pieles</name>
+			</HIDE>
+			<SPLINT>
+				<name>Armadura de bandas</name>
+			</SPLINT>
+			<PLATE>
+				<name>Armadura de placas</name>
+			</PLATE>
+			<RING_MAIL>
+				<name>Cota guarnecida</name>
+			</RING_MAIL>
+			<CHAIN_MAIL>
+				<name>Cota de malla</name>
+			</CHAIN_MAIL>
+		</EArmor>
+		<EArmorType>
+			<LIGHT_ARMOR>
+				<name>Armaduras ligeras</name>
+			</LIGHT_ARMOR>
+			<MEDIUM_ARMOR>
+				<name>Armaduras medias	</name>
+			</MEDIUM_ARMOR>
+			<HEAVY_ARMOR>
+				<name>Armaduras pesadas</name>
+			</HEAVY_ARMOR>
+			<SHIELD>
+				<name>Escudo</name>
+			</SHIELD>
+		</EArmorType>
 		<EBackground>
 			<ACOLYTE>
+				<name>Acólito</name>
 				<desc>• Competencias en habilidades: Perspicacia, Religión.
 • Idiomas: dos de tu elección.
 • Equipo: símbolo sagrado (un regalo de cuando fuiste ordenado sacerdote), devocionario o rueda de oraciones, 5 varas de incienso, vestiduras, muda de ropas comunes y una bolsa con 15 po.</desc>
 			</ACOLYTE>
 			<CHARLATAN>
+				<name>Charlatán</name>
 				<desc>• Competencias en habilidades: Engaño, Juego de Manos.
 • Competencias con herramientas: útiles para disfrazarse, útiles para falsificar.
 • Equipo: muda de ropas de calidad, útiles para disfrazarse, herramientas para un timo de tu elección (diez botellas con tapones de corcho llenas de un líquido coloreado, un juego de dados trucados, una baraja de naipes marcada, un anillo de sellar de un duque imaginario) y una bolsa con 15 po.</desc>
 			</CHARLATAN>
 			<CRIMINAL>
+				<name>Criminal</name>
 				<desc>• Competencias en habilidades: Engaño, Sigilo.
 • Competencias con herramientas: un tipo de juego a tu elección, herramientas de ladrón.
 • Equipo: palanqueta, muda de ropas corrientes de color oscuro y con capucha, una bolsa con 15 po.</desc>
 			</CRIMINAL>
 			<ENTERTAINER>
+				<name>Animador</name>
 				<desc>• Competencias en habilidades: Acrobacias, Interpretación.
 • Competencias con herramientas: útiles para disfrazarse, un tipo de instrumento musical.
 • Equipo: instrumento musical (a tu elección), el favor de un admirador (carta de amor, bucle de cabello o bagatela), disfraz y una bolsa con 15 po.</desc>
 			</ENTERTAINER>
 			<FOLK_HERO>
+				<name>Héroe del pueblo</name>
 				<desc>• Competencias en habilidades: Supervivencia, Trato con Animales.
 • Competencias con herramientas: un tipo de herramientas de artesano, vehículos terrestres.
 • Equipo: herramientas de artesano (un tipo a tu elección), pala, olla de hierro, muda de ropas comunes y una bolsa con 10 po.</desc>
 			</FOLK_HERO>
 			<GUILD_ARTISAN>
+				<name>Artesano gremial</name>
 				<desc>• Competencias en habilidades: Perspicacia, Persuasión.
 • Competencias con herramientas: un tipo de herramientas de artesano.
 • Idiomas: uno de tu elección.
 • Equipo: herramientas de artesano (un tipo a tu elección), carta de presentación de tu gremio, muda de ropas de viaje y una bolsa con 15 po.</desc>
 			</GUILD_ARTISAN>
 			<HERMIT>
+				<name>Ermitaño</name>
 				<desc>• Competencias en habilidades: Medicina, Religión.
 • Competencias con herramientas: útiles de herborista.
 • Idiomas: uno de tu elección.
 • Equipo: estuche para pergaminos lleno de notas de tus estudios u oraciones, manta para el invierno, muda de ropas comunes, útiles de herborista y 5 po.</desc>
 			</HERMIT>
 			<NOBLE>
+				<name>Noble</name>
 				<desc>• Competencias en habilidades: Historia, Persuasión.
 • Competencias con herramientas: un tipo de juego a tu elección.
 • Idiomas: uno de tu elección.
 • Equipo: muda de ropas de calidad, anillo de sellar, documento que acredita el linaje y un monedero con 25 po.</desc>
 			</NOBLE>
 			<OUTLANDER>
+				<name>Salvaje</name>
 				<desc>• Competencias en habilidades: Atletismo, Supervivencia.
 • Competencias con herramientas: un tipo de instrumento musical.
 • Idiomas: uno de tu elección.
 • Equipo: bastón, trampa para cazar, trofeo de un animal al que has matado, muda de ropas de viaje y una bolsa con 10 po.</desc>
 			</OUTLANDER>
 			<SAGE>
+				<name>Erudito</name>
 				<desc>• Competencias en habilidades: Conocimiento Arcano, Historia.
 • Idiomas: dos de tu elección.
 • Equipo: botella de tinta negra, pluma, cuchillo pequeño, carta de un colega muerto que te plantea una pregunta que aún no eres capaz de responder, muda de ropas comunes y una bolsa con 10 po.</desc>
 			</SAGE>
 			<SAILOR>
+				<name>Marinero</name>
 				<desc>• Competencias en habilidades: Atletismo, Percepción.
 • Competencias con herramientas: herramientas de navegante, vehículos acuáticos.
 • Equipo: cabilla (garrote), 50 pies de cuerda de seda, amuleto de la suerte como una pata de conejo o una piedra pequeña con un agujero en el centro (o puedes tirar en la tabla “bagatelas” del capítulo 5), muda de ropas comunes y una bolsa con 10 po.</desc>
 			</SAILOR>
 			<SOLDIER>
+				<name>Soldado</name>
 				<desc>• Competencias en habilidades: Atletismo, Intimidación.
 • Competencias con herramientas: un tipo de juego a tu elección, vehículos terrestres.
 • Equipo: insignia de tu rango, trofeo tomado de un enemigo muerto (una daga, un filo rota o un pedazo de tela de un estandarte), juego de dados o baraja de cartas, muda de ropas comunes y una bolsa con 10 po.</desc>
@@ -791,9 +202,1531 @@ el suelo, se moverá 5 pies en una dirección aleatoria en cada uno de tus turno
 				<desc>• Competencias en habilidades: Juego de Manos, Sigilo.
 • Competencias con herramientas: herramientas de ladrón, útiles para disfrazarse.
 • Equipo: cuchillo pequeño, mapa de la ciudad en la que creciste, ratón (tu mascota), recuerdo de tus padres, muda de ropas comunes y una bolsa con 10 po.</desc>
+				<name>Erudito</name>
 			</URCHIN>
 		</EBackground>
-	</info>
+		<EClass>
+			<BARBARIAN>
+				<name>Bárbaro</name>
+				<desc>Un feroz guerrero de origen primitivo que puede dejarse llevar por la furia en combate.</desc>
+			</BARBARIAN>
+			<BARD>
+				<name>Bardo</name>
+				<desc>Un taumaturgo inspirador cuyo poder resuena con la música de la creación.</desc>
+			</BARD>
+			<CLERIC>
+				<name>Clérigo</name>
+				<desc>Un campeón religioso que empuña la magia divina en servicio de un poder superior.</desc>
+			</CLERIC>
+			<DRUID>
+				<name>Druida</name>
+				<desc>Un sacerdote de la Antigua Fe, que adopta formas animales y empuña los poderes de la naturaleza; la luz lunar, el crecimiento de las plantas, el fuego y el relámpago.</desc>
+				<armor_com>Los druidas nunca llevan armaduras ni escudos hechos de metal.</armor_com>
+			</DRUID>
+			<FIGHTER>
+				<name>Guerrero</name>
+				<desc>Un maestro del combate, experto en una gran variedad de armas y armaduras.</desc>
+			</FIGHTER>
+			<MONK>
+				<name>Monje</name>
+				<desc>Un maestro de las artes marciales, que recurre al poder de su cuerpo para alcanzar la perfección física y espiritual.</desc>
+			</MONK>
+			<PALADIN>
+				<name>Paladín</name>
+				<desc>Un guerrero sagrado atado a un juramento.</desc>
+			</PALADIN>
+			<RANGER>
+				<name>Explorador</name>
+				<desc>Un combatiente que recurre a la habilidad marcial y la magia de la naturaleza para enfrentarse a amenazas en los límites de la civilización.</desc>
+			</RANGER>
+			<ROUGE>
+				<name>Pícaro</name>
+				<desc>Un canalla que emplea el sigilo y los engaños para superar obstáculos y enemigos.</desc>
+			</ROUGE>
+			<SORCERER>
+				<name>Hechicero</name>
+				<desc>Un lanzador de conjuros que emplea una magia innata, fruto de un don o su linaje.</desc>
+			</SORCERER>
+			<WARLOCK>
+				<name>Brujo</name>
+				<desc>Un lanzador de conjuros que obtiene su poder de un pacto con una entidad extraplanar.</desc>
+			</WARLOCK>
+			<WIZARD>
+				<name>Mago</name>
+				<desc>Un estudioso de la magia capaz de manipular las estructuras de la realidad.</desc>
+			</WIZARD>
+		</EClass>
+		<ECoin>
+			<CUPPER>
+				<name>Cobre</name>
+			</CUPPER>
+			<SILVER>
+				<name>Plata</name>
+			</SILVER>
+			<ELECTRUM>
+				<name>Electro</name>
+			</ELECTRUM>
+			<GOLD>
+				<name>oro</name>
+			</GOLD>
+			<PLATINUM>
+				<name>Platino</name>
+			</PLATINUM>
+		</ECoin>
+		<EDamage>
+			<ACID>
+				<name>Ácido</name>
+			</ACID>
+			<BLUDGEONING>
+				<name>Contundente</name>
+			</BLUDGEONING>
+			<ELEMENTAL>
+				<name>Elemental</name>
+			</ELEMENTAL>
+			<PHYSICAL>
+				<name>Físico</name>
+			</PHYSICAL>
+			<COLD>
+				<name>Frío</name>
+			</COLD>
+			<FIRE>
+				<name>Fuego</name>
+			</FIRE>
+			<FORCE>
+				<name>Fuerza</name>
+			</FORCE>
+			<LIGHTNING>
+				<name>Relámpago</name>
+			</LIGHTNING>
+			<NECROTIC>
+				<name>Necrótico</name>
+			</NECROTIC>
+			<PIERCING>
+				<name>Perforante</name>
+			</PIERCING>
+			<POISON>
+				<name>Veneno</name>
+			</POISON>
+			<PSYCHIC>
+				<name>Psíquico</name>
+			</PSYCHIC>
+			<RADIANT>
+				<name>Radiante</name>
+			</RADIANT>
+			<SLASHING>
+				<name>Cortante</name>
+			</SLASHING>
+			<THUNDER>
+				<name>Trueno</name>
+			</THUNDER>
+		</EDamage>
+		<EDice>
+			<D2>
+				<name>d2</name>
+			</D2>
+			<D4>
+				<name>d4</name>
+			</D4>
+			<D6>
+				<name>d6</name>
+			</D6>
+			<D8>
+				<name>d8</name>
+			</D8>
+			<D10>
+				<name>d10</name>
+			</D10>
+			<D12>
+				<name>d12</name>
+			</D12>
+			<D20>
+				<name>d20</name>
+			</D20>
+			<D100>
+				<name>d100</name>
+			</D100>
+		</EDice>
+		<EDraconicAncestry>
+			<BLUE>
+				<name>Azul</name>
+			</BLUE>
+			<WHITE>
+				<name>Blanco</name>
+			</WHITE>
+			<BRONZE>
+				<name>Bronce</name>
+			</BRONZE>
+			<COPPER>
+				<name>Cobre</name>
+			</COPPER>
+			<BLACK>
+				<name>Negro</name>
+			</BLACK>
+			<GOLD>
+				<name>Oro</name>
+			</GOLD>
+			<BRASS>
+				<name>Oropel</name>
+			</BRASS>
+			<SILVER>
+				<name>Plata</name>
+			</SILVER>
+			<RED>
+				<name>Rojo</name>
+			</RED>
+			<GREEN>
+				<name>Verde</name>
+			</GREEN>
+		</EDraconicAncestry>
+		<EEthnicity>
+			<CALISHITE>
+				<name>Calishita</name>
+				<desc>Más bajos y delgados que la mayoría de las otras etnias humanas, los calishitas tienen la tez morena, al igual que el pelo y los ojos. Se los encuentra sobre todo en el suroeste de Faerûn.</desc>
+			</CALISHITE>
+			<CHONDATHAN>
+				<name>Chondathano</name>
+				<desc>Los chondathanos son esbeltos, de piel olivácea y con cabellos de varios tonos de marrón, que van desde prácticamente rubio hasta casi negro. La mayoría son altos y tienen los ojos verdes o marrones, pero no es siempre el caso. Los humanos de ascendencia chondathana dominan la zona central de Faerûn, alrededor del Mar Interior.</desc>
+			</CHONDATHAN>
+			<DAMARAN>
+				<name>Damarano</name>
+				<desc>Los damaranos habitan sobre todo en el noroeste de Faerûn y son de altura y complexión medias, con tonos de piel que van desde la oliva hasta el blanco. Suelen tener el pelo castaño o negro y su color de ojos varía enormemente, aunque el marrón es el más común.</desc>
+			</DAMARAN>
+			<ILLUSKAN>
+				<name>Illuskano</name>
+				<desc>Los illuskanos son altos, de piel pálida y ojos azules o de un gris acerado. La mayoría tienen el pelo negro azabache, pero los que habitan más al noroeste poseen cabellos rubios, pelirrojos o castaños claros.</desc>
+			</ILLUSKAN>
+			<MULAN>
+				<name>Mulano</name>
+				<desc>Amos de las costas este y sureste del Mar Interior, los mulanos suelen ser altos, delgados, de piel ambarina y ojos marrones o avellana. El color de sus cabellos va desde el negro hasta el marrón oscuro, aunque, en las zonas donde están más presentes, los nobles y otros muchos mulanos se afeitan la cabeza.</desc>
+			</MULAN>
+			<RASHEMI>
+				<name>Rashemí</name>
+				<desc>Los rashemíes están presentes sobre todo al este del Mar Interior y muchas veces se mezclan con los mulanos. Tienden a ser bajos, robustos y musculosos. Suelen tener la piel morena, los ojos oscuros y el cabello, muy espeso, de color negro.</desc>
+			</RASHEMI>
+			<SHOU>
+				<name>Shou</name>
+				<desc>Los shou son el grupo étnico más grande y poderoso de KaraTur, en el lejano oriente de Faerûn. Su piel es amarillenta y bronceada, y tienen los ojos oscuros y el pelo negro. Los apellidos shou suelen enunciarse antes del nombre propio.</desc>
+			</SHOU>
+			<TETHYRIAN>
+				<name>Tethyriano</name>
+				<desc>Muy extendidos a lo largo de la Costa de la Espada, en la extrema occidental de Faerûn, los tethyrianos son de complexión y altura medias, con piel morena, aunque este color es tanto más claro cuanto más al norte habiten. Su color de pelo y ojos varía enormemente, pero el cabello marrón y los ojos azules son la combinación más común. Los tethyrianos suelen usar nombres chondathanos.</desc>
+			</TETHYRIAN>
+			<TURAMI>
+				<name>Turami</name>
+				<desc>Originarios de la costa sur del Mar Interior, los turami suelen ser altos y musculosos, de piel oscura, color caoba, pelo negro y rizado, y ojos oscuros.</desc>
+			</TURAMI>
+		</EEthnicity>
+		<EFeat>
+			<ALERT>
+				<name>Alerta</name>
+				<desc>Siempre estás atento al peligro. Obtienes los beneficios siguientes:
+• Ganas un bonificador de +5 a la iniciativa.
+• Mientras estés consciente no puedes ser sorprendido.
+• Las criaturas que te ataquen sin que puedas verlas no reciben ventaja en sus tiradas de ataque por este motivo.</desc>
+			</ALERT>
+			<ATHLETE>
+				<name>Atleta</name>
+				<desc>Has seguido un entrenamiento físico muy intenso, que te proporciona los beneficios siguientes:
+• Tu puntuación de Fuerza o Destreza aumenta en 1, hasta un máximo de 20.
+• Solo te cuesta 5 pies de movimiento levantarte cuando estás derribado.
+• No necesitas invertir movimiento adicional para trepar.
+• Puedes hacer un salto con carrerilla, tanto de altura como de longitud, tras haberte movido tan solo 5 pies, en lugar de los 10 pies habituales.</desc>
+			</ATHLETE>
+			<ACTOR>
+				<name>Actor</name>
+				<desc>Debido a tu habilidad para la imitación y el arte dramático, recibes los beneficios siguientes:
+• Tu puntuación de Carisma aumenta en 1, hasta un máximo de 20.
+• Tienes ventaja en las pruebas de Carisma (Engaño) y Carisma (Interpretación) que hagas para hacerte pasar por otra persona.
+• Puedes imitar el habla de otra persona o los sonidos que hacen otras criaturas. Debes haber oído hablar a la persona o los sonidos de la criatura durante al menos 1 minuto. Si quien te escucha vence en una prueba de Sabiduría (Perspicacia) enfrentada a tu prueba de Carisma (Engaño), sabrá que se trata de una imitación.</desc>
+			</ACTOR>
+			<CHARGER>
+				<name>Atacante a la Carga</name>
+				<desc>Cuando utilizas tu acción para Correr, puedes usar una acción adicional para hacer un ataque con arma cuerpo a cuerpo o em pujar a una criatura.
+Si mueves al menos 10 pies en línea recta justo antes de emplear esta acción adicional, podrás elegir entre ganar un bonificador de +5 a la tirada de daño del ataque (si optas por hacer el ataque cuerpo a cuerpo e impactas) o empujar al objetivo hasta 10 pies en dirección contraria a ti (si decides empujar y tienes éxito).</desc>
+			</CHARGER>
+			<CROSSBOW_EXPERT>
+				<name>Experto en Ballestas</name>
+				<desc>Debido a una práctica intensa con la ballesta, has conseguido los beneficios siguientes:
+• Puedes ignorar la propiedad “recarga” de las ballestas con las que eres competente.
+• Estar a 5 pies o menos de una criatura hostil no te causa desventaja en las tiradas de ataque a distancia.
+• Cuando realizas una acción de Atacar y atacas con un arma a una mano, puedes utilizar tu acción adicional para atacar con una ballesta de mano que estés sujetando.</desc>
+			</CROSSBOW_EXPERT>
+			<DEFENSIVE_DUELIST>
+				<name>Duelista Defensivo</name>
+				<desc>Requisitos: Destreza 13 o más.
+Cuando estás empuñando un arma sutil con la que seas competente y otra criatura te impacte con un ataque cuerpo a cuerpo, podrás utilizar tu reacción para sumar tu bonificador por competencia a tu CA a efectos de este ataque. Con suerte, conseguirás que falle.</desc>
+			</DEFENSIVE_DUELIST>
+			<DUAL_WIELDER>
+				<name>Combatiente con Dos Armas</name>
+				<desc>Has dominado el combate con dos armas, obteniendo los beneficios siguientes:
+• Recibes un +1 a tu CA cuando estás empuñando varias armas cuerpo a cuerpo, una en cada mano.
+• Puedes combatir con dos armas incluso si las armas que estás utilizando no son ligeras.
+• Puedes envainar y desenvainar dos armas a una mano en aquellas circunstancias en las que antes solo podías hacerlo con una.</desc>
+			</DUAL_WIELDER>
+			<DUNGEON_DELVER>
+				<name>Explorador de Mazmorras</name>
+				<desc>Estás alerta a las trampas ocultas y las puertas secretas habituales en muchas mazmorras, lo que te proporciona los beneficios siguientes:
+• Tienes ventaja en las pruebas de Sabiduría (Percepción) e Inteligencia (Investigación) para detectar la presencia de puertas secretas.
+• Posees ventaja en las tiradas de salvación para evitar o resistir trampas.
+• Tienes resistencia al daño causado por trampas.
+• Viajar a un ritmo rápido no impone la penalización normal de -5 en su puntuación de Sabiduría pasiva (Percepción).</desc>
+			</DUNGEON_DELVER>
+			<DURABLE>
+				<name>Resistente</name>
+				<desc>Tu dureza y resistencia te otorgan los beneficios siguientes:
+• Tu puntuación de Constitución aumenta en 1, hasta un máximo de 20.
+• Cuando tiras un Dado de Golpe para recuperar puntos de golpe, el número mínimo que recuperas con esta tirada es dos veces tu modificador por Constitución (como mínimo 2).</desc>
+			</DURABLE>
+			<ELEMENTAL_ADEPT>
+				<name>Versado en un Elemento</name>
+				<desc>Requisitos: La capacidad de lanzar al menos un conjuro.
+Cuando obtengas esta dote, elige uno de los siguientes tipos de daño: ácido, frío, fuego, relámpago o trueno.
+Los conjuros que lances ignoran la resistencia al daño del tipo elegido. Además, cuando tires el daño de uno de tus conjuros que inflija ese tipo de daño, puedes considerar cualquier 1 en los dados de daño como 2.
+Puedes escoger esta dote varias veces, pero deberás elegir un tipo de daño distinto cada vez que lo hagas.</desc>
+			</ELEMENTAL_ADEPT>
+			<GRAPPLER>
+				<name>Apresador</name>
+				<desc>Requisitos: Fuerza 13 o más.
+Has desarrollado las aptitudes necesarias para pelear bien a distancias extremadamente cortas. Obtienes los beneficios siguientes:
+• Tienes ventaja en las tiradas de ataque contra una criatura a la que estés agarrando.
+• Puedes usar tu acción para intentar someter a un objetivo al que estés agarrando. Para ello, haz otra prueba de agarrar. Si tienes éxito, tanto tu como la criatura estaréis apresados hasta que el agarre finalice.</desc>
+			</GRAPPLER>
+			<GREAT_WEAPON_MASTER>
+				<name>Maestro en Armas Pesadas</name>
+				<desc>Has aprendido a usar el peso de tu arma en tu beneficio, empleando su impulso para reforzar tus golpes. Obtienes los beneficios siguientes:
+• Una vez por turno, cuando, con un arma cuerpo a cuerpo, hagas un crítico o reduzcas los puntos de golpe de una criatura a 0, podrás utilizar tu acción adicional para realizar un ataque con arma cuerpo a cuerpo.
+• Puedes elegir, antes de hacer un ataque cuerpo a cuerpo con un arma pesada con la que seas competente, sufrir un penalizador de –5 a la tirada de ataque. Si impactas, puedes sumar +10 al daño del ataque.</desc>
+			</GREAT_WEAPON_MASTER>
+			<HEALER>
+				<name>Sanador</name>
+				<desc>Tienes talento como médico. Eres capaz de cerrar heridas rápidamente. permitiendo a tus aliados volver al combate. Obtienes los beneficios siguientes:
+• Cuando estabilizas a una criatura que está agonizando (con 0 puntos de golpe) utilizando unos útiles de sanador, la criatura también recupera 1 punto de golpe.
+• Como acción, puedes gastar uno de los usos de unos útiles de sanador para atender a una criatura y hacerla recuperar 1d6 + 4 puntos de golpe. Además, el objetivo también recupera tantos puntos de golpe adicionales como su número de Dados de Golpe máximos. Esta criatura no puede volver a recuperar puntos de golpe gracias a esta dote hasta que termine un descanso corto o largo.</desc>
+			</HEALER>
+			<HEAVILY_ARMORED>
+				<name>Muy Acorzado</name>
+				<desc>Requisitos: Competente con armaduras medias.
+Te has entrenado hasta dominar el combate en armaduras pesadas, obteniendo los beneficios siguientes:
+• Tu puntuación de Fuerza aumenta en 1, hasta un máximo de 20.
+• Ganas competencia con armaduras pesadas.</desc>
+			</HEAVILY_ARMORED>
+			<HEAVY_ARMOR_MASTER>
+				<name>Maestro en Armaduras Pesadas</name>
+				<desc>Requisitos: Competencia con armaduras pesadas.
+Eres capaz de emplear tu armadura para desviar golpes que matarían a otros. Obtienes los beneficios siguientes:
+• Tu puntuación de Fuerza aumenta en 1, hasta un máximo de 20.
+• Mientras estás llevando armadura pesada, el daño contundente, cortante y perforante de armas no mágicas que recibas se reduce en 3.</desc>
+			</HEAVY_ARMOR_MASTER>
+			<INSPIRING_LEADER>
+				<name>Líder Inspirador</name>
+				<desc>Requisitos: Carisma 13 o más.
+Puedes invertir 10 minutos en inspirar a tus compañeros, apuntalando su voluntad para luchar. Cuando hagas esto, escoge hasta a seis criaturas amistosas (entre las que puedes encontrarte tú mismo) a 30 pies o menos de ti que puedan verte u oírte y sean capaces de entenderte. Cada uno de estos objetivos recibe tantos puntos de golpe temporales como tu nivel + tu modificador por Carisma.
+Ninguna de las criaturas puede volver a recibir puntos de golpe temporales gracias a esta dote hasta que termine un descanso corto o largo.</desc>
+			</INSPIRING_LEADER>
+			<KEEN_MIND>
+				<name>Mente Aguda</name>
+				<desc>Posees una mente con una capacidad asombrosa para percibir el paso del tiempo, orientarse y recordar hasta el más mínimo detalle. Obtienes los beneficios siguientes:
+• Tu puntuación de Inteligencia aumenta en 1, hasta un máximo de 20.
+• Siempre distingues dónde está el norte.
+• Siempre sabes cuantas horas faltan para el siguiente amanecer o anochecer.
+• Puedes recordar con exactitud todo lo que hayas vista u oído durante el último mes.</desc>
+			</KEEN_MIND>
+			<LIGHTLY_ARMORED>
+				<name>Ligeramente Acorazado</name>
+				<desc>Te has entrenado hasta dominar el combate en armaduras ligeras, obteniendo los beneficios siguientes:
+• Tu puntuación de Fuerza o Destreza aumenta en 1, hasta un máximo de 20.
+• Ganas competencia con armaduras ligeras.</desc>
+			</LIGHTLY_ARMORED>
+			<LINGUIST>
+				<name>Lingüista</name>
+				<desc>Has estudiado idiomas y códigos, adquiriendo los beneficios siguientes:
+• Tu puntuación de Inteligencia aumenta en 1, hasta un máximo de 20.
+• Aprendes tres idiomas de tu elección.
+• Eres capaz de inventar códigos para cifrar mensajes escritos. Si alguien quiere descifrarlos tendrá tres opciones: que le enseñes cómo hacerlo, tener éxito en una prueba de Inteligencia (CD tu puntuación de Inteligencia + tu modificador por competencia) o recurrir a la magia.</desc>
+			</LINGUIST>
+			<LUCKY>
+				<name>Afortunado</name>
+				<desc>Posees una suerte inexplicable, que te sonríe siempre en el momento idóneo.
+Tienes 3 puntos de suerte. Cuando hagas una tirada de ataque, prueba de característica o tirada de salvación, podrás gastar 1 punto de suerte para tirar 1d20 adicional. Puedes elegir hacer esto después de haber hecho la tirada, pero antes de que se determine el resultado. Podrás escoger cuál de los 2d20 vas a usar en la tirada de ataque, prueba de característica o tirada de salvación.
+También puedes gastar 1 punto de suerte después de que se haga una tirada de ataque contra ti. Tira 1d20 y decide con qué resultado quieres que se realice el ataque, si con el del dado del atacante o con el tuyo.
+Si más de una criatura invierte puntos de suerte en influir en el resultado de la misma tirada, los puntos se cancelan unos con otros y no se tiran dados adicionales.
+Recuperas todos tus puntos de suerte tras finalizar un descanso largo.</desc>
+			</LUCKY>
+			<MAGE_SLAYER>
+				<name>Azote de Magos</name>
+				<desc>Has ensayado técnicas útiles para luchar en cuerpo a cuerpo contra lanzadores de conjuros, recibiendo los beneficios siguientes:
+• Si una criatura que se encuentre a 5 pies o menos de ti lanza un conjuro, puedes utilizar tu reacción para hacer un ataque con arma cuerpo a cuerpo contra ella.
+• Si infliges daño a una criatura que se está concentrando en un conjuro, esta tendrá desventaja en las tiradas de salvación que haga con el fin de mantener la concentración.
+• Tienes ventaja en las tiradas de salvación contra los conjuros lanzados por criaturas que se encuentren a 5 pies o menos de ti.</desc>
+			</MAGE_SLAYER>
+			<MAGIC_INITIATE>
+				<name>Iniciado en la Magia</name>
+				<desc>Elige una clase: bardo, brujo, clérigo, druida, hechicero o mago. Aprendes dos trucos de tu elección escogidos de entre los de la lista de conjuros de esa clase.
+También aprendes el conjuro de nivel 1 que escojas de dicha lista. Podrás emplear esta dote para lanzar una vez este conjuro a su nivel más bajo. Deberás finalizar un descanso largo para poder lanzarlo otra vez mediante esta dote.
+Tu aptitud mágica para estos conjuros dependerá de la clase que hayas elegido: Carisma para bardo, brujo o hechicero; Sabiduría para clérigo o druida; e Inteligencia para mago.</desc>
+			</MAGIC_INITIATE>
+			<MARTIAL_ADEPT>
+				<name>Versado en las Armas</name>
+				<desc>Has recibido un entrenamiento marcial que te permite ejecutar ciertas maniobras de combate. Obtienes los beneficios siguientes:
+• Aprendes dos maniobras a tu elección de entre las disponibles para el arquetipo Maestro del Combate de la clase guerrero. Si alguna exige a tu objetivo hacer una tirada de salvación para resistir sus efectos, la CD será 8 + tu modificador por competencia + tu modificador por Fuerza o Destreza (tú eliges).
+• Ganas un dado más de supremacía del tipo que tuvieras y, si no lo tienes, ganas 1d6. Puedes utilizar este dado para ejecutar tus maniobras, y se gastará cuando lo uses. Recuperas todos los dados de supremacía tras hacer un descanso corto o largo.</desc>
+			</MARTIAL_ADEPT>
+			<MEDIUM_ARMOR_MASTER>
+				<name>Maestro en Armaduras Medias</name>
+				<desc>Requisitos: Competente con armaduras medias.
+Te has acostumbrado a moverte con armaduras medias, obteniendo los beneficios siguientes:
+• Llevar armadura media no te da desventaja en las pruebas de Destreza (Sigilo).
+• Cuando portas armadura media puedes sumar 3, en lugar de 2, a tu CA si tienes Destreza 16 o más.</desc>
+			</MEDIUM_ARMOR_MASTER>
+			<MOBILE>
+				<name>Móvil</name>
+				<desc>Eres excepcionalmente ágil y veloz. Posees los beneficios siguientes:
+• Tu velocidad aumenta en 10 pies.
+• Al realizar una acción de Correr, el terreno difícil no te cuesta movimiento adicional durante este turno.
+• Si realizas un ataque cuerpo a cuerpo contra una criatura (impactes o no), no provocarás ataques de oportunidad de esa criatura durante el resto del turno.</desc>
+			</MOBILE>
+			<MODERATELY_ARMORED>
+				<name>Moderadamente Acorazado</name>
+				<desc>Requisitos: Competencia con armaduras ligeras.
+Te has entrenado hasta dominar el combate en armaduras medias y escudos, obteniendo los beneficios siguientes:
+• Tu puntuación de Fuerza o Destreza aumenta en 1, hasta un máximo de 20.
+• Ganas competencia con armaduras medias y escudos.</desc>
+			</MODERATELY_ARMORED>
+			<MOUNTED_COMBATANT>
+				<name>Combatiente Montado</name>
+				<desc>Eres un enemigo muy peligroso cuando te encuentras sobre una montura. Obtendrás los beneficios siguientes mientras estés sobre una montura y no estés incapacitado:
+• Tienes ventaja en las tiradas de ataque cuerpo a cuerpo contra cualquier criatura que no esté montada y sea de un tamaño inferior al de tu montura.
+• Puedes obligar a que un ataque cuyo objetivo original fuera tu montura te tenga como objetivo a ti en su lugar.
+• Si tu montura es víctima de un efecto que le permita hacer una tirada de salvación de Destreza para recibir solo la mitad del daño, no recibirá daño alguno si tiene éxito en la tirada de salvación y solo la mitad si falla.</desc>
+			</MOUNTED_COMBATANT>
+			<OBSERVANT>
+				<name>Observador</name>
+				<desc>Te percatas con facilidad de los detalles de tu entorno, por lo que recibes los beneficios siguientes:
+• Tu puntuación de Inteligencia o Sabiduría aumenta en 1, hasta un máximo de 20.
+• Podrás saber lo que dice, leyendo sus labios, cualquier criatura que esté hablando un idioma que conozcas y cuya boca puedas ver.
+• Tienes un bonificador de +5 a tus puntuaciones de Sabiduría (Percepción) e Inteligencia (Investigación) pasivas.</desc>
+			</OBSERVANT>
+			<POLEARM_MASTER>
+				<name>Maestro en Armas de Asta</name>
+				<desc>Puedes mantener a tus enemigos a raya con las armas de alcance. Posees los beneficios siguientes:
+• Cuando realizas una acción de Atacar y atacas únicamente con una alabarda, bastón, guja o lanza, puedes emplear tu acción adicional para ejecutar un ataque cuerpo a cuerpo con el lado opuesto del arma. Este ataque utiliza el mismo modificador por característica que el ataque primario, su dado de daño es d4 e inflige daño contundente.
+• Mientras estás empuñando una alabarda, bastón, guja o lanza, puedes hacer un ataque de oportunidad contra aquellas criaturas que entren dentro del alcance que estas armas te dan.</desc>
+			</POLEARM_MASTER>
+			<RESILIENT>
+				<name>Resiliente</name>
+				<desc>Elige una puntuación de característica. Obtienes los beneficios siguientes:
+• Tu puntuación de característica elegida aumenta en 1, hasta un máximo de 20.
+• Obtienes competencia en las tiradas de salvación de la característica elegida.</desc>
+			</RESILIENT>
+			<RITUAL_CASTER>
+				<name>Lanzador Ritual</name>
+				<desc>Requisitos: Inteligencia o Sabiduría 13 o más.
+Has aprendido una serie de conjuros que puedes lanzar como rituales. Estos conjuros están escritos en un libro de rituales, que debes tener en las manos para poder lanzar cualquiera de ellos.
+Cuando escojas esta dote obtendrás este libro, que contendrá dos conjuros de nivel 1 de tu elección. Elige una de las siguientes clases: bardo, brujo, clérigo, druida, hechicero o mago. Debes escoger los conjuros de entre los de la lista de dicha clase y ambos deben estar marcados como “ritual”. La clase elegida también determinará tu aptitud mágica para ellos: Carisma para bardo, brujo o hechicero; Sabiduría para clérigo o druida; e Inteligencia para mago.
+Si te encuentras con un conjuro que esté plasmado por escrito, como en un pergamino de conjuro o en el libro de conjuros de un mago, podrás añadirlo a tu libro de rituales. Dicho conjuro deberá figurar en la lista de la clase que elegiste, su nivel no puede ser superior a la mitad del tuyo (redondeando hacia arriba) y debe estar marcado como “ritual”. El proceso de copia al libro de rituales precisa de 2 horas y 50 po por cada nivel del conjuro. Este coste representa los componentes materiales que gastas al experimentar con el conjuro hasta dominarlo, así como las valiosas tintas que utilizas para registrarlo.</desc>
+			</RITUAL_CASTER>
+			<SAVAGE_ATTACKER>
+				<name>Atacante Salvaje</name>
+				<desc>Una vez por turno, cuando tiras el daño de un ataque con arma cuerpo a cuerpo, puedes repetir los dados de daño del arma y usar el resultado que prefieras.</desc>
+			</SAVAGE_ATTACKER>
+			<SENTINEL>
+				<name>Centinela</name>
+				<desc>Has dominado una serie de técnicas que te permiten aprovecharte de la más mínima brecha en las defensas de tu enemigo, por lo que recibes los siguientes beneficios:
+• Si impactas a una criatura con un ataque de oportunidad, su velocidad desciende a 0 durante el resto del turno.
+• Podrás hacer ataques de oportunidad incluso contra aquellas criaturas que realicen una acción de Destrabarse antes de salir de tu alcance.
+• Cuando una criatura que se encuentre a 5 pies o menos de ti ataque a un objetivo que no seas tú (y dicho objetivo no posea también esta dote), podrás usar tu reacción para realizar un ataque con arma cuerpo a cuerpo contra la criatura atacante.</desc>
+			</SENTINEL>
+			<SHARPSHOOTER>
+				<name>Tirador de Primera</name>
+				<desc>Eres un maestro de las armas a distancia, capaz de acertar con disparos que otros considerarían imposibles. Posees los beneficios siguientes:
+• No tienes desventaja en las tiradas de ataque con armas a distancia a alcance largo.
+• Tus ataques con armas a distancia ignoran las coberturas media y tres cuartos.
+• Puedes elegir, antes de hacer un ataque con un arma a distancia con la que seas competente, sufrir un penalizador de –5 a la tirada de ataque. Si impactas, puedes sumar +10 al daño del ataque.</desc>
+			</SHARPSHOOTER>
+			<SHIELD_MASTER>
+				<name>Maestro en Escudos</name>
+				<desc>No solo usas el escudo para protegerte, sino también para atacar. Mientras estés embrazando un escudo recibirás los beneficios siguientes:
+• Si realizas una acción de Atacar durante tu turno, puedes utilizar una acción adicional para intentar empujar una criatura que se encuentre a 5 pies o menos de ti con tu escudo.
+• Si no estás incapacitado, puedes añadir el bonificador de CA de tu escudo a cualquier tirada de salvación de Destreza que hagas contra cualquier conjuro u otro efecto pernicioso que solo te tenga como objetivo a ti.
+• Si eres víctima de un efecto que te permite hacer una tirada de salvación de Destreza para recibir solo la mitad del daño, puedes emplear tu reacción para no recibir daño alguno si tienes éxito en la tirada de salvación, interponiendo tu escudo entre el origen del efecto y tú.</desc>
+			</SHIELD_MASTER>
+			<SKILLED>
+				<name>Habilidoso</name>
+				<desc>Ganas competencia en cualquier combinación de tres habilidades o herramientas de tu elección.</desc>
+			</SKILLED>
+			<SKULKER>
+				<name>Acechador</name>
+				<desc>Requisitos: Destreza 13 o más.
+Eres experto en escabullirte entre las sombras. Obtienes los beneficios siguientes:
+• Puedes intentar esconderte simplemente con estar en una zona ligeramente oscura desde el punto de vista de la criatura de la que deseas ocultarte.
+• Cuando estás escondido de una criatura y fallas un ataque con arma a distancia contra ella, el haber realizado este ataque no revela tu ubicación.
+• La luz tenue no te provoca desventaja en las pruebas de Sabiduría (Percepción) que dependen de la vista.</desc>
+			</SKULKER>
+			<SPELL_SNIPER>
+				<name>Lanzador Preciso</name>
+				<desc>Requisitos: La capacidad de lanzar al menos un conjuro.
+Has aprendido varias técnicas que te permiten mejorar tus ataques con ciertos tipos de conjuros, recibiendo los beneficios siguientes:
+• Cuando lances un conjuro que precise de una tirada de ataque, su alcance se duplica.
+• Tus ataques de conjuros a distancia ignoran las coberturas media y tres cuartos.
+• Aprendes un truco que requiera de una tirada de ataque. Escógelo de entre las listas de bardo, brujo, clérigo, druida, hechicero o mago. Tu aptitud mágica para este truco dependerá de la clase a la que pertenezca la lista en la que figuraba: Carisma para bardo, brujo o hechicero; Sabiduría para clérigo o druida; e Inteligencia para mago.</desc>
+			</SPELL_SNIPER>
+			<TAVERN_BRAWLER>
+				<name>Matón de Taberna</name>
+				<desc>Estás acostumbrado a pelear de forma brusca y agresiva, empleando como arma cualquier objeto que caiga en tus manos. Por tanto, posees los beneficios siguientes:
+• Tu puntuación de Fuerza o Constitución aumenta en 1, hasta un máximo de 20.
+• Eres competente con armas improvisadas.
+• Tus ataques sin armas infligen 1d4 de daño.
+• Cuando impactas a una criatura con un ataque sin armas o un arma improvisada durante tu turno, puedes utilizar una acción adicional para intentar agarrar al objetivo.</desc>
+			</TAVERN_BRAWLER>
+			<TOUGH>
+				<name>Duro</name>
+				<desc>Tus puntos de golpe máximos aumentan en dos veces tu nivel en el momento en que eliges esta dote. A partir de ese momento, cada vez que alcances un nuevo nivel tus puntos de golpe máximos aumentarán en 2 más.</desc>
+			</TOUGH>
+			<WAR_CASTER>
+				<name>Lanzador en Combate</name>
+				<desc>Requisitos: La capacidad de lanzar al menos un conjuro.
+Has practicado como lanzar conjuros en medio del combate, aprendiendo técnicas que te proporcionan los beneficios siguientes:
+• Tienes ventaja en las tiradas de salvación de Constitución que hagas para mantener la concentración en un conjuro cuando recibes daño.
+• Puedes ejecutar los componentes somáticos de tus conjuros incluso cuando empuñas armas o un escudo, en una o ambas manos.
+• Cuando el movimiento de una criatura hostil te permite hacer un ataque de oportunidad contra ella, puedes usar tu reacción para, en lugar de realizar este ataque, lanzar un conjuro contra la criatura. Dicho conjuro deberá tener un tiempo de lanzamiento de 1 acción y tener como objetivo una única criatura.</desc>
+			</WAR_CASTER>
+			<WEAPON_MASTER>
+				<name>Maestro de Armas</name>
+				<desc>Has practicado intensamente con una gran variedad de armas, por lo que disfrutas de los beneficios siguientes:
+• Tu puntuación de Fuerza o Destreza aumenta en 1, hasta un máximo de 20.
+• Ganas competencia con cuatro armas de tu elección. Podrás escoger cualquier arma sencilla o marcial.</desc>
+			</WEAPON_MASTER>
+		</EFeat>
+		<EGear>
+			<ABACUS>
+				<name>Ábaco</name>
+			</ABACUS>
+			<CALTROPS_20>
+				<name>Abrojos (bolsa de 20)</name>
+			</CALTROPS_20>
+			<OIL_FLASK>
+				<name>Aceite (frasco)</name>
+			</OIL_FLASK>
+			<ACID_VIAL>
+				<name>Ácido (vial)</name>
+			</ACID_VIAL>
+			<HOLY_WATER_FLASK>
+				<name>Agua bendita (frasco)</name>
+			</HOLY_WATER_FLASK>
+			<QUIVER>
+				<name>Aljaba</name>
+			</QUIVER>
+			<SIGNET_RING>
+				<name>Anillo de sello</name>
+			</SIGNET_RING>
+			<ANTITOXIN_VIAL>
+				<name>Antitoxina (vial)</name>
+			</ANTITOXIN_VIAL>
+			<TORCH>
+				<name>Antorcha</name>
+			</TORCH>
+			<FISHING_TACKLE>
+				<name>Aparejo de pesca</name>
+			</FISHING_TACKLE>
+			<BLOCK_AND_TACKLE>
+				<name>Aparejo de poleas</name>
+			</BLOCK_AND_TACKLE>
+			<RAM_PORTABLE>
+				<name>Ariete portátil</name>
+			</RAM_PORTABLE>
+			<SCALE_MERCHANT>
+				<name>Balanza de mercader</name>
+			</SCALE_MERCHANT>
+			<BARREL>
+				<name>Barril</name>
+			</BARREL>
+			<BALL_BEARINGS_1000>
+				<name>Bolas de metal (bolsa de 1000)</name>
+			</BALL_BEARINGS_1000>
+			<POUCH>
+				<name>Bolsa</name>
+			</POUCH>
+			<COMPONENT_POUCH>
+				<name>Bolsa de componentes</name>
+			</COMPONENT_POUCH>
+			<BOTLLE_GLASS>
+				<name>Botella de cristal</name>
+			</BOTLLE_GLASS>
+			<CHAIN_10_FEET>
+				<name>Cadena (10 pies)</name>
+			</CHAIN_10_FEET>
+			<BELL>
+				<name>Campana</name>
+			</BELL>
+			<SPYGLASS>
+				<name>Catalejo</name>
+			</SPYGLASS>
+			<LOCK>
+				<name>Cerradura</name>
+			</LOCK>
+			<BASKET>
+				<name>Cesto</name>
+			</BASKET>
+			<CHEST>
+				<name>Cofre</name>
+			</CHEST>
+			<BUCKET>
+				<name>Cubo</name>
+			</BUCKET>
+			<ROPE_HEMPEN_50>
+				<name>Cuerda de cáñamo (50 pies)</name>
+			</ROPE_HEMPEN_50>
+			<ROPE_SILK_50>
+				<name>Cuerda de seda (50 pies)</name>
+			</ROPE_SILK_50>
+			<LADDER_10_FOOT>
+				<name>Escalera (10 pies)</name>
+			</LADDER_10_FOOT>
+			<MIRROR_STEEL>
+				<name>Espejo de acero</name>
+			</MIRROR_STEEL>
+			<MANACLES>
+				<name>Esposas</name>
+			</MANACLES>
+			<CASE_MAP_OR_SCROLL>
+				<name>Estuche para mapas o pergaminos</name>
+			</CASE_MAP_OR_SCROLL>
+			<CASE_CROSSBOW_BOLT>
+				<name>Estuche para virotes de ballesta</name>
+			</CASE_CROSSBOW_BOLT>
+			<MESS_KIT>
+				<name>Fiambrera</name>
+			</MESS_KIT>
+			<FLASK_OR_TANKARD>
+				<name>Frasco o jarra de metal</name>
+			</FLASK_OR_TANKARD>
+			<ALCH_FIRE_FLASK>
+				<name>Fuego de alquimista (frasco)</name>
+			</ALCH_FIRE_FLASK>
+			<GRAPPLING_HOOK>
+				<name>Garfio de escalada</name>
+			</GRAPPLING_HOOK>
+			<SOAP>
+				<name>Jabón</name>
+			</SOAP>
+			<JUG_OR_PITCHER>
+				<name>Jarro o jarra</name>
+			</JUG_OR_PITCHER>
+			<CLIMBERS_KIT>
+				<name>Kit de escalada</name>
+			</CLIMBERS_KIT>
+			<HEALERS_KIT>
+				<name>Kit de sanador</name>
+			</HEALERS_KIT>
+			<SEALING_WAX>
+				<name>Lacre</name>
+			</SEALING_WAX>
+			<LAMP>
+				<name>Lámpara</name>
+			</LAMP>
+			<TINDERBOX>
+				<name>Lata de yesca</name>
+			</TINDERBOX>
+			<MAGNIFYING_GLASS>
+				<name>Lente de aumento</name>
+			</MAGNIFYING_GLASS>
+			<BOOK>
+				<name>Libro</name>
+			</BOOK>
+			<SPELLBOOK>
+				<name>Libro de conjuros</name>
+			</SPELLBOOK>
+			<LANTERN_HOODED>
+				<name>Linterna con capuchón</name>
+			</LANTERN_HOODED>
+			<LANTERN_BULLSEYE>
+				<name>Linterna de ojo de buey</name>
+			</LANTERN_BULLSEYE>
+			<BLANKET>
+				<name>Manta</name>
+			</BLANKET>
+			<HAMMER>
+				<name>Martillo</name>
+			</HAMMER>
+			<HAMMER_SLEDGE>
+				<name>Mazo</name>
+			</HAMMER_SLEDGE>
+			<BACKPACK>
+				<name>Mochila</name>
+			</BACKPACK>
+			<WATERSKIN>
+				<name>Odre</name>
+			</WATERSKIN>
+			<POT_IRON>
+				<name>Olla de hierro</name>
+			</POT_IRON>
+			<SHOVEL>
+				<name>Pala</name>
+			</SHOVEL>
+			<CROWBAR>
+				<name>Palanca</name>
+			</CROWBAR>
+			<PAPER_ONE_SHEET>
+				<name>Papel (una hoja)</name>
+			</PAPER_ONE_SHEET>
+			<PERFUME_VIAL>
+				<name>Perfume (vial)</name>
+			</PERFUME_VIAL>
+			<PARCHMENT_ONE_SHEET>
+				<name>Pergamino (una hoja)</name>
+			</PARCHMENT_ONE_SHEET>
+			<POLE_10_FOOT>
+				<name>Pértiga (10 pies)</name>
+			</POLE_10_FOOT>
+			<PIEK_MINERS>
+				<name>Pico de minero</name>
+			</PIEK_MINERS>
+			<WHETSTONE>
+				<name>Piedra de afilar</name>
+			</WHETSTONE>
+			<SPIKES_IRON_10>
+				<name>Piquetas de hierro (10)</name>
+			</SPIKES_IRON_10>
+			<PITON>
+				<name>Pitón</name>
+			</PITON>
+			<INK_PEN>
+				<name>Pluma de escritura</name>
+			</INK_PEN>
+			<POLION_OF_HEALING>
+				<name>Poción de curación</name>
+			</POLION_OF_HEALING>
+			<RATIONS_1_DAY>
+				<name>Raciones (1 día)</name>
+			</RATIONS_1_DAY>
+			<HOURGLASS>
+				<name>Reloj de arena</name>
+			</HOURGLASS>
+			<CLOTHES_COMMON>
+				<name>Ropa común</name>
+			</CLOTHES_COMMON>
+			<CLOTHES_COSTUME>
+				<name>Ropa de disfraz</name>
+			</CLOTHES_COSTUME>
+			<CLOTHES_TRAVELERS>
+				<name>Ropa de viajero</name>
+			</CLOTHES_TRAVELERS>
+			<CLOTHES_FINE>
+				<name>Ropa fina</name>
+			</CLOTHES_FINE>
+			<SACK>
+				<name>Saco</name>
+			</SACK>
+			<BEDROLL>
+				<name>Saco de dormir</name>
+			</BEDROLL>
+			<SIGNAL_WHISTLE>
+				<name>Silbato de señales</name>
+			</SIGNAL_WHISTLE>
+			<TENT_TWO_PERSON>
+				<name>Tienda de campaña para dos personas</name>
+			</TENT_TWO_PERSON>
+			<INK_1_OUNCE_BOTTLE>
+				<name>Tinta (botella de 1 onza)</name>
+			</INK_1_OUNCE_BOTTLE>
+			<CHALK_L_PIECE>
+				<name>Tiza (1 trozo)</name>
+			</CHALK_L_PIECE>
+			<HUNTING_TRAP>
+				<name>Trampa de cazador</name>
+			</HUNTING_TRAP>
+			<ROBES>
+				<name>Túnica</name>
+			</ROBES>
+			<CANDLE>
+				<name>Vela</name>
+			</CANDLE>
+			<POISON_BASIC_VIAL>
+				<name>Veneno básico (vial)</name>
+			</POISON_BASIC_VIAL>
+			<VIAL>
+				<name>Vial</name>
+			</VIAL>
+			<STAFF>
+				<name>Bastón</name>
+			</STAFF>
+			<ROD>
+				<name>Cetro</name>
+			</ROD>
+			<CRYSTAL>
+				<name>Cristal</name>
+			</CRYSTAL>
+			<ORB>
+				<name>Orbe</name>
+			</ORB>
+			<WAND>
+				<name>Varita</name>
+			</WAND>
+			<WOODEN_STAFF>
+				<name>Bastón de madera</name>
+			</WOODEN_STAFF>
+			<SPRIG_OF_MISTLETOE>
+				<name>Ramo de muérdago</name>
+			</SPRIG_OF_MISTLETOE>
+			<TOTEM>
+				<name>Tótem</name>
+			</TOTEM>
+			<YEW_WAND>
+				<name>Varita de tejo</name>
+			</YEW_WAND>
+			<BLOWGUN_NEEDLES_50>
+				<name>Agujas de cerbatanas (50)</name>
+			</BLOWGUN_NEEDLES_50>
+			<SLING_BULLETS_20>
+				<name>Balas para honda (20)</name>
+			</SLING_BULLETS_20>
+			<ARROWS_20>
+				<name>Flechas (20)</name>
+			</ARROWS_20>
+			<CROSSBOW_BOLTS_20>
+				<name>Virotes de ballesta (20)</name>
+			</CROSSBOW_BOLTS_20>
+			<AMULET>
+				<name>Amuleto</name>
+			</AMULET>
+			<EMBLEM>
+				<name>Emblema</name>
+			</EMBLEM>
+			<RELIQUARY>
+				<name>Relicario</name>
+			</RELIQUARY>
+		</EGear>
+		<EGender>
+			<male>
+				<name>Masc.</name>
+			</male>
+			<female>
+				<name>Fem.</name>
+			</female>
+		</EGender>
+		<EGearType>
+			<OBJECT>
+				<name>Objecto</name>
+			</OBJECT>
+			<ARCANE_FOCUS>
+				<name>Foco arcano</name>
+			</ARCANE_FOCUS>
+			<DRUIDIC_FOCUS>
+				<name>Foco druídico</name>
+			</DRUIDIC_FOCUS>
+			<AMMUNITION>
+				<name>Munición</name>
+			</AMMUNITION>
+			<HOLY_SYMBOL>
+				<name>Símbolo sagrado</name>
+			</HOLY_SYMBOL>
+		</EGearType>
+		<ELanguage>
+			<COMMON>
+				<name>Común</name>
+				<desc>Hablantes típicos: Humanos. Alfabeto: Común.</desc>
+			</COMMON>
+			<ELVISH>
+				<name>Elfo</name>
+				<desc>Hablantes típicos: Elfos. Alfabeto: Elfo.</desc>
+			</ELVISH>
+			<DWARVISH>
+				<name>Enano</name>
+				<desc>Hablantes típicos: Enanos. Alfabeto: Enano.</desc>
+			</DWARVISH>
+			<GIANT>
+				<name>Gigante</name>
+				<desc>Hablantes típicos: Ogros, gigantes. Alfabeto: Enano.</desc>
+			</GIANT>
+			<GNOMISH>
+				<name>Gnómico</name>
+				<desc>Hablantes típicos: Gnomos. Alfabeto: Enano.</desc>
+			</GNOMISH>
+			<GOBLIN>
+				<name>Goblin</name>
+				<desc>Hablantes típicos: Trasgos. Alfabeto: Enano.</desc>
+			</GOBLIN>
+			<HALFLING>
+				<name>Mediano</name>
+				<desc>Hablantes típicos: Medianos. Alfabeto: Común.</desc>
+			</HALFLING>
+			<ORC>
+				<name>Orco</name>
+				<desc>Hablantes típicos: Orcos. Alfabeto: Enano.</desc>
+			</ORC>
+			<ABYSSAL>
+				<name>Abisal</name>
+				<desc>Hablantes típicos: Demonios. Alfabeto: Infernal.</desc>
+			</ABYSSAL>
+			<CELESTIAL>
+				<name>Celestial</name>
+				<desc>Hablantes típicos: Celestiales. Alfabeto: Celestial.</desc>
+			</CELESTIAL>
+			<DRACONIC>
+				<name>Dracónico</name>
+				<desc>Hablantes típicos: Dragones, dracónidos. Alfabeto: Dracónico.</desc>
+			</DRACONIC>
+			<DEEP_SPEECH>
+				<name>Habla profunda</name>
+				<desc>Hablantes típicos: Azotamentes, contempladores. Alfabeto: -.</desc>
+			</DEEP_SPEECH>
+			<INFERNAL>
+				<name>Infernal</name>
+				<desc>Hablantes típicos: Diablos. Alfabeto: Infernal.</desc>
+			</INFERNAL>
+			<UNDERCOMMON>
+				<name>Infracomún</name>
+				<desc>Hablantes típicos: Mercaderes del Underdark. Alfabeto: Elfo.</desc>
+			</UNDERCOMMON>
+			<PRIMORDIAL>
+				<name>Primordial</name>
+				<desc>Hablantes típicos: Elementales. Alfabeto: Enano.</desc>
+			</PRIMORDIAL>
+			<SYLVAN>
+				<name>Silvano</name>
+				<desc>Hablantes típicos: Seres feéricos. Alfabeto: Elfo.</desc>
+			</SYLVAN>
+			<DRUIDIC>
+				<name>Druídico</name>
+				<desc>Conoces el druídico, el idioma secreto de los druidas. Puedes hablarlo y utilizarlo para dejar mensajes ocultos. Tanto tu como cualquiera que conozca este idioma advertiréis inmediatamente de la presencia de estos mensajes. Los demás deberán superar una prueba de Sabiduría (Percepción) CD 15 para detectarlos, pero no podrán descifrarlos sin recurrir a la magia.</desc>
+			</DRUIDIC>
+			<THIEVES_CANT>
+				<name>Jerga de Ladrones</name>
+				<desc>Durante tu entrenamiento como pícaro aprendiste la jerga de ladrones, una mezcla de dialecto, argot y código secreto que te permite esconder mensajes en lo que parece una conversación normal y corriente. Únicamente aquellas criaturas que conozcan la jerga de ladrones podrán en tender estos mensajes. Expresar un mensaje utilizando esta jerga precisa de cuatro veces el tiempo que tardarías en comunicar la misma idea directamente.
+			Además, también comprendes un conjunto de señales y símbolos secretos que se usan para dejar mensajes cortos y sencillos, como el hecho de que una zona sea peligrosa o el territorio
+			de un gremio de ladrones, si hay o no botín cerca, o si los lugareños de los alrededores son presas fáciles o pueden proporcionar un piso franco para ladrones a la fuga.</desc>
+			</THIEVES_CANT>
+		</ELanguage>
+		<ERace>
+			<DWARF>
+				<name>Enano</name>
+				<ERacialTrait>
+					<DARKVISION>Acostumbrado a la vida bajo tierra, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+					<DWARVEN_RESILIENEE>Tienes ventaja en las tiradas de salvación contra veneno y posees resistencia al daño de veneno (como se explica en el capítulo 9: “Combate”).	</DWARVEN_RESILIENEE>
+					<STONEEUNNING> Cuando hagas una prueba de Inteligencia (Historia) que tenga relación con el origen de un trabajo en piedra, se te considerará competente en la habilidad Historia y añadirás dos veces tu bonificador por competencia a la tirada, en lugar de solo una.</STONEEUNNING>
+					<DWARVEN_COMBAT_TRAINING>Eres competente con hachas de guerra, hachas de mano, martillos de guerra y martillos ligeros.</DWARVEN_COMBAT_TRAINING>
+					<TOOL_PROFICIENEY>Eres competente con las herramientas de artesano que elijas de entre las siguientes: herramientas de albañil, herramientas de herrero o suministros de cervecero.</TOOL_PROFICIENEY>
+				</ERacialTrait>
+			</DWARF>
+			<HILL_DWARF>
+				<name>Enano de las colinas </name>
+				<ERacialTrait>
+					<DWARVEN_TOUGHNESS>Tus puntos de golpe máximos se incrementan en 1, y aumentarán en 1 más cada vez que subas un nivel.</DWARVEN_TOUGHNESS>
+				</ERacialTrait>
+			</HILL_DWARF>
+			<MOUNTAIN_DWARF>
+				<name>Enano de las montañas</name>
+				<ERacialTrait>
+					<DWARVEN_ARMOR_TRAINING>Eres competente con armaduras ligeras y medias.</DWARVEN_ARMOR_TRAINING>
+				</ERacialTrait>
+			</MOUNTAIN_DWARF>
+			<DUERGAR>
+				<name>Enano gris (Duergar)</name>
+				<ERacialTrait/>
+			</DUERGAR>
+			<ELF>
+				<name>Elfo</name>
+				<ERacialTrait>
+					<DARKVISION>Acostumbrado a la penumbra de los bosques y el cielo nocturno, puedes ver bien en la oscuridad o con poca luz. Hasta a un máximo de 60 pies, eres capaz de ver con luz tenue como si hubiera luz brillante y en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+					<KEEN_SENSES>Eres competente en la habilidad Percepción.</KEEN_SENSES>
+					<FEY_ANCESTRY>Tienes ventaja en las tiradas de salvación para evitar ser hechizado y la magia no puede dormirte.</FEY_ANCESTRY>
+					<TRANCE>Los elfos no necesitan dormir. Meditan profundamente, en un estado semiconsciente, durante 4 horas al día. La palabra en común para referirse a esta meditación es “trance”. Mientras meditas, experimentas algo parecido a sueños, que en realidad son ejercicios mentales que se han vuelto automáticos tras años de práctica. Este trance es suficiente para obtener los mismos beneficios que un humano recibe de 8 horas de sueño.</TRANCE>
+				</ERacialTrait>
+			</ELF>
+			<HIGH_ELF>
+				<name>Alto elfo</name>
+				<ERacialTrait>
+					<ELF_WEAPON_TRAINING>Eres competente con espadas cortas, espadas largas, arcos cortos y arcos largos.</ELF_WEAPON_TRAINING>
+					<CANTRIP>Conoces un truco de tu elección escogido de entre los de la lista de conjuros de mago. La Inteligencia es tu aptitud mágica para lanzarlo.</CANTRIP>
+				</ERacialTrait>
+			</HIGH_ELF>
+			<WOOD_ELF>
+				<name>Elfo de los bosques</name>
+				<ERacialTrait>
+					<ELF_WEAPON_TRAINING>Eres competente con espadas cortas, espadas largas, arcos cortos y arcos largos.</ELF_WEAPON_TRAINING>
+					<FLEET_OF_FOOT>Tu velocidad caminando base aumenta a 35 pies.</FLEET_OF_FOOT>
+					<MASK_OF_THE_WILD>Puedes intentar esconderte incluso cuando estés en un lugar solo ligeramente oscuro, siempre que lo que te tape sea follaje, una lluvia fuerte, nieve que cae, niebla o cualquier otro fenómeno natural.</MASK_OF_THE_WILD>
+				</ERacialTrait>
+			</WOOD_ELF>
+			<DARK_ELF>
+				<name>Elfo oscuro (Drow)</name>
+				<ERacialTrait>
+					<SUPERIOR_DARKVISION>Tu Visión en la Oscuridad posee un radio de 120 pies.</SUPERIOR_DARKVISION>
+					<SUNLIGHT_SENSITIVITY>Tienes desventaja en las tiradas de ataque y las pruebas de Sabiduría (Percepción) que dependan de la vista realizadas cuando tú, el objetivo de tu ataque o lo que sea que intentas percibir esté bajo la luz solar directa.</SUNLIGHT_SENSITIVITY>
+					<DROW_MAGIC>Conoces el truco luces danzantes. Cuando llegas a nivel 3, puedes lanzar el conjuro fuego feérico una vez usando este tributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. Cuando alcanzas el nivel 5, eres capaz de lanzar el conjuro oscuridad una vez empleando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. El Carisma es tu aptitud mágica para estos conjuros.</DROW_MAGIC>
+					<DROW_WEAPON_TRAINING>Eres competente con estoques, espadas cortas y ballestas de mano.</DROW_WEAPON_TRAINING>
+				</ERacialTrait>
+			</DARK_ELF>
+			<HALFLING>
+				<name>Mediano</name>
+				<ERacialTrait>
+					<LUCKY>Cuando saques un 1 en el dado al hacer una tirada de ataque, prueba de característica o tirada de salvación, puedes volver a tirar el dado, pero tendrás que utilizar el resultado nuevo.</LUCKY>
+					<BRAVE>Posees ventaja en las tiradas de salvación para evitar ser asustado.</BRAVE>
+					<HALFLING_NIMBLENESS>Puedes moverte a través del espacio ocupado por una criatura cuyo tamaño sea, al menos, una categoría superior al tuyo.</HALFLING_NIMBLENESS>
+				</ERacialTrait>
+			</HALFLING>
+			<LIGHTFOOT>
+				<name>Mediano Piesligeros</name>
+				<ERacialTrait>
+					<NATURALLY_STEALTHY>Puedes intentar esconderte incluso tras una criatura cuyo tamaño sea, al menos, una categoría superior al tuyo.</NATURALLY_STEALTHY>
+				</ERacialTrait>
+			</LIGHTFOOT>
+			<STOUT>
+				<name>Mediano Fornido</name>
+				<ERacialTrait>
+					<STOUT_RESILIENCE>Tienes ventaja en las tiradas de salvación contra veneno y posees resistencia al daño de veneno.</STOUT_RESILIENCE>
+				</ERacialTrait>
+			</STOUT>
+			<HUMAN>
+				<name>Humano</name>
+				<ERacialTrait/>
+			</HUMAN>
+			<VARIANT_HUMAN>
+				<name>Humano variante</name>
+				<ERacialTrait>
+					<FEAT>Obtienes una dote de tu elección.</FEAT>
+				</ERacialTrait>
+			</VARIANT_HUMAN>
+			<DRAGONBORN>
+				<name>Dracónido</name>
+				<ERacialTrait>
+					<DRACONIC_ANCESTRY>Posees la sangre de dragones. Escoge de qué tipo en la tabla “linaje dracónico”. Tu Ataque de Aliento y Resistencia al Daño vendrán determinadas por el tipo de dragón, tal y como se indica en dicha tabla.</DRACONIC_ANCESTRY>
+					<BREATH_WEAPON>Puedes utilizar tu acción para exhalar energía destructora. Tu Linaje Dracónico determina el tamaño, forma y tipo de daño del aliento.
+Cuando uses tu Ataque de Aliento, las criaturas que se encuentren en la zona cubierta por este deberán hacer una tirada de salvación, cuyo tipo viene definido por tu linaje. La CD de
+esta tirada de salvación es de 8 + tu modificador por Constitu ción + tu bonificador por competencia. Las criaturas sufrirán 2d6 de daño si fallan la tirada o la mitad de ese daño si la superan. El daño aumenta a 3d6 cuando alcanzas el nivel 6, a 4d6 a nivel 11 y a 5d6 a nivel 16.
+Una vez utilizado el Ataque de Aliento, no podrás volver a emplearlo hasta que finalices un descanso corto o largo.</BREATH_WEAPON>
+					<DAMAGE_RESISTANCE>Posees resistencia al tipo de daño asociado a tu Linaje Dracónico.</DAMAGE_RESISTANCE>
+				</ERacialTrait>
+			</DRAGONBORN>
+			<GNOME>
+				<name>Gnomo</name>
+				<ERacialTrait>
+					<DARKVISION>Acostumbrado a la vida bajo tierra, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+					<GNOME_CUNNING>Tienes ventaja en las tiradas de salvación de Inteligencia, Sabiduría y Carisma contra magia.</GNOME_CUNNING>
+				</ERacialTrait>
+			</GNOME>
+			<FOREST_GNOME>
+				<name>Gnomo del Bosque</name>
+				<ERacialTrait>
+					<NATURAL_ILLUSIONIST>Conoces el truco ilusión menor. La Inteligencia es tu aptitud mágica para lanzarlo.</NATURAL_ILLUSIONIST>
+					<SPEAK_WITH_SMALL_BEASTS>Puedes comunicar ideas sencillas a bestias de tamaño Pequeño o inferior usando gestos y sonidos. Los gnomos de los bosques adoran a los animales y en ocasiones adoptan ardillas, tejones, conejos, topos, pájaros carpinteros y otras criaturas similares como mascotas.</SPEAK_WITH_SMALL_BEASTS>
+				</ERacialTrait>
+			</FOREST_GNOME>
+			<ROCK_GNOME>
+				<name>Gnomo de la Roca</name>
+				<ERacialTrait>
+					<ARTIFICERS_LORE>Cuando hagas una prueba de Inteligencia (Historia) que tenga relación con objetos mágicos, alquímicos o tecnológicos, se te considerará competente en la habilidad Historia y añadirás dos veces tu bonificador por competencia a la tirada, en lugar de solo una.</ARTIFICERS_LORE>
+					<TINKER>Eres competente con las siguientes herramientas de artesano: herramientas de manitas. Usándolas, puedes invertir 1 hora y materiales valorados en 10 po para construir un dispositivo de relojería de tamaño Diminuto (CA 5, 1 punto de golpe). Este dispositivo deja de funcionar pasadas 24 horas (salvo si dedicas 1 hora a repararlo para mantenerlo a punto) o si usas una acción para desmantelarlo. De hacer esto último, puedes recuperar los materiales que usaste en la construcción. Puedes tener hasta tres dispositivos de este tipo funcionando al mismo tiempo.
+Cada vez que construyas un dispositivo, elige de entre las siguientes opciones:
+• Juguete de relojería. Este juguete mecánico posee forma de un animal, monstruo o persona. Como, por ejemplo, de una rana, un ratón, un dragón o un soldado. Tras depositarlo en
+el suelo, se moverá 5 pies en una dirección aleatoria en cada uno de tus turnos. Hace ruidos apropiados para el ser que representa.
+• Encendedor. Este dispositivo produce una llama en miniatura, que puedes utilizar para encender una vela, antorcha u hoguera. Para usarlo es necesario invertir una acción.
+• Caja de música. Al abrirse, esta caja de música reproduce una única canción a un volumen moderado. La caja deja de sonar cuando la canción se acaba o es cerrada.</TINKER>
+				</ERacialTrait>
+			</ROCK_GNOME>
+			<HALFELF>
+				<name>Semielfo</name>
+				<ERacialTrait>
+					<DARKVISION>Debido a tu sangre élfica, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+					<FEY_ANCESTRY>Tienes ventaja en las tiradas de salvación para evitar ser hechizado y la magia no puede dormirte.</FEY_ANCESTRY>
+					<SKILL_VERSATILITY>Ganas competencia en dos habilidades de tu elección.</SKILL_VERSATILITY>
+				</ERacialTrait>
+			</HALFELF>
+			<HALFORC>
+				<name>Semiorco</name>
+				<ERacialTrait>
+					<DARKVISION>Debido a tu sangre orca, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+					<MENACING>Eres competente en la habilidad Intimidación.</MENACING>
+					<RELENTLESS_ENDURANCE>Cuando tus puntos de golpe se reducen a 0 pero no mueres instantáneamente, puedes volver a tener 1 punto de golpe. Una vez utilizado este atributo, deberás terminar un descanso largo para poder volver a usarlo otra vez.</RELENTLESS_ENDURANCE>
+					<SAVAGE_ATTACKS>Cuando hagas un crítico con un ataque con arma cuerpo a cuerpo, podrás tirar uno de los dados de daño del arma una vez más y añadir el resultado al daño adicional causado por el crítico.</SAVAGE_ATTACKS>
+				</ERacialTrait>
+			</HALFORC>
+			<TIEFLING>
+				<name>Tiflin</name>
+				<ERacialTrait>
+					<DARKVISION>Debido a tu sangre infernal, puedes ver bien en la oscuridad o con poca luz. Eres capaz de percibir hasta a 60 pies en luz tenue como si hubiera luz brillante, y esa misma distancia en la oscuridad como si hubiera luz tenue. Eso sí, no puedes distinguir colores en la oscuridad, solo tonos de gris.</DARKVISION>
+					<HELLISH_RESISTANCE>Posees resistencia al daño de fuego.</HELLISH_RESISTANCE>
+					<INFERNAL_LEGACY>Conoces el truco taumaturgia. Cuando llegas a nivel 3, puedes lanzar el conjuro reprensión infernal como conjuro de nivel 2 una vez usando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. Cuando alcanzas el nivel 5, eres capaz de lanzar el conjuro oscuridad una vez empleando este atributo y recuperas la capacidad para hacerlo tras realizar un descanso largo. El Carisma es tu aptitud mágica para estos conjuros.</INFERNAL_LEGACY>
+				</ERacialTrait>
+			</TIEFLING>
+		</ERace>
+		<ERacialTrait>
+			<DARKVISION>
+				<name>Visión en la Oscuridad</name>
+			</DARKVISION>
+			<DWARVEN_RESILIENEE>
+				<name>Resistencia Enana</name>
+			</DWARVEN_RESILIENEE>
+			<STONEEUNNING>
+				<name>Afinidad con la Piedra</name>
+			</STONEEUNNING>
+			<DWARVEN_COMBAT_TRAINING>
+				<name>Entrenamiento de Combate Enano</name>
+			</DWARVEN_COMBAT_TRAINING>
+			<TOOL_PROFICIENEY>
+				<name>Competencia con Herramientas</name>
+			</TOOL_PROFICIENEY>
+			<DWARVEN_TOUGHNESS>
+				<name>Aguante Enano</name>
+			</DWARVEN_TOUGHNESS>
+			<DWARVEN_ARMOR_TRAINING>
+				<name>Entrenamiento con Armadura Enana</name>
+			</DWARVEN_ARMOR_TRAINING>
+			<FEY_ANCESTRY>
+				<name>Linaje Feérico</name>
+			</FEY_ANCESTRY>
+			<TRANCE>
+				<name>Trance</name>
+			</TRANCE>
+			<KEEN_SENSES>
+				<name>Sentidos Agudos</name>
+			</KEEN_SENSES>
+			<ELF_WEAPON_TRAINING>
+				<name>Entrenamiento con Armas Élficas</name>
+			</ELF_WEAPON_TRAINING>
+			<CANTRIP>
+				<name>Truco</name>
+			</CANTRIP>
+			<EXTRA_LANGUAGE>
+				<name>Idioma adicional</name>
+			</EXTRA_LANGUAGE>
+			<FLEET_OF_FOOT>
+				<name>Pies Veloces</name>
+			</FLEET_OF_FOOT>
+			<MASK_OF_THE_WILD>
+				<name>Máscara de la Naturaleza</name>
+			</MASK_OF_THE_WILD>
+			<SUNLIGHT_SENSITIVITY>
+				<name>Sensibilidad a la Luz Solar</name>
+			</SUNLIGHT_SENSITIVITY>
+			<SUPERIOR_DARKVISION>
+				<name>Visión en la Oscuridad Superior</name>
+			</SUPERIOR_DARKVISION>
+			<DROW_MAGIC>
+				<name>Magia Drow</name>
+			</DROW_MAGIC>
+			<DROW_WEAPON_TRAINING>
+				<name>Entrenamiento con Armas Drow</name>
+			</DROW_WEAPON_TRAINING>
+			<LUCKY>
+				<name>Afortunado</name>
+			</LUCKY>
+			<BRAVE>
+				<name>Valiente</name>
+			</BRAVE>
+			<HALFLING_NIMBLENESS>
+				<name>Agilidad de Mediano</name>
+			</HALFLING_NIMBLENESS>
+			<NATURALLY_STEALTHY>
+				<name>Sigiloso por Naturaleza</name>
+			</NATURALLY_STEALTHY>
+			<STOUT_RESILIENCE>
+				<name>Resistencia de Fornido</name>
+			</STOUT_RESILIENCE>
+			<FEAT>
+				<name>Dote</name>
+			</FEAT>
+			<DRACONIC_ANCESTRY>
+				<name>Linaje dracónico</name>
+			</DRACONIC_ANCESTRY>
+			<BREATH_WEAPON>
+				<name>Ataque de Aliento</name>
+			</BREATH_WEAPON>
+			<DAMAGE_RESISTANCE>
+				<name>Resistencia al Daño</name>
+			</DAMAGE_RESISTANCE>
+			<GNOME_CUNNING>
+				<name>Astucia de Gnomo</name>
+			</GNOME_CUNNING>
+			<NATURAL_ILLUSIONIST>
+				<name>Ilusionista Innato</name>
+			</NATURAL_ILLUSIONIST>
+			<SPEAK_WITH_SMALL_BEASTS>
+				<name>Hablar con las Bestezuelas</name>
+			</SPEAK_WITH_SMALL_BEASTS>
+			<ARTIFICERS_LORE>
+				<name>Saber del Artificiero</name>
+			</ARTIFICERS_LORE>
+			<TINKER>
+				<name>Manitas</name>
+			</TINKER>
+			<SKILL_VERSATILITY>
+				<name>Versátil con Habilidades</name>
+			</SKILL_VERSATILITY>
+			<MENACING>
+				<name>Amenazador</name>
+			</MENACING>
+			<RELENTLESS_ENDURANCE>
+				<name>Agaunte Incansable</name>
+			</RELENTLESS_ENDURANCE>
+			<SAVAGE_ATTACKS>
+				<name>Ataques Salvajes</name>
+			</SAVAGE_ATTACKS>
+			<HELLISH_RESISTANCE>
+				<name>Resistencia Infernal</name>
+			</HELLISH_RESISTANCE>
+			<INFERNAL_LEGACY>
+				<name>Linaje Infernal</name>
+			</INFERNAL_LEGACY>
+		</ERacialTrait>
+		<ESkill>
+			<ATHLETICS>
+				<name>Atletismo</name>
+				<desc>Las pruebas de Fuerza (Atletismo) se realizan en situaciones difíciles en las que puedas encontrarte mientras trepas, saltas o nadas. Algunos ejemplos son los siguientes:
+• Intentas trepar por un risco vertical o resbaladizo, evitar peligros mientras escalas un muro o agarrarte a una superficie mientras alguien intenta derribarte.
+• Pretendes saltar una distancia especialmente larga o ejecutar una maniobra compleja en mitad de un salto.
+• Pugnas por nadar o mantenerte a flote en corrientes traicioneras, olas en una tormenta o zonas llenas de algas. Quizá otra criatura intenta empujarte, arrastrarte bajo el agua o interferir de otra forma con tus intentos de nado.</desc>
+			</ATHLETICS>
+			<ACROBATICS>
+				<name>Acrobacias</name>
+				<desc>Las pruebas de Destreza (Acrobacias) se utilizan para intentar conservar el equilibrio en situaciones difíciles, como cuando estás corriendo sobre una placa de hielo, manteniendo el equilibrio sobre una cuerda floja o intentando no ser derribado por el bamboleo de un barco. El DM también puede pedir pruebas de Destreza (Acrobacias) para comprobar si puedes ejecutar maniobras acrobáticas, como giros, volteretas o saltos mortales.</desc>
+			</ACROBATICS>
+			<SLEIGHT_OF_HAND>
+				<name>Juego de manos</name>
+				<desc>Cada vez que quieras recurrir a la prestidigitación o la habilidad manual, como cuando tratas de esconder algo en tu persona o inculpar a alguien colocando un objeto en sus ropas, tendrás que hacer una prueba de Destreza (Juego de Manos). El DM también podría pedir una prueba de Destreza (Juego de Manos) para determinar si puedes robar una bolsa de monedas o vaciar los bolsillos a alguien.</desc>
+			</SLEIGHT_OF_HAND>
+			<STEALTH>
+				<name>Sigilo</name>
+				<desc>Haz una prueba de Destreza (Sigilo) cuando intentes esconderte de tus enemigos, escabullirte sin que te detecten los guardias, moverte sin ser detectado o acercarte a alguien sin ser vista u oído.</desc>
+			</STEALTH>
+			<ARCANA>
+				<name>Conocimiento arcano</name>
+				<desc>Las pruebas de Inteligencia (Conocimiento Arcano) miden tu capacidad para recordar información acerca de conjuros, objetos mágicos, símbolos sobrenaturales, tradiciones mágicas, planos de existencia y los habitantes de dichos planos.</desc>
+			</ARCANA>
+			<HISTORY>
+				<name>Historia</name>
+				<desc>Las pruebas de Inteligencia (Historia) miden tu capacidad para recordar información sobre eventos históricos, personas legendarias, reinos antiguos, disputas pasadas, guerras recientes y civilizaciones perdidas.</desc>
+			</HISTORY>
+			<INVESTIGATION>
+				<name>Investigación</name>
+				<desc>Cuando buscas pistas y haces deducciones en base a ellas, llevas a cabo pruebas de Inteligencia (Investigación). Podrías determinar la ubicación de un objeto escondido, discernir el arma que causó una herida a partir de su aspecto o encontrar el punto más débil de un túnel, cuya ruptura haría que se derrumbará. Estudiar pergaminos antiguos en busca de un fragmento de conocimiento perdido también implicaría una prueba de Inteligencia (Investigación).</desc>
+			</INVESTIGATION>
+			<NATURE>
+				<name>Naturaleza</name>
+				<desc>Las pruebas de Inteligencia (Naturaleza) miden tu capacidad para recordar información acerca del terreno, plantas y animales, el clima y los ciclos de la naturaleza.</desc>
+			</NATURE>
+			<RELIGION>
+				<name>Religión</name>
+				<desc>Las pruebas de Inteligencia (Religión) miden tu capacidad para recordar información acerca de deidades, ritos y oraciones, jerarquías religiosas, símbolos sagrados y los rituales de sectas secretas.</desc>
+			</RELIGION>
+			<ANIMAL_HANDLING>
+				<name>Trato con animales</name>
+				<desc>uando haya que dilucidar si puedes calmar a un animal doméstico, evitar que una montura se asuste o intuir, las intenciones de un animal, el DM podrá pedirte una prueba de Sabiduría (Trato con Animales). También debes hacer una prueba de este tipo para controlar tu montura al intentar hacer una maniobra arriesgada.</desc>
+			</ANIMAL_HANDLING>
+			<INSIGHT>
+				<name>Perspicacia</name>
+				<desc>Las pruebas de Sabiduría (Perspicacia) indican si eres capaz de discernir las verdaderas intenciones de una criatura, como cuando intentas detectar si miente o predecir su siguiente movimiento. La observación del lenguaje corporal, hábitos del habla y cambios en los gestos es clave.</desc>
+			</INSIGHT>
+			<MEDICINE>
+				<name>Medicina</name>
+				<desc>Una prueba de Sabiduría (Medicina) sirve para intentar estabilizar un compañero que agoniza o diagnosticar una enfermedad.</desc>
+			</MEDICINE>
+			<PERCEPTION>
+				<name>Percepción</name>
+				<desc>Las pruebas de Sabiduría (Percepción) te permiten ver, oír y, en general, detectar la presencia de algo o alguien. Mide tu atención y la agudeza de tus sentidos. Podrías, por ejemplo, intentar escuchar una conversación a través de una puerta cerrada, espiar tras una ventana abierta u oír a monstruos moverse sigilosamente por el bosque. También podrías tratar de descubrir cosas escondidas o fáciles de pasar por alto, ya sean orcos tendiendo una emboscada en el camino, matones ocultándose en las sombras de un callejón o la luz de una vela tras una puerta secreta cerrada.</desc>
+			</PERCEPTION>
+			<SURVIVAL>
+				<name>Supervivencia</name>
+				<desc>El DM te podría pedir una prueba de Sabiduría (Supervivencia) para seguir rastros, cazar, guiar a tu grupo a través de un páramo helado, identificar signos que indiquen la presencia de osos lechuza en los alrededores, predecir el tiempo, o evitar arenas movedizas y otros peligros naturales.</desc>
+			</SURVIVAL>
+			<DECEPTION>
+				<name>Engaño</name>
+				<desc>Las pruebas de Carisma (Engaño) determinan si puedes esconder la verdad de forma convincente, ya sea verbalmente o mediante tus actos. El engaño abarca desde confundir a otros recurriendo a ambigüedades hasta simple y llanamente mentir. Ejemplos de situaciones en las que es útil son confundir a un guardia, timar a un mercader, ganar dinero con juegos de azar, disfrazarse para pasar desapercibido, impedir sospechas mediante afirmaciones falsas o mantener la compostura al mentir.</desc>
+			</DECEPTION>
+			<INTIMIDATION>
+				<name>Intimidación</name>
+				<desc>Cuando intentes influir en alguien recurriendo a amenazas, actos hostiles y violencia física, el DM te pedirá una prueba de Carisma (Intimidación). Algunos ejemplos son sonsacar información a un prisionero, convencer a unos matones callejeros de que se retiren de una confrontación o usar el filo de una botella rota para pedir a un burlón visir que reconsidere su decisión.</desc>
+			</INTIMIDATION>
+			<PERFORMANCE>
+				<name>Interpretación</name>
+				<desc>Las pruebas de Carisma (Interpretación) indican si has entretenido a tu audiencia mediante la música, el baile, la declamación o cualquier otra forma de entretenimiento.</desc>
+			</PERFORMANCE>
+			<PERSUASION>
+				<name>Persuasión</name>
+				<desc>Cuando intentes influir en personas o grupos recurriendo al tacto, la educación o los buenos modos, el DM te pedirá una prueba de Carisma (Persuasión). Lo normal es usar Persuasión cuando se actúa de buena fe, como, por ejemplo, para afianzar amistades, hacer peticiones cordiales o comportarse según exige la etiqueta. Algunos intentos de persuadir podrían ser convencer a un chambelán de que permita a tu grupo ver al rey, negociar la paz entre tribus enfrentadas o inspirar a una masa de pueblerinos.</desc>
+			</PERSUASION>
+		</ESkill>
+		<EStageOfLife>
+			<CHILDHOOD>
+				<name>Niño</name>
+			</CHILDHOOD>
+			<YOUTH>
+				<name>Joven</name>
+			</YOUTH>
+			<ADULTHOOD>
+				<name>Adulto</name>
+			</ADULTHOOD>
+			<OLD_AGE>
+				<name>Viejo</name>
+			</OLD_AGE>
+		</EStageOfLife>
+		<ETool>
+			<ALCHEMISTS_SUPPLIES>
+				<name>Suministros de alquimista</name>
+			</ALCHEMISTS_SUPPLIES>
+			<BREWERS_SUPPLIES>
+				<name>Suministros de cervecero</name>
+			</BREWERS_SUPPLIES>
+			<CALLIGRAPHERS_SUPPLIES>
+				<name>Suministros de calígrafo</name>
+			</CALLIGRAPHERS_SUPPLIES>
+			<CARPENTERS_TOOLS>
+				<name>Herramientas de carpintero</name>
+			</CARPENTERS_TOOLS>
+			<CARTOGRAPHERS_TOOLS>
+				<name>Herramientas de cartógrafo</name>
+			</CARTOGRAPHERS_TOOLS>
+			<COBBLERS_TOOLS>
+				<name>Herramientas de zapatero</name>
+			</COBBLERS_TOOLS>
+			<COOKS_UTENSILS>
+				<name>Útiles de cocinero</name>
+			</COOKS_UTENSILS>
+			<GLASSBLOWERS_TOOLS>
+				<name>Herramientas de soplador de vidrio</name>
+			</GLASSBLOWERS_TOOLS>
+			<JEWELERS_TOOLS>
+				<name>Herramientas de joyero</name>
+			</JEWELERS_TOOLS>
+			<LEATHERWORKERS_TOOLS>
+				<name>Herramientas de curtidor</name>
+			</LEATHERWORKERS_TOOLS>
+			<MASONS_TOOLS>
+				<name>Herramientas de albañil</name>
+			</MASONS_TOOLS>
+			<PAINTERS_SUPPLIES>
+				<name>Suministros de pintor</name>
+			</PAINTERS_SUPPLIES>
+			<POTTERS_TOOLS>
+				<name>Herramientas de alfarero</name>
+			</POTTERS_TOOLS>
+			<SMITHS_TOOLS>
+				<name>Herramientas de herrero</name>
+			</SMITHS_TOOLS>
+			<TINKERS_TOOLS>
+				<name>Herramientas de manitas</name>
+			</TINKERS_TOOLS>
+			<WEAVERS_TOOLS>
+				<name>Herramientas de tejedor</name>
+			</WEAVERS_TOOLS>
+			<WOODCARVERS_TOOLS>
+				<name>Herramientas de ebanista</name>
+			</WOODCARVERS_TOOLS>
+			<DISGUISE_KIT>
+				<name>Útiles para disfrazarse</name>
+			</DISGUISE_KIT>
+			<FORGERY_KIT>
+				<name>Útiles para falsificar</name>
+			</FORGERY_KIT>
+			<DICE_SET>
+				<name>Dados</name>
+			</DICE_SET>
+			<DRAGONCHESS>
+				<name>Ajedrez de Dragón</name>
+			</DRAGONCHESS>
+			<PLAYING_CARD_SET>
+				<name>Naipes</name>
+			</PLAYING_CARD_SET>
+			<THREE_DRAGON_ANTE_SET>
+				<name>Apuesta de Tres Dragones</name>
+			</THREE_DRAGON_ANTE_SET>
+			<HERBALISM_KIT>
+				<name>Útiles de herborista</name>
+			</HERBALISM_KIT>
+			<BAGPIPES>
+				<name>Gaita</name>
+			</BAGPIPES>
+			<DRUM>
+				<name>Tambor</name>
+			</DRUM>
+			<DULCIMER>
+				<name>Dulcémele</name>
+			</DULCIMER>
+			<FLUTE>
+				<name>Flauta</name>
+			</FLUTE>
+			<LUTE>
+				<name>Laúd</name>
+			</LUTE>
+			<LYRE>
+				<name>Lira</name>
+			</LYRE>
+			<HORN>
+				<name>Cuerno</name>
+			</HORN>
+			<PAN_FLUTE>
+				<name>Flauta de pan</name>
+			</PAN_FLUTE>
+			<SHAWM>
+				<name>Chirimía</name>
+			</SHAWM>
+			<VIOL>
+				<name>Viola</name>
+			</VIOL>
+			<NAVIGATORS_TOOLS>
+				<name>Herramientas de navegante</name>
+			</NAVIGATORS_TOOLS>
+			<POISONERS_KIT>
+				<name>Útiles de envenenador</name>
+			</POISONERS_KIT>
+			<THIEVES_TOOLS>
+				<name>Herramientas de ladrón</name>
+			</THIEVES_TOOLS>
+		</ETool>
+		<EToolTypes>
+			<ARTISANS_TOOLS>
+				<name>Herramientas de artesano</name>
+			</ARTISANS_TOOLS>
+			<DISGUISE_KIT>
+				<name>Útiles para disfrazarse</name>
+			</DISGUISE_KIT>
+			<FORGERY_KIT>
+				<name>Útiles para falsificar</name>
+			</FORGERY_KIT>
+			<GAMING_SET>
+				<name>Juegos</name>
+			</GAMING_SET>
+			<HERBALISM_KIT>
+				<name>Útiles de herborista</name>
+			</HERBALISM_KIT>
+			<MUSICAL_INSTRUMENT>
+				<name>Instrumentos musicales</name>
+			</MUSICAL_INSTRUMENT>
+			<NAVIGATORS_TOOLS>
+				<name>Herramientas de navegante</name>
+			</NAVIGATORS_TOOLS>
+			<POISONERS_KIT>
+				<name>Útiles de envenenador</name>
+			</POISONERS_KIT>
+			<THIEVES_TOOLS>
+				<name>Herramientas de ladrón</name>
+			</THIEVES_TOOLS>
+			<VEHICLES>
+				<name>Vehículos</name>
+			</VEHICLES>
+		</EToolTypes>
+		<EWeapon>
+			<QUARTERSTAFF>
+				<name>Bastón</name>
+			</QUARTERSTAFF>
+			<DAGGER>
+				<name>Daga</name>
+			</DAGGER>
+			<CLUB>
+				<name>Garrote</name>
+			</CLUB>
+			<GREATCLUB>
+				<name>Garrote grande</name>
+			</GREATCLUB>
+			<HANDAXE>
+				<name>Hacha de mano</name>
+			</HANDAXE>
+			<SICKLE>
+				<name>Hoz</name>
+			</SICKLE>
+			<JAVELIN>
+				<name>Jabalina</name>
+			</JAVELIN>
+			<SPEAR>
+				<name>Lanza</name>
+			</SPEAR>
+			<LIGHT_HAMMER>
+				<name>Martillo ligero</name>
+			</LIGHT_HAMMER>
+			<MACE>
+				<name>Maza</name>
+			</MACE>
+			<SHORTBOW>
+				<name>Arco corto</name>
+			</SHORTBOW>
+			<CROSSBOW>
+				<name>Ballesta ligera</name>
+			</CROSSBOW>
+			<DART>
+				<name>Dardo</name>
+			</DART>
+			<SLING>
+				<name>Honda</name>
+			</SLING>
+			<HALBERD>
+				<name>Alabarda</name>
+			</HALBERD>
+			<SCIMITAR>
+				<name>Cimitarra</name>
+			</SCIMITAR>
+			<SHORTSWORD>
+				<name>Espada corta</name>
+			</SHORTSWORD>
+			<LONGSWORD>
+				<name>Espada larga</name>
+			</LONGSWORD>
+			<GREATSWORD>
+				<name>Espadón</name>
+			</GREATSWORD>
+			<RAPIER>
+				<name>Estoque</name>
+			</RAPIER>
+			<FLAIL>
+				<name>Flagelo</name>
+			</FLAIL>
+			<GLAIVE>
+				<name>Guja</name>
+			</GLAIVE>
+			<GREATAXE>
+				<name>Hacha a dos manos</name>
+			</GREATAXE>
+			<BATTLEAXE>
+				<name>Hacha de guerra</name>
+			</BATTLEAXE>
+			<LANCE>
+				<name>Lanza de caballería</name>
+			</LANCE>
+			<WHIP>
+				<name>Látigo</name>
+			</WHIP>
+			<MORNINGSTAR>
+				<name>Lucero del alba</name>
+			</MORNINGSTAR>
+			<WARHAMMER>
+				<name>Martillo de guerra</name>
+			</WARHAMMER>
+			<MAUL>
+				<name>Maza a dos manos</name>
+			</MAUL>
+			<PIKE>
+				<name>Pica</name>
+			</PIKE>
+			<WAR_PICK>
+				<name>Pico de guerra</name>
+			</WAR_PICK>
+			<TRIDENT>
+				<name>Tridente</name>
+			</TRIDENT>
+			<LONGBOW>
+				<name>Arco largo</name>
+			</LONGBOW>
+			<CROSSBOW_HAND>
+				<name>Ballesta de mano</name>
+			</CROSSBOW_HAND>
+			<CROSSBOW_HEAVY>
+				<name>Ballesta pesada</name>
+			</CROSSBOW_HEAVY>
+			<BLOWGUN>
+				<name>Cerbatana</name>
+			</BLOWGUN>
+			<NET>
+				<name>Red</name>
+			</NET>
+		</EWeapon>
+		<EWeaponType>
+			<SIMPLE>
+				<name>Armas sencillas</name>
+			</SIMPLE>
+			<MARTIAL>
+				<name>Armas marciales</name>
+			</MARTIAL>
+		</EWeaponType>
+	</enums>
 	<misc>
 		<!-- GUI Race-->
 		<of_the>de los</of_the>
@@ -852,8 +1785,3 @@ Asimismo, si tienes inspiración podrás recompensar a otro personaje por una bu
 		<sel_skills>Elige {klass_sel_skills} entre</sel_skills>
 	</formatted>
 </strings>
-
-
-
-
-

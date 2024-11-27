@@ -6,7 +6,7 @@
     <dimen name="fontSmall">16sp</dimen>
 
     <dimen name="fontBut">@dimen/fontNormal</dimen>
-    <dimen name="fontText">@dimen/fontNormal</dimen>
+    <dimen name="fontText">@dimen/fontSmall</dimen>
 
     <dimen name="fontWealth">@dimen/fontLarge</dimen>
     <dimen name="fontBasics">@dimen/fontSmall</dimen>
@@ -19,16 +19,20 @@
     <dimen name="marginControls">2dp</dimen>
 
     <!-- BOTONES -->
+    <dimen name="butPaddingH">8dp</dimen>
+    <dimen name="butPaddingV">0dp</dimen>
     <dimen name="butStroke">2dp</dimen>
     <dimen name="butCorner">6dp</dimen>
     <dimen name="butWealthW">48dp</dimen>
     <dimen name="butWealthH">36dp</dimen>
 
     <!-- TEXTFIELD/EDIT -->
+    <dimen name="editBoxPaddingH">12dp</dimen>
+    <dimen name="editBoxPaddingV">8dp</dimen>
+    <dimen name="editPaddingH">4dp</dimen>
+    <dimen name="editPaddingV">2dp</dimen>
     <dimen name="editFocusStroke">4dp</dimen>
     <dimen name="editNormalStroke">2dp</dimen>
-    <dimen name="editPaddingX">4dp</dimen>
-    <dimen name="editPaddingY">2dp</dimen>
 
     <!-- CONTENIDO -->
     <dimen name="contentStroke">2dp</dimen>

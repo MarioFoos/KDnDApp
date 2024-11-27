@@ -24,8 +24,8 @@ fun dialogWealth(context: Context, wealth: Long, onAccept: (newWealth: Long)->Un
     val butOk = dialog.findViewById(R.id.butOk)  as Button
     val butCancel = dialog.findViewById(R.id.butCancel)  as Button
 
-    butOk.text = Res.getLocale("but_ok")
-    butCancel.text = Res.getLocale("but_cancel")
+    butOk.text = Res.locale("but_ok")
+    butCancel.text = Res.locale("but_cancel")
 
     val textPlatinum = dialog.findViewById(R.id.textPlatinum) as TextView
     val textGold = dialog.findViewById(R.id.textGold) as TextView

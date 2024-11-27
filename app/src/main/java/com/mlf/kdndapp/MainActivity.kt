@@ -49,7 +49,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -70,7 +69,7 @@ import com.mlf.kdndapp.ui.theme.KDnDAppTheme
 import kotlin.system.exitProcess
 
 val APP_TAG = "AppTag"
-val controlShape = RoundedCornerShape(percent = 25)
+val controlShape = RoundedCornerShape(6.dp)
 
 class MainActivity : ComponentActivity()
 {
@@ -85,14 +84,14 @@ class MainActivity : ComponentActivity()
         showCharInfo()
 
         // Arrays
-        val arrRace : ArrayList<Map.Entry<ERace, String>> = Res.getLocale(ERace.values())
-        val arrEthnic : ArrayList<Map.Entry<EEthnicity, String>> = Res.getLocale(EEthnicity.values())
-        val arrClass : ArrayList<Map.Entry<EClass, String>> = Res.getLocale(EClass.values())
-        val arrAlign : ArrayList<Map.Entry<EAlignment, String>> = Res.getLocale(EAlignment.values())
-        val arrGender : ArrayList<Map.Entry<EGender, String>> = Res.getLocale(EGender.values())
-        val arrStage : ArrayList<Map.Entry<EStageOfLife, String>> = Res.getLocale(EStageOfLife.values())
-        val arrFeat : ArrayList<Map.Entry<EFeat, String>> = Res.getLocale(EFeat.values())
-        val arrAbility : ArrayList<Map.Entry<EAbility, String>> = Res.getLocale(EAbility.values())
+        val arrRace : ArrayList<Map.Entry<ERace, String>> = Res.locale(ERace.values())
+        val arrEthnic : ArrayList<Map.Entry<EEthnicity, String>> = Res.locale(EEthnicity.values())
+        val arrClass : ArrayList<Map.Entry<EClass, String>> = Res.locale(EClass.values())
+        val arrAlign : ArrayList<Map.Entry<EAlignment, String>> = Res.locale(EAlignment.values())
+        val arrGender : ArrayList<Map.Entry<EGender, String>> = Res.locale(EGender.values())
+        val arrStage : ArrayList<Map.Entry<EStageOfLife, String>> = Res.locale(EStageOfLife.values())
+        val arrFeat : ArrayList<Map.Entry<EFeat, String>> = Res.locale(EFeat.values())
+        val arrAbility : ArrayList<Map.Entry<EAbility, String>> = Res.locale(EAbility.values())
 
         // Valores iniciales
         val raceInit : Int = Res.randomIndex(arrRace)
@@ -169,7 +168,7 @@ class MainActivity : ComponentActivity()
                     if(race == ERace.VARIANT_HUMAN || race == ERace.HUMAN) {
                         ShowDropDown(arrEthnic, initIndex = ethnicInit, onItemClick = { ethnic = arrEthnic[it].key })
                         SpaceV()
-                        Text(text = Res.getLocale(ethnic, "desc"),
+                        Text(text = Res.locale(ethnic, "desc"),
                             modifier = Modifier.fillMaxWidth(),
                             fontSize = dimensionResource(R.dimen.fontText).value.sp,
                         )
@@ -179,7 +178,7 @@ class MainActivity : ComponentActivity()
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         // Edad
                         Column(Modifier.weight(1f, true)) {
-                            ShowButton(text = age.toString() + " " + Res.getLocale("years"), icon = R.drawable.d20, onItemClick = { age = ERace.genAge(race, stage)  })
+                            ShowButton(text = age.toString() + " " + Res.locale("years"), icon = R.drawable.d20, onItemClick = { age = ERace.genAge(race, stage)  })
                         }
                         SpaceH()
                         // Estadío
@@ -233,7 +232,7 @@ class MainActivity : ComponentActivity()
                     SpaceV()
                     ShowAbilitiesForClass(klass = klass)
                     SpaceV()
-                    ShowButton(text = Res.getLocale("next"), onItemClick = {
+                    ShowButton(text = Res.locale("next"), onItemClick = {
                         // Crear el personaje
                         showCharInfo(name)
                     })
@@ -265,11 +264,6 @@ fun configLibrary(assets : AssetManager): Boolean
         Log.e(APP_TAG, "Error config " + Res.NAMES_FILE)
         return false
     }
-    if(!Res.configResFeats(assets.open(Res.FEATS_FILE)))
-    {
-        Log.e(APP_TAG, "Error config " + Res.FEATS_FILE)
-        return false
-    }
     return true
 }
 
@@ -282,20 +276,7 @@ fun SpaceH() = Spacer(modifier = Modifier.width(dimensionResource(R.dimen.dimSpa
 @Composable
 fun ShowFeat(feat : EFeat)
 {
-    var data = Res.getLocale(feat)
-    var prerequisite : String = data[1]
-    var desc : String = data[2]
-
-    if(prerequisite.isNotEmpty())
-    {
-        Text(text = prerequisite,
-            modifier = Modifier.fillMaxWidth(),
-            fontSize = dimensionResource(R.dimen.fontText).value.sp,
-            fontWeight = FontWeight.Bold,
-            fontStyle = FontStyle.Italic
-        )
-    }
-    Text(text = desc,
+    Text(text = Res.locale(feat),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp
     )
@@ -303,45 +284,45 @@ fun ShowFeat(feat : EFeat)
 @Composable
 fun ShowAbilitiesForClass(klass : EClass)
 {
-    val weapons = Res.getValues(Res.getLocale(klass.weaponTypes))
-    weapons.addAll(Res.getValues(Res.getLocale(klass.weaponSingles)))
+    val weapons = Res.getValues(Res.locale(klass.weaponTypes))
+    weapons.addAll(Res.getValues(Res.locale(klass.weaponSingles)))
     val tools = when(klass){
-        EClass.BARD -> Res.getLocale("bard_tools")
-        EClass.MONK -> Res.getLocale("monk_tools")
-        else -> Res.asSentence(Res.getLocale(klass.tools), Res.getLocale("no_tools"))
+        EClass.BARD -> Res.locale("bard_tools")
+        EClass.MONK -> Res.locale("monk_tools")
+        else -> Res.asSentence(Res.locale(klass.tools), Res.locale("no_tools"))
     }
     val skills = when(klass){
-        EClass.BARD -> Res.getLocale("bard_skill")
-        else -> Res.getLocaleF("sel_skills", klass).lowercase() + " " + Res.asSentence(Res.getLocale(klass.skills))
+        EClass.BARD -> Res.locale("bard_skill")
+        else -> Res.localeF("sel_skills", klass).lowercase() + " " + Res.asSentence(Res.locale(klass.skills))
     }
-    var armor = "• " + Res.getLocale("armor") + ": " + Res.asSentence(Res.getLocale(klass.armorTypes), Res.getLocale("no_armor")).lowercase()
-    val complement = Res.getLocale(klass, "armor_com")
+    var armor = "• " + Res.locale("armor") + ": " + Res.asSentence(Res.locale(klass.armorTypes), Res.locale("no_armor")).lowercase()
+    val complement = Res.locale(klass, "armor_com")
     if(complement.isNotEmpty())
     {
         armor += ". " + complement
     }
-    Text(text = Res.getLocale(klass, "desc"),
+    Text(text = Res.locale(klass, "desc"),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = Res.getLocale("hit_point"),
+    Text(text = Res.locale("hit_point"),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
         fontWeight = FontWeight.Bold,
     )
-    Text(text = "• " + Res.getLocale("hit_dice") + ": " + Res.getLocaleF("hit_dice", klass),
+    Text(text = "• " + Res.locale("hit_dice") + ": " + Res.localeF("hit_dice", klass),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = "• " + Res.getLocale("hit_points_level_1") + ": " + Res.getLocaleF("hit_points_level_1", klass),
+    Text(text = "• " + Res.locale("hit_points_level_1") + ": " + Res.localeF("hit_points_level_1", klass),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = "• " + Res.getLocale("hit_points_other") + ": " + Res.getLocaleF("hit_points_other", klass),
+    Text(text = "• " + Res.locale("hit_points_other") + ": " + Res.localeF("hit_points_other", klass),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = Res.getLocale("class_features"),
+    Text(text = Res.locale("class_features"),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
         fontWeight = FontWeight.Bold,
@@ -350,19 +331,19 @@ fun ShowAbilitiesForClass(klass : EClass)
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = "• " + Res.getLocale("weapons") + ": " + Res.asSentence(weapons).lowercase(),
+    Text(text = "• " + Res.locale("weapons") + ": " + Res.asSentence(weapons).lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = "• " + Res.getLocale("tools") + ": " + tools.lowercase(),
+    Text(text = "• " + Res.locale("tools") + ": " + tools.lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = "• " + Res.getLocale("saving_throw") + ": " + Res.asSentence(Res.getLocale(klass.savingThrow)).lowercase(),
+    Text(text = "• " + Res.locale("saving_throw") + ": " + Res.asSentence(Res.locale(klass.savingThrow)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = "• " + Res.getLocale("skills") + ": " + skills,
+    Text(text = "• " + Res.locale("skills") + ": " + skills,
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
@@ -375,10 +356,10 @@ fun ShowAbilitiesForRace(race : ERace)
     {
         val arrCols = ArrayList<String>()
         racialBonus.forEach {
-            arrCols.add(Res.getLocale(it.key) + " (+" + it.value + ")")
+            arrCols.add(Res.locale(it.key) + " (+" + it.value + ")")
         }
         val columns = Res.columns(arrCols)
-        Text(text = Res.getLocale("ability_bonus"),
+        Text(text = Res.locale("ability_bonus"),
             modifier = Modifier.fillMaxWidth(),
             fontSize = dimensionResource(R.dimen.fontText).value.sp,
             fontWeight = FontWeight.Bold,
@@ -393,43 +374,29 @@ fun ShowAbilitiesForRace(race : ERace)
             }
         }
     }
-    Text(text = Res.getLocale("racial_abilities"),
+    Text(text = Res.locale("racial_abilities"),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
         fontWeight = FontWeight.Bold,
     )
-    Text(text = Res.getLocale("speed") + ": " + race.speed.toString(),
+    Text(text = Res.locale("speed") + ": " + race.speed.toString(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
-    Text(text = Res.getLocale("languages") + ": " + Res.asSentence(Res.getLocale(race.languages)).lowercase(),
+    Text(text = Res.locale("languages") + ": " + Res.asSentence(Res.locale(race.languages)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
         fontSize = dimensionResource(R.dimen.fontText).value.sp,
     )
     val racialAbilities = ERace.getRacialTraits(race)
     if(racialAbilities.isNotEmpty())
     {
-        Res.getLocale(racialAbilities).forEach {
-            Text(text = "• " + it.value,
+        Res.locale(racialAbilities).forEach {
+            Text(text = "• " +  it.value,
                 modifier = Modifier.fillMaxWidth(),
                 fontSize = dimensionResource(R.dimen.fontText).value.sp,
             )
         }
     }
-    /*var arr = ArrayList<String>()
-    val racialAbilities = ERace.getRacialAbilities(race)
-    arr.add(Res.getLocale("speed") + ": " + race.speed.toString())
-    arr.add(Res.getLocale("languages") + ": " + Res.asSentence(Res.getLocale(race.languages)).lowercase())
-    if(racialAbilities.isNotEmpty())
-    {
-        Res.getLocale(racialAbilities).forEach {
-            arr.add("• " + it.value)
-        }
-    }
-    Text(text = Res.columns(arr, 1)[0],
-        modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
-    )*/
 }
 @Composable
 fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean = true)
@@ -467,78 +434,12 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
                     .fillMaxWidth()
                     .background(colorResource(R.color.editNormalBg), controlShape)
                     .border(dimensionResource(dimStroke), colorResource(clStroke), controlShape)
-                    .padding(16.dp, 12.dp)
+                    .padding(dimensionResource(R.dimen.editBoxPaddingH), dimensionResource(R.dimen.editBoxPaddingV))
             ) {
                 innerTextField()
             }
         }
     )
-    /*OutlinedTextField(
-        modifier = Modifier.fillMaxWidth()
-            .onFocusChanged {
-                if(enabled) {
-                    dimStroke = dimEdFocusStroke
-                    clStroke = if(it.hasFocus) clEdFocusStroke else clEdNormalStroke
-                }
-                else {
-                    dimStroke = dimNormalStroke
-                    clStroke = clEdDisStroke
-                }
-            }.focusable()
-            .background(clEdEnBg, myShape)
-            .clip(myShape).border(BorderStroke(dimStroke, clStroke)),
-        value = text,
-        onValueChange = onValueChange,
-        enabled = enabled,
-        textStyle = TextStyle(
-            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
-            fontWeight = FontWeight.Bold
-        ),
-        singleLine = true,
-        colors = TextFieldDefaults.textFieldColors(
-            textColor = clEdEnText,
-            disabledTextColor = clEdDisText,
-            containerColor = clEdEnBg,
-            cursorColor = clEdCursor,
-            errorCursorColor = clRed4,
-            /*focusedIndicatorColor = clYellow5,
-            unfocusedIndicatorColor = clYellow4,
-            disabledIndicatorColor = clEdDisText,
-            errorIndicatorColor = clRed3*/
-        ),
-        shape = myShape
-    )*/
-    /*TextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .onFocusChanged {
-                if(enabled)
-                {
-                    clStroke = if(it.hasFocus) clGreen4 else clYellow4
-                }
-                else
-                {
-                    clStroke = clRed4
-                }
-        }.focusable().clip(myShape).border(BorderStroke(5.dp, clStroke)),
-        textStyle = TextStyle(
-            fontSize = dimensionResource(R.dimen.dimTextFont).value.sp,
-            fontWeight = FontWeight.Bold
-        ),
-        value = text,
-        onValueChange = onValueChange,
-        enabled = enabled,
-        //isError = true,
-        singleLine = true,
-        colors = TextFieldDefaults.textFieldColors(
-            textColor = clEdEnText,
-            disabledTextColor = clEdDisText,
-            containerColor = clEdEnBg,
-            cursorColor = clEdCursor,
-            errorCursorColor = clRed4,
-        ),
-        shape = myShape
-    )*/
 }
 @Composable
 fun <T> ShowDropDown(
@@ -583,7 +484,7 @@ fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = t
         modifier = Modifier
             .fillMaxWidth()
             .focusable(enabled),
-        contentPadding = PaddingValues(8.dp, 0.dp),
+        contentPadding = PaddingValues(dimensionResource(id = R.dimen.butPaddingH), dimensionResource(id = R.dimen.butPaddingV)),
         onClick = onItemClick,
         enabled = enabled,
         colors = ButtonDefaults.buttonColors(

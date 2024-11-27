@@ -217,8 +217,8 @@ fun ShowHitDice(context: Context, car: DNDChar)
     Row(modifier = Modifier.fillMaxWidth())
     {
         var items = ArrayList<DEntry>()
-        items.add(DEntry(value = Res.getLocale(car.hitDice)))
-        ShowItemsList(context = context, name = Res.getLocale("hit_dice") + ": ", list = items)
+        items.add(DEntry(value = Res.locale(car.hitDice)))
+        ShowItemsList(context = context, name = Res.locale("hit_dice") + ": ", list = items)
     }
 }
 @Composable
@@ -228,9 +228,9 @@ fun ShowSavingThrow(context: Context, car: DNDChar)
     {
         var items = ArrayList<DEntry>()
         car.savingThrow.forEach {  item ->
-            items.add(DEntry(value = Res.getLocale(item)))
+            items.add(DEntry(value = Res.locale(item)))
         }
-        ShowItemsList(context = context, name = Res.getLocale("saving_throw") + ": ", list = items)
+        ShowItemsList(context = context, name = Res.locale("saving_throw") + ": ", list = items)
     }
 }
 @Composable
@@ -240,9 +240,9 @@ fun ShowPrimaryAbility(context: Context, car: DNDChar)
     {
         var items = ArrayList<DEntry>()
         car.primaryAbility.forEach {  item ->
-            items.add(DEntry(value = Res.getLocale(item)))
+            items.add(DEntry(value = Res.locale(item)))
         }
-        ShowItemsList(context = context, name = Res.getLocale("primary_abilily") + ": ", list = items)
+        ShowItemsList(context = context, name = Res.locale("primary_abilily") + ": ", list = items)
     }
 }
 @Composable
@@ -252,10 +252,9 @@ fun ShowFeats(context: Context, car: DNDChar)
     {
         var items = ArrayList<DEntry>()
         car.feats.forEach {  item ->
-            var data = Res.getLocale(item)
-            items.add(DEntry(value = data[0], title = data[0], desc = Res.getLocale(item, "desc")))
+            items.add(DEntry(value = Res.locale(item), title = Res.locale(item), desc = Res.locale(item, "desc")))
         }
-        ShowItemsList(context = context, name = Res.getLocale("feats") + ": ", list = items)
+        ShowItemsList(context = context, name = Res.locale("feats") + ": ", list = items)
     }
 }
 @Composable
@@ -265,9 +264,9 @@ fun ShowLanguages(context: Context, car: DNDChar)
     {
         var items = ArrayList<DEntry>()
         car.languages.forEach { item ->
-            items.add(DEntry(value = Res.getLocale(item), title = Res.getLocale(item), desc = Res.getLocale(item, "desc")))
+            items.add(DEntry(value = Res.locale(item), title = Res.locale(item), desc = Res.locale(item, "desc")))
         }
-        ShowItemsList(context = context, name = Res.getLocale("languages") + ": ", list = items)
+        ShowItemsList(context = context, name = Res.locale("languages") + ": ", list = items)
     }
 }
 @Composable
@@ -277,9 +276,9 @@ fun ShowRacials(context: Context, car: DNDChar)
     {
         var items = ArrayList<DEntry>()
         car.racialTraits.forEach {  item ->
-            items.add(DEntry(value = Res.getLocale(item), title = Res.getLocale(item), desc = Res.getLocale(car.race, item)))
+            items.add(DEntry(value = Res.locale(item), title = Res.locale(item), desc = Res.locale(car.race, item)))
         }
-        ShowItemsList(context = context, name = Res.getLocale("racials") + ": ", list = items)
+        ShowItemsList(context = context, name = Res.locale("racials") + ": ", list = items)
     }
 }
 @Composable
@@ -362,23 +361,23 @@ fun ShowBasics(context: Context, car: DNDChar)
     var arrData : ArrayList<DEntry> = ArrayList()
 
     // Altura
-    arrNames.add(Res.getLocale("height") + ": ")
+    arrNames.add(Res.locale("height") + ": ")
     arrData.add(DEntry(value = car.height.toString()))
     // Peso
-    arrNames.add(Res.getLocale("weight") + ": ")
+    arrNames.add(Res.locale("weight") + ": ")
     arrData.add(DEntry(value = car.weight.toString()))
     // Edad
-    arrNames.add(Res.getLocale("age") + ": ")
-    arrData.add(DEntry(value = car.age.toString() + " " + Res.getLocale("years")))
+    arrNames.add(Res.locale("age") + ": ")
+    arrData.add(DEntry(value = car.age.toString() + " " + Res.locale("years")))
     // Velocidad
-    arrNames.add(Res.getLocale("speed") + ": ")
+    arrNames.add(Res.locale("speed") + ": ")
     arrData.add(DEntry(value = car.speed.toString()))
     // Alineamiento
-    arrNames.add(Res.getLocale("alignment") + ": ")
-    arrData.add(DEntry(value = Res.getLocale(car.alignment), title = Res.getLocale(car.alignment), desc = Res.getLocale(car.alignment, "desc")))
+    arrNames.add(Res.locale("alignment") + ": ")
+    arrData.add(DEntry(value = Res.locale(car.alignment), title = Res.locale(car.alignment), desc = Res.locale(car.alignment, "desc")))
     // Trasfondo
-    arrNames.add(Res.getLocale("backgroud") + ": ")
-    arrData.add(DEntry(value = Res.getLocale(car.background), title = Res.getLocale(car.background), desc = Res.getLocale(car.background, "desc")))
+    arrNames.add(Res.locale("backgroud") + ": ")
+    arrData.add(DEntry(value = Res.locale(car.background), title = Res.locale(car.background), desc = Res.locale(car.background, "desc")))
 
     Column(modifier = Modifier.fillMaxWidth())
     {
@@ -390,7 +389,7 @@ fun ShowBasics(context: Context, car: DNDChar)
         {
             // Raza y clase
             Text(modifier = Modifier.fillMaxWidth(),
-                text = Res.getLocale(car.klass) + " " + Res.getLocale(car.race),
+                text = Res.locale(car.klass) + " " + Res.locale(car.race),
                 textAlign = TextAlign.Center,
                 fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
                 fontWeight = FontWeight.Bold,
@@ -445,8 +444,8 @@ fun ShowProfile(context: Context, size: Dp, car: DNDChar,
                 modifier = Modifier.align(alignment = Alignment.TopStart),
                 onClick = { x, y ->
                     dialogInfo(context = context,
-                        title = Res.getLocale("level"),
-                        desc = Res.getLocale("level_desc"),
+                        title = Res.locale("level"),
+                        desc = Res.locale("level_desc"),
                         x = x, y = y)
                 })
             // Inspitación
@@ -454,8 +453,8 @@ fun ShowProfile(context: Context, size: Dp, car: DNDChar,
                 modifier = Modifier.align(alignment = Alignment.TopEnd),
                 onClick = { x, y ->
                     dialogInfo(context = context,
-                        title = Res.getLocale("inspiration"),
-                        desc = Res.getLocale("inspiration_desc"),
+                        title = Res.locale("inspiration"),
+                        desc = Res.locale("inspiration_desc"),
                         x = x, y = y)
                 })
             // Clase
@@ -463,8 +462,8 @@ fun ShowProfile(context: Context, size: Dp, car: DNDChar,
                 modifier = Modifier.align(alignment = Alignment.BottomEnd),
                 onClick = { x, y ->
                     dialogInfo(context = context,
-                        title = Res.getLocale(car.klass),
-                        desc = Res.getLocale(car.klass, "desc"),
+                        title = Res.locale(car.klass),
+                        desc = Res.locale(car.klass, "desc"),
                         x = x, y = y)
                 })
             // Género
@@ -472,7 +471,7 @@ fun ShowProfile(context: Context, size: Dp, car: DNDChar,
                 modifier = Modifier.align(alignment = Alignment.BottomStart),
                 onClick = { x, y ->
                     dialogInfo(context = context,
-                        title = Res.getLocale("gender"),
+                        title = Res.locale("gender"),
                         x = x, y = y)
                 })
         }
@@ -493,7 +492,7 @@ fun ShowProfile(context: Context, size: Dp, car: DNDChar,
                     onTap = { offset ->
                         dialogInfo(
                             context = context,
-                            title = Res.getLocale("xp"),
+                            title = Res.locale("xp"),
                             desc = showXp.toString() + "/" + car.maxXp.toString(),
                             x = gPosX + offset.x,
                             y = gPosY + offset.y
