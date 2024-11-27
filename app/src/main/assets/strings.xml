@@ -466,6 +466,38 @@
 		</EGear>
 	</enums>
 	<info>
+		<EAlignment>
+			<UNALIGNED>
+				<desc>No alineado</desc>
+			</UNALIGNED>
+			<LAWFUL_GOOD>
+				<desc>Las criaturas legales buenas (LB) realizarán lo que la sociedad considera como correcto. Los dragones de oro, los paladines y la mayoría de los enanos son legales buenos.</desc>
+			</LAWFUL_GOOD>
+			<NEUTRAL_GOOD>
+				<desc>Las personas neutrales buenas (NB) harán lo que esté en su mano para ayudar a los demás de acuerdo a sus necesidades. Muchos celestiales, algunos gigantes de las nubes y la mayoría de los gnomos son neutrales buenos.</desc>
+			</NEUTRAL_GOOD>
+			<CHAOTIC_GOOD>
+				<desc>Las criaturas caóticas buenas (CB) actúan siguiendo los dictados de sus conciencias, sin preocuparles lo que otros esperan de ellas. Los dragones de cobre, muchos elfos y los unicornios son caóticos buenos.</desc>
+			</CHAOTIC_GOOD>
+			<LAWFUL_NEUTRAL>
+				<desc>Los individuos legales neutrales (LN) se comportan de acuerdo con la ley, la tradición o sus códigos de conducta personales. Muchos monjes y algunos magos son legales neutrales.</desc>
+			</LAWFUL_NEUTRAL>
+			<TRUE_NEUTRAL>
+				<desc>Neutral (N) es el alineamiento de aquellos que prefieren evitar las cuestiones éticas y no toman partido, haciendo lo que les parece mejor en cada momento. Los hombres lagarto, muchos druidas y la mayoría de humanos son neutrales.</desc>
+			</TRUE_NEUTRAL>
+			<CHAOTIC_NEUTRAL>
+				<desc>Las criaturas caóticas neutrales (CN) persiguen sus caprichos, valorando su libertad como individuos por encima de cualquier otra cosa. Muchos bárbaros y pícaros, así como algunos bardos, son caóticos neutrales.</desc>
+			</CHAOTIC_NEUTRAL>
+			<LAWFUL_EVIL>
+				<desc>Los seres legales malvados (LM) toman lo que les viene en gana, pero siempre de forma metódica y dentro de los límites que marca una tradición, una organización o su lealtad. Los diablos, los dragones azules y los hobgoblins son legales malvados.</desc>
+			</LAWFUL_EVIL>
+			<NEUTRAL_EVIL>
+				<desc>Neutral malvado (NM) es el alineamiento de los que se salen con la suya siempre que se presenta la oportunidad, sin compasión o remordimiento alguno. Muchos drows, algunos gigantes de las nubes y los yugoloths son neutrales malvados.</desc>
+			</NEUTRAL_EVIL>
+			<CHAOTIC_EVIL>
+				<desc>Las criaturas caóticas malvadas (CM) recurren a la violencia arbitrariamente, movidos por la codicia, el odio o el ansia de sangre. Los demonios, los dragones rojos y los orcos son caóticos malvados.</desc>
+			</CHAOTIC_EVIL>
+		</EAlignment>
 		<ELanguage>
 			<COMMON>
 				<desc>Hablantes típicos: Humanos. Alfabeto: Común.</desc>
@@ -793,9 +825,10 @@ el suelo, se moverá 5 pies en una dirección aleatoria en cada uno de tus turno
 		<!-- GUI Page-->
 		<level>Nivel</level>
 		<level_desc>Nivel del personaje</level_desc>
+		<xp>Experiencia</xp>
 		<inspiration>Inspiración</inspiration>
 		<inspiration_desc>Si posees inspiración, puedes gastarla cuando hagas una tirada de ataque, tirada de salvación o prueba de característica para obtener ventaja en la tirada en cuestión.
-Asimismo, si tienes inspiración podrás recompensar a otro personaje por una buena interpretación, una idea inteligente o simplemente por realizar algo emocionante durante la partida. Cuando otro personaje haga un acto que verdaderamente aporte un elemento divertido o interesante a la historia, podrás renunciar a tu inspiración para dársela a él.
+Asimismo, si tienes inspiración podrás recompensar a otro personaje por una buena interpretación, una idea inteligente o simplemente por realizar algo emocionante durante la partida. Cuando otro personaje haga un acto que verdaderamente aporte un elemento divertido o interesante a la historia, podrás renunciar a tu inspiración para dársela a él.	
 		</inspiration_desc>
 		<gender>Género</gender>
 		<height>Altura</height>
@@ -807,6 +840,8 @@ Asimismo, si tienes inspiración podrás recompensar a otro personaje por una bu
 		<backgroud>Trasfondo</backgroud>
 		<languages>Idiomas</languages>
 		<feats>Dotes</feats>
+		<primary_abilily>Característica principal</primary_abilily>
+		<hit_dice>Dado de golpe</hit_dice>
 		<but_ok>Aceptar</but_ok>
 		<but_cancel>Cancelar</but_cancel>
 	</misc>

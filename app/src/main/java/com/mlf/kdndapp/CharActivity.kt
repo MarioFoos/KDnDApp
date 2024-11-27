@@ -37,9 +37,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
@@ -88,14 +88,19 @@ class CharActivity : ComponentActivity()
         val gender = Res.randomItem(EGender.values())
         val stageOfLife = Res.randomItem(EStageOfLife.values())
         val ethnicity = Res.randomItem(EEthnicity.values())
-        val name = Res.genName(race, ethnicity, gender, stageOfLife)
+        val name = Res.genName(race, ethnicity, gender, stageOfLife) //"Un nombre \"muy largo\" para mostrar en una línea"
 
         val car = DNDChar(name, race, klass)
+        car.gender = gender
+        car.ethnicity = ethnicity
         car.genAge(stageOfLife)
         car.setWealth(ComTools.random(80L, 600L))
         car.alignment = Res.randomItem(EAlignment.values())
-        car.xp = 180
-        car.addFeat(EFeat.LUCKY)
+        car.xp = ComTools.random(10, 299)
+        if(race == ERace.VARIANT_HUMAN)
+        {
+            car.addFeat(EFeat.LUCKY)
+        }
         EAbility.values().forEach { ability -> car.setAbilityBase(ability, ComTools.random(10, 20)) }
         car.setAbilityRacialsBonus(EAbility.CHARISMA, EAbility.INTELLIGENCE)
         car.setAbilityExtraBonus(EAbility.STRENGTH, 1)
@@ -120,9 +125,10 @@ class CharActivity : ComponentActivity()
                     horizontalAlignment = Alignment.Start,
                     verticalArrangement = Arrangement.Top
                 ) {
-                    // Oro
+                    // Nombre
                     ShowName(this@CharActivity, car)
                     SpaceV()
+                    // Oro
                     ShowWealth(context = this@CharActivity, wealth = carWealth, onChange = { wealth ->
                         carWealth = wealth
                         car.wealth.total = wealth
@@ -130,43 +136,31 @@ class CharActivity : ComponentActivity()
                     SpaceV()
                     Row(verticalAlignment = Alignment.Top,
                         horizontalArrangement = Arrangement.Start,
-                        modifier = Modifier
-                            .height(dimensionResource(R.dimen.profile))
-                            .fillMaxWidth())
+                        modifier = Modifier.fillMaxWidth())
                     {
-                        ShowProfile(context = this@CharActivity, car = car,
-                            size = dimensionResource(R.dimen.profile),
-                            inspiration = carInspiration,
-                            level = carLevel)
-                        SpaceH()
-                        Column(modifier = Modifier.fillMaxWidth())
+                        Column(modifier = Modifier.width(dimensionResource(R.dimen.profile)))
                         {
-                            ShowBasics(this@CharActivity, car)
+                            ShowProfile(context = this@CharActivity, car = car,
+                                size = dimensionResource(R.dimen.profile),
+                                inspiration = carInspiration,
+                                level = carLevel,
+                                xp = carXp)
                         }
+                        SpaceH()
+                        ShowBasics(this@CharActivity, car)
                     }
                     SpaceV()
-                    ShowXp(this@CharActivity, car, xp = carXp)
+                    ShowRacials(this@CharActivity, car)
                     SpaceV()
-                    Row(verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Start,
-                        modifier = Modifier.fillMaxWidth())
-                    {
-                        ShowRacials(this@CharActivity, car)
-                    }
+                    ShowLanguages(this@CharActivity, car)
                     SpaceV()
-                    Row(verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Start,
-                        modifier = Modifier.fillMaxWidth())
-                    {
-                        ShowLanguages(this@CharActivity, car)
-                    }
+                    ShowFeats(this@CharActivity, car)
                     SpaceV()
-                    Row(verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Start,
-                        modifier = Modifier.fillMaxWidth())
-                    {
-                        ShowFeats(this@CharActivity, car)
-                    }
+                    ShowPrimaryAbility(this@CharActivity, car)
+                    SpaceV()
+                    ShowSavingThrow(this@CharActivity, car)
+                    SpaceV()
+                    ShowHitDice(this@CharActivity, car)
                 }
             }
         }
@@ -218,250 +212,304 @@ fun getImageRace(context: Context, race : ERace, gender : EGender) : ImageBitmap
 *******************************************************************************************************************/
 
 @Composable
+fun ShowHitDice(context: Context, car: DNDChar)
+{
+    Row(modifier = Modifier.fillMaxWidth())
+    {
+        var items = ArrayList<DEntry>()
+        items.add(DEntry(value = Res.getLocale(car.hitDice)))
+        ShowItemsList(context = context, name = Res.getLocale("hit_dice") + ": ", list = items)
+    }
+}
+@Composable
+fun ShowSavingThrow(context: Context, car: DNDChar)
+{
+    Row(modifier = Modifier.fillMaxWidth())
+    {
+        var items = ArrayList<DEntry>()
+        car.savingThrow.forEach {  item ->
+            items.add(DEntry(value = Res.getLocale(item)))
+        }
+        ShowItemsList(context = context, name = Res.getLocale("saving_throw") + ": ", list = items)
+    }
+}
+@Composable
+fun ShowPrimaryAbility(context: Context, car: DNDChar)
+{
+    Row(modifier = Modifier.fillMaxWidth())
+    {
+        var items = ArrayList<DEntry>()
+        car.primaryAbility.forEach {  item ->
+            items.add(DEntry(value = Res.getLocale(item)))
+        }
+        ShowItemsList(context = context, name = Res.getLocale("primary_abilily") + ": ", list = items)
+    }
+}
+@Composable
 fun ShowFeats(context: Context, car: DNDChar)
 {
-    var feats = ArrayList<DEntry>()
-
-    car.feats.forEach {  item ->
-        var data = Res.getLocale(item)
-        feats.add(DEntry(value = data[0], title = data[0], desc = data[1] + "\n" + data[2]))
+    Row(modifier = Modifier.fillMaxWidth())
+    {
+        var items = ArrayList<DEntry>()
+        car.feats.forEach {  item ->
+            var data = Res.getLocale(item)
+            items.add(DEntry(value = data[0], title = data[0], desc = Res.getLocale(item, "desc")))
+        }
+        ShowItemsList(context = context, name = Res.getLocale("feats") + ": ", list = items)
     }
-    ShowItemsList(context = context, name = Res.getLocale("feats") + ": ", list = feats)
 }
 @Composable
 fun ShowLanguages(context: Context, car: DNDChar)
 {
-    var languajes = ArrayList<DEntry>()
-
-    car.languages.forEach {  item ->
-        languajes.add(DEntry(value = Res.getLocale(item), title = Res.getLocale(item), desc = Res.getLocale(item, "desc")))
+    Row(modifier = Modifier.fillMaxWidth())
+    {
+        var items = ArrayList<DEntry>()
+        car.languages.forEach { item ->
+            items.add(DEntry(value = Res.getLocale(item), title = Res.getLocale(item), desc = Res.getLocale(item, "desc")))
+        }
+        ShowItemsList(context = context, name = Res.getLocale("languages") + ": ", list = items)
     }
-    ShowItemsList(context = context, name = Res.getLocale("languages") + ": ", list = languajes)
 }
 @Composable
 fun ShowRacials(context: Context, car: DNDChar)
 {
-    var traits = ArrayList<DEntry>()
-
-    car.racialTraits.forEach {  item ->
-        traits.add(DEntry(value = Res.getLocale(item), title = Res.getLocale(item), desc = Res.getLocale(car.race, item)))
+    Row(modifier = Modifier.fillMaxWidth())
+    {
+        var items = ArrayList<DEntry>()
+        car.racialTraits.forEach {  item ->
+            items.add(DEntry(value = Res.getLocale(item), title = Res.getLocale(item), desc = Res.getLocale(car.race, item)))
+        }
+        ShowItemsList(context = context, name = Res.getLocale("racials") + ": ", list = items)
     }
-    ShowItemsList(context = context, name = Res.getLocale("racials") + ": ", list = traits)
+}
+@Composable
+fun ShowClickeable(context: Context, entry: DEntry)
+{
+    if(entry.title.isEmpty())
+    {
+        Box(modifier = Modifier
+            .background(colorResource(R.color.clNone))
+            .padding(dimensionResource(R.dimen.contentPadding), 0.dp)
+        )
+        {
+            Text(text = entry.value,
+                fontSize = dimensionResource(R.dimen.fontClickeable).value.sp,
+                color = colorResource(R.color.clickeableFace))
+        }
+    }
+    else
+    {
+        Box(modifier = Modifier
+            .background(colorResource(R.color.clickeableBg))
+            .padding(dimensionResource(R.dimen.contentPadding), 0.dp)
+        )
+        {
+            var posX by rememberSaveable { mutableStateOf(0f) }
+            var posY by rememberSaveable { mutableStateOf(0f) }
+
+            Text(text = entry.value,
+                fontSize = dimensionResource(R.dimen.fontClickeable).value.sp,
+                textDecoration = TextDecoration.Underline,
+                color = colorResource(R.color.clickeableFace),
+                modifier = Modifier
+                    .onGloballyPositioned { coordinates ->
+                        posX = coordinates.positionInWindow().x
+                        posY = coordinates.positionInWindow().y
+                    }
+                    .pointerInput(Unit) {
+                        detectTapGestures(
+                            onTap = { offset ->
+                                dialogInfo(context, entry.title, entry.desc, posX + offset.x, posY + offset.y)
+                            }
+                        )
+                    }
+            )
+        }
+    }
 }
 @Composable
 fun ShowItemsList(context: Context, name: String, list: ArrayList<DEntry>)
 {
-    Text(text = name,
-        fontSize = dimensionResource(R.dimen.fontClickeable).value.sp,
-        fontWeight = FontWeight.Bold
-    )
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.Start,
+    if(list.isEmpty())
+    {
+        list.add(DEntry(value = "—"))
+    }
+    Row(modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically)
     {
-        list.forEach { entry ->
-
-            Box(modifier = Modifier
-                .background(colorResource(R.color.clickeableBg))
-                .padding(dimensionResource(R.dimen.contentPadding), 0.dp)
-            )
-            {
-                var posX by rememberSaveable { mutableStateOf(0f) }
-                var posY by rememberSaveable { mutableStateOf(0f) }
-
-                Text(text = entry.value,
-                    fontSize = dimensionResource(R.dimen.fontClickeable).value.sp,
-                    fontWeight = FontWeight.Normal,
-                    textDecoration = TextDecoration.Underline,
-                    modifier = Modifier
-                        .onGloballyPositioned { coordinates ->
-                            posX = coordinates.positionInWindow().x
-                            posY = coordinates.positionInWindow().y
-                        }
-                        .pointerInput(Unit) {
-                            detectTapGestures(
-                                onTap = { offset ->
-                                    dialogInfo(
-                                        context = context,
-                                        title = entry.title,
-                                        desc = entry.desc,
-                                        x = posX + offset.x,
-                                        y = posY + offset.y
-                                    )
-                                }
-                            )
-                        },
-                    color = colorResource(R.color.clickeableFace)
-                )
+        // Etiqueta de la lista
+        Text(text = name,
+            fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
+            fontWeight = FontWeight.Bold
+        )
+        // Lista
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState()),
+            verticalAlignment = Alignment.CenterVertically)
+        {
+            list.forEach { entry ->
+                ShowClickeable(context = context, entry = entry)
+                Spacer(modifier = Modifier.width(dimensionResource(R.dimen.contentSpaceX)))
             }
-            Spacer(modifier = Modifier.width(dimensionResource(R.dimen.contentSpaceX)))
         }
     }
 }
 @Composable
 fun ShowBasics(context: Context, car: DNDChar)
 {
-    var arrSimple : ArrayList<DEntry> = ArrayList()
-    /*val rowSize = (dimensionResource(R.dimen.profile).value +
-            dimensionResource(R.dimen.xpH).value +
-            dimensionResource(R.dimen.dimSpaceV).value)/7*/
+    var arrNames : ArrayList<String> = ArrayList()
+    var arrData : ArrayList<DEntry> = ArrayList()
 
-    arrSimple.add(DEntry(Res.getLocale("height") + ": ", car.height.toString()))
-    arrSimple.add(DEntry(Res.getLocale("weight") + ": ", car.weight.toString()))
-    arrSimple.add(DEntry(Res.getLocale("age") + ": ", car.age.toString() + " " + Res.getLocale("years")))
-    arrSimple.add(DEntry(Res.getLocale("alignment") + ": ", Res.getLocale(car.alignment)))
-    arrSimple.add(DEntry(Res.getLocale("speed") + ": ", car.speed.toString()))
-    arrSimple.add(DEntry(Res.getLocale("backgroud") + ": ", Res.getLocale(car.background), Res.getLocale(car.background), Res.getLocale(car.background, "desc")))
+    // Altura
+    arrNames.add(Res.getLocale("height") + ": ")
+    arrData.add(DEntry(value = car.height.toString()))
+    // Peso
+    arrNames.add(Res.getLocale("weight") + ": ")
+    arrData.add(DEntry(value = car.weight.toString()))
+    // Edad
+    arrNames.add(Res.getLocale("age") + ": ")
+    arrData.add(DEntry(value = car.age.toString() + " " + Res.getLocale("years")))
+    // Velocidad
+    arrNames.add(Res.getLocale("speed") + ": ")
+    arrData.add(DEntry(value = car.speed.toString()))
+    // Alineamiento
+    arrNames.add(Res.getLocale("alignment") + ": ")
+    arrData.add(DEntry(value = Res.getLocale(car.alignment), title = Res.getLocale(car.alignment), desc = Res.getLocale(car.alignment, "desc")))
+    // Trasfondo
+    arrNames.add(Res.getLocale("backgroud") + ": ")
+    arrData.add(DEntry(value = Res.getLocale(car.background), title = Res.getLocale(car.background), desc = Res.getLocale(car.background, "desc")))
 
-    Column(modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.Top)
+    Column(modifier = Modifier.fillMaxWidth())
     {
-        Text(modifier = Modifier.fillMaxWidth(),
-            text = Res.getLocale(car.klass) + " " + Res.getLocale(car.race),
-            textAlign = TextAlign.Center,
-            fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
-            fontWeight = FontWeight.Bold
-        )
-        // Características básicas
-        arrSimple.forEach { entry ->
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically)
+        {
+            // Raza y clase
+            Text(modifier = Modifier.fillMaxWidth(),
+                text = Res.getLocale(car.klass) + " " + Res.getLocale(car.race),
+                textAlign = TextAlign.Center,
+                fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
+        arrNames.forEachIndexed { index, item ->
             Row(modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically)
             {
-                Text(text = entry.key,
+                Text(text = item,
                     fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
                     fontWeight = FontWeight.Bold
                 )
-                if(entry.title.isEmpty())
+                Row(modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                    verticalAlignment = Alignment.CenterVertically)
                 {
-                    Text(text = entry.value,
-                        fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
-                        fontWeight = FontWeight.Normal
-                    )
-                }
-                else
-                {
-                    Box(modifier = Modifier
-                        .background(colorResource(R.color.clickeableBg))
-                        .padding(dimensionResource(R.dimen.contentPadding), 0.dp)
-                    )
-                    {
-                        var posX by rememberSaveable { mutableStateOf(0f) }
-                        var posY by rememberSaveable { mutableStateOf(0f) }
-
-                        Text(text = entry.value,
-                            fontSize = dimensionResource(R.dimen.fontClickeable).value.sp,
-                            fontWeight = FontWeight.Normal,
-                            textDecoration = TextDecoration.Underline,
-                            color = colorResource(R.color.clickeableFace),
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier
-                                .onGloballyPositioned { coordinates ->
-                                    posX = coordinates.positionInWindow().x
-                                    posY = coordinates.positionInWindow().y
-                                }
-                                .pointerInput(Unit) {
-                                    detectTapGestures(
-                                        onTap = { offset ->
-                                            dialogInfo(
-                                                context = context,
-                                                title = entry.title,
-                                                desc = entry.desc,
-                                                x = posX + offset.x,
-                                                y = posY + offset.y
-                                            )
-                                        }
-                                    )
-                                },
-                        )
-                    }
+                    ShowClickeable(context = context, entry = arrData[index])
                 }
             }
         }
     }
 }
 @Composable
-fun ShowXp(context: Context, car: DNDChar, xp: Int)
+fun ShowProfile(context: Context, size: Dp, car: DNDChar,
+                level: Int,
+                inspiration: Int,
+                xp: Int,
+                onChangeLevel: (Int)->Unit = { _ -> },
+                onChangeInspiration: (Int)->Unit = { _ -> },
+                onChangeXp: (Int)->Unit = { _ -> })
 {
-    var showXp by rememberSaveable { mutableStateOf(xp) }
-    var barSize = (dimensionResource(R.dimen.xpW).value.toDouble()*xp.toDouble()/(car.maxXp - car.minXp).toDouble()).toInt()
-
-    Box(modifier = Modifier
-        .width(dimensionResource(R.dimen.xpW))
-        .height(dimensionResource(R.dimen.xpH))
-        .background(colorResource(R.color.contentBg))
-        .padding(dimensionResource(R.dimen.contentStroke))
-        .border(
-            width = dimensionResource(R.dimen.contentStroke),
-            color = colorResource(R.color.contentFace)
-        )
-    )
-    {
-        Box(modifier = Modifier.fillMaxHeight()
-            .width(barSize.dp)
-            .background(colorResource(id = R.color.contentFace)))
-        {}
-    }
-
-}
-@Composable
-fun ShowProfile(context: Context, size: Dp, car: DNDChar, level: Int, inspiration: Int,
-               onChangeLevel: (Int)->Unit = { _ -> },
-               onChangeInspiration: (Int)->Unit = { _ -> })
-{
+    var gPosX by rememberSaveable { mutableStateOf(0f) }
+    var gPosY by rememberSaveable { mutableStateOf(0f) }
     var showLevel by rememberSaveable { mutableStateOf(level) }
     var showInspiration by rememberSaveable { mutableStateOf(inspiration) }
+    var showXp by rememberSaveable { mutableStateOf(xp) }
+    val barSize = (dimensionResource(R.dimen.xpW).value.toDouble()*xp.toDouble()/(car.maxXp - car.minXp).toDouble()).toInt()
 
-    Box(contentAlignment = Alignment.Center,
-        modifier = Modifier.size(size)
-    )
+    Column(modifier = Modifier.width(size))
     {
-        // Avatar
-        ShowRoundContent(bitmap = getImageRace(context, race = car.race, gender = car.gender),
-            size = dimensionResource(R.dimen.profile), tint = false)
+        Box(modifier = Modifier.size(size))
+        {
+            // Avatar
+            ShowRoundContent(bitmap = getImageRace(context, race = car.race, gender = car.gender),
+                size = dimensionResource(R.dimen.profile), tint = false)
+            // Nivel
+            ShowRoundContent(number = showLevel, size = dimensionResource(R.dimen.dimLevel),
+                modifier = Modifier.align(alignment = Alignment.TopStart),
+                onClick = { x, y ->
+                    dialogInfo(context = context,
+                        title = Res.getLocale("level"),
+                        desc = Res.getLocale("level_desc"),
+                        x = x, y = y)
+                })
+            // Inspitación
+            ShowRoundContent(number = showInspiration, size = dimensionResource(R.dimen.dimLevel),
+                modifier = Modifier.align(alignment = Alignment.TopEnd),
+                onClick = { x, y ->
+                    dialogInfo(context = context,
+                        title = Res.getLocale("inspiration"),
+                        desc = Res.getLocale("inspiration_desc"),
+                        x = x, y = y)
+                })
+            // Clase
+            ShowRoundContent(bitmap = getImageKlass(context, car.klass), size = dimensionResource(R.dimen.dimKlass),
+                modifier = Modifier.align(alignment = Alignment.BottomEnd),
+                onClick = { x, y ->
+                    dialogInfo(context = context,
+                        title = Res.getLocale(car.klass),
+                        desc = Res.getLocale(car.klass, "desc"),
+                        x = x, y = y)
+                })
+            // Género
+            ShowRoundContent(bitmap = getImageGender(context, car.gender), size = dimensionResource(R.dimen.dimGender),
+                modifier = Modifier.align(alignment = Alignment.BottomStart),
+                onClick = { x, y ->
+                    dialogInfo(context = context,
+                        title = Res.getLocale("gender"),
+                        x = x, y = y)
+                })
+        }
+        SpaceV()
+        // Experiencia
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .height(dimensionResource(R.dimen.xpH))
+            .background(colorResource(R.color.contentBg))
+            .padding(dimensionResource(R.dimen.contentStroke))
+            .border(width = dimensionResource(R.dimen.contentStroke), color = colorResource(R.color.contentFace))
+            .onGloballyPositioned { coordinates ->
+                gPosX = coordinates.positionInWindow().x
+                gPosY = coordinates.positionInWindow().y
+            }
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = { offset ->
+                        dialogInfo(
+                            context = context,
+                            title = Res.getLocale("xp"),
+                            desc = showXp.toString() + "/" + car.maxXp.toString(),
+                            x = gPosX + offset.x,
+                            y = gPosY + offset.y
+                        )
+                    },
+                    onLongPress = { _ -> }
+                )
+            }
 
-        // Nivel
-        ShowRoundContent(number = showLevel, size = dimensionResource(R.dimen.dimLevel),
-            modifier = Modifier.align(alignment = Alignment.TopStart),
-            onClick = { x, y ->
-                dialogInfo(context = context,
-                    title = Res.getLocale("level"),
-                    desc = Res.getLocale("level_desc"),
-                    x = x,
-                    y = y)
-            })
-        // Inspitación
-        ShowRoundContent(number = showInspiration, size = dimensionResource(R.dimen.dimLevel),
-            modifier = Modifier.align(alignment = Alignment.TopEnd),
-            onClick = { x, y ->
-                dialogInfo(context = context,
-                    title = Res.getLocale("inspiration"),
-                    desc = Res.getLocale("inspiration_desc"),
-                    x = x,
-                    y = y)
-            })
-        // Clase
-        ShowRoundContent(bitmap = getImageKlass(context, car.klass), size = dimensionResource(R.dimen.dimKlass),
-            modifier = Modifier.align(alignment = Alignment.BottomEnd),
-            onClick = { x, y ->
-                dialogInfo(context = context,
-                    title = Res.getLocale(car.klass),
-                    desc = Res.getLocale(car.klass, "desc"),
-                    x = x,
-                    y = y)
-            })
-        // Género
-        ShowRoundContent(bitmap = getImageGender(context, car.gender), size = dimensionResource(R.dimen.dimGender),
-            modifier = Modifier.align(alignment = Alignment.BottomStart),
-            onClick = { x, y ->
-                dialogInfo(context = context,
-                    title = Res.getLocale("gender"),
-                    x = x, y = y)
-            })
+        )
+        {
+            Box(modifier = Modifier
+                .fillMaxHeight()
+                .width(barSize.dp)
+                .background(colorResource(id = R.color.contentFace))){}
+        }
     }
 }
 @Composable
