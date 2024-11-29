@@ -8,9 +8,85 @@ import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.TextView
+import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
 import com.dndlib.base.ECoin
 import com.dndlib.res.Res
+
+fun dialogHp(context: Context, hp: DNDHitPoints, onAccept: (newHp: DNDHitPoints)->Unit = { _ -> })
+{
+    var curHp: DNDHitPoints = hp
+    val dialog = Dialog(context)
+
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.dialog_hit_points)
+
+    // GUI
+    val textTitle = dialog.findViewById(R.id.textTitle) as TextView
+    val textDescCurrent = dialog.findViewById(R.id.textDescCurrent) as TextView
+    val textDescMax = dialog.findViewById(R.id.textDescMax) as TextView
+    val textDescTemp = dialog.findViewById(R.id.textDescTemp) as TextView
+    val butOk = dialog.findViewById(R.id.butOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butCancel)  as Button
+
+    textTitle.text = Res.locale("hit_points")
+    textDescCurrent.text = Res.locale("hp_currents")
+    textDescMax.text = Res.locale("hp_max")
+    textDescTemp.text = Res.locale("hp_temp")
+    butOk.text = Res.locale("but_ok")
+    butCancel.text = Res.locale("but_cancel")
+
+    val butCurrentDec = dialog.findViewById(R.id.butCurrentDec)  as Button
+    val butCurrentInc = dialog.findViewById(R.id.butCurrentInc)  as Button
+    val butMaxDec = dialog.findViewById(R.id.butMaxDec)  as Button
+    val butMaxInc = dialog.findViewById(R.id.butMaxInc)  as Button
+    val butTempDec = dialog.findViewById(R.id.butTempDec)  as Button
+    val butTempInc = dialog.findViewById(R.id.butTempInc)  as Button
+    val textCurrent = dialog.findViewById(R.id.textCurrent) as TextView
+    val textMax = dialog.findViewById(R.id.textMax) as TextView
+    val textTemp = dialog.findViewById(R.id.textTemp) as TextView
+
+    fun showData()
+    {
+        textCurrent.text = curHp.hp.toString()
+        textMax.text = curHp.max.toString()
+        textTemp.text = curHp.temp.toString()
+    }
+    butCurrentDec.setOnClickListener {
+        curHp.hp = curHp.hp - 1
+        showData()
+    }
+    butCurrentInc.setOnClickListener {
+        curHp.hp = curHp.hp + 1
+        showData()
+    }
+    butMaxDec.setOnClickListener {
+        curHp.max = curHp.max - 1
+        showData()
+    }
+    butMaxInc.setOnClickListener {
+        curHp.max = curHp.max + 1
+        showData()
+    }
+    butTempDec.setOnClickListener {
+        curHp.temp = curHp.temp - 1
+        showData()
+    }
+    butTempInc.setOnClickListener {
+        curHp.temp = curHp.temp + 1
+        showData()
+    }
+    butOk.setOnClickListener {
+        dialog.cancel()
+        onAccept(curHp)
+    }
+    butCancel.setOnClickListener {
+        dialog.dismiss()
+    }
+    showData()
+    dialog.show()
+}
 
 fun dialogEditNum(context: Context, title: String, value: Int, onAccept: (newValue: Int)->Unit = { _ -> })
 {

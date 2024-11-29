@@ -3,7 +3,6 @@ package com.mlf.kdndapp
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Size
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -165,7 +164,16 @@ class CharActivity : ComponentActivity()
                             // HP y XP
                             Row(modifier = Modifier.fillMaxWidth())
                             {
-                                ShowHP(context = this@CharActivity, car = car, hp = carHp)
+                                ShowHP(context = this@CharActivity, car = car,
+                                    hp = carHp,
+                                    max = carHpMax,
+                                    temp = carHpTemp,
+                                    onChangeData = { newHp ->
+                                        car.hp.set(newHp)
+                                        carHp = car.hp.hp
+                                        carHpMax = car.hp.max
+                                        carHpTemp = car.hp.temp
+                                    })
                             }
                             SpaceV()
                             Row(modifier = Modifier.fillMaxWidth())
@@ -508,20 +516,23 @@ fun ShowBar(context: Context, modifier: Modifier,
     }
 }
 @Composable
-fun ShowHP(context: Context, car: DNDChar, hp: Int,
+fun ShowHP(context: Context, car: DNDChar, hp: Int, max: Int, temp: Int,
            onChangeData: (DNDHitPoints)->Unit = { _ -> })
 {
     var gPosX by rememberSaveable { mutableStateOf(0f) }
     var gPosY by rememberSaveable { mutableStateOf(0f) }
-    var showHP by rememberSaveable { mutableStateOf(hp) }
+    var showHp by rememberSaveable { mutableStateOf(hp) }
+    var showMax by rememberSaveable { mutableStateOf(max) }
+    var showTemp by rememberSaveable { mutableStateOf(temp) }
 
     val desc =  "• " + Res.locale("hit_points_level_1") + ": " + Res.localeF("hit_points_level_1", car.klass) + "\n" +
                 "• " + Res.locale("hit_points_other") + ": " + Res.localeF("hit_points_other", car.klass)
 
     ShowBar(context = context,
         color = colorResource(id = R.color.barHP),
-        max = car.maxHp,
-        value = car.hp.hp,
+        max = showMax + showTemp,
+        value = showHp,
+        text = car.hp.toString(),
         modifier = Modifier
             .height(dimensionResource(R.dimen.profileBarH))
             .onGloballyPositioned { coordinates ->
@@ -533,13 +544,20 @@ fun ShowHP(context: Context, car: DNDChar, hp: Int,
                     onTap = { offset ->
                         dialogInfo(
                             context = context,
-                            title = Res.locale("hit_points") + " ("+ showHP.toString() + "/" + car.maxHp.toString() + ")",
+                            title = Res.locale("hit_points") + " ("+ showHp.toString() + "/" + showMax.toString() + ")",
                             desc = desc,
                             x = gPosX + offset.x,
                             y = gPosY + offset.y
                         )
                     },
-                    onLongPress = { _ -> }
+                    onLongPress = { _ ->
+                        dialogHp(context = context, car.hp, onAccept = { hp ->
+                            showHp = hp.hp
+                            showMax = hp.max
+                            showTemp = hp.temp
+                            onChangeData(hp)
+                        })
+                    }
                 )
             }
     )
@@ -600,13 +618,13 @@ fun ShowProfile(context: Context, size: Dp,
         // Nivel
         ShowProfileContent(number = showLevel, size = iconSize,
             modifier = Modifier.align(alignment = Alignment.TopStart),
-            onClick = { x, y ->
+            onTap = { x, y ->
                 dialogInfo(context = context,
                     title = Res.locale("level"),
                     desc = Res.locale("level_desc"),
                     x = x, y = y)
             },
-            onLongClick = { x, y ->
+            onLongPress = { x, y ->
                 dialogEditNum(context = context,
                     title = Res.locale("level"),
                     value = showLevel,
@@ -618,13 +636,13 @@ fun ShowProfile(context: Context, size: Dp,
         // Inspitación
         ShowProfileContent(number = showInspiration, size = iconSize,
             modifier = Modifier.align(alignment = Alignment.TopEnd),
-            onClick = { x, y ->
+            onTap = { x, y ->
                 dialogInfo(context = context,
                     title = Res.locale("inspiration"),
                     desc = Res.locale("inspiration_desc"),
                     x = x, y = y)
             },
-            onLongClick = { x, y ->
+            onLongPress = { x, y ->
                 dialogEditNum(context = context,
                     title = Res.locale("inspiration"),
                     value = showInspiration,
@@ -636,7 +654,7 @@ fun ShowProfile(context: Context, size: Dp,
         // Clase
         ShowProfileContent(bitmap = getImageKlass(context, car.klass), size = iconKlass,
             modifier = Modifier.align(alignment = Alignment.BottomEnd),
-            onClick = { x, y ->
+            onTap = { x, y ->
                 dialogInfo(context = context,
                     title = Res.locale(car.klass),
                     desc = Res.locale(car.klass, "desc"),
@@ -645,7 +663,7 @@ fun ShowProfile(context: Context, size: Dp,
         // Género
         ShowProfileContent(bitmap = getImageGender(context, car.gender), size = iconSize,
             modifier = Modifier.align(alignment = Alignment.BottomStart),
-            onClick = { x, y ->
+            onTap = { x, y ->
                 dialogInfo(context = context,
                     title = Res.locale("gender"),
                     x = x, y = y)
@@ -726,8 +744,8 @@ fun ShowProfileContent(modifier: Modifier = Modifier, size : Dp,
                        bitmap: ImageBitmap? = null,
                        number: Int? = null,
                        tint : Boolean = true,
-                       onClick: (x: Float, y: Float)->Unit = { _, _ -> },
-                       onLongClick: (x: Float, y: Float)->Unit = { _, _ -> })
+                       onTap: (x: Float, y: Float)->Unit = { _, _ -> },
+                       onLongPress: (x: Float, y: Float)->Unit = { _, _ -> })
 {
     var gPosX by rememberSaveable { mutableStateOf(0f) }
     var gPosY by rememberSaveable { mutableStateOf(0f) }
@@ -746,8 +764,8 @@ fun ShowProfileContent(modifier: Modifier = Modifier, size : Dp,
             }
             .pointerInput(Unit) {
                 detectTapGestures(
-                    onTap = { offset -> onClick(gPosX + offset.x, gPosY + offset.y) },
-                    onLongPress = { offset -> onLongClick(gPosX + offset.x, gPosY + offset.y) }
+                    onTap = { offset -> onTap(gPosX + offset.x, gPosY + offset.y) },
+                    onLongPress = { offset -> onLongPress(gPosX + offset.x, gPosY + offset.y) }
                 )
             }
     )
