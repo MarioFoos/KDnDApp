@@ -3,7 +3,7 @@ package com.mlf.kdndapp
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
+import android.util.Size
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -44,6 +44,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.layout.positionInWindow
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
@@ -54,8 +55,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.dndlib.DNDChar
+import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
 import com.dndlib.base.EAbility
 import com.dndlib.base.EAlignment
@@ -96,7 +97,11 @@ class CharActivity : ComponentActivity()
         car.genAge(stageOfLife)
         car.setWealth(ComTools.random(80L, 600L))
         car.alignment = Res.randomItem(EAlignment.values())
-        car.xp = ComTools.random(10, 299)
+
+        car.maxHp = 30
+        car.hp.hp = ComTools.random(5, 25)
+        car.xp = ComTools.random(30, 270)
+
         if(race == ERace.VARIANT_HUMAN)
         {
             car.addFeat(EFeat.LUCKY)
@@ -110,6 +115,9 @@ class CharActivity : ComponentActivity()
             var carWealth by rememberSaveable { mutableStateOf(car.wealth.total) }
             var carLevel by rememberSaveable { mutableStateOf(car.level) }
             var carInspiration by rememberSaveable { mutableStateOf(car.inspiration) }
+            var carHp by rememberSaveable { mutableStateOf(car.hp.hp) }
+            var carHpMax by rememberSaveable { mutableStateOf(car.hp.max) }
+            var carHpTemp by rememberSaveable { mutableStateOf(car.hp.temp) }
             var carXp by rememberSaveable { mutableStateOf(car.xp) }
 
             KDnDAppTheme{
@@ -120,7 +128,7 @@ class CharActivity : ComponentActivity()
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(dimensionResource(R.dimen.dimMainPadding))
+                        .padding(dimensionResource(R.dimen.mainPadding))
                         .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.Start,
                     verticalArrangement = Arrangement.Top
@@ -140,11 +148,30 @@ class CharActivity : ComponentActivity()
                     {
                         Column(modifier = Modifier.width(dimensionResource(R.dimen.profile)))
                         {
+                            // Perfil
                             ShowProfile(context = this@CharActivity, car = car,
                                 size = dimensionResource(R.dimen.profile),
                                 inspiration = carInspiration,
                                 level = carLevel,
-                                xp = carXp)
+                                onChangeLevel = { newLevel ->
+                                    carLevel = newLevel
+                                    car.level = newLevel
+                                },
+                                onChangeInspiration =  { newInspiration ->
+                                    carInspiration = newInspiration
+                                    car.inspiration = newInspiration
+                                })
+                            SpaceV()
+                            // HP y XP
+                            Row(modifier = Modifier.fillMaxWidth())
+                            {
+                                ShowHP(context = this@CharActivity, car = car, hp = carHp)
+                            }
+                            SpaceV()
+                            Row(modifier = Modifier.fillMaxWidth())
+                            {
+                                ShowXP(context = this@CharActivity, car = car, xp = carXp)
+                            }
                         }
                         SpaceH()
                         ShowBasics(this@CharActivity, car)
@@ -161,6 +188,7 @@ class CharActivity : ComponentActivity()
                     ShowSavingThrow(this@CharActivity, car)
                     SpaceV()
                     ShowHitDice(this@CharActivity, car)
+                    SpaceV()
                 }
             }
         }
@@ -212,23 +240,37 @@ fun getImageRace(context: Context, race : ERace, gender : EGender) : ImageBitmap
 *******************************************************************************************************************/
 
 @Composable
+fun ShowAbilities(context: Context, car: DNDChar)
+{
+    Row(modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically)
+    {
+
+
+    }
+}
+
+@Composable
 fun ShowHitDice(context: Context, car: DNDChar)
 {
-    Row(modifier = Modifier.fillMaxWidth())
+    Row(modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically)
     {
         var items = ArrayList<DEntry>()
-        items.add(DEntry(value = Res.locale(car.hitDice)))
+        items.add(DEntry(value = Res.localeF("hit_dice", car.klass)))
         ShowItemsList(context = context, name = Res.locale("hit_dice") + ": ", list = items)
     }
 }
 @Composable
 fun ShowSavingThrow(context: Context, car: DNDChar)
 {
-    Row(modifier = Modifier.fillMaxWidth())
+    Row(modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically)
     {
         var items = ArrayList<DEntry>()
         car.savingThrow.forEach {  item ->
-            items.add(DEntry(value = Res.locale(item)))
+            val name = Res.locale(item)
+            items.add(DEntry(value = name, title = name, desc = Res.locale(item, "desc")))
         }
         ShowItemsList(context = context, name = Res.locale("saving_throw") + ": ", list = items)
     }
@@ -236,11 +278,13 @@ fun ShowSavingThrow(context: Context, car: DNDChar)
 @Composable
 fun ShowPrimaryAbility(context: Context, car: DNDChar)
 {
-    Row(modifier = Modifier.fillMaxWidth())
+    Row(modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically)
     {
         var items = ArrayList<DEntry>()
         car.primaryAbility.forEach {  item ->
-            items.add(DEntry(value = Res.locale(item)))
+            val name = Res.locale(item)
+            items.add(DEntry(value = name, title = name, desc = Res.locale(item, "desc")))
         }
         ShowItemsList(context = context, name = Res.locale("primary_abilily") + ": ", list = items)
     }
@@ -248,7 +292,8 @@ fun ShowPrimaryAbility(context: Context, car: DNDChar)
 @Composable
 fun ShowFeats(context: Context, car: DNDChar)
 {
-    Row(modifier = Modifier.fillMaxWidth())
+    Row(modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically)
     {
         var items = ArrayList<DEntry>()
         car.feats.forEach {  item ->
@@ -260,7 +305,8 @@ fun ShowFeats(context: Context, car: DNDChar)
 @Composable
 fun ShowLanguages(context: Context, car: DNDChar)
 {
-    Row(modifier = Modifier.fillMaxWidth())
+    Row(modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically)
     {
         var items = ArrayList<DEntry>()
         car.languages.forEach { item ->
@@ -272,7 +318,8 @@ fun ShowLanguages(context: Context, car: DNDChar)
 @Composable
 fun ShowRacials(context: Context, car: DNDChar)
 {
-    Row(modifier = Modifier.fillMaxWidth())
+    Row(modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically)
     {
         var items = ArrayList<DEntry>()
         car.racialTraits.forEach {  item ->
@@ -292,8 +339,8 @@ fun ShowClickeable(context: Context, entry: DEntry)
         )
         {
             Text(text = entry.value,
-                fontSize = dimensionResource(R.dimen.fontClickeable).value.sp,
-                color = colorResource(R.color.clickeableFace))
+                fontSize = fontSizeResourse(R.dimen.fontNormal),
+                color = colorResource(R.color.textNormalFace))
         }
     }
     else
@@ -307,9 +354,9 @@ fun ShowClickeable(context: Context, entry: DEntry)
             var posY by rememberSaveable { mutableStateOf(0f) }
 
             Text(text = entry.value,
-                fontSize = dimensionResource(R.dimen.fontClickeable).value.sp,
+                fontSize = fontSizeResourse(R.dimen.fontNormal),
                 textDecoration = TextDecoration.Underline,
-                color = colorResource(R.color.clickeableFace),
+                color = colorResource(R.color.textNormalFace),
                 modifier = Modifier
                     .onGloballyPositioned { coordinates ->
                         posX = coordinates.positionInWindow().x
@@ -327,7 +374,7 @@ fun ShowClickeable(context: Context, entry: DEntry)
     }
 }
 @Composable
-fun ShowItemsList(context: Context, name: String, list: ArrayList<DEntry>)
+fun ShowItemsList(context: Context, name: String = "", list: ArrayList<DEntry>)
 {
     if(list.isEmpty())
     {
@@ -337,10 +384,13 @@ fun ShowItemsList(context: Context, name: String, list: ArrayList<DEntry>)
         verticalAlignment = Alignment.CenterVertically)
     {
         // Etiqueta de la lista
-        Text(text = name,
-            fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
-            fontWeight = FontWeight.Bold
-        )
+        if(name.isNotEmpty())
+        {
+            Text(text = name,
+                fontSize = fontSizeResourse(R.dimen.fontNormal),
+                fontWeight = FontWeight.Bold
+            )
+        }
         // Lista
         Row(modifier = Modifier
             .fillMaxWidth()
@@ -349,7 +399,7 @@ fun ShowItemsList(context: Context, name: String, list: ArrayList<DEntry>)
         {
             list.forEach { entry ->
                 ShowClickeable(context = context, entry = entry)
-                Spacer(modifier = Modifier.width(dimensionResource(R.dimen.contentSpaceX)))
+                Spacer(modifier = Modifier.width(dimensionResource(R.dimen.controlMarginH)))
             }
         }
     }
@@ -391,18 +441,19 @@ fun ShowBasics(context: Context, car: DNDChar)
             Text(modifier = Modifier.fillMaxWidth(),
                 text = Res.locale(car.klass) + " " + Res.locale(car.race),
                 textAlign = TextAlign.Center,
-                fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
+                fontSize = fontSizeResourse(R.dimen.fontNormal),
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
         }
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.controlMarginV)))
         arrNames.forEachIndexed { index, item ->
             Row(modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically)
             {
                 Text(text = item,
-                    fontSize = dimensionResource(R.dimen.fontBasics).value.sp,
+                    fontSize = fontSizeResourse(R.dimen.fontNormal),
                     fontWeight = FontWeight.Bold
                 )
                 Row(modifier = Modifier
@@ -413,76 +464,99 @@ fun ShowBasics(context: Context, car: DNDChar)
                     ShowClickeable(context = context, entry = arrData[index])
                 }
             }
+            if(index < arrNames.size - 1)
+            {
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.controlMarginV)))
+            }
         }
     }
 }
 @Composable
-fun ShowProfile(context: Context, size: Dp, car: DNDChar,
-                level: Int,
-                inspiration: Int,
-                xp: Int,
-                onChangeLevel: (Int)->Unit = { _ -> },
-                onChangeInspiration: (Int)->Unit = { _ -> },
-                onChangeXp: (Int)->Unit = { _ -> })
+fun ShowBar(context: Context, modifier: Modifier,
+            color: Color,
+            text: String? = null,
+            max: Int,
+            value: Int)
+{
+    var prop by rememberSaveable { mutableStateOf(value.toFloat()/max.toFloat()) }
+    var boxWidth by rememberSaveable { mutableStateOf(0) }
+
+    Box(modifier = modifier.fillMaxWidth()
+        .onSizeChanged { size -> boxWidth = size.width }
+        .background(colorResource(R.color.contentBg))
+        .padding(dimensionResource(R.dimen.contentStroke))
+        .border(width = dimensionResource(R.dimen.contentStroke), color = colorResource(R.color.contentFace)),
+    )
+    {
+        if(boxWidth > 0)
+        {
+            Box(modifier = Modifier.fillMaxHeight()
+                .width(pxToDp(boxWidth.toFloat() * prop))
+                .align(alignment = Alignment.CenterStart)
+                .background(color)
+            ){}
+            Box(modifier = Modifier.align(Alignment.Center))
+            {
+                Text(text = text ?: (value.toString() + "/" + max.toString()),
+                    fontSize = fontSizeResourse(R.dimen.fontMini),
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold,
+                    color = colorResource(id = R.color.clWhite)
+                )
+            }
+        }
+    }
+}
+@Composable
+fun ShowHP(context: Context, car: DNDChar, hp: Int,
+           onChangeData: (DNDHitPoints)->Unit = { _ -> })
 {
     var gPosX by rememberSaveable { mutableStateOf(0f) }
     var gPosY by rememberSaveable { mutableStateOf(0f) }
-    var showLevel by rememberSaveable { mutableStateOf(level) }
-    var showInspiration by rememberSaveable { mutableStateOf(inspiration) }
-    var showXp by rememberSaveable { mutableStateOf(xp) }
-    val barSize = (dimensionResource(R.dimen.xpW).value.toDouble()*xp.toDouble()/(car.maxXp - car.minXp).toDouble()).toInt()
+    var showHP by rememberSaveable { mutableStateOf(hp) }
 
-    Column(modifier = Modifier.width(size))
-    {
-        Box(modifier = Modifier.size(size))
-        {
-            // Avatar
-            ShowRoundContent(bitmap = getImageRace(context, race = car.race, gender = car.gender),
-                size = dimensionResource(R.dimen.profile), tint = false)
-            // Nivel
-            ShowRoundContent(number = showLevel, size = dimensionResource(R.dimen.dimLevel),
-                modifier = Modifier.align(alignment = Alignment.TopStart),
-                onClick = { x, y ->
-                    dialogInfo(context = context,
-                        title = Res.locale("level"),
-                        desc = Res.locale("level_desc"),
-                        x = x, y = y)
-                })
-            // Inspitación
-            ShowRoundContent(number = showInspiration, size = dimensionResource(R.dimen.dimLevel),
-                modifier = Modifier.align(alignment = Alignment.TopEnd),
-                onClick = { x, y ->
-                    dialogInfo(context = context,
-                        title = Res.locale("inspiration"),
-                        desc = Res.locale("inspiration_desc"),
-                        x = x, y = y)
-                })
-            // Clase
-            ShowRoundContent(bitmap = getImageKlass(context, car.klass), size = dimensionResource(R.dimen.dimKlass),
-                modifier = Modifier.align(alignment = Alignment.BottomEnd),
-                onClick = { x, y ->
-                    dialogInfo(context = context,
-                        title = Res.locale(car.klass),
-                        desc = Res.locale(car.klass, "desc"),
-                        x = x, y = y)
-                })
-            // Género
-            ShowRoundContent(bitmap = getImageGender(context, car.gender), size = dimensionResource(R.dimen.dimGender),
-                modifier = Modifier.align(alignment = Alignment.BottomStart),
-                onClick = { x, y ->
-                    dialogInfo(context = context,
-                        title = Res.locale("gender"),
-                        x = x, y = y)
-                })
-        }
-        SpaceV()
-        // Experiencia
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .height(dimensionResource(R.dimen.xpH))
-            .background(colorResource(R.color.contentBg))
-            .padding(dimensionResource(R.dimen.contentStroke))
-            .border(width = dimensionResource(R.dimen.contentStroke), color = colorResource(R.color.contentFace))
+    val desc =  "• " + Res.locale("hit_points_level_1") + ": " + Res.localeF("hit_points_level_1", car.klass) + "\n" +
+                "• " + Res.locale("hit_points_other") + ": " + Res.localeF("hit_points_other", car.klass)
+
+    ShowBar(context = context,
+        color = colorResource(id = R.color.barHP),
+        max = car.maxHp,
+        value = car.hp.hp,
+        modifier = Modifier
+            .height(dimensionResource(R.dimen.profileBarH))
+            .onGloballyPositioned { coordinates ->
+                gPosX = coordinates.positionInWindow().x
+                gPosY = coordinates.positionInWindow().y
+            }
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = { offset ->
+                        dialogInfo(
+                            context = context,
+                            title = Res.locale("hit_points") + " ("+ showHP.toString() + "/" + car.maxHp.toString() + ")",
+                            desc = desc,
+                            x = gPosX + offset.x,
+                            y = gPosY + offset.y
+                        )
+                    },
+                    onLongPress = { _ -> }
+                )
+            }
+    )
+}
+@Composable
+fun ShowXP(context: Context, car: DNDChar, xp: Int)
+{
+    var gPosX by rememberSaveable { mutableStateOf(0f) }
+    var gPosY by rememberSaveable { mutableStateOf(0f) }
+    var showXP by rememberSaveable { mutableStateOf(xp) }
+
+    ShowBar(context = context,
+        color = colorResource(id = R.color.barXP),
+        max = car.maxXp,
+        value = car.xp,
+        modifier = Modifier
+            .height(dimensionResource(R.dimen.profileBarH))
             .onGloballyPositioned { coordinates ->
                 gPosX = coordinates.positionInWindow().x
                 gPosY = coordinates.positionInWindow().y
@@ -493,7 +567,7 @@ fun ShowProfile(context: Context, size: Dp, car: DNDChar,
                         dialogInfo(
                             context = context,
                             title = Res.locale("xp"),
-                            desc = showXp.toString() + "/" + car.maxXp.toString(),
+                            desc = showXP.toString() + "/" + car.maxXp.toString(),
                             x = gPosX + offset.x,
                             y = gPosY + offset.y
                         )
@@ -501,14 +575,81 @@ fun ShowProfile(context: Context, size: Dp, car: DNDChar,
                     onLongPress = { _ -> }
                 )
             }
+    )
+}
+@Composable
+fun ShowProfile(context: Context, size: Dp,
+                car: DNDChar,
+                level: Int,
+                inspiration: Int,
+                onChangeLevel: (Int)->Unit = { _ -> },
+                onChangeInspiration: (Int)->Unit = { _ -> })
+{
+    var showLevel by rememberSaveable { mutableStateOf(level) }
+    var showInspiration by rememberSaveable { mutableStateOf(inspiration) }
 
-        )
-        {
-            Box(modifier = Modifier
-                .fillMaxHeight()
-                .width(barSize.dp)
-                .background(colorResource(id = R.color.contentFace))){}
-        }
+    Box(modifier = Modifier.size(size))
+    {
+        val iconKlass = size*0.33f
+        val iconSize = size*0.27f
+
+        // Avatar
+        ShowProfileContent(bitmap = getImageRace(context, race = car.race, gender = car.gender),
+            size = size, tint = false,
+            modifier = Modifier.align(alignment = Alignment.Center))
+        // Nivel
+        ShowProfileContent(number = showLevel, size = iconSize,
+            modifier = Modifier.align(alignment = Alignment.TopStart),
+            onClick = { x, y ->
+                dialogInfo(context = context,
+                    title = Res.locale("level"),
+                    desc = Res.locale("level_desc"),
+                    x = x, y = y)
+            },
+            onLongClick = { x, y ->
+                dialogEditNum(context = context,
+                    title = Res.locale("level"),
+                    value = showLevel,
+                    onAccept = { newLevel ->
+                        showLevel = newLevel
+                        onChangeLevel(newLevel)
+                    })
+            })
+        // Inspitación
+        ShowProfileContent(number = showInspiration, size = iconSize,
+            modifier = Modifier.align(alignment = Alignment.TopEnd),
+            onClick = { x, y ->
+                dialogInfo(context = context,
+                    title = Res.locale("inspiration"),
+                    desc = Res.locale("inspiration_desc"),
+                    x = x, y = y)
+            },
+            onLongClick = { x, y ->
+                dialogEditNum(context = context,
+                    title = Res.locale("inspiration"),
+                    value = showInspiration,
+                    onAccept = { newInspiration ->
+                        showInspiration = newInspiration
+                        onChangeLevel(newInspiration)
+                    })
+            })
+        // Clase
+        ShowProfileContent(bitmap = getImageKlass(context, car.klass), size = iconKlass,
+            modifier = Modifier.align(alignment = Alignment.BottomEnd),
+            onClick = { x, y ->
+                dialogInfo(context = context,
+                    title = Res.locale(car.klass),
+                    desc = Res.locale(car.klass, "desc"),
+                    x = x, y = y)
+            })
+        // Género
+        ShowProfileContent(bitmap = getImageGender(context, car.gender), size = iconSize,
+            modifier = Modifier.align(alignment = Alignment.BottomStart),
+            onClick = { x, y ->
+                dialogInfo(context = context,
+                    title = Res.locale("gender"),
+                    x = x, y = y)
+            })
     }
 }
 @Composable
@@ -521,7 +662,7 @@ fun ShowWealth(context: Context, wealth: Long, onChange: (newWealth: Long)->Unit
         horizontalArrangement = Arrangement.End,
         modifier = Modifier
             .fillMaxWidth()
-            .background(colorResource(R.color.clBrown2))
+            .background(colorResource(R.color.wealthBg))
             .border(dimensionResource(R.dimen.contentStroke), colorResource(R.color.contentStroke))
             .padding(dimensionResource(R.dimen.contentPadding))
             .pointerInput(Unit) {
@@ -541,14 +682,14 @@ fun ShowWealth(context: Context, wealth: Long, onChange: (newWealth: Long)->Unit
         coinTypes.forEachIndexed { index, type ->
             Text(
                 text = dndWealth.get(type).toString(),
-                fontSize = dimensionResource(R.dimen.fontWealth).value.sp,
+                fontSize = fontSizeResourse(R.dimen.fontWealth),
                 fontWeight = FontWeight.Bold,
                 color = colorResource(id = R.color.clWhite)
             )
             Image(
                 modifier = Modifier
                     .height(dimensionResource(R.dimen.fontWealth).value.dp)
-                    .padding(dimensionResource(R.dimen.dimCoinPadding), 0.dp),
+                    .padding(dimensionResource(R.dimen.coinPadding), 0.dp),
                 painter = painterResource(id = coinIcons[index]),
                 contentDescription = null
             )
@@ -573,7 +714,7 @@ fun ShowName(context: Context, car: DNDChar)
         // Nombre
         Text(text = car.name,
             modifier = Modifier.fillMaxWidth(),
-            fontSize = dimensionResource(R.dimen.fontLarge).value.sp,
+            fontSize = fontSizeResourse(R.dimen.fontName),
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             color = colorResource(R.color.contentFace)
@@ -581,28 +722,23 @@ fun ShowName(context: Context, car: DNDChar)
     }
 }
 @Composable
-fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
-                     bitmap: ImageBitmap? = null,
-                     number: Int? = null,
-                     tint : Boolean = true,
-                     onClick: (x: Float, y: Float)->Unit = { _, _ -> },
-                     onLongClick: (x: Float, y: Float)->Unit = { _, _ -> })
+fun ShowProfileContent(modifier: Modifier = Modifier, size : Dp,
+                       bitmap: ImageBitmap? = null,
+                       number: Int? = null,
+                       tint : Boolean = true,
+                       onClick: (x: Float, y: Float)->Unit = { _, _ -> },
+                       onLongClick: (x: Float, y: Float)->Unit = { _, _ -> })
 {
     var gPosX by rememberSaveable { mutableStateOf(0f) }
     var gPosY by rememberSaveable { mutableStateOf(0f) }
 
-    Box(
-        contentAlignment = Alignment.Center,
+    Box(contentAlignment = Alignment.Center,
         modifier = modifier
             .size(size)
             .clip(CircleShape)
             .background(colorResource(R.color.contentBg))
             .padding(dimensionResource(R.dimen.contentStroke))
-            .border(
-                shape = CircleShape,
-                width = dimensionResource(R.dimen.contentStroke),
-                color = colorResource(R.color.contentFace)
-            )
+            .border(shape = CircleShape, width = dimensionResource(R.dimen.contentStroke), color = colorResource(R.color.contentFace))
             .padding(dimensionResource(R.dimen.contentStroke))
             .onGloballyPositioned { coordinates ->
                 gPosX = coordinates.positionInWindow().x
@@ -621,7 +757,7 @@ fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
             Text(
                 text = number.toString(),
                 textAlign = TextAlign.Center,
-                fontSize = dimensionResource(R.dimen.dimLevelFont).value.sp,
+                fontSize = fontSizeResourse(R.dimen.fontProfile),
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
@@ -630,14 +766,13 @@ fun ShowRoundContent(modifier: Modifier = Modifier, size : Dp,
         }
         else if(bitmap != null)
         {
-            Image(contentDescription = null,
+            Image(modifier = Modifier
+                .fillMaxSize()
+                .clip(CircleShape),
+                contentDescription = null,
                 bitmap = bitmap,
                 contentScale = ContentScale.Fit,
-                colorFilter = if(tint){ ColorFilter.tint(colorResource(R.color.contentFace), BlendMode.SrcAtop) } else { null },
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clip(CircleShape)
-
+                colorFilter = if(tint){ ColorFilter.tint(colorResource(R.color.contentFace), BlendMode.SrcAtop) } else { null }
             )
         }
     }

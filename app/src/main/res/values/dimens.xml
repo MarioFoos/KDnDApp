@@ -2,70 +2,63 @@
 <resources>
     <!-- Gral fonts -->
     <dimen name="fontLarge">20sp</dimen>
-    <dimen name="fontNormal">18sp</dimen>
-    <dimen name="fontSmall">16sp</dimen>
+    <dimen name="fontMedium">18sp</dimen>
+    <dimen name="fontNormal">16sp</dimen>
+    <dimen name="fontSmall">14sp</dimen>
+    <dimen name="fontMini">12sp</dimen>
 
-    <dimen name="fontBut">@dimen/fontNormal</dimen>
-    <dimen name="fontText">@dimen/fontSmall</dimen>
-
-    <dimen name="fontWealth">@dimen/fontLarge</dimen>
-    <dimen name="fontBasics">@dimen/fontSmall</dimen>
-    <dimen name="fontClickeable">@dimen/fontSmall</dimen>
+    <!-- Gral control fonts -->
+    <dimen name="fontBut">@dimen/fontMedium</dimen>
+    <dimen name="fontEdit">@dimen/fontMedium</dimen>
+    <dimen name="fontName">@dimen/fontLarge</dimen>
+    <dimen name="fontProfile">@dimen/fontLarge</dimen>
+    <dimen name="fontWealth">@dimen/fontMedium</dimen>
 
     <!-- SPACER -->
-    <dimen name="dimSpaceH">8dp</dimen>
-    <dimen name="dimSpaceV">4dp</dimen>
-
-    <dimen name="marginControls">2dp</dimen>
+    <dimen name="mainPadding">16dp</dimen>
+    <dimen name="controlMarginH">6dp</dimen>
+    <dimen name="controlMarginV">1dp</dimen>
+    <dimen name="contentStroke">2dp</dimen>
+    <dimen name="contentPadding">4dp</dimen>
 
     <!-- BOTONES -->
     <dimen name="butPaddingH">8dp</dimen>
     <dimen name="butPaddingV">0dp</dimen>
+    <dimen name="butIconPadding">4dp</dimen>
     <dimen name="butStroke">2dp</dimen>
     <dimen name="butCorner">6dp</dimen>
     <dimen name="butWealthW">48dp</dimen>
     <dimen name="butWealthH">36dp</dimen>
 
-    <!-- TEXTFIELD/EDIT -->
+    <!-- TEXTFIELD -->
     <dimen name="editBoxPaddingH">12dp</dimen>
     <dimen name="editBoxPaddingV">8dp</dimen>
-    <dimen name="editPaddingH">4dp</dimen>
-    <dimen name="editPaddingV">2dp</dimen>
     <dimen name="editFocusStroke">4dp</dimen>
+    <dimen name="editCursor">2dp</dimen>
     <dimen name="editNormalStroke">2dp</dimen>
-
-    <!-- CONTENIDO -->
-    <dimen name="contentStroke">2dp</dimen>
-    <dimen name="contentPadding">4dp</dimen>
-    <dimen name="contentSpaceX">4dp</dimen>
-    <dimen name="contentSpaceY">2dp</dimen>
-
-    <!-- PÁGINA DE PERSONAJE -->
-    <dimen name="dimMainPadding">16dp</dimen>
-
-    <dimen name="profile">150dp</dimen>
-    <dimen name="xpW">@dimen/profile</dimen>
-    <dimen name="xpH">16dp</dimen>
-
-    <dimen name="dimKlass">50dp</dimen>
-    <dimen name="dimGender">40dp</dimen>
-    <dimen name="dimLevel">40dp</dimen>
-    <dimen name="dimLevelFont">@dimen/fontLarge</dimen>
-
-    <!-- Dialog -->
-    <dimen name="dialogPadding">8dp</dimen>
-    <dimen name="dialogStroke">2dp</dimen>
-
-    <!-- HOJA DE PERSONAJE -->
-    <dimen name="dimRowWealth">32dp</dimen>
-    <dimen name="dimCoinPadding">2dp</dimen>
-    <dimen name="dimRowChar">150dp</dimen>
+    <dimen name="editDialogW">48dp</dimen>
+    <dimen name="editDialogH">36dp</dimen>
 
     <!-- RIQUEZA -->
-    <dimen name="dimCoindPaddin">4dp</dimen>
+    <dimen name="rowWealth">32dp</dimen>
+    <dimen name="coinPadding">2dp</dimen>
 
-    <!-- Controls margin -->
-    <dimen name="control_margin_normal">4dp</dimen>
-    <dimen name="control_margin_large">8dp</dimen>
+    <!-- PROFILE -->
+    <dimen name="profile">150dp</dimen>
+    <dimen name="iconKlass">50dp</dimen>
+    <dimen name="iconGender">40dp</dimen>
+    <dimen name="iconNumber">40dp</dimen>
+    <dimen name="profileBarH">24dp</dimen>
+
+    <!-- Dialog -->
+    <dimen name="dialogFontTitle">@dimen/fontMedium</dimen>
+    <dimen name="dialogFontDesc">@dimen/fontNormal</dimen>
+    <dimen name="dialogPadding">8dp</dimen>
+    <dimen name="dialogStroke">2dp</dimen>
+    <dimen name="dialogMargins">2dp</dimen>
+
+    <!-- DIALOG EDIT-->
+    <dimen name="dialogEditPaddingH">8dp</dimen>
+    <dimen name="dialogEditPaddingV">2dp</dimen>
 
 </resources>

@@ -51,13 +51,17 @@
     <color name="clDialogBg">#f1ebd5</color>
 
     <!-- RACIAL TEXT  -->
-    <color name="clickeableFace">@color/clBlack</color>
+    <color name="textNormalFace">@color/clBlack</color>
     <color name="clickeableBg">#C0FFFFFF</color>
 
     <!-- CONTENIDO  -->
     <color name="contentFace">@color/clYellow5</color>
     <color name="contentBg">@color/clBrown3</color>
     <color name="contentStroke">@color/clYellow5</color>
+    <color name="wealthBg">@color/clBrown2</color>
+
+    <color name="barHP">#FF00BF00</color>
+    <color name="barXP">#FF3399FF</color>
 
     <!-- BOTONES  -->
     <color name="buttonNormalBg">@color/clBrown3</color>
@@ -70,15 +74,19 @@
     <color name="buttonPressedText">@color/clYellow5</color>
     <color name="buttonPressedStroke">@color/clBrown1</color>
 
-    <!-- TEXTFIELDS -->
+    <!-- TEXTFIELDS/EDITS -->
     <color name="editNormalBg">@color/clBrown2</color>
     <color name="editNormalText">@color/clYellow5</color>
-    <color name="editNormalStroke">@color/clYellow4</color>
-    <color name="editDisableBg">@color/editNormalBg</color>
+    <color name="editNormalStroke">@color/clYellow5</color>
+    <color name="editDisableBg">@color/clBrown2</color>
     <color name="editDisableText">@color/clYellow3</color>
     <color name="editDisableStroke">@color/clYellow3</color>
     <color name="editFocusStroke">@color/clYellow5</color>
-    <color name="editCursor">@color/clYellow5</color>
+    <color name="editCursor">@color/clBlue2</color>
+    <color name="editSelectedText">@color/clWhite</color>
+    <color name="editSelectedBg">@color/clBlue4</color>
+
+    <!-- CARACTERÍSTICAS / ABILITIES -->
 
     <!-- CARACTERÍSTICAS / ABILITIES -->
     <color name="clStrength">#FFFF4C4C</color>

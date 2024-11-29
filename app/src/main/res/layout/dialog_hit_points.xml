@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutHitPoints"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog"
+    android:orientation="vertical"
+    android:padding="@dimen/dialogPadding">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/controlMarginV"
+        android:layout_weight="1"
+        android:textAlignment="viewStart"
+        android:textColor="@color/textNormalFace"
+        android:textSize="@dimen/fontLarge"
+        android:textStyle="bold"
+        tools:text="Puntos de golpe" />
+
+    <LinearLayout
+        android:id="@+id/layoutHpCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/butCurrentDec"
+                style="@style/but_brown_style"
+                android:layout_width="@dimen/butWealthW"
+                android:layout_height="@dimen/butWealthH"
+                android:text="@string/minus"
+                android:textStyle="bold"
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/textCurrent"
+                style="@style/edit_style"
+                android:layout_width="@dimen/editDialogW"
+                android:layout_height="@dimen/editDialogH"
+                android:layout_marginHorizontal="@dimen/dialogMargins"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                tools:text="1" />
+
+            <Button
+                android:id="@+id/butCurrentInc"
+                style="@style/but_brown_style"
+                android:layout_width="@dimen/butWealthW"
+                android:layout_height="@dimen/butWealthH"
+                android:text="@string/plus"
+                android:textStyle="bold"
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textDescCurrent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dialogPadding"
+            android:textAlignment="viewStart"
+            android:textColor="@color/textNormalFace"
+            android:textSize="@dimen/fontNormal"
+            android:textStyle="bold"
+            tools:text="Actuales" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutHpMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dialogMargins"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/butMaxDec"
+                style="@style/but_brown_style"
+                android:layout_width="@dimen/butWealthW"
+                android:layout_height="@dimen/butWealthH"
+                android:text="@string/minus"
+                android:textStyle="bold"
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/textMax"
+                style="@style/edit_style"
+                android:layout_width="@dimen/editDialogW"
+                android:layout_height="@dimen/editDialogH"
+                android:layout_marginHorizontal="@dimen/dialogMargins"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                tools:text="1" />
+
+            <Button
+                android:id="@+id/butMaxInc"
+                style="@style/but_brown_style"
+                android:layout_width="@dimen/butWealthW"
+                android:layout_height="@dimen/butWealthH"
+                android:text="@string/plus"
+                android:textStyle="bold"
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textDescMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dialogPadding"
+            android:textAlignment="viewStart"
+            android:textColor="@color/textNormalFace"
+            android:textSize="@dimen/fontNormal"
+            android:textStyle="bold"
+            tools:text="Máximos" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutHpTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/butTempDec"
+                style="@style/but_brown_style"
+                android:layout_width="@dimen/butWealthW"
+                android:layout_height="@dimen/butWealthH"
+                android:text="@string/minus"
+                android:textStyle="bold"
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/textTemp"
+                style="@style/edit_style"
+                android:layout_width="@dimen/editDialogW"
+                android:layout_height="@dimen/editDialogH"
+                android:layout_marginHorizontal="@dimen/dialogMargins"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                tools:text="1" />
+
+            <Button
+                android:id="@+id/butTempInc"
+                style="@style/but_brown_style"
+                android:layout_width="@dimen/butWealthW"
+                android:layout_height="@dimen/butWealthH"
+                android:text="@string/plus"
+                android:textStyle="bold"
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textDescTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dialogPadding"
+            android:textAlignment="viewStart"
+            android:textColor="@color/textNormalFace"
+            android:textSize="@dimen/fontNormal"
+            android:textStyle="bold"
+            tools:text="Temporales" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dialogPadding"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/butOk"
+            style="@style/but_brown_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dialogMargins"
+            android:text="@string/ok"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/butCancel"
+            style="@style/but_brown_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dialogMargins"
+            android:text="@string/cancel"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

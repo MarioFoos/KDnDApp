@@ -12,6 +12,55 @@ import com.dndlib.DNDWealth
 import com.dndlib.base.ECoin
 import com.dndlib.res.Res
 
+fun dialogEditNum(context: Context, title: String, value: Int, onAccept: (newValue: Int)->Unit = { _ -> })
+{
+    var curLevel = value
+    val dialog = Dialog(context)
+
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.dialog_small_number)
+
+    val butOk = dialog.findViewById(R.id.butOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butCancel)  as Button
+    val textTitle = dialog.findViewById(R.id.textTitle) as TextView
+    val textNumber = dialog.findViewById(R.id.textCurrent) as TextView
+    val butInc = dialog.findViewById(R.id.butCurrentInc)  as Button
+    val butDec = dialog.findViewById(R.id.butCurrentDec)  as Button
+
+    butOk.text = Res.locale("but_ok")
+    butCancel.text = Res.locale("but_cancel")
+    textTitle.text = title
+    textNumber.text = curLevel.toString()
+
+    fun showData()
+    {
+        textNumber.text = curLevel.toString()
+    }
+    butInc.setOnClickListener {
+        if(curLevel < 20)
+        {
+            ++curLevel
+        }
+        showData()
+    }
+    butDec.setOnClickListener {
+        if(curLevel > 1)
+        {
+            --curLevel
+        }
+        showData()
+    }
+    butOk.setOnClickListener {
+        dialog.cancel()
+        onAccept(curLevel)
+    }
+    butCancel.setOnClickListener {
+        dialog.dismiss()
+    }
+    showData()
+    dialog.show()
+}
 fun dialogWealth(context: Context, wealth: Long, onAccept: (newWealth: Long)->Unit = { _ -> })
 {
     var curWealth = DNDWealth(wealth)
@@ -19,7 +68,7 @@ fun dialogWealth(context: Context, wealth: Long, onAccept: (newWealth: Long)->Un
     val dialog = Dialog(context)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setCancelable(true)
-    dialog.setContentView(R.layout.wealth_layout)
+    dialog.setContentView(R.layout.dialog_wealth_layout)
 
     val butOk = dialog.findViewById(R.id.butOk)  as Button
     val butCancel = dialog.findViewById(R.id.butCancel)  as Button
@@ -60,43 +109,43 @@ fun dialogWealth(context: Context, wealth: Long, onAccept: (newWealth: Long)->Un
     }
 
     butPlatinumInc.setOnClickListener {
-        curWealth.add(ECoin.PLATINUM, 1);
+        curWealth.add(ECoin.PLATINUM, 1)
         showData()
     }
     butPlatinumDec.setOnClickListener {
-        curWealth.substract(ECoin.PLATINUM, 1);
+        curWealth.substract(ECoin.PLATINUM, 1)
         showData()
     }
     butGoldInc.setOnClickListener {
-        curWealth.add(ECoin.GOLD, 1);
+        curWealth.add(ECoin.GOLD, 1)
         showData()
     }
     butGoldDec.setOnClickListener {
-        curWealth.substract(ECoin.GOLD, 1);
+        curWealth.substract(ECoin.GOLD, 1)
         showData()
     }
     butElectrumInc.setOnClickListener {
-        curWealth.add(ECoin.ELECTRUM, 1);
+        curWealth.add(ECoin.ELECTRUM, 1)
         showData()
     }
     butElectrumDec.setOnClickListener {
-        curWealth.substract(ECoin.ELECTRUM, 1);
+        curWealth.substract(ECoin.ELECTRUM, 1)
         showData()
     }
     butSilverInc.setOnClickListener {
-        curWealth.add(ECoin.SILVER, 1);
+        curWealth.add(ECoin.SILVER, 1)
         showData()
     }
     butSilverDec.setOnClickListener {
-        curWealth.substract(ECoin.SILVER, 1);
+        curWealth.substract(ECoin.SILVER, 1)
         showData()
     }
     butCupperInc.setOnClickListener {
-        curWealth.add(ECoin.CUPPER, 1);
+        curWealth.add(ECoin.CUPPER, 1)
         showData()
     }
     butCupperDec.setOnClickListener {
-        curWealth.substract(ECoin.CUPPER, 1);
+        curWealth.substract(ECoin.CUPPER, 1)
         showData()
     }
     butOk.setOnClickListener {

@@ -26,45 +26,41 @@
                 android:id="@+id/imgPlatinum"
                 android:layout_width="@dimen/butWealthH"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:src="@drawable/coin_platinum" />
+                android:layout_margin="@dimen/dialogMargins"
+                android:src="@drawable/coin_platinum"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <Button
                 android:id="@+id/butPlatinumInc"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
                 android:text="@string/plus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
                 android:textStyle="bold"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/textPlatinum"
+                style="@style/edit_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_edit"
+                android:layout_margin="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
                 android:textStyle="bold"
                 tools:text="1" />
 
             <Button
                 android:id="@+id/butPlatinumDec"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:layout_marginTop="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
+                android:layout_marginTop="@dimen/dialogMargins"
                 android:text="@string/minus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
+                android:textColor="@color/text_button"
                 android:textStyle="bold"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,43 +74,42 @@
                 android:id="@+id/imgGold"
                 android:layout_width="@dimen/butWealthH"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:src="@drawable/coin_gold" />
+                android:layout_margin="@dimen/dialogMargins"
+                android:src="@drawable/coin_gold"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <Button
                 android:id="@+id/butGoldInc"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
+                android:layout_margin="@dimen/dialogMargins"
                 android:background="@drawable/shape_button"
                 android:text="@string/plus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
+                android:textColor="@color/text_button"
+                android:textSize="@dimen/fontBut"
                 android:textStyle="bold"
                 tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/textGold"
+                style="@style/edit_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_edit"
+                android:layout_margin="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
                 android:textStyle="bold"
                 tools:text="1" />
 
             <Button
                 android:id="@+id/butGoldDec"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
                 android:text="@string/minus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,42 +123,42 @@
                 android:id="@+id/imgElectrum"
                 android:layout_width="@dimen/butWealthH"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:src="@drawable/coin_electrum" />
+                android:layout_margin="@dimen/dialogMargins"
+                android:src="@drawable/coin_electrum"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <Button
                 android:id="@+id/butElectrumInc"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
                 android:text="@string/plus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
-                android:textStyle="bold" />
+                android:textColor="@color/text_button"
+                android:textSize="@dimen/fontBut"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/textElectrum"
+                style="@style/edit_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_edit"
+                android:layout_margin="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
                 android:textStyle="bold"
                 tools:text="1" />
 
             <Button
                 android:id="@+id/butElectrumDec"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
                 android:text="@string/minus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
-                android:textStyle="bold" />
+                android:textSize="@dimen/fontBut"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -177,42 +172,39 @@
                 android:id="@+id/imgSilver"
                 android:layout_width="@dimen/butWealthH"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:src="@drawable/coin_silver" />
+                android:layout_margin="@dimen/dialogMargins"
+                android:src="@drawable/coin_silver"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <Button
                 android:id="@+id/butSilverInc"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
                 android:text="@string/plus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/textSilver"
+                style="@style/edit_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_edit"
+                android:layout_margin="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
                 android:textStyle="bold"
                 tools:text="1" />
 
             <Button
                 android:id="@+id/butSilverDec"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
                 android:text="@string/minus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -226,42 +218,37 @@
                 android:id="@+id/imgCupper"
                 android:layout_width="@dimen/butWealthH"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:src="@drawable/coin_cupper" />
+                android:layout_margin="@dimen/dialogMargins"
+                android:src="@drawable/coin_cupper"
+                tools:ignore="ContentDescription" />
 
             <Button
                 android:id="@+id/butCupperInc"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
                 android:text="@string/plus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
                 android:textStyle="bold"
                 tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/textCupper"
+                style="@style/edit_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_edit"
+                android:layout_margin="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
                 android:textStyle="bold"
                 tools:text="1" />
 
             <Button
                 android:id="@+id/butCupperDec"
+                style="@style/but_brown_style"
                 android:layout_width="@dimen/butWealthW"
                 android:layout_height="@dimen/butWealthH"
-                android:layout_margin="@dimen/marginControls"
-                android:background="@drawable/shape_button"
+                android:layout_margin="@dimen/dialogMargins"
                 android:text="@string/minus"
-                android:textColor="@color/text_button_brown"
-                android:textSize="@dimen/fontNormal"
                 android:textStyle="bold"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
@@ -275,21 +262,21 @@
 
         <Button
             android:id="@+id/butOk"
+            style="@style/but_brown_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/marginControls"
-            android:background="@drawable/shape_button"
+            android:layout_margin="@dimen/dialogMargins"
             android:text="@string/ok"
-            android:textColor="@color/text_button_brown" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/butCancel"
+            style="@style/but_brown_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/marginControls"
-            android:background="@drawable/shape_button"
+            android:layout_margin="@dimen/dialogMargins"
             android:text="@string/cancel"
-            android:textColor="@color/text_button_brown" />
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

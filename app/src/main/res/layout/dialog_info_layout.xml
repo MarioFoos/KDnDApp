@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog"
     android:orientation="vertical"
     android:padding="@dimen/dialogPadding">
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="viewStart"
         android:textColor="@color/clBlack"
-        android:textSize="@dimen/fontLarge"
+        android:textSize="@dimen/dialogFontTitle"
         android:textStyle="bold"
         tools:text="Titulo de prueba" />
 
@@ -22,11 +22,10 @@
         android:id="@+id/textInfoDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimSpaceV"
         android:overScrollMode="ifContentScrolls"
         android:textAlignment="viewStart"
         android:textColor="@color/clBlack"
-        android:textSize="@dimen/fontNormal"
+        android:textSize="@dimen/dialogFontDesc"
         tools:text="Texto de prueba de la descripción" />
 
 </LinearLayout>

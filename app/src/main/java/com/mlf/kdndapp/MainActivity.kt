@@ -52,7 +52,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dndlib.DNDHeight
 import com.dndlib.DNDWeight
@@ -69,7 +68,6 @@ import com.mlf.kdndapp.ui.theme.KDnDAppTheme
 import kotlin.system.exitProcess
 
 val APP_TAG = "AppTag"
-val controlShape = RoundedCornerShape(6.dp)
 
 class MainActivity : ComponentActivity()
 {
@@ -120,19 +118,17 @@ class MainActivity : ComponentActivity()
                 var ability2 by rememberSaveable { mutableStateOf(arrAbility[ability2Init].key) }
 
                 Box(
-                    modifier = Modifier
-                        .fillMaxSize()
+                    modifier = Modifier.fillMaxSize()
                         .paint(
                             painterResource(id = R.drawable.bg_hoja_dnd),
                             contentScale = ContentScale.FillBounds
                         )
                    ){}
                 Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth()
                         .height(IntrinsicSize.Min)
                         .padding(
-                            dimensionResource(R.dimen.dimMainPadding)
+                            dimensionResource(R.dimen.mainPadding)
                         )
                         .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -170,7 +166,7 @@ class MainActivity : ComponentActivity()
                         SpaceV()
                         Text(text = Res.locale(ethnic, "desc"),
                             modifier = Modifier.fillMaxWidth(),
-                            fontSize = dimensionResource(R.dimen.fontText).value.sp,
+                            fontSize = fontSizeResourse(R.dimen.fontNormal),
                         )
                         SpaceV()
                     }
@@ -251,7 +247,6 @@ class MainActivity : ComponentActivity()
         finish()
     }
 }
-
 fun configLibrary(assets : AssetManager): Boolean
 {
     if(!Res.configResStrings(assets.open(Res.STRINGS_FILE)))
@@ -266,19 +261,18 @@ fun configLibrary(assets : AssetManager): Boolean
     }
     return true
 }
+@Composable
+fun SpaceV() = Spacer(modifier = Modifier.height(dimensionResource(R.dimen.controlMarginV)))
 
 @Composable
-fun SpaceV() = Spacer(modifier = Modifier.height(dimensionResource(R.dimen.dimSpaceV)))
-
-@Composable
-fun SpaceH() = Spacer(modifier = Modifier.width(dimensionResource(R.dimen.dimSpaceH)))
+fun SpaceH() = Spacer(modifier = Modifier.width(dimensionResource(R.dimen.controlMarginH)))
 
 @Composable
 fun ShowFeat(feat : EFeat)
 {
     Text(text = Res.locale(feat),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp
+        fontSize = fontSizeResourse(R.dimen.fontNormal)
     )
 }
 @Composable
@@ -301,51 +295,52 @@ fun ShowAbilitiesForClass(klass : EClass)
     {
         armor += ". " + complement
     }
-    Text(text = Res.locale(klass, "desc"),
+    Text(
+        text = Res.locale(klass, "desc"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = Res.locale("hit_point"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
         fontWeight = FontWeight.Bold,
     )
     Text(text = "• " + Res.locale("hit_dice") + ": " + Res.localeF("hit_dice", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = "• " + Res.locale("hit_points_level_1") + ": " + Res.localeF("hit_points_level_1", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = "• " + Res.locale("hit_points_other") + ": " + Res.localeF("hit_points_other", klass),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = Res.locale("class_features"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
         fontWeight = FontWeight.Bold,
     )
     Text(text = armor,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = "• " + Res.locale("weapons") + ": " + Res.asSentence(weapons).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = "• " + Res.locale("tools") + ": " + tools.lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = "• " + Res.locale("saving_throw") + ": " + Res.asSentence(Res.locale(klass.savingThrow)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = "• " + Res.locale("skills") + ": " + skills,
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
 }
 @Composable
@@ -361,31 +356,30 @@ fun ShowAbilitiesForRace(race : ERace)
         val columns = Res.columns(arrCols)
         Text(text = Res.locale("ability_bonus"),
             modifier = Modifier.fillMaxWidth(),
-            fontSize = dimensionResource(R.dimen.fontText).value.sp,
+            fontSize = fontSizeResourse(R.dimen.fontNormal),
             fontWeight = FontWeight.Bold,
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
             columns.forEach {
                 Text(text = it,
-                    modifier = Modifier
-                        .weight(1f, true),
-                    fontSize = dimensionResource(R.dimen.fontText).value.sp,
+                    modifier = Modifier.weight(1f, true),
+                    fontSize = fontSizeResourse(R.dimen.fontNormal),
                 )
             }
         }
     }
     Text(text = Res.locale("racial_abilities"),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
         fontWeight = FontWeight.Bold,
     )
     Text(text = Res.locale("speed") + ": " + race.speed.toString(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     Text(text = Res.locale("languages") + ": " + Res.asSentence(Res.locale(race.languages)).lowercase(),
         modifier = Modifier.fillMaxWidth(),
-        fontSize = dimensionResource(R.dimen.fontText).value.sp,
+        fontSize = fontSizeResourse(R.dimen.fontNormal),
     )
     val racialAbilities = ERace.getRacialTraits(race)
     if(racialAbilities.isNotEmpty())
@@ -393,7 +387,7 @@ fun ShowAbilitiesForRace(race : ERace)
         Res.locale(racialAbilities).forEach {
             Text(text = "• " +  it.value,
                 modifier = Modifier.fillMaxWidth(),
-                fontSize = dimensionResource(R.dimen.fontText).value.sp,
+                fontSize = fontSizeResourse(R.dimen.fontNormal),
             )
         }
     }
@@ -422,22 +416,20 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
             .focusable(),
         enabled = enabled,
         textStyle = TextStyle(
-            fontSize = dimensionResource(R.dimen.fontText).value.sp,
+            fontSize = fontSizeResourse(R.dimen.fontEdit),
             fontWeight = FontWeight.Bold,
             color = colorResource(clText)
-        ),
-        cursorBrush = SolidColor(colorResource(R.color.editCursor)),
-        singleLine = true,
-        decorationBox = { innerTextField ->
-            Row(
-                Modifier
-                    .fillMaxWidth()
-                    .background(colorResource(R.color.editNormalBg), controlShape)
-                    .border(dimensionResource(dimStroke), colorResource(clStroke), controlShape)
+            ),
+            cursorBrush = SolidColor(colorResource(R.color.editCursor)),
+            singleLine = true,
+            decorationBox = { innerTextField ->
+                Row(Modifier.fillMaxWidth()
+                    .background(colorResource(R.color.editNormalBg), RoundedCornerShape(dimensionResource(R.dimen.butCorner)))
+                    .border(dimensionResource(dimStroke), colorResource(clStroke), RoundedCornerShape(dimensionResource(R.dimen.butCorner)))
                     .padding(dimensionResource(R.dimen.editBoxPaddingH), dimensionResource(R.dimen.editBoxPaddingV))
-            ) {
-                innerTextField()
-            }
+                ) {
+                    innerTextField()
+                }
         }
     )
 }
@@ -460,9 +452,9 @@ fun <T> ShowDropDown(
             items.forEachIndexed { index, username ->
                 DropdownMenuItem(modifier = Modifier,
                     text = {
-                        Text(text = username.value,
-                        modifier = Modifier.fillMaxWidth(),
-                        fontSize = dimensionResource(R.dimen.fontBut).value.sp) },
+                        Text(modifier = Modifier.fillMaxWidth(),
+                            text = username.value,
+                            fontSize = fontSizeResourse(R.dimen.fontBut)) },
                     onClick = {
                         menuExpanded.value = false
                         itemPosition.value = index
@@ -480,10 +472,7 @@ fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = t
     val hasText = text.isNotEmpty()
     val hasIcon = (icon > 0)
 
-    Button(
-        modifier = Modifier
-            .fillMaxWidth()
-            .focusable(enabled),
+    Button(modifier = Modifier.fillMaxWidth(),
         contentPadding = PaddingValues(dimensionResource(id = R.dimen.butPaddingH), dimensionResource(id = R.dimen.butPaddingV)),
         onClick = onItemClick,
         enabled = enabled,
@@ -493,15 +482,14 @@ fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = t
             colorResource(R.color.buttonDisableBg),
             colorResource(R.color.buttonDisableText)),
         border = BorderStroke(dimensionResource(R.dimen.butStroke), clStroke),
-        shape = controlShape
+        shape = RoundedCornerShape(dimensionResource(R.dimen.butCorner))
     ) {
         if(hasText)
         {
-            Text(
+            Text(modifier = Modifier.weight(1f),
                 text = text,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.weight(1f),
-                fontSize = dimensionResource(R.dimen.fontBut).value.sp,
+                fontSize = fontSizeResourse(R.dimen.fontBut),
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -509,7 +497,7 @@ fun ShowButton(text: String = "", onItemClick: () -> Unit, enabled : Boolean = t
         }
         if(hasText && hasIcon)
         {
-            SpaceH()
+            Spacer(modifier = Modifier.width(dimensionResource(R.dimen.butIconPadding)))
         }
         if(hasIcon)
         {

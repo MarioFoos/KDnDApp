@@ -2,15 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="false">
         <shape android:shape="rectangle">
-            <padding android:left="@dimen/editPaddingH" android:right="@dimen/editPaddingH" android:top="@dimen/editPaddingV" android:bottom="@dimen/editPaddingV"/>
-            <solid android:color="@color/editDisableBg"/>
-            <stroke android:color="@color/editDisableStroke" android:width="@dimen/editNormalStroke" />
-            <corners android:radius="@dimen/butCorner" />
-        </shape>
-    </item>
-    <item android:state_pressed="true">
-        <shape android:shape="rectangle">
-            <padding android:left="@dimen/editPaddingH" android:right="@dimen/editPaddingH" android:top="@dimen/editPaddingV" android:bottom="@dimen/editPaddingV"/>
             <solid android:color="@color/editDisableBg"/>
             <stroke android:color="@color/editDisableStroke" android:width="@dimen/editNormalStroke" />
             <corners android:radius="@dimen/butCorner" />
@@ -18,7 +9,6 @@
     </item>
     <item>
         <shape android:shape="rectangle">
-            <padding android:left="@dimen/editPaddingH" android:right="@dimen/editPaddingH" android:top="@dimen/editPaddingV" android:bottom="@dimen/editPaddingV"/>
             <solid android:color="@color/editNormalBg"/>
             <stroke android:color="@color/editNormalStroke" android:width="@dimen/editNormalStroke" />
             <corners android:radius="@dimen/butCorner" />
