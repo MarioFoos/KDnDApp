@@ -10,8 +10,29 @@ import android.widget.Button
 import android.widget.TextView
 import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
+import com.dndlib.DNDXpLevel
 import com.dndlib.base.ECoin
 import com.dndlib.res.Res
+
+fun dialogXp(context: Context, xp: DNDXpLevel, onAccept: (newXp: DNDXpLevel)->Unit = { _ -> })
+{
+    var curHp: DNDXpLevel = xp
+    val dialog = Dialog(context)
+
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.dialog_hit_points)
+
+    // Fijo
+    val textTitle = dialog.findViewById(R.id.textTitle) as TextView
+    val butOk = dialog.findViewById(R.id.butOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butCancel)  as Button
+
+    textTitle.text = Res.locale("add_xp")
+    butOk.text = Res.locale("but_ok")
+    butCancel.text = Res.locale("but_cancel")
+
+}
 
 fun dialogHp(context: Context, hp: DNDHitPoints, onAccept: (newHp: DNDHitPoints)->Unit = { _ -> })
 {
@@ -22,7 +43,7 @@ fun dialogHp(context: Context, hp: DNDHitPoints, onAccept: (newHp: DNDHitPoints)
     dialog.setCancelable(true)
     dialog.setContentView(R.layout.dialog_hit_points)
 
-    // GUI
+    // Fijo
     val textTitle = dialog.findViewById(R.id.textTitle) as TextView
     val textDescCurrent = dialog.findViewById(R.id.textDescCurrent) as TextView
     val textDescMax = dialog.findViewById(R.id.textDescMax) as TextView
@@ -37,8 +58,9 @@ fun dialogHp(context: Context, hp: DNDHitPoints, onAccept: (newHp: DNDHitPoints)
     butOk.text = Res.locale("but_ok")
     butCancel.text = Res.locale("but_cancel")
 
-    val butCurrentDec = dialog.findViewById(R.id.butCurrentDec)  as Button
-    val butCurrentInc = dialog.findViewById(R.id.butCurrentInc)  as Button
+    // Acciones
+    val butCurrentDec = dialog.findViewById(R.id.butCurrentDec1000)  as Button
+    val butCurrentInc = dialog.findViewById(R.id.butCurrentDec100)  as Button
     val butMaxDec = dialog.findViewById(R.id.butMaxDec)  as Button
     val butMaxInc = dialog.findViewById(R.id.butMaxInc)  as Button
     val butTempDec = dialog.findViewById(R.id.butTempDec)  as Button
@@ -101,8 +123,8 @@ fun dialogEditNum(context: Context, title: String, value: Int, onAccept: (newVal
     val butCancel = dialog.findViewById(R.id.butCancel)  as Button
     val textTitle = dialog.findViewById(R.id.textTitle) as TextView
     val textNumber = dialog.findViewById(R.id.textCurrent) as TextView
-    val butInc = dialog.findViewById(R.id.butCurrentInc)  as Button
-    val butDec = dialog.findViewById(R.id.butCurrentDec)  as Button
+    val butInc = dialog.findViewById(R.id.butCurrentDec100)  as Button
+    val butDec = dialog.findViewById(R.id.butCurrentDec1000)  as Button
 
     butOk.text = Res.locale("but_ok")
     butCancel.text = Res.locale("but_cancel")

@@ -57,6 +57,7 @@ import androidx.compose.ui.unit.dp
 import com.dndlib.DNDChar
 import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
+import com.dndlib.DNDXpLevel
 import com.dndlib.base.EAbility
 import com.dndlib.base.EAlignment
 import com.dndlib.base.EBackground
@@ -97,7 +98,8 @@ class CharActivity : ComponentActivity()
         car.setWealth(ComTools.random(80L, 600L))
         car.alignment = Res.randomItem(EAlignment.values())
 
-        car.maxHp = 30
+        car.hp.max = 30
+        car.hp.temp = 5
         car.hp.hp = ComTools.random(5, 25)
         car.xp = ComTools.random(30, 270)
 
@@ -113,11 +115,6 @@ class CharActivity : ComponentActivity()
         setContent {
             var carWealth by rememberSaveable { mutableStateOf(car.wealth.total) }
             var carLevel by rememberSaveable { mutableStateOf(car.level) }
-            var carInspiration by rememberSaveable { mutableStateOf(car.inspiration) }
-            var carHp by rememberSaveable { mutableStateOf(car.hp.hp) }
-            var carHpMax by rememberSaveable { mutableStateOf(car.hp.max) }
-            var carHpTemp by rememberSaveable { mutableStateOf(car.hp.temp) }
-            var carXp by rememberSaveable { mutableStateOf(car.xp) }
 
             KDnDAppTheme{
                 Box(modifier = Modifier
@@ -150,14 +147,12 @@ class CharActivity : ComponentActivity()
                             // Perfil
                             ShowProfile(context = this@CharActivity, car = car,
                                 size = dimensionResource(R.dimen.profile),
-                                inspiration = carInspiration,
                                 level = carLevel,
                                 onChangeLevel = { newLevel ->
                                     carLevel = newLevel
                                     car.level = newLevel
                                 },
                                 onChangeInspiration =  { newInspiration ->
-                                    carInspiration = newInspiration
                                     car.inspiration = newInspiration
                                 })
                             SpaceV()
@@ -165,20 +160,16 @@ class CharActivity : ComponentActivity()
                             Row(modifier = Modifier.fillMaxWidth())
                             {
                                 ShowHP(context = this@CharActivity, car = car,
-                                    hp = carHp,
-                                    max = carHpMax,
-                                    temp = carHpTemp,
-                                    onChangeData = { newHp ->
-                                        car.hp.set(newHp)
-                                        carHp = car.hp.hp
-                                        carHpMax = car.hp.max
-                                        carHpTemp = car.hp.temp
-                                    })
+                                    onChangeData = { newHp -> car.hp.set(newHp) })
                             }
                             SpaceV()
                             Row(modifier = Modifier.fillMaxWidth())
                             {
-                                ShowXP(context = this@CharActivity, car = car, xp = carXp)
+                                ShowXP(context = this@CharActivity, car = car,
+                                    onChangeData = { newData ->
+                                        car.xpLevel.setXp(newData)
+                                        carLevel = car.xpLevel.level
+                                    })
                             }
                         }
                         SpaceH()
@@ -480,13 +471,12 @@ fun ShowBasics(context: Context, car: DNDChar)
     }
 }
 @Composable
-fun ShowBar(context: Context, modifier: Modifier,
+fun ShowBar(context: Context, modifier: Modifier = Modifier,
             color: Color,
             text: String? = null,
-            max: Int,
-            value: Int)
+            percent: Float = 0f)
 {
-    var prop by rememberSaveable { mutableStateOf(value.toFloat()/max.toFloat()) }
+    var prop by rememberSaveable { mutableStateOf(percent) }
     var boxWidth by rememberSaveable { mutableStateOf(0) }
 
     Box(modifier = modifier.fillMaxWidth()
@@ -503,35 +493,51 @@ fun ShowBar(context: Context, modifier: Modifier,
                 .align(alignment = Alignment.CenterStart)
                 .background(color)
             ){}
-            Box(modifier = Modifier.align(Alignment.Center))
+            if(text != null)
             {
-                Text(text = text ?: (value.toString() + "/" + max.toString()),
-                    fontSize = fontSizeResourse(R.dimen.fontMini),
-                    textAlign = TextAlign.Center,
-                    fontWeight = FontWeight.Bold,
-                    color = colorResource(id = R.color.clWhite)
-                )
+                Box(modifier = Modifier.align(Alignment.Center))
+                {
+                    Text(text = text,
+                        fontSize = fontSizeResourse(R.dimen.fontMini),
+                        textAlign = TextAlign.Center,
+                        fontWeight = FontWeight.Bold,
+                        color = colorResource(id = R.color.clWhite)
+                    )
+                }
             }
         }
     }
 }
 @Composable
-fun ShowHP(context: Context, car: DNDChar, hp: Int, max: Int, temp: Int,
+fun ShowBar(context: Context, modifier: Modifier = Modifier,
+            color: Color,
+            text: String? = null,
+            max: Int = 100,
+            value: Int = 0)
+{
+    ShowBar(context = context, modifier = modifier,
+        color = color,
+        text = text,
+        percent = if(max != 0){ value.toFloat()/max.toFloat()} else{ 0f })
+
+}
+@Composable
+fun ShowHP(context: Context, car: DNDChar,
            onChangeData: (DNDHitPoints)->Unit = { _ -> })
 {
     var gPosX by rememberSaveable { mutableStateOf(0f) }
     var gPosY by rememberSaveable { mutableStateOf(0f) }
-    var showHp by rememberSaveable { mutableStateOf(hp) }
-    var showMax by rememberSaveable { mutableStateOf(max) }
-    var showTemp by rememberSaveable { mutableStateOf(temp) }
+    var showHp by rememberSaveable { mutableStateOf(car.hp.hp) }
+    var showMax by rememberSaveable { mutableStateOf(car.hp.max) }
+    var showTemp by rememberSaveable { mutableStateOf(car.hp.temp) }
+    var hpShow = DNDHitPoints(showHp, showMax, showTemp)
 
     val desc =  "• " + Res.locale("hit_points_level_1") + ": " + Res.localeF("hit_points_level_1", car.klass) + "\n" +
                 "• " + Res.locale("hit_points_other") + ": " + Res.localeF("hit_points_other", car.klass)
 
     ShowBar(context = context,
         color = colorResource(id = R.color.barHP),
-        max = showMax + showTemp,
-        value = showHp,
+        percent = hpShow.percent,
         text = car.hp.toString(),
         modifier = Modifier
             .height(dimensionResource(R.dimen.profileBarH))
@@ -544,7 +550,7 @@ fun ShowHP(context: Context, car: DNDChar, hp: Int, max: Int, temp: Int,
                     onTap = { offset ->
                         dialogInfo(
                             context = context,
-                            title = Res.locale("hit_points") + " ("+ showHp.toString() + "/" + showMax.toString() + ")",
+                            title = Res.locale("hit_points") + " ("+ hpShow.toString() + ")",
                             desc = desc,
                             x = gPosX + offset.x,
                             y = gPosY + offset.y
@@ -563,16 +569,18 @@ fun ShowHP(context: Context, car: DNDChar, hp: Int, max: Int, temp: Int,
     )
 }
 @Composable
-fun ShowXP(context: Context, car: DNDChar, xp: Int)
+fun ShowXP(context: Context, car: DNDChar,
+           onChangeData: (DNDXpLevel)->Unit = { _ -> })
 {
     var gPosX by rememberSaveable { mutableStateOf(0f) }
     var gPosY by rememberSaveable { mutableStateOf(0f) }
-    var showXP by rememberSaveable { mutableStateOf(xp) }
+    var showXP by rememberSaveable { mutableStateOf(car.xpLevel.xp) }
+    var levelXp = DNDXpLevel(showXP)
 
     ShowBar(context = context,
         color = colorResource(id = R.color.barXP),
-        max = car.maxXp,
-        value = car.xp,
+        text = levelXp.toString(),
+        percent = levelXp.xpPercentInLevel,
         modifier = Modifier
             .height(dimensionResource(R.dimen.profileBarH))
             .onGloballyPositioned { coordinates ->
@@ -585,7 +593,7 @@ fun ShowXP(context: Context, car: DNDChar, xp: Int)
                         dialogInfo(
                             context = context,
                             title = Res.locale("xp"),
-                            desc = showXP.toString() + "/" + car.maxXp.toString(),
+                            desc = levelXp.toString(),
                             x = gPosX + offset.x,
                             y = gPosY + offset.y
                         )
@@ -599,12 +607,11 @@ fun ShowXP(context: Context, car: DNDChar, xp: Int)
 fun ShowProfile(context: Context, size: Dp,
                 car: DNDChar,
                 level: Int,
-                inspiration: Int,
                 onChangeLevel: (Int)->Unit = { _ -> },
                 onChangeInspiration: (Int)->Unit = { _ -> })
 {
-    var showLevel by rememberSaveable { mutableStateOf(level) }
-    var showInspiration by rememberSaveable { mutableStateOf(inspiration) }
+    var showLevel by rememberSaveable { mutableStateOf(car.level) }
+    var showInspiration by rememberSaveable { mutableStateOf(car.inspiration) }
 
     Box(modifier = Modifier.size(size))
     {

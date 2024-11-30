@@ -264,7 +264,7 @@
             android:id="@+id/butOk"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
             android:text="@string/ok"
             android:textStyle="bold" />
@@ -273,7 +273,7 @@
             android:id="@+id/butCancel"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
             android:text="@string/cancel"
             android:textStyle="bold" />

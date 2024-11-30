@@ -29,6 +29,8 @@
     <dimen name="butCorner">6dp</dimen>
     <dimen name="butWealthW">48dp</dimen>
     <dimen name="butWealthH">36dp</dimen>
+    <dimen name="butDialogH">40dp</dimen>
+    <dimen name="butDialogXpW">80dp</dimen>
 
     <!-- TEXTFIELD -->
     <dimen name="editBoxPaddingH">12dp</dimen>

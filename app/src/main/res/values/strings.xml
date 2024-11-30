@@ -7,4 +7,14 @@
     <string name="cancel">Cancelar</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
+
+    <string name="plus1">+1</string>
+    <string name="minus1">-1</string>
+    <string name="plus10">+10</string>
+    <string name="minus10">-10</string>
+    <string name="plus100">+100</string>
+    <string name="minus100">-100</string>
+    <string name="plus1000">+1.000</string>
+    <string name="minus1000">-1.000</string>
+
 </resources>
