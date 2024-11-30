@@ -66,7 +66,7 @@ fun dialogXp(context: Context, x: Float? = null, y: Float? = null,
     butXpDec1000.setOnClickListener { changeXp(-1000) }
 
     butOk.setOnClickListener {
-        dialog.cancel()
+        dialog.dismiss()
         onAccept(curXp)
     }
     butCancel.setOnClickListener {
@@ -143,7 +143,7 @@ fun dialogHp(context: Context, x: Float? = null, y: Float? = null,
         showData()
     }
     butOk.setOnClickListener {
-        dialog.cancel()
+        dialog.dismiss()
         onAccept(curHp)
     }
     butCancel.setOnClickListener {
@@ -157,7 +157,7 @@ fun dialogEditNum(context: Context, x: Float? = null, y: Float? = null,
                   value: Int,
                   onAccept: (newValue: Int)->Unit = { _ -> })
 {
-    var curLevel = value
+    var curValue = value
     val dialog = Dialog(context)
 
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -174,29 +174,29 @@ fun dialogEditNum(context: Context, x: Float? = null, y: Float? = null,
     butOk.text = Res.locale("but_ok")
     butCancel.text = Res.locale("but_cancel")
     textTitle.text = title
-    textNumber.text = curLevel.toString()
+    textNumber.text = curValue.toString()
 
     fun showData()
     {
-        textNumber.text = curLevel.toString()
+        textNumber.text = curValue.toString()
     }
     butInc.setOnClickListener {
-        if(curLevel < 20)
+        if(curValue < 20)
         {
-            ++curLevel
+            ++curValue
         }
         showData()
     }
     butDec.setOnClickListener {
-        if(curLevel > 1)
+        if(curValue > 1)
         {
-            --curLevel
+            --curValue
         }
         showData()
     }
     butOk.setOnClickListener {
-        dialog.cancel()
-        onAccept(curLevel)
+        dialog.dismiss()
+        onAccept(curValue)
     }
     butCancel.setOnClickListener {
         dialog.dismiss()
@@ -294,7 +294,7 @@ fun dialogWealth(context: Context, x: Float? = null, y: Float? = null,
         showData()
     }
     butOk.setOnClickListener {
-        dialog.cancel()
+        dialog.dismiss()
         onAccept(curWealth.total)
     }
     butCancel.setOnClickListener {

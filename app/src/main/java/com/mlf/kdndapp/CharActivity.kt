@@ -3,7 +3,6 @@ package com.mlf.kdndapp
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -28,6 +27,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -114,8 +114,8 @@ class CharActivity : ComponentActivity()
         car.background = Res.randomItem(EBackground.values())
 
         setContent {
-            var carWealth by rememberSaveable { mutableStateOf(car.wealth.total) }
-            var carLevel by rememberSaveable { mutableStateOf(car.level) }
+            var carWealth: MutableState<Long> = rememberSaveable { mutableStateOf(car.wealth.total) }
+            var carXp: MutableState<Int> = rememberSaveable { mutableStateOf(car.xp) }
 
             KDnDAppTheme{
                 Box(modifier = Modifier
@@ -131,12 +131,12 @@ class CharActivity : ComponentActivity()
                     verticalArrangement = Arrangement.Top
                 ) {
                     // Nombre
-                    ShowName(this@CharActivity, car)
+                    ShowName(this@CharActivity, car.name)
                     SpaceV()
                     // Oro
                     ShowWealth(context = this@CharActivity, wealth = carWealth, onChange = { wealth ->
-                        carWealth = wealth
                         car.wealth.total = wealth
+                        carWealth.value = car.wealth.total
                     })
                     SpaceV()
                     Row(verticalAlignment = Alignment.Top,
@@ -148,29 +148,32 @@ class CharActivity : ComponentActivity()
                             // Perfil
                             ShowProfile(context = this@CharActivity, car = car,
                                 size = dimensionResource(R.dimen.profile),
-                                level = carLevel,
-                                onChangeLevel = { newLevel ->
-                                    carLevel = newLevel
-                                    car.level = newLevel
+                                xp = carXp,
+                                // Nivel
+                                onChangeLevel = { newData ->
+                                    car.xpLevel.setXp(newData)
+                                    carXp.value = car.xpLevel.xp
                                 },
+                                // Inspiración
                                 onChangeInspiration =  { newInspiration ->
                                     car.inspiration = newInspiration
                                 })
                             SpaceV()
-                            // HP y XP
+                            // HP
                             Row(modifier = Modifier.fillMaxWidth())
                             {
                                 ShowHP(context = this@CharActivity, car = car,
                                     onChangeData = { newHp -> car.hp.set(newHp) })
                             }
                             SpaceV()
+                            // XP
                             Row(modifier = Modifier.fillMaxWidth())
                             {
                                 ShowXP(context = this@CharActivity, car = car,
+                                    xp = carXp,
                                     onChangeData = { newData ->
-                                        carLevel = newData.level
                                         car.xpLevel.setXp(newData)
-                                        Log.e(APP_TAG, "carLevel: " + carLevel)
+                                        carXp.value = car.xpLevel.xp
                                     })
                             }
                         }
@@ -366,8 +369,10 @@ fun ShowClickeable(context: Context, entry: DEntry)
                     .pointerInput(Unit) {
                         detectTapGestures(
                             onTap = { offset ->
-                                dialogInfo(context = context, x = posX + offset.x, y = posY + offset.y,
-                                    title = entry.title, desc = entry.desc)
+                                dialogInfo(
+                                    context = context, x = posX + offset.x, y = posY + offset.y,
+                                    title = entry.title, desc = entry.desc
+                                )
                             }
                         )
                     }
@@ -481,7 +486,8 @@ fun ShowBar(context: Context, modifier: Modifier = Modifier,
 {
     var boxWidth by rememberSaveable { mutableStateOf(0) }
 
-    Box(modifier = modifier.fillMaxWidth()
+    Box(modifier = modifier
+        .fillMaxWidth()
         .onSizeChanged { size -> boxWidth = size.width }
         .background(colorResource(R.color.contentBg))
         .padding(dimensionResource(R.dimen.contentStroke))
@@ -490,8 +496,9 @@ fun ShowBar(context: Context, modifier: Modifier = Modifier,
     {
         if(boxWidth > 0)
         {
-            Box(modifier = Modifier.fillMaxHeight()
-                .width(pxToDp(boxWidth.toFloat()*fraction))
+            Box(modifier = Modifier
+                .fillMaxHeight()
+                .width(pxToDp(boxWidth.toFloat() * fraction))
                 .align(alignment = Alignment.CenterStart)
                 .background(color)
             ){}
@@ -550,8 +557,9 @@ fun ShowHP(context: Context, car: DNDChar,
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = { offset ->
-                        dialogInfo(context = context,x = gPosX + offset.x, y = gPosY + offset.y,
-                            title = Res.locale("hit_points") + " ("+ hpShow.toString() + ")",
+                        dialogInfo(
+                            context = context, x = gPosX + offset.x, y = gPosY + offset.y,
+                            title = Res.locale("hit_points") + " (" + hpShow.toString() + ")",
                             desc = desc,
                         )
                     },
@@ -571,12 +579,13 @@ fun ShowHP(context: Context, car: DNDChar,
 }
 @Composable
 fun ShowXP(context: Context, car: DNDChar,
+           xp: MutableState<Int>,
            onChangeData: (DNDXpLevel)->Unit = { _ -> })
 {
     var gPosX by rememberSaveable { mutableStateOf(0f) }
     var gPosY by rememberSaveable { mutableStateOf(0f) }
-    var showXP by rememberSaveable { mutableStateOf(car.xpLevel.xp) }
-    var levelXp = DNDXpLevel(showXP)
+
+    var levelXp = DNDXpLevel(xp.value)
 
     ShowBar(context = context,
         color = colorResource(id = R.color.barXP),
@@ -591,15 +600,16 @@ fun ShowXP(context: Context, car: DNDChar,
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = { offset ->
-                        dialogInfo(context = context, x = gPosX + offset.x, y = gPosY + offset.y,
+                        dialogInfo(
+                            context = context, x = gPosX + offset.x, y = gPosY + offset.y,
                             title = Res.locale("xp"),
-                            desc = levelXp.toString())
+                            desc = levelXp.toString()
+                        )
                     },
                     onLongPress = { offset ->
                         dialogXp(context = context, x = gPosX + offset.x, y = gPosY + offset.y,
                             onAccept = { addXp ->
                                 levelXp.addXp(addXp)
-                                showXP = levelXp.xp
                                 onChangeData(levelXp)
                             })
                     }
@@ -610,12 +620,12 @@ fun ShowXP(context: Context, car: DNDChar,
 @Composable
 fun ShowProfile(context: Context, size: Dp,
                 car: DNDChar,
-                level: Int,
-                onChangeLevel: (Int)->Unit = { _ -> },
+                xp: MutableState<Int>,
+                onChangeLevel: (DNDXpLevel)->Unit = { _ -> },
                 onChangeInspiration: (Int)->Unit = { _ -> })
 {
-    var showLevel by rememberSaveable { mutableStateOf(level) }
     var showInspiration by rememberSaveable { mutableStateOf(car.inspiration) }
+    var xpLevel = DNDXpLevel(xp.value)
 
     Box(modifier = Modifier.size(size))
     {
@@ -627,7 +637,7 @@ fun ShowProfile(context: Context, size: Dp,
             size = size, tint = false,
             modifier = Modifier.align(alignment = Alignment.Center))
         // Nivel
-        ShowProfileContent(number = showLevel, size = iconSize,
+        ShowProfileContent(number = xpLevel.level, size = iconSize,
             modifier = Modifier.align(alignment = Alignment.TopStart),
             onTap = { x, y ->
                 dialogInfo(context = context, x = x, y = y,
@@ -637,10 +647,10 @@ fun ShowProfile(context: Context, size: Dp,
             onLongPress = { x, y ->
                 dialogEditNum(context = context, x = x, y = y,
                     title = Res.locale("level"),
-                    value = showLevel,
+                    value = xpLevel.level,
                     onAccept = { newLevel ->
-                        showLevel = newLevel
-                        onChangeLevel(newLevel)
+                        xpLevel.level = newLevel
+                        onChangeLevel(xpLevel)
                     })
             })
         // Inspitación
@@ -657,7 +667,7 @@ fun ShowProfile(context: Context, size: Dp,
                     value = showInspiration,
                     onAccept = { newInspiration ->
                         showInspiration = newInspiration
-                        onChangeLevel(newInspiration)
+                        onChangeInspiration(newInspiration)
                     })
             })
         // Clase
@@ -678,10 +688,9 @@ fun ShowProfile(context: Context, size: Dp,
     }
 }
 @Composable
-fun ShowWealth(context: Context, wealth: Long, onChange: (newWealth: Long)->Unit = { _ -> })
+fun ShowWealth(context: Context, wealth: MutableState<Long>, onChange: (newWealth: Long)->Unit = { _ -> })
 {
-    var showWealth by rememberSaveable { mutableStateOf(wealth) }
-    val dndWealth = DNDWealth(showWealth)
+    val dndWealth = DNDWealth(wealth.value)
 
     Row(verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End,
@@ -694,11 +703,8 @@ fun ShowWealth(context: Context, wealth: Long, onChange: (newWealth: Long)->Unit
                 detectTapGestures(
                     onTap = { _ ->
                         dialogWealth(context = context,
-                            wealth = showWealth,
-                            onAccept = { newWealth ->
-                                showWealth = newWealth
-                                onChange(newWealth)
-                            })
+                            wealth = wealth.value,
+                            onAccept = { newWealth -> onChange(newWealth) })
                     }
                 )
             }
@@ -726,7 +732,7 @@ fun ShowWealth(context: Context, wealth: Long, onChange: (newWealth: Long)->Unit
     }
 }
 @Composable
-fun ShowName(context: Context, car: DNDChar)
+fun ShowName(context: Context, name: String)
 {
     Row(verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
@@ -737,7 +743,7 @@ fun ShowName(context: Context, car: DNDChar)
             .padding(dimensionResource(R.dimen.contentPadding))
     ){
         // Nombre
-        Text(text = car.name,
+        Text(text = name,
             modifier = Modifier.fillMaxWidth(),
             fontSize = fontSizeResourse(R.dimen.fontName),
             fontWeight = FontWeight.Bold,
