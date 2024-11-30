@@ -32,7 +32,7 @@
         tools:text="0" />
 
     <LinearLayout
-        android:id="@+id/layoutHpCurrent"
+        android:id="@+id/layoutXP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -49,7 +49,7 @@
             tools:ignore="UselessParent">
 
             <Button
-                android:id="@+id/butCurrentDec1000"
+                android:id="@+id/butXpDec1000"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/butWealthH"
@@ -59,7 +59,7 @@
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
             <Button
-                android:id="@+id/butCurrentDec100"
+                android:id="@+id/butXpDec100"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/butWealthH"
@@ -69,7 +69,7 @@
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
             <Button
-                android:id="@+id/butCurrentDec10"
+                android:id="@+id/butXpDec10"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/butWealthH"
@@ -79,7 +79,7 @@
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
             <Button
-                android:id="@+id/butCurrentDec1"
+                android:id="@+id/butXpDec1"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/butWealthH"
@@ -101,7 +101,7 @@
             tools:ignore="UselessParent">
 
             <Button
-                android:id="@+id/butCurrentInc1000"
+                android:id="@+id/butXpInc1000"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/butWealthH"
@@ -111,7 +111,7 @@
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
             <Button
-                android:id="@+id/butCurrentInc100"
+                android:id="@+id/butXpInc100"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/butWealthH"
@@ -121,7 +121,7 @@
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
             <Button
-                android:id="@+id/butCurrentInc10"
+                android:id="@+id/butXpInc10"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/butWealthH"
@@ -131,7 +131,7 @@
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
             <Button
-                android:id="@+id/butCurrentInc1"
+                android:id="@+id/butXpInc1"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/butWealthH"
