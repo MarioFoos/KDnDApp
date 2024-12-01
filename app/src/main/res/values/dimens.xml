@@ -42,6 +42,7 @@
     <dimen name="editNormalStroke">2dp</dimen>
     <dimen name="editDialogW">48dp</dimen>
     <dimen name="editDialogH">36dp</dimen>
+    <dimen name="editWealthW">70dp</dimen>
 
     <!-- RIQUEZA -->
     <dimen name="rowWealth">32dp</dimen>

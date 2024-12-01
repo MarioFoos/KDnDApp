@@ -198,80 +198,114 @@ fun dialogEditNum(context: Context, x: Float? = null, y: Float? = null,
     showData()
     showDialogXY(dialog, x, y)
 }
-fun dialogWealth(context: Context, x: Float? = null, y: Float? = null,
-                 wealth: Long,
-                 onAccept: (newWealth: Long)->Unit = { _ -> })
+fun dialogWealth2(context: Context, x: Float? = null, y: Float? = null,
+                  onAdd: (wealth: DNDWealth)->Unit = { _ -> },
+                  onSub: (wealth: DNDWealth)->Unit = { _ -> })
 {
-    var curWealth = DNDWealth(wealth)
+    val PLATINUM = 0
+    val GOLD = 1
+    val ELECTRUM = 2
+    val SILVER = 3
+    val CUPPER = 4
+    var coins = arrayOf(0, 0, 0, 0, 0 )
 
     val dialog = Dialog(context)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setCancelable(true)
     dialog.setContentView(R.layout.dialog_wealth_layout)
 
-    val butOk = dialog.findViewById(R.id.butCoinsOk)  as Button
-    val butCancel = dialog.findViewById(R.id.butCoinsCancel)  as Button
+    val textTitle = dialog.findViewById(R.id.textCoinsTitle)  as TextView
+    val butAdd = dialog.findViewById(R.id.butCoinsAdd)  as Button
+    val butSub = dialog.findViewById(R.id.butCoinsSub)  as Button
+    val butCancel = dialog.findViewById(R.id.butCoinsCancel2)  as Button
 
-    butOk.text = Res.locale("but_add")
+    textTitle.text = Res.locale("add_quit_coins")
+    butAdd.text = Res.locale("but_add")
+    butSub.text = Res.locale("but_sub")
     butCancel.text = Res.locale("but_cancel")
 
-    val textPlatinum = dialog.findViewById(R.id.textPlatinum) as TextView
-    val textGold = dialog.findViewById(R.id.textGold) as TextView
-    val textElectrum = dialog.findViewById(R.id.textElectrum) as TextView
-    val textSilver = dialog.findViewById(R.id.textSilver) as TextView
-    val textCupper = dialog.findViewById(R.id.textCupper) as TextView
-
-    val butPlatinumInc = dialog.findViewById(R.id.butPlatinumInc)  as PushButton
-    val butPlatinumDec = dialog.findViewById(R.id.butPlatinumDec)  as PushButton
-    val butGoldInc = dialog.findViewById(R.id.butGoldInc)  as PushButton
-    val butGoldDec = dialog.findViewById(R.id.butGoldDec)  as PushButton
-    val butElectrumInc = dialog.findViewById(R.id.butElectrumInc)  as PushButton
-    val butElectrumDec = dialog.findViewById(R.id.butElectrumDec)  as PushButton
-    val butSilverInc = dialog.findViewById(R.id.butSilverInc)  as PushButton
-    val butSilverDec = dialog.findViewById(R.id.butSilverDec)  as PushButton
-    val butCupperInc = dialog.findViewById(R.id.butCupperInc)  as PushButton
-    val butCupperDec = dialog.findViewById(R.id.butCupperDec)  as PushButton
+    val textPlatinum = dialog.findViewById(R.id.textCoinsPlatinum) as TextView
+    val textGold = dialog.findViewById(R.id.textCoinsGold) as TextView
+    val textElectrum = dialog.findViewById(R.id.textCoinsElectrum) as TextView
+    val textSilver = dialog.findViewById(R.id.textCoinsSilver) as TextView
+    val textCupper = dialog.findViewById(R.id.textCoinsCupper) as TextView
 
     fun showData()
     {
-        var platinum = curWealth.get(ECoin.PLATINUM)
-        var gold = curWealth.get(ECoin.GOLD)
-        var electrum = curWealth.get(ECoin.ELECTRUM)
-        var silver = curWealth.get(ECoin.SILVER)
-        var cupper = curWealth.get(ECoin.CUPPER)
-
-        textPlatinum.text = platinum.toString()
-        textGold.text = gold.toString()
-        textElectrum.text = electrum.toString()
-        textSilver.text = silver.toString()
-        textCupper.text = cupper.toString()
+        textPlatinum.text = coins[PLATINUM].toString()
+        textGold.text = coins[GOLD].toString()
+        textElectrum.text = coins[ELECTRUM].toString()
+        textSilver.text = coins[SILVER].toString()
+        textCupper.text = coins[CUPPER].toString()
     }
-    fun change(coin: ECoin, value: Long)
+    val butPlatinumInc1 = dialog.findViewById(R.id.butPlatinumInc1)  as PushButton
+    val butPlatinumInc10 = dialog.findViewById(R.id.butPlatinumInc10)  as PushButton
+    val butPlatinumDec1 = dialog.findViewById(R.id.butPlatinumDec1)  as PushButton
+    val butPlatinumDec10 = dialog.findViewById(R.id.butPlatinumDec10)  as PushButton
+    val butGoldInc1 = dialog.findViewById(R.id.butGoldInc1)  as PushButton
+    val butGoldInc10 = dialog.findViewById(R.id.butGoldInc10)  as PushButton
+    val butGoldDec1 = dialog.findViewById(R.id.butGoldDec1)  as PushButton
+    val butGoldDec10 = dialog.findViewById(R.id.butGoldDec10)  as PushButton
+    val butElectrumInc1 = dialog.findViewById(R.id.butElectrumInc1)  as PushButton
+    val butElectrumInc10 = dialog.findViewById(R.id.butElectrumInc10)  as PushButton
+    val butElectrumDec1 = dialog.findViewById(R.id.butElectrumDec1)  as PushButton
+    val butElectrumDec10 = dialog.findViewById(R.id.butElectrumDec10)  as PushButton
+    val butSilverInc1 = dialog.findViewById(R.id.butSilverInc1)  as PushButton
+    val butSilverInc10 = dialog.findViewById(R.id.butSilverInc10)  as PushButton
+    val butSilverDec1 = dialog.findViewById(R.id.butSilverDec1)  as PushButton
+    val butSilverDec10 = dialog.findViewById(R.id.butSilverDec10)  as PushButton
+    val butCupperInc1 = dialog.findViewById(R.id.butCupperInc1)  as PushButton
+    val butCupperInc10 = dialog.findViewById(R.id.butCupperInc10)  as PushButton
+    val butCupperDec1 = dialog.findViewById(R.id.butCupperDec1)  as PushButton
+    val butCupperDec10 = dialog.findViewById(R.id.butCupperDec10)  as PushButton
+
+    fun change(index: Int, value: Int)
     {
-        if(value > 0)
+        coins[index] += value
+        if(coins[index] < 0)
         {
-            curWealth.add(coin, value)
-        }
-        else if(value < 0)
-        {
-            curWealth.substract(coin, -1*value)
+            coins[index] = 0
         }
         showData()
     }
-    butPlatinumInc.setAction { change(ECoin.PLATINUM, 1) }
-    butPlatinumDec.setAction { change(ECoin.PLATINUM, -1) }
-    butGoldInc.setAction { change(ECoin.GOLD, 1) }
-    butGoldDec.setAction { change(ECoin.GOLD, -1) }
-    butElectrumInc.setAction { change(ECoin.ELECTRUM, 1) }
-    butElectrumDec.setAction { change(ECoin.ELECTRUM, -1) }
-    butSilverInc.setAction { change(ECoin.SILVER, 1) }
-    butSilverDec.setAction { change(ECoin.SILVER, -1) }
-    butCupperInc.setAction { change(ECoin.CUPPER, 1) }
-    butCupperDec.setAction { change(ECoin.CUPPER, -1) }
+    butPlatinumInc1.setAction { change(PLATINUM, 1) }
+    butPlatinumInc10.setAction { change(PLATINUM, 10) }
+    butPlatinumDec1.setAction { change(PLATINUM, -1) }
+    butPlatinumDec10.setAction { change(PLATINUM, -10) }
+    butGoldInc1.setAction { change(GOLD, 1) }
+    butGoldInc10.setAction { change(GOLD, 10) }
+    butGoldDec1.setAction { change(GOLD, -1) }
+    butGoldDec10.setAction { change(GOLD, -10) }
+    butElectrumInc1.setAction { change(ELECTRUM, 1) }
+    butElectrumInc10.setAction { change(ELECTRUM, 10) }
+    butElectrumDec1.setAction { change(ELECTRUM, -1) }
+    butElectrumDec10.setAction { change(ELECTRUM, -10) }
+    butSilverInc1.setAction { change(SILVER, 1) }
+    butSilverInc10.setAction { change(SILVER, 10) }
+    butSilverDec1.setAction { change(SILVER, -1) }
+    butSilverDec10.setAction { change(SILVER, -10) }
+    butCupperInc1.setAction { change(CUPPER, 1) }
+    butCupperInc10.setAction { change(CUPPER, 10) }
+    butCupperDec1.setAction { change(CUPPER, -1) }
+    butCupperDec10.setAction { change(CUPPER, -10) }
 
-    butOk.setOnClickListener {
+    fun buildWealth() : DNDWealth
+    {
+        var wealth = DNDWealth()
+        wealth.add(ECoin.PLATINUM, coins[PLATINUM])
+        wealth.add(ECoin.GOLD, coins[GOLD])
+        wealth.add(ECoin.ELECTRUM, coins[ELECTRUM])
+        wealth.add(ECoin.SILVER, coins[SILVER])
+        wealth.add(ECoin.CUPPER, coins[CUPPER])
+        return wealth
+    }
+    butAdd.setOnClickListener {
         dialog.dismiss()
-        onAccept(curWealth.total)
+        onAdd(buildWealth())
+    }
+    butSub.setOnClickListener {
+        dialog.dismiss()
+        onSub(buildWealth())
     }
     butCancel.setOnClickListener {
         dialog.dismiss()

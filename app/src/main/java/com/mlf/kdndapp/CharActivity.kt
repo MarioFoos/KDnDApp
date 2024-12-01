@@ -96,7 +96,7 @@ class CharActivity : ComponentActivity()
         car.gender = gender
         car.ethnicity = ethnicity
         car.genAge(stageOfLife)
-        car.setWealth(ComTools.random(80L, 600L))
+        car.setWealth(ComTools.random(80, 600))
         car.alignment = Res.randomItem(EAlignment.values())
 
         car.hp.max = 30
@@ -114,7 +114,7 @@ class CharActivity : ComponentActivity()
         car.background = Res.randomItem(EBackground.values())
 
         setContent {
-            var carWealth: MutableState<Long> = rememberSaveable { mutableStateOf(car.wealth.total) }
+            var carWealth: MutableState<Int> = rememberSaveable { mutableStateOf(car.wealth.total) }
             var carXp: MutableState<Int> = rememberSaveable { mutableStateOf(car.xp) }
 
             KDnDAppTheme{
@@ -134,10 +134,24 @@ class CharActivity : ComponentActivity()
                     ShowName(this@CharActivity, car.name)
                     SpaceV()
                     // Oro
-                    ShowWealth(context = this@CharActivity, wealth = carWealth, onChange = { wealth ->
-                        car.wealth.total = wealth
-                        carWealth.value = car.wealth.total
-                    })
+                    ShowWealth(context = this@CharActivity, wealth = carWealth,
+                        onAdd = { wealth ->
+                            car.wealth.add(wealth)
+                            carWealth.value = car.wealth.total
+                        },
+                        onSub = { wealth ->
+                            if(car.wealth.canSubstract(wealth))
+                            {
+                                car.wealth.substract(wealth)
+                                carWealth.value = car.wealth.total
+                            }
+                            else
+                            {
+                                dialogError(context = this@CharActivity,
+                                    Res.locale("error"),
+                                    Res.locale("not_enough_funds"))
+                            }
+                        })
                     SpaceV()
                     Row(verticalAlignment = Alignment.Top,
                         horizontalArrangement = Arrangement.Start,
@@ -690,7 +704,9 @@ fun ShowProfile(context: Context, size: Dp,
     }
 }
 @Composable
-fun ShowWealth(context: Context, wealth: MutableState<Long>, onChange: (newWealth: Long)->Unit = { _ -> })
+fun ShowWealth(context: Context, wealth: MutableState<Int>,
+               onAdd: (wealth: DNDWealth)->Unit = { _ -> },
+               onSub: (wealth: DNDWealth)->Unit = { _ -> })
 {
     val dndWealth = DNDWealth(wealth.value)
 
@@ -703,12 +719,18 @@ fun ShowWealth(context: Context, wealth: MutableState<Long>, onChange: (newWealt
             .padding(dimensionResource(R.dimen.contentPadding))
             .pointerInput(Unit) {
                 detectTapGestures(
-                    onTap = { _ ->
-                        dialogWealth(context = context,
-                            wealth = wealth.value,
-                            onAccept = { newWealth -> onChange(newWealth) })
+                    onTap = {},
+                    onLongPress = {
+                        dialogWealth2(context = context,
+                            onAdd = { wealth ->
+                                dndWealth.add(wealth)
+                                onAdd(wealth)
+                            },
+                            onSub = { wealth ->
+                                dndWealth.substract(wealth)
+                                onSub(wealth)
+                            })
                     },
-                    onLongPress = {},
                     onDoubleTap = {}
                 )
             }

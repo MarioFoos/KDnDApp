@@ -1,284 +1,391 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutDialogWealth"
+    android:id="@+id/layoutAddQuitCoins"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/dialogPadding">
+
+    <TextView
+        android:id="@+id/textCoinsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:textColor="@color/textNormalFace"
+        android:textSize="@dimen/fontLarge"
+        android:textStyle="bold"
+        tools:text="Agregar o quitar monedas" />
 
     <LinearLayout
-        android:id="@+id/layoutCoins"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:padding="@dimen/dialogPadding">
+        android:id="@+id/layoutCoinsPlatinum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/layoutPlatinum"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageCoinsPlatinum"
+            android:layout_width="@dimen/butChangeH"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:src="@drawable/coin_platinum"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butPlatinumDec10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:text="@string/minus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butPlatinumDec1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/minus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textCoinsPlatinum"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editWealthW"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            tools:text="0" />
 
-            <ImageView
-                android:id="@+id/imgPlatinum"
-                android:layout_width="@dimen/butChangeH"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:src="@drawable/coin_platinum"
-                tools:ignore="ContentDescription,ImageContrastCheck" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butPlatinumInc1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:text="@string/plus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butPlatinumInc"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:text="@string/plus"
-                android:textStyle="bold"
-                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butPlatinumInc10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/plus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutCoinsGold"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textPlatinum"
-                style="@style/edit_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dialogMargins"
-                android:textAlignment="textEnd"
-                android:textStyle="bold"
-                tools:text="1" />
+        <ImageView
+            android:id="@+id/imageCoinsGold"
+            android:layout_width="@dimen/butChangeH"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:src="@drawable/coin_gold"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butPlatinumDec"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:layout_marginTop="@dimen/dialogMargins"
-                android:text="@string/minus"
-                android:textColor="@color/text_button"
-                android:textStyle="bold"
-                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
-        </LinearLayout>
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butGoldDec10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:text="@string/minus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <LinearLayout
-            android:id="@+id/layoutGold"
-            android:layout_width="wrap_content"
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butGoldDec1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/minus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textCoinsGold"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editWealthW"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            tools:text="0" />
 
-            <ImageView
-                android:id="@+id/imgGold"
-                android:layout_width="@dimen/butChangeH"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:src="@drawable/coin_gold"
-                tools:ignore="ContentDescription,ImageContrastCheck" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butGoldInc1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:text="@string/plus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butGoldInc"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:background="@drawable/shape_button"
-                android:text="@string/plus"
-                android:textColor="@color/text_button"
-                android:textSize="@dimen/fontBut"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butGoldInc10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/plus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutCoinsElectrum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textGold"
-                style="@style/edit_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dialogMargins"
-                android:textAlignment="textEnd"
-                android:textStyle="bold"
-                tools:text="1" />
+        <ImageView
+            android:id="@+id/imageCoinsElectrum"
+            android:layout_width="@dimen/butChangeH"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:src="@drawable/coin_electrum"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butGoldDec"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:text="@string/minus"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butElectrumDec10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:text="@string/minus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <LinearLayout
-            android:id="@+id/layoutElectrum"
-            android:layout_width="wrap_content"
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butElectrumDec1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/minus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textCoinsElectrum"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editWealthW"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            tools:text="0" />
 
-            <ImageView
-                android:id="@+id/imgElectrum"
-                android:layout_width="@dimen/butChangeH"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:src="@drawable/coin_electrum"
-                tools:ignore="ContentDescription,ImageContrastCheck" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butElectrumInc1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:text="@string/plus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butElectrumInc"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:text="@string/plus"
-                android:textColor="@color/text_button"
-                android:textSize="@dimen/fontBut"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butElectrumInc10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/plus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutCoinsSilver"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textElectrum"
-                style="@style/edit_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dialogMargins"
-                android:textAlignment="textEnd"
-                android:textStyle="bold"
-                tools:text="1" />
+        <ImageView
+            android:id="@+id/imageCoinsSilver"
+            android:layout_width="@dimen/butChangeH"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:src="@drawable/coin_silver"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butElectrumDec"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:text="@string/minus"
-                android:textSize="@dimen/fontBut"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butSilverDec10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:text="@string/minus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <LinearLayout
-            android:id="@+id/layoutSilver"
-            android:layout_width="wrap_content"
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butSilverDec1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/minus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textCoinsSilver"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editWealthW"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            tools:text="0" />
 
-            <ImageView
-                android:id="@+id/imgSilver"
-                android:layout_width="@dimen/butChangeH"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:src="@drawable/coin_silver"
-                tools:ignore="ContentDescription,ImageContrastCheck" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butSilverInc1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:text="@string/plus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butSilverInc"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:text="@string/plus"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butSilverInc10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/plus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/textSilver"
-                style="@style/edit_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dialogMargins"
-                android:textAlignment="textEnd"
-                android:textStyle="bold"
-                tools:text="1" />
+    <LinearLayout
+        android:id="@+id/layoutCoinsCupper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butSilverDec"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:text="@string/minus"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/imageCoinsCupper"
+            android:layout_width="@dimen/butChangeH"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:src="@drawable/coin_cupper"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
-        <LinearLayout
-            android:id="@+id/layoutCupper"
-            android:layout_width="wrap_content"
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butCupperDec10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:text="@string/minus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butCupperDec1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/minus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textCoinsCupper"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editWealthW"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            tools:text="0" />
 
-            <ImageView
-                android:id="@+id/imgCupper"
-                android:layout_width="@dimen/butChangeH"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:src="@drawable/coin_cupper"
-                tools:ignore="ContentDescription" />
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butCupperInc1"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:text="@string/plus1"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butCupperInc"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:text="@string/plus"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/textCupper"
-                style="@style/edit_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dialogMargins"
-                android:textAlignment="textEnd"
-                android:textStyle="bold"
-                tools:text="1" />
-
-            <com.mlf.kdndapp.ui.theme.PushButton
-                android:id="@+id/butCupperDec"
-                style="@style/but_brown_style"
-                android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
-                android:layout_margin="@dimen/dialogMargins"
-                android:text="@string/minus"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butCupperInc10"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
+            android:layout_weight="1"
+            android:text="@string/plus10"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dialogPadding"
         android:gravity="end"
-        android:padding="@dimen/dialogPadding">
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/butCoinsOk"
+            android:id="@+id/butCoinsAdd"
+            style="@style/but_brown_style"
+            android:layout_height="@dimen/butDialogH"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Agregar" />
+
+        <Button
+            android:id="@+id/butCoinsSub"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
-            android:layout_margin="@dimen/dialogMargins"
-            android:text="@string/ok"
+            android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Quitar" />
 
         <Button
-            android:id="@+id/butCoinsCancel"
+            android:id="@+id/butCoinsCancel2"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
-            android:layout_margin="@dimen/dialogMargins"
-            android:text="@string/cancel"
             android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Cancelar" />
     </LinearLayout>
-
 </LinearLayout>
