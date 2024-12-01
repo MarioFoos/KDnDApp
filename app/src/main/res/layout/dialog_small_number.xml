@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutDialogNum"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/layoutNumTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/dialogMargins"
@@ -17,7 +19,7 @@
         android:paddingEnd="@dimen/dialogPadding">
 
         <TextView
-            android:id="@+id/textTitle"
+            android:id="@+id/textNumTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -30,6 +32,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutNumChange"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -37,11 +40,11 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/dialogPadding">
 
-        <Button
-            android:id="@+id/butCurrentDec1000"
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butNumDec"
             style="@style/but_brown_style"
-            android:layout_width="@dimen/butWealthW"
-            android:layout_height="@dimen/butWealthH"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
             android:layout_margin="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/minus"
@@ -49,7 +52,7 @@
             tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/textCurrent"
+            android:id="@+id/textNumValue"
             style="@style/edit_style"
             android:layout_width="@dimen/editDialogW"
             android:layout_height="@dimen/editDialogH"
@@ -59,11 +62,11 @@
             android:textStyle="bold"
             tools:text="1" />
 
-        <Button
-            android:id="@+id/butCurrentDec100"
+        <com.mlf.kdndapp.ui.theme.PushButton
+            android:id="@+id/butNumInc"
             style="@style/but_brown_style"
-            android:layout_width="@dimen/butWealthW"
-            android:layout_height="@dimen/butWealthH"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_height="@dimen/butChangeH"
             android:layout_margin="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus"
@@ -73,28 +76,31 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutNumButtons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:padding="@dimen/dialogPadding">
 
         <Button
-            android:id="@+id/butOk"
+            android:id="@+id/butNumOk"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butWealthH"
+            android:layout_height="@dimen/butChangeH"
             android:layout_margin="@dimen/dialogMargins"
             android:text="@string/ok"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/butCancel"
+            android:id="@+id/butNumCancel"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butWealthH"
+            android:layout_height="@dimen/butChangeH"
             android:layout_margin="@dimen/dialogMargins"
             android:text="@string/cancel"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
 </LinearLayout>

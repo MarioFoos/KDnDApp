@@ -25,16 +25,16 @@ fun dialogXp(context: Context, x: Float? = null, y: Float? = null,
     dialog.setContentView(R.layout.dialog_xp)
 
     // Fijo
-    val textTitle = dialog.findViewById(R.id.textTitle) as TextView
-    val butOk = dialog.findViewById(R.id.butOk)  as Button
-    val butCancel = dialog.findViewById(R.id.butCancel)  as Button
+    val textTitle = dialog.findViewById(R.id.textXpTitle) as TextView
+    val butOk = dialog.findViewById(R.id.butXpOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butXpCancel)  as Button
 
     textTitle.text = Res.locale("add_xp")
-    butOk.text = Res.locale("but_ok")
+    butOk.text = Res.locale("but_add")
     butCancel.text = Res.locale("but_cancel")
 
     // Acciones
-    val textXp = dialog.findViewById(R.id.textXp) as TextView
+    val textXp = dialog.findViewById(R.id.textXpValue) as TextView
     val butXpInc1 = dialog.findViewById(R.id.butXpInc1) as PushButton
     val butXpInc10 = dialog.findViewById(R.id.butXpInc10)  as PushButton
     val butXpInc100 = dialog.findViewById(R.id.butXpInc100)  as PushButton
@@ -88,12 +88,12 @@ fun dialogHp(context: Context, x: Float? = null, y: Float? = null,
     dialog.setContentView(R.layout.dialog_hit_points)
 
     // Fijo
-    val textTitle = dialog.findViewById(R.id.textTitle) as TextView
-    val textDescCurrent = dialog.findViewById(R.id.textDescCurrent) as TextView
-    val textDescMax = dialog.findViewById(R.id.textDescMax) as TextView
-    val textDescTemp = dialog.findViewById(R.id.textDescTemp) as TextView
-    val butOk = dialog.findViewById(R.id.butOk)  as Button
-    val butCancel = dialog.findViewById(R.id.butCancel)  as Button
+    val textTitle = dialog.findViewById(R.id.textHpTitle) as TextView
+    val textDescCurrent = dialog.findViewById(R.id.textHpCurrentDesc) as TextView
+    val textDescMax = dialog.findViewById(R.id.textHpMaxDesc) as TextView
+    val textDescTemp = dialog.findViewById(R.id.textHpTempDesc) as TextView
+    val butOk = dialog.findViewById(R.id.butHpOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butHpCancel)  as Button
 
     textTitle.text = Res.locale("hit_points")
     textDescCurrent.text = Res.locale("hp_currents")
@@ -103,15 +103,15 @@ fun dialogHp(context: Context, x: Float? = null, y: Float? = null,
     butCancel.text = Res.locale("but_cancel")
 
     // Acciones
-    val butCurrentDec = dialog.findViewById(R.id.butCurrentDec1000)  as Button
-    val butCurrentInc = dialog.findViewById(R.id.butCurrentDec100)  as Button
-    val butMaxDec = dialog.findViewById(R.id.butMaxDec)  as Button
-    val butMaxInc = dialog.findViewById(R.id.butMaxInc)  as Button
-    val butTempDec = dialog.findViewById(R.id.butTempDec)  as Button
-    val butTempInc = dialog.findViewById(R.id.butTempInc)  as Button
-    val textCurrent = dialog.findViewById(R.id.textCurrent) as TextView
-    val textMax = dialog.findViewById(R.id.textMax) as TextView
-    val textTemp = dialog.findViewById(R.id.textTemp) as TextView
+    val butCurrentDec = dialog.findViewById(R.id.butHpCurrentDec)  as PushButton
+    val butCurrentInc = dialog.findViewById(R.id.butHpCurrentInc)  as PushButton
+    val butMaxDec = dialog.findViewById(R.id.butHpMaxDec)  as PushButton
+    val butMaxInc = dialog.findViewById(R.id.butHpMaxInc)  as PushButton
+    val butTempDec = dialog.findViewById(R.id.butHpTempDec)  as PushButton
+    val butTempInc = dialog.findViewById(R.id.butHpTempInc)  as PushButton
+    val textCurrent = dialog.findViewById(R.id.textHpCurrent) as TextView
+    val textMax = dialog.findViewById(R.id.textHpMax) as TextView
+    val textTemp = dialog.findViewById(R.id.textHpTemp) as TextView
 
     fun showData()
     {
@@ -119,30 +119,23 @@ fun dialogHp(context: Context, x: Float? = null, y: Float? = null,
         textMax.text = curHp.max.toString()
         textTemp.text = curHp.temp.toString()
     }
-    butCurrentDec.setOnClickListener {
-        curHp.hp = curHp.hp - 1
+    fun changeHp(value: Int, delta: Int): Int
+    {
+        var res = value + delta
+        if(res < 0)
+        {
+            res = 0
+        }
         showData()
+        return res
     }
-    butCurrentInc.setOnClickListener {
-        curHp.hp = curHp.hp + 1
-        showData()
-    }
-    butMaxDec.setOnClickListener {
-        curHp.max = curHp.max - 1
-        showData()
-    }
-    butMaxInc.setOnClickListener {
-        curHp.max = curHp.max + 1
-        showData()
-    }
-    butTempDec.setOnClickListener {
-        curHp.temp = curHp.temp - 1
-        showData()
-    }
-    butTempInc.setOnClickListener {
-        curHp.temp = curHp.temp + 1
-        showData()
-    }
+    butCurrentDec.setAction {  curHp.hp = changeHp(curHp.hp, -1) }
+    butCurrentInc.setAction {  curHp.hp = changeHp(curHp.hp, 1) }
+    butMaxDec.setAction {  curHp.max = changeHp(curHp.max, -1) }
+    butMaxInc.setAction {  curHp.max = changeHp(curHp.max, 1) }
+    butTempDec.setAction {  curHp.temp = changeHp(curHp.temp, -1) }
+    butTempInc.setAction {  curHp.temp = changeHp(curHp.temp, 1) }
+
     butOk.setOnClickListener {
         dialog.dismiss()
         onAccept(curHp)
@@ -165,12 +158,12 @@ fun dialogEditNum(context: Context, x: Float? = null, y: Float? = null,
     dialog.setCancelable(true)
     dialog.setContentView(R.layout.dialog_small_number)
 
-    val butOk = dialog.findViewById(R.id.butOk)  as Button
-    val butCancel = dialog.findViewById(R.id.butCancel)  as Button
-    val textTitle = dialog.findViewById(R.id.textTitle) as TextView
-    val textNumber = dialog.findViewById(R.id.textCurrent) as TextView
-    val butInc = dialog.findViewById(R.id.butCurrentDec100)  as Button
-    val butDec = dialog.findViewById(R.id.butCurrentDec1000)  as Button
+    val butOk = dialog.findViewById(R.id.butNumOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butNumCancel)  as Button
+    val textTitle = dialog.findViewById(R.id.textNumTitle) as TextView
+    val textNumber = dialog.findViewById(R.id.textNumValue) as TextView
+    val butInc = dialog.findViewById(R.id.butNumInc) as PushButton
+    val butDec = dialog.findViewById(R.id.butNumDec) as PushButton
 
     butOk.text = Res.locale("but_ok")
     butCancel.text = Res.locale("but_cancel")
@@ -181,14 +174,14 @@ fun dialogEditNum(context: Context, x: Float? = null, y: Float? = null,
     {
         textNumber.text = curValue.toString()
     }
-    butInc.setOnClickListener {
+    butInc.setAction {
         if(curValue < 20)
         {
             ++curValue
         }
         showData()
     }
-    butDec.setOnClickListener {
+    butDec.setAction {
         if(curValue > 1)
         {
             --curValue
@@ -216,10 +209,10 @@ fun dialogWealth(context: Context, x: Float? = null, y: Float? = null,
     dialog.setCancelable(true)
     dialog.setContentView(R.layout.dialog_wealth_layout)
 
-    val butOk = dialog.findViewById(R.id.butOk)  as Button
-    val butCancel = dialog.findViewById(R.id.butCancel)  as Button
+    val butOk = dialog.findViewById(R.id.butCoinsOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butCoinsCancel)  as Button
 
-    butOk.text = Res.locale("but_ok")
+    butOk.text = Res.locale("but_add")
     butCancel.text = Res.locale("but_cancel")
 
     val textPlatinum = dialog.findViewById(R.id.textPlatinum) as TextView
@@ -228,16 +221,16 @@ fun dialogWealth(context: Context, x: Float? = null, y: Float? = null,
     val textSilver = dialog.findViewById(R.id.textSilver) as TextView
     val textCupper = dialog.findViewById(R.id.textCupper) as TextView
 
-    val butPlatinumInc = dialog.findViewById(R.id.butPlatinumInc)  as Button
-    val butPlatinumDec = dialog.findViewById(R.id.butPlatinumDec)  as Button
-    val butGoldInc = dialog.findViewById(R.id.butGoldInc)  as Button
-    val butGoldDec = dialog.findViewById(R.id.butGoldDec)  as Button
-    val butElectrumInc = dialog.findViewById(R.id.butElectrumInc)  as Button
-    val butElectrumDec = dialog.findViewById(R.id.butElectrumDec)  as Button
-    val butSilverInc = dialog.findViewById(R.id.butSilverInc)  as Button
-    val butSilverDec = dialog.findViewById(R.id.butSilverDec)  as Button
-    val butCupperInc = dialog.findViewById(R.id.butCupperInc)  as Button
-    val butCupperDec = dialog.findViewById(R.id.butCupperDec)  as Button
+    val butPlatinumInc = dialog.findViewById(R.id.butPlatinumInc)  as PushButton
+    val butPlatinumDec = dialog.findViewById(R.id.butPlatinumDec)  as PushButton
+    val butGoldInc = dialog.findViewById(R.id.butGoldInc)  as PushButton
+    val butGoldDec = dialog.findViewById(R.id.butGoldDec)  as PushButton
+    val butElectrumInc = dialog.findViewById(R.id.butElectrumInc)  as PushButton
+    val butElectrumDec = dialog.findViewById(R.id.butElectrumDec)  as PushButton
+    val butSilverInc = dialog.findViewById(R.id.butSilverInc)  as PushButton
+    val butSilverDec = dialog.findViewById(R.id.butSilverDec)  as PushButton
+    val butCupperInc = dialog.findViewById(R.id.butCupperInc)  as PushButton
+    val butCupperDec = dialog.findViewById(R.id.butCupperDec)  as PushButton
 
     fun showData()
     {
@@ -253,47 +246,29 @@ fun dialogWealth(context: Context, x: Float? = null, y: Float? = null,
         textSilver.text = silver.toString()
         textCupper.text = cupper.toString()
     }
+    fun change(coin: ECoin, value: Long)
+    {
+        if(value > 0)
+        {
+            curWealth.add(coin, value)
+        }
+        else if(value < 0)
+        {
+            curWealth.substract(coin, -1*value)
+        }
+        showData()
+    }
+    butPlatinumInc.setAction { change(ECoin.PLATINUM, 1) }
+    butPlatinumDec.setAction { change(ECoin.PLATINUM, -1) }
+    butGoldInc.setAction { change(ECoin.GOLD, 1) }
+    butGoldDec.setAction { change(ECoin.GOLD, -1) }
+    butElectrumInc.setAction { change(ECoin.ELECTRUM, 1) }
+    butElectrumDec.setAction { change(ECoin.ELECTRUM, -1) }
+    butSilverInc.setAction { change(ECoin.SILVER, 1) }
+    butSilverDec.setAction { change(ECoin.SILVER, -1) }
+    butCupperInc.setAction { change(ECoin.CUPPER, 1) }
+    butCupperDec.setAction { change(ECoin.CUPPER, -1) }
 
-    butPlatinumInc.setOnClickListener {
-        curWealth.add(ECoin.PLATINUM, 1)
-        showData()
-    }
-    butPlatinumDec.setOnClickListener {
-        curWealth.substract(ECoin.PLATINUM, 1)
-        showData()
-    }
-    butGoldInc.setOnClickListener {
-        curWealth.add(ECoin.GOLD, 1)
-        showData()
-    }
-    butGoldDec.setOnClickListener {
-        curWealth.substract(ECoin.GOLD, 1)
-        showData()
-    }
-    butElectrumInc.setOnClickListener {
-        curWealth.add(ECoin.ELECTRUM, 1)
-        showData()
-    }
-    butElectrumDec.setOnClickListener {
-        curWealth.substract(ECoin.ELECTRUM, 1)
-        showData()
-    }
-    butSilverInc.setOnClickListener {
-        curWealth.add(ECoin.SILVER, 1)
-        showData()
-    }
-    butSilverDec.setOnClickListener {
-        curWealth.substract(ECoin.SILVER, 1)
-        showData()
-    }
-    butCupperInc.setOnClickListener {
-        curWealth.add(ECoin.CUPPER, 1)
-        showData()
-    }
-    butCupperDec.setOnClickListener {
-        curWealth.substract(ECoin.CUPPER, 1)
-        showData()
-    }
     butOk.setOnClickListener {
         dialog.dismiss()
         onAccept(curWealth.total)
@@ -302,7 +277,7 @@ fun dialogWealth(context: Context, x: Float? = null, y: Float? = null,
         dialog.dismiss()
     }
     showData()
-    dialog.show()
+    showDialogXY(dialog, x, y)
 }
 fun dialogInfo(context: Context, x :Float? = null, y: Float? = null,
                title: String,
@@ -318,7 +293,7 @@ fun dialogInfo(context: Context, x :Float? = null, y: Float? = null,
     dialog.setContentView(R.layout.dialog_info_layout)
 
     val textTitle = dialog.findViewById(R.id.textInfoTitle) as TextView
-    val textDesc = dialog.findViewById(R.id.textSimpleDesc) as TextView
+    val textDesc = dialog.findViewById(R.id.textInfoDesc) as TextView
 
     textTitle.text = title
 
@@ -343,7 +318,7 @@ fun dialogError(context: Context, title: String, text: String,
     dialog.setContentView(R.layout.dialog_ok)
 
     val textTitle = dialog.findViewById(R.id.textSimpleTitle) as TextView
-    val textDesc = dialog.findViewById(R.id.textSimpleDesc) as TextView
+    val textDesc = dialog.findViewById(R.id.textInfoDesc) as TextView
     val butOk = dialog.findViewById(R.id.butSimpleOk)  as Button
 
     butOk.setOnClickListener {

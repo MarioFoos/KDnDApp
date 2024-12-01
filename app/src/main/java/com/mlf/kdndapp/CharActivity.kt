@@ -373,7 +373,9 @@ fun ShowClickeable(context: Context, entry: DEntry)
                                     context = context, x = posX + offset.x, y = posY + offset.y,
                                     title = entry.title, desc = entry.desc
                                 )
-                            }
+                            },
+                            onLongPress = {},
+                            onDoubleTap = {}
                         )
                     }
             )
@@ -572,7 +574,8 @@ fun ShowHP(context: Context, car: DNDChar,
                                 showTemp = hp.temp
                                 onChangeData(hp)
                             })
-                    }
+                    },
+                    onDoubleTap = {}
                 )
             }
     )
@@ -612,7 +615,8 @@ fun ShowXP(context: Context, car: DNDChar,
                                 levelXp.addXp(addXp)
                                 onChangeData(levelXp)
                             })
-                    }
+                    },
+                    onDoubleTap = {}
                 )
             }
     )
@@ -705,7 +709,9 @@ fun ShowWealth(context: Context, wealth: MutableState<Long>, onChange: (newWealt
                         dialogWealth(context = context,
                             wealth = wealth.value,
                             onAccept = { newWealth -> onChange(newWealth) })
-                    }
+                    },
+                    onLongPress = {},
+                    onDoubleTap = {}
                 )
             }
     )
@@ -778,7 +784,8 @@ fun ShowProfileContent(modifier: Modifier = Modifier, size : Dp,
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = { offset -> onTap(gPosX + offset.x, gPosY + offset.y) },
-                    onLongPress = { offset -> onLongPress(gPosX + offset.x, gPosY + offset.y) }
+                    onLongPress = { offset -> onLongPress(gPosX + offset.x, gPosY + offset.y) },
+                    onDoubleTap = {}
                 )
             }
     )

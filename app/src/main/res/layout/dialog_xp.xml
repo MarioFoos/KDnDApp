@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutHitPoints"
+    android:id="@+id/layoutDialogHp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog"
@@ -10,7 +10,7 @@
     android:padding="@dimen/dialogPadding">
 
     <TextView
-        android:id="@+id/textTitle"
+        android:id="@+id/textXpTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/controlMarginV"
@@ -22,7 +22,7 @@
         tools:text="Agregar experiencia" />
 
     <TextView
-        android:id="@+id/textXp"
+        android:id="@+id/textXpValue"
         style="@style/edit_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         tools:text="0" />
 
     <LinearLayout
-        android:id="@+id/layoutXP"
+        android:id="@+id/layoutXp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -52,7 +52,7 @@
                 android:id="@+id/butXpDec1000"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butWealthH"
+                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/minus1000"
                 android:textStyle="bold"
@@ -62,7 +62,7 @@
                 android:id="@+id/butXpDec100"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butWealthH"
+                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/minus100"
                 android:textStyle="bold"
@@ -72,7 +72,7 @@
                 android:id="@+id/butXpDec10"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butWealthH"
+                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/minus10"
                 android:textStyle="bold"
@@ -82,7 +82,7 @@
                 android:id="@+id/butXpDec1"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butWealthH"
+                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/minus1"
                 android:textStyle="bold"
@@ -104,7 +104,7 @@
                 android:id="@+id/butXpInc1000"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butWealthH"
+                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/plus1000"
                 android:textStyle="bold"
@@ -114,7 +114,7 @@
                 android:id="@+id/butXpInc100"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butWealthH"
+                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/plus100"
                 android:textStyle="bold"
@@ -124,7 +124,7 @@
                 android:id="@+id/butXpInc10"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butWealthH"
+                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/plus10"
                 android:textStyle="bold"
@@ -134,7 +134,7 @@
                 android:id="@+id/butXpInc1"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butWealthH"
+                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/plus1"
                 android:textStyle="bold"
@@ -150,24 +150,24 @@
         android:gravity="end">
 
         <Button
-            android:id="@+id/butOk"
+            android:id="@+id/butXpOk"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
-            android:text="@string/ok"
             android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="@string/add" />
 
         <Button
-            android:id="@+id/butCancel"
+            android:id="@+id/butXpCancel"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
-            android:text="@string/cancel"
             android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="@string/cancel" />
     </LinearLayout>
 
 </LinearLayout>

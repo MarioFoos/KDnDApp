@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="false">
         <shape android:shape="rectangle">
-            <size android:width="@dimen/butWealthH" android:height="@dimen/butWealthH"/>
+            <size android:width="@dimen/butChangeW" android:height="@dimen/butChangeH"/>
             <solid android:color="@color/buttonDisableBg"/>
             <stroke android:color="@color/buttonDisableStroke" android:width="@dimen/butStroke" />
             <corners android:radius="@dimen/butCorner" />
@@ -10,7 +10,7 @@
     </item>
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <size android:width="@dimen/butWealthH" android:height="@dimen/butWealthH"/>
+            <size android:width="@dimen/butChangeW" android:height="@dimen/butChangeH"/>
             <solid android:color="@color/buttonNormalBg"/>
             <stroke android:color="@color/buttonNormalStroke" android:width="@dimen/butStroke" />
             <corners android:radius="@dimen/butCorner" />
@@ -18,7 +18,7 @@
     </item>
     <item>
         <shape android:shape="rectangle">
-            <size android:width="@dimen/butWealthH" android:height="@dimen/butWealthH"/>
+            <size android:width="@dimen/butChangeW" android:height="@dimen/butChangeH"/>
             <solid android:color="@color/buttonNormalBg"/>
             <stroke android:color="@color/buttonNormalStroke" android:width="@dimen/butStroke" />
             <corners android:radius="@dimen/butCorner" />

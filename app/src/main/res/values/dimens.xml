@@ -27,8 +27,10 @@
     <dimen name="butIconPadding">4dp</dimen>
     <dimen name="butStroke">2dp</dimen>
     <dimen name="butCorner">6dp</dimen>
-    <dimen name="butWealthW">48dp</dimen>
-    <dimen name="butWealthH">36dp</dimen>
+
+    <dimen name="butChangeW">48dp</dimen>
+    <dimen name="butChangeCantW">64dp</dimen>
+    <dimen name="butChangeH">36dp</dimen>
     <dimen name="butDialogH">40dp</dimen>
     <dimen name="butDialogXpW">80dp</dimen>
 
