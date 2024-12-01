@@ -1763,6 +1763,9 @@ el suelo, se moverá 5 pies en una dirección aleatoria en cada uno de tus turno
 		<hp_currents>HP actuales</hp_currents>
 		<hp_max>HP máximos</hp_max>
 		<hp_temp>HP temporales</hp_temp>
+		<add_xp>Agregar experiencia</add_xp>
+		
+		
 		<inspiration>Inspiración</inspiration>
 		<inspiration_desc>Si posees inspiración, puedes gastarla cuando hagas una tirada de ataque, tirada de salvación o prueba de característica para obtener ventaja en la tirada en cuestión.
 Asimismo, si tienes inspiración podrás recompensar a otro personaje por una buena interpretación, una idea inteligente o simplemente por realizar algo emocionante durante la partida. Cuando otro personaje haga un acto que verdaderamente aporte un elemento divertido o interesante a la historia, podrás renunciar a tu inspiración para dársela a él.	

@@ -3,8 +3,11 @@
     <string name="title_activity_char">CharActivity</string>
     <string name="title_activity_show_info">ShowInfoActivity</string>
 
-    <string name="ok">Aceptar</string>
-    <string name="cancel">Cancelar</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="err">Error</string>
+    <string name="err_init">Error to initialize application</string>
+
     <string name="plus">+</string>
     <string name="minus">-</string>
 

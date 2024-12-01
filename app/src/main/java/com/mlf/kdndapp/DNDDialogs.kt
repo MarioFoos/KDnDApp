@@ -12,6 +12,7 @@ import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
 import com.dndlib.base.ECoin
 import com.dndlib.res.Res
+import com.mlf.kdndapp.ui.theme.PushButton
 
 fun dialogXp(context: Context, x: Float? = null, y: Float? = null,
              onAccept: (addXp: Int)->Unit = { _ -> })
@@ -34,14 +35,14 @@ fun dialogXp(context: Context, x: Float? = null, y: Float? = null,
 
     // Acciones
     val textXp = dialog.findViewById(R.id.textXp) as TextView
-    val butXpInc1 = dialog.findViewById(R.id.butXpInc1)  as Button
-    val butXpInc10 = dialog.findViewById(R.id.butXpInc10)  as Button
-    val butXpInc100 = dialog.findViewById(R.id.butXpInc100)  as Button
-    val butXpInc1000 = dialog.findViewById(R.id.butXpInc1000)  as Button
-    val butXpDec1 = dialog.findViewById(R.id.butXpDec1)  as Button
-    val butXpDec10 = dialog.findViewById(R.id.butXpDec10)  as Button
-    val butXpDec100 = dialog.findViewById(R.id.butXpDec100)  as Button
-    val butXpDec1000 = dialog.findViewById(R.id.butXpDec1000)  as Button
+    val butXpInc1 = dialog.findViewById(R.id.butXpInc1) as PushButton
+    val butXpInc10 = dialog.findViewById(R.id.butXpInc10)  as PushButton
+    val butXpInc100 = dialog.findViewById(R.id.butXpInc100)  as PushButton
+    val butXpInc1000 = dialog.findViewById(R.id.butXpInc1000)  as PushButton
+    val butXpDec1 = dialog.findViewById(R.id.butXpDec1)  as PushButton
+    val butXpDec10 = dialog.findViewById(R.id.butXpDec10)  as PushButton
+    val butXpDec100 = dialog.findViewById(R.id.butXpDec100)  as PushButton
+    val butXpDec1000 = dialog.findViewById(R.id.butXpDec1000)  as PushButton
 
     fun showData()
     {
@@ -56,14 +57,14 @@ fun dialogXp(context: Context, x: Float? = null, y: Float? = null,
         }
         showData()
     }
-    butXpInc1.setOnClickListener { changeXp(1) }
-    butXpInc10.setOnClickListener { changeXp(10) }
-    butXpInc100.setOnClickListener { changeXp(100) }
-    butXpInc1000.setOnClickListener { changeXp(1000) }
-    butXpDec1.setOnClickListener { changeXp(-1) }
-    butXpDec10.setOnClickListener { changeXp(-10) }
-    butXpDec100.setOnClickListener { changeXp(-100) }
-    butXpDec1000.setOnClickListener { changeXp(-1000) }
+    butXpInc1.setAction{ changeXp(1) }
+    butXpInc10.setAction{ changeXp(10) }
+    butXpInc100.setAction{ changeXp(100) }
+    butXpInc1000.setAction{ changeXp(1000) }
+    butXpDec1.setAction{ changeXp(-1) }
+    butXpDec10.setAction{ changeXp(-10) }
+    butXpDec100.setAction{ changeXp(-100) }
+    butXpDec1000.setAction{ changeXp(-1000) }
 
     butOk.setOnClickListener {
         dialog.dismiss()
@@ -317,7 +318,7 @@ fun dialogInfo(context: Context, x :Float? = null, y: Float? = null,
     dialog.setContentView(R.layout.dialog_info_layout)
 
     val textTitle = dialog.findViewById(R.id.textInfoTitle) as TextView
-    val textDesc = dialog.findViewById(R.id.textInfoDesc) as TextView
+    val textDesc = dialog.findViewById(R.id.textSimpleDesc) as TextView
 
     textTitle.text = title
 
@@ -332,6 +333,28 @@ fun dialogInfo(context: Context, x :Float? = null, y: Float? = null,
         textDesc.movementMethod = ScrollingMovementMethod()
     }
     showDialogXY(dialog, x, y)
+}
+fun dialogError(context: Context, title: String, text: String,
+                onAccept: ()->Unit = { -> })
+{
+    val dialog = Dialog(context)
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.dialog_ok)
+
+    val textTitle = dialog.findViewById(R.id.textSimpleTitle) as TextView
+    val textDesc = dialog.findViewById(R.id.textSimpleDesc) as TextView
+    val butOk = dialog.findViewById(R.id.butSimpleOk)  as Button
+
+    butOk.setOnClickListener {
+        dialog.dismiss()
+        onAccept()
+    }
+
+    textTitle.text = title
+    textDesc.text = text
+
+    dialog.show()
 }
 private fun showDialogXY(dialog: Dialog, x :Float? = null, y: Float? = null)
 {

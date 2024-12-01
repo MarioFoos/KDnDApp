@@ -52,7 +52,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.sp
 import com.dndlib.DNDHeight
 import com.dndlib.DNDWeight
 import com.dndlib.base.EAbility
@@ -74,12 +73,19 @@ class MainActivity : ComponentActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
+
         // Configurar librería
         if(!configLibrary(assets))
         {
-            exitProcess(-1)
+            dialogError(context = this@MainActivity,
+                title = resources.getString(R.string.err),
+                text = resources.getString(R.string.err_init),
+                onAccept = {
+                    finish()
+                })
+            return
         }
-        showCharInfo()
+        //showCharInfo()
 
         // Arrays
         val arrRace : ArrayList<Map.Entry<ERace, String>> = Res.locale(ERace.values())
@@ -118,14 +124,16 @@ class MainActivity : ComponentActivity()
                 var ability2 by rememberSaveable { mutableStateOf(arrAbility[ability2Init].key) }
 
                 Box(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .fillMaxSize()
                         .paint(
                             painterResource(id = R.drawable.bg_hoja_dnd),
                             contentScale = ContentScale.FillBounds
                         )
                    ){}
                 Column(
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
                         .height(IntrinsicSize.Min)
                         .padding(
                             dimensionResource(R.dimen.mainPadding)
@@ -423,10 +431,12 @@ fun ShowEditText(text: String, onValueChange: (String) -> Unit, enabled: Boolean
             cursorBrush = SolidColor(colorResource(R.color.editCursor)),
             singleLine = true,
             decorationBox = { innerTextField ->
-                Row(Modifier.fillMaxWidth()
-                    .background(colorResource(R.color.editNormalBg), RoundedCornerShape(dimensionResource(R.dimen.butCorner)))
-                    .border(dimensionResource(dimStroke), colorResource(clStroke), RoundedCornerShape(dimensionResource(R.dimen.butCorner)))
-                    .padding(dimensionResource(R.dimen.editBoxPaddingH), dimensionResource(R.dimen.editBoxPaddingV))
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .background(colorResource(R.color.editNormalBg), RoundedCornerShape(dimensionResource(R.dimen.butCorner)))
+                        .border(dimensionResource(dimStroke), colorResource(clStroke), RoundedCornerShape(dimensionResource(R.dimen.butCorner)))
+                        .padding(dimensionResource(R.dimen.editBoxPaddingH), dimensionResource(R.dimen.editBoxPaddingV))
                 ) {
                     innerTextField()
                 }

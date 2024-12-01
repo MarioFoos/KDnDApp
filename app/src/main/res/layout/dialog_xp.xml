@@ -48,7 +48,7 @@
             android:orientation="vertical"
             tools:ignore="UselessParent">
 
-            <Button
+            <com.mlf.kdndapp.ui.theme.PushButton
                 android:id="@+id/butXpDec1000"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                 android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
-            <Button
+            <com.mlf.kdndapp.ui.theme.PushButton
                 android:id="@+id/butXpDec100"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                 android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
-            <Button
+            <com.mlf.kdndapp.ui.theme.PushButton
                 android:id="@+id/butXpDec10"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                 android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
-            <Button
+            <com.mlf.kdndapp.ui.theme.PushButton
                 android:id="@+id/butXpDec1"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:orientation="vertical"
             tools:ignore="UselessParent">
 
-            <Button
+            <com.mlf.kdndapp.ui.theme.PushButton
                 android:id="@+id/butXpInc1000"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                 android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
-            <Button
+            <com.mlf.kdndapp.ui.theme.PushButton
                 android:id="@+id/butXpInc100"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
@@ -120,7 +120,7 @@
                 android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
-            <Button
+            <com.mlf.kdndapp.ui.theme.PushButton
                 android:id="@+id/butXpInc10"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
@@ -130,7 +130,7 @@
                 android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
 
-            <Button
+            <com.mlf.kdndapp.ui.theme.PushButton
                 android:id="@+id/butXpInc1"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"

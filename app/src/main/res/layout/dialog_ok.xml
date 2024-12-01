@@ -5,27 +5,39 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/dialogPadding">
 
     <TextView
-        android:id="@+id/textInfoTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="viewStart"
-        android:textColor="@color/clBlack"
-        android:textSize="@dimen/dialogFontTitle"
-        android:textStyle="bold"
-        tools:text="Titulo de prueba" />
-
-    <TextView
-        android:id="@+id/textSimpleDesc"
+        android:id="@+id/textSimpleTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:overScrollMode="ifContentScrolls"
         android:textAlignment="viewStart"
         android:textColor="@color/clBlack"
         android:textSize="@dimen/dialogFontDesc"
+        android:textStyle="bold"
+        tools:text="Error" />
+
+    <TextView
+        android:id="@+id/textSimpleDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/controlMarginV"
+        android:overScrollMode="ifContentScrolls"
+        android:textAlignment="viewStart"
+        android:textColor="@color/clBlack"
+        android:textSize="@dimen/dialogFontDesc"
         tools:text="Texto de prueba de la descripción" />
+
+    <Button
+        android:id="@+id/butSimpleOk"
+        style="@style/but_brown_style"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/butDialogH"
+        android:layout_marginTop="@dimen/dialogPadding"
+        android:text="@string/ok"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </LinearLayout>
