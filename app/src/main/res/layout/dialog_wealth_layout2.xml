@@ -7,7 +7,17 @@
     android:orientation="vertical"
     android:padding="@dimen/dialogPadding">
 
+    <TextView
+        android:id="@+id/textCoinsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textNormalFace"
+        android:textSize="@dimen/fontLarge"
+        android:textStyle="bold"
+        tools:text="Agregar o quitar monedas" />
+
     <LinearLayout
+        android:id="@+id/layoutCoinsPlatinum"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
@@ -16,7 +26,8 @@
         <RadioButton
             android:id="@+id/radioCoinsPlatinum"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:checked="true" />
 
         <ImageView
             android:id="@+id/imageCoinsPlatinum"
@@ -33,15 +44,6 @@
             android:textStyle="bold"
             tools:text="0" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/textNormalFace"
-        android:textSize="@dimen/fontLarge"
-        android:textStyle="bold"
-        tools:text="Agregar o quitar monedas" />
 
     <EditText
         android:id="@+id/editTextNumber"

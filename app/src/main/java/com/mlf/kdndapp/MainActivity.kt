@@ -64,7 +64,6 @@ import com.dndlib.base.ERace
 import com.dndlib.base.EStageOfLife
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.KDnDAppTheme
-import kotlin.system.exitProcess
 
 val APP_TAG = "AppTag"
 
@@ -85,7 +84,7 @@ class MainActivity : ComponentActivity()
                 })
             return
         }
-        //showCharInfo()
+        showCharInfo()
 
         // Arrays
         val arrRace : ArrayList<Map.Entry<ERace, String>> = Res.locale(ERace.values())
@@ -257,14 +256,9 @@ class MainActivity : ComponentActivity()
 }
 fun configLibrary(assets : AssetManager): Boolean
 {
-    if(!Res.configResStrings(assets.open(Res.STRINGS_FILE)))
+    if(!Res.configLocale(assets.open(Res.STRINGS_FILE)))
     {
         Log.e(APP_TAG, "Error config " + Res.STRINGS_FILE)
-        return false
-    }
-    if(!Res.configResNames(assets.open(Res.NAMES_FILE)))
-    {
-        Log.e(APP_TAG, "Error config " + Res.NAMES_FILE)
         return false
     }
     return true

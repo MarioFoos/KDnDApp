@@ -115,7 +115,7 @@ fun dialogHp(context: Context, x: Float? = null, y: Float? = null,
 
     fun showData()
     {
-        textCurrent.text = curHp.hp.toString()
+        textCurrent.text = curHp.current.toString()
         textMax.text = curHp.max.toString()
         textTemp.text = curHp.temp.toString()
     }
@@ -129,8 +129,8 @@ fun dialogHp(context: Context, x: Float? = null, y: Float? = null,
         showData()
         return res
     }
-    butCurrentDec.setAction {  curHp.hp = changeHp(curHp.hp, -1) }
-    butCurrentInc.setAction {  curHp.hp = changeHp(curHp.hp, 1) }
+    butCurrentDec.setAction {  curHp.current = changeHp(curHp.current, -1) }
+    butCurrentInc.setAction {  curHp.current = changeHp(curHp.current, 1) }
     butMaxDec.setAction {  curHp.max = changeHp(curHp.max, -1) }
     butMaxInc.setAction {  curHp.max = changeHp(curHp.max, 1) }
     butTempDec.setAction {  curHp.temp = changeHp(curHp.temp, -1) }

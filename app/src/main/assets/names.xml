@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <names>
-	<dwarf>
-		<male>
+	<DWARF>
+		<MALE>
 			<value>Adrik</value>
 			<value>Alberich</value>
 			<value>Baern</value>
@@ -32,8 +32,8 @@
 			<value>Ulfgar</value>
 			<value>Veit</value>
 			<value>Vondal</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Amber</value>
 			<value>Artin</value>
 			<value>Audhild</value>
@@ -57,8 +57,8 @@
 			<value>Torbera</value>
 			<value>Torgga</value>
 			<value>Vistra</value>
-		</female>
-		<clan>
+		</FEMALE>
+		<CLAN>
 			<value>Balderk</value>
 			<value>Battlehammer</value>
 			<value>Brawnanvil</value>
@@ -74,10 +74,10 @@
 			<value>Strakeln</value>
 			<value>Torunn</value>
 			<value>Ungart</value>
-		</clan>
-	</dwarf>
-	<elf>
-		<male>
+		</CLAN>
+	</DWARF>
+	<ELF>
+		<MALE>
 			<value>Adran</value>
 			<value>Aelar</value>
 			<value>Aramil</value>
@@ -107,8 +107,8 @@
 			<value>Tharivol</value>
 			<value>Theren</value>
 			<value>Varis</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Adrie</value>
 			<value>Althaea</value>
 			<value>Anastrianna</value>
@@ -139,8 +139,8 @@
 			<value>Vadania</value>
 			<value>Valaruhe</value>
 			<value>Xanaphia</value>
-		</female>
-		<child>
+		</FEMALE>
+		<CHILD>
 			<value>Ara</value>
 			<value>Bryn</value>
 			<value>Del</value>
@@ -158,10 +158,10 @@
 			<value>Syllin</value>
 			<value>Thia</value>
 			<value>Vall</value>
-		</child>
-	</elf>
-	<halfling>
-		<male>
+		</CHILD>
+	</ELF>
+	<HALFLING>
+		<MALE>
 			<value>Alton</value>
 			<value>Ander</value>
 			<value>Cade</value>
@@ -179,8 +179,8 @@
 			<value>Reed</value>
 			<value>Roscoe</value>
 			<value>Wellby</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Andry</value>
 			<value>Bree</value>
 			<value>Callie</value>
@@ -199,10 +199,10 @@
 			<value>Trym</value>
 			<value>Vani</value>
 			<value>Verna</value>
-		</female>
-	</halfling>
-	<human_calishite>
-		<male>
+		</FEMALE>
+	</HALFLING>
+	<HUMAN_CALISHITE>
+		<MALE>
 			<value>Aseir</value>
 			<value>Bardeid</value>
 			<value>Haseid</value>
@@ -210,8 +210,8 @@
 			<value>Mehmen</value>
 			<value>Sudeiman</value>
 			<value>Zasheir</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Atala</value>
 			<value>Ceidil</value>
 			<value>Hama</value>
@@ -220,8 +220,8 @@
 			<value>Seipora</value>
 			<value>Yasheira</value>
 			<value>Zasheida</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Basha</value>
 			<value>Dumein</value>
 			<value>Jassan</value>
@@ -229,10 +229,10 @@
 			<value>Mostana</value>
 			<value>Pashar</value>
 			<value>Rein</value>
-		</lastname>
-	</human_calishite>
-	<human_chondathan>
-		<male>
+		</LASTNAME>
+	</HUMAN_CALISHITE>
+	<HUMAN_CHONDATHAN>
+		<MALE>
 			<value>Darvin</value>
 			<value>Dorn</value>
 			<value>Evendur</value>
@@ -243,8 +243,8 @@
 			<value>Morn</value>
 			<value>Randal</value>
 			<value>Stedd</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Arveene</value>
 			<value>Esvele</value>
 			<value>Jhessail</value>
@@ -254,18 +254,18 @@
 			<value>Rowan</value>
 			<value>Shandri</value>
 			<value>Tessele</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Amblecrown</value>
 			<value>Buckman</value>
 			<value>Dundragon</value>
 			<value>Evenwood</value>
 			<value>Greycastle</value>
 			<value>Tallstag</value>
-		</lastname>
-	</human_chondathan>
-	<human_damaran>
-		<male>
+		</LASTNAME>
+	</HUMAN_CHONDATHAN>
+	<HUMAN_DAMARAN>
+		<MALE>
 			<value>Bor</value>
 			<value>Fodel</value>
 			<value>Glar</value>
@@ -277,8 +277,8 @@
 			<value>Orel</value>
 			<value>Pavel</value>
 			<value>Sergor</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Alethra</value>
 			<value>Kara</value>
 			<value>Katernin</value>
@@ -287,8 +287,8 @@
 			<value>Olma</value>
 			<value>Tana</value>
 			<value>Zora</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Bersk</value>
 			<value>Chernin</value>
 			<value>Dotsk</value>
@@ -297,10 +297,10 @@
 			<value>Nemetsk</value>
 			<value>Shemov</value>
 			<value>Starag</value>
-		</lastname>
-	</human_damaran>
-	<human_illuskan>
-		<male>
+		</LASTNAME>
+	</HUMAN_DAMARAN>
+	<HUMAN_ILLUSKAN>
+		<MALE>
 			<value>Ander</value>
 			<value>Blath</value>
 			<value>Bran</value>
@@ -312,8 +312,8 @@
 			<value>Stor</value>
 			<value>Taman</value>
 			<value>Urth</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Amafrey</value>
 			<value>Betha</value>
 			<value>Cefrey</value>
@@ -322,18 +322,18 @@
 			<value>Olga</value>
 			<value>Silifrey</value>
 			<value>Westra</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Brightwood</value>
 			<value>Helder</value>
 			<value>Hornraven</value>
 			<value>Lackman</value>
 			<value>Stormwind</value>
 			<value>Windrivver</value>
-		</lastname>
-	</human_illuskan>
-	<human_mulan>
-		<male>
+		</LASTNAME>
+	</HUMAN_ILLUSKAN>
+	<HUMAN_MULAN>
+		<MALE>
 			<value>Aoth</value>
 			<value>Bareris</value>
 			<value>Ehput-Ki</value>
@@ -343,8 +343,8 @@
 			<value>So-Kehur</value>
 			<value>Thazar-De</value>
 			<value>Urhur</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Arizima</value>
 			<value>Chathi</value>
 			<value>Nephis</value>
@@ -354,8 +354,8 @@
 			<value>Thola</value>
 			<value>Umara</value>
 			<value>Zolis</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Ankhalab</value>
 			<value>Anskuld</value>
 			<value>Fezim</value>
@@ -363,10 +363,10 @@
 			<value>Nathandem</value>
 			<value>Sepret</value>
 			<value>Uuthrakt</value>
-		</lastname>
-	</human_mulan>
-	<human_rashemi>
-		<male>
+		</LASTNAME>
+	</HUMAN_MULAN>
+	<HUMAN_RASHEMI>
+		<MALE>
 			<value>Borivik</value>
 			<value>Faurgar</value>
 			<value>Jandar</value>
@@ -375,8 +375,8 @@
 			<value>Ralmevik</value>
 			<value>Shaumar</value>
 			<value>Vladislak</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Fyevarra</value>
 			<value>Hulmarra</value>
 			<value>Immith</value>
@@ -385,18 +385,18 @@
 			<value>Shevarra</value>
 			<value>Tammith</value>
 			<value>Yuldra</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Chergoba</value>
 			<value>Dyernina</value>
 			<value>Iltazyara</value>
 			<value>Murnyethara</value>
 			<value>Stayanoga</value>
 			<value>Ulmokina</value>
-		</lastname>
-	</human_rashemi>
-	<human_shou>
-		<male>
+		</LASTNAME>
+	</HUMAN_RASHEMI>
+	<HUMAN_SHOU>
+		<MALE>
 			<value>An</value>
 			<value>Chen</value>
 			<value>Chi</value>
@@ -410,8 +410,8 @@
 			<value>Shan</value>
 			<value>Shui</value>
 			<value>Wen</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Bai</value>
 			<value>Chao</value>
 			<value>Jia</value>
@@ -420,8 +420,8 @@
 			<value>Qiao</value>
 			<value>Shui</value>
 			<value>Tai</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Chien</value>
 			<value>Huang</value>
 			<value>Kao</value>
@@ -434,10 +434,10 @@
 			<value>Sum</value>
 			<value>Tan</value>
 			<value>Wan</value>
-		</lastname>
-	</human_shou>
-	<human_tethyrian>
-		<male>
+		</LASTNAME>
+	</HUMAN_SHOU>
+	<HUMAN_TETHYRIAN>
+		<MALE>
 			<value>Rhowan</value>
 			<value>Dardri</value>
 			<value>Ekarrel</value>
@@ -449,8 +449,8 @@
 			<value>Shenvinn</value>
 			<value>Svorestin</value>
 			<value>Doresvi</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Goesvi</value>
 			<value>Darveene</value>
 			<value>Meldri</value>
@@ -460,8 +460,8 @@
 			<value>Kereene</value>
 			<value>Merel</value>
 			<value>Ehsvi</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Buckwood</value>
 			<value>Oaksteed</value>
 			<value>Steamdragon</value>
@@ -472,10 +472,10 @@
 			<value>Moonsword</value>
 			<value>Longhopper</value>
 			<value>Irondew</value>
-		</lastname>
-	</human_tethyrian>
-	<human_turami>
-		<male>
+		</LASTNAME>
+	</HUMAN_TETHYRIAN>
+	<HUMAN_TURAMI>
+		<MALE>
 			<value>Anton</value>
 			<value>Diero</value>
 			<value>Marcon</value>
@@ -484,8 +484,8 @@
 			<value>Romero</value>
 			<value>Salazar</value>
 			<value>Umbero</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Balama</value>
 			<value>Dona</value>
 			<value>Faila</value>
@@ -495,8 +495,8 @@
 			<value>Quara</value>
 			<value>Selise</value>
 			<value>Vonda</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Agosto</value>
 			<value>Astorio</value>
 			<value>Calabra</value>
@@ -505,10 +505,10 @@
 			<value>Marivaldi</value>
 			<value>Pisacar</value>
 			<value>Ramondo</value>
-		</lastname>
-	</human_turami>
-	<dragonborn>
-		<male>
+		</LASTNAME>
+	</HUMAN_TURAMI>
+	<DRAGONBORN>
+		<MALE>
 			<value>Arjhan</value>
 			<value>Balasar</value>
 			<value>Bharash</value>
@@ -526,8 +526,8 @@
 			<value>Shedinn</value>
 			<value>Tarhun</value>
 			<value>Torinn</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Akra</value>
 			<value>Biri</value>
 			<value>Daar</value>
@@ -545,16 +545,16 @@
 			<value>Surina</value>
 			<value>Thava</value>
 			<value>Uadjit</value>
-		</female>
-		<child>
+		</FEMALE>
+		<CHILD>
 			<value>Climber</value>
 			<value>Earbender</value>
 			<value>Leaper</value>
 			<value>Pious</value>
 			<value>Shieldbiter</value>
 			<value>Zealous</value>
-		</child>
-		<lastname>
+		</CHILD>
+		<LASTNAME>
 			<value>Clethtinthiallor</value>
 			<value>Daardendrian</value>
 			<value>Delmirev</value>
@@ -573,10 +573,10 @@
 			<value>Turnuroth</value>
 			<value>Verthisathnrgiesh</value>
 			<value>Yarjerit</value>
-		</lastname>
-	</dragonborn>
-	<gnome>
-		<male>
+		</LASTNAME>
+	</DRAGONBORN>
+	<GNOME>
+		<MALE>
 			<value>Alston</value>
 			<value>Alvyn</value>
 			<value>Boddynock</value>
@@ -600,8 +600,8 @@
 			<value>Warryn</value>
 			<value>Wrenn</value>
 			<value>Zook</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Bimpnottin</value>
 			<value>Breena</value>
 			<value>Caramip</value>
@@ -624,8 +624,8 @@
 			<value>Tana</value>
 			<value>Waywocket</value>
 			<value>Zanna</value>
-		</female>
-		<lastname>
+		</FEMALE>
+		<LASTNAME>
 			<value>Beren</value>
 			<value>Daergel</value>
 			<value>Folkor</value>
@@ -637,25 +637,10 @@
 			<value>Scheppen</value>
 			<value>Timbers</value>
 			<value>Turen</value>
-		</lastname>
-		<nick>
-			<value>Birlaypega</value>
-			<value>Capa</value>
-			<value>Derramacerveza</value>
-			<value>Doblecierre</value>
-			<value>Fnipper</value>
-			<value>Gemabrillante</value>
-			<value>Hogarceniza</value>
-			<value>Ku</value>
-			<value>Nim</value>
-			<value>Pock</value>
-			<value>Tropiezapato</value>
-			<value>Tejón</value>
-			<value>Unzapato</value>
-		</nick>
-	</gnome>
-	<halfelf>
-		<male>
+		</LASTNAME>
+	</GNOME>
+	<HALFELF>
+		<MALE>
 			<value>Meikas</value>
 			<value>Crastaer</value>
 			<value>Wilborin</value>
@@ -666,8 +651,8 @@
 			<value>Uldeyr</value>
 			<value>Oriword</value>
 			<value>Halneak</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Elzenya</value>
 			<value>Relqarin</value>
 			<value>Jilelor</value>
@@ -678,10 +663,10 @@
 			<value>Sylyra</value>
 			<value>Sylcerys</value>
 			<value>Yesvyre</value>
-		</female>
-	</halfelf>
-	<halforc>
-		<male>
+		</FEMALE>
+	</HALFELF>
+	<HALFORC>
+		<MALE>
 			<value>Dench</value>
 			<value>Feng</value>
 			<value>Gell</value>
@@ -694,8 +679,8 @@
 			<value>Ront</value>
 			<value>Shump</value>
 			<value>Thokk</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Baggi</value>
 			<value>Emen</value>
 			<value>Engong</value>
@@ -709,10 +694,10 @@
 			<value>Vola</value>
 			<value>Volen</value>
 			<value>Yevelda</value>
-		</female>
-	</halforc>
-	<tiefling>
-		<male>
+		</FEMALE>
+	</HALFORC>
+	<TIEFLING>
+		<MALE>
 			<value>Akmenos</value>
 			<value>Amnon</value>
 			<value>Barakas</value>
@@ -727,8 +712,8 @@
 			<value>Pelaios</value>
 			<value>Skamos</value>
 			<value>Therai</value>
-		</male>
-		<female>
+		</MALE>
+		<FEMALE>
 			<value>Akta</value>
 			<value>Anakis</value>
 			<value>Bryseis</value>
@@ -742,29 +727,6 @@
 			<value>Orianna</value>
 			<value>Phelaia</value>
 			<value>Rieta</value>
-		</female>
-		<virtud>
-			<value>Apertura</value>
-			<value>Arte</value>
-			<value>Azar</value>
-			<value>Cántico</value>
-			<value>Cansancio</value>
-			<value>Carroña</value>
-			<value>Credo</value>
-			<value>Desesperación</value>
-			<value>Esperanza</value>
-			<value>Excelencia</value>
-			<value>Gloria</value>
-			<value>Ideal</value>
-			<value>Miedo</value>
-			<value>Misión</value>
-			<value>Música</value>
-			<value>Ningún lugar</value>
-			<value>Pena</value>
-			<value>Poesía</value>
-			<value>Reverencia</value>
-			<value>Temeridad</value>
-			<value>Tormento</value>
-		</virtud>
-	</tiefling>
+		</FEMALE>
+	</TIEFLING>
 </names>

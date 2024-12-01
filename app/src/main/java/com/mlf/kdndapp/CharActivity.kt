@@ -101,7 +101,7 @@ class CharActivity : ComponentActivity()
 
         car.hp.max = 30
         car.hp.temp = 5
-        car.hp.hp = ComTools.random(5, 25)
+        car.hp.current = ComTools.random(5, 25)
         car.xp = ComTools.random(30, 270)
 
         if(race == ERace.VARIANT_HUMAN)
@@ -151,7 +151,7 @@ class CharActivity : ComponentActivity()
                                 xp = carXp,
                                 // Nivel
                                 onChangeLevel = { newData ->
-                                    car.xpLevel.setXp(newData)
+                                    car.xpLevel.value = newData
                                     carXp.value = car.xpLevel.xp
                                 },
                                 // Inspiración
@@ -163,16 +163,16 @@ class CharActivity : ComponentActivity()
                             Row(modifier = Modifier.fillMaxWidth())
                             {
                                 ShowHP(context = this@CharActivity, car = car,
-                                    onChangeData = { newHp -> car.hp.set(newHp) })
+                                    onChangeData = { newHp -> car.hp.setValue(newHp) })
                             }
                             SpaceV()
                             // XP
                             Row(modifier = Modifier.fillMaxWidth())
                             {
-                                ShowXP(context = this@CharActivity, car = car,
+                                ShowXP(context = this@CharActivity,
                                     xp = carXp,
                                     onChangeData = { newData ->
-                                        car.xpLevel.setXp(newData)
+                                        car.xpLevel.value = newData
                                         carXp.value = car.xpLevel.xp
                                     })
                             }
@@ -481,7 +481,7 @@ fun ShowBasics(context: Context, car: DNDChar)
     }
 }
 @Composable
-fun ShowBar(context: Context, modifier: Modifier = Modifier,
+fun ShowBar(modifier: Modifier = Modifier,
             color: Color,
             text: String? = null,
             fraction: Float = 0f)
@@ -520,16 +520,15 @@ fun ShowBar(context: Context, modifier: Modifier = Modifier,
     }
 }
 @Composable
-fun ShowBar(context: Context, modifier: Modifier = Modifier,
+fun ShowBar(modifier: Modifier = Modifier,
             color: Color,
             text: String? = null,
             max: Int = 100,
             value: Int = 0)
 {
-    ShowBar(context = context, modifier = modifier,
-        color = color,
-        text = text,
-        fraction = if(max != 0){ value.toFloat()/max.toFloat()} else{ 0f })
+    ShowBar(modifier = modifier,
+        color = color, text = text,
+        fraction = if(max != 0){ value.toFloat()/max.toFloat()} else{ 1f })
 
 }
 @Composable
@@ -538,18 +537,18 @@ fun ShowHP(context: Context, car: DNDChar,
 {
     var gPosX by rememberSaveable { mutableStateOf(0f) }
     var gPosY by rememberSaveable { mutableStateOf(0f) }
-    var showHp by rememberSaveable { mutableStateOf(car.hp.hp) }
+
+    var showCurrent by rememberSaveable { mutableStateOf(car.hp.current) }
     var showMax by rememberSaveable { mutableStateOf(car.hp.max) }
     var showTemp by rememberSaveable { mutableStateOf(car.hp.temp) }
-    var hpShow = DNDHitPoints(showHp, showMax, showTemp)
+    var hpShow = DNDHitPoints(showCurrent, showMax, showTemp)
 
     val desc =  "• " + Res.locale("hit_points_level_1") + ": " + Res.localeF("hit_points_level_1", car.klass) + "\n" +
                 "• " + Res.locale("hit_points_other") + ": " + Res.localeF("hit_points_other", car.klass)
 
-    ShowBar(context = context,
-        color = colorResource(id = R.color.barHP),
-        fraction = hpShow.fraction,
+    ShowBar(color = colorResource(id = R.color.barHP),
         text = car.hp.toString(),
+        fraction = hpShow.fraction,
         modifier = Modifier
             .height(dimensionResource(R.dimen.profileBarH))
             .onGloballyPositioned { coordinates ->
@@ -569,7 +568,7 @@ fun ShowHP(context: Context, car: DNDChar,
                         dialogHp(context = context, x = gPosX + offset.x, y = gPosY + offset.y,
                             hp = car.hp,
                             onAccept = { hp ->
-                                showHp = hp.hp
+                                showCurrent = hp.current
                                 showMax = hp.max
                                 showTemp = hp.temp
                                 onChangeData(hp)
@@ -581,7 +580,7 @@ fun ShowHP(context: Context, car: DNDChar,
     )
 }
 @Composable
-fun ShowXP(context: Context, car: DNDChar,
+fun ShowXP(context: Context,
            xp: MutableState<Int>,
            onChangeData: (DNDXpLevel)->Unit = { _ -> })
 {
@@ -590,8 +589,7 @@ fun ShowXP(context: Context, car: DNDChar,
 
     var levelXp = DNDXpLevel(xp.value)
 
-    ShowBar(context = context,
-        color = colorResource(id = R.color.barXP),
+    ShowBar(color = colorResource(id = R.color.barXP),
         text = levelXp.toString(),
         fraction = levelXp.xpFractionInLevel,
         modifier = Modifier
