@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -33,6 +34,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.BottomCenter
+import androidx.compose.ui.Alignment.Companion.Center
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment.Companion.TopCenter
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
@@ -55,6 +60,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.dndlib.DNDAbility
 import com.dndlib.DNDChar
 import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
@@ -72,11 +78,13 @@ import com.dndlib.base.EStageOfLife
 import com.dndlib.res.ComTools
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.KDnDAppTheme
+import java.util.EnumMap
 
 private val coinIcons = arrayOf(R.drawable.coin_platinum, R.drawable.coin_gold,  R.drawable.coin_electrum, R.drawable.coin_silver, R.drawable.coin_cupper)
 private val coinTypes = arrayOf(ECoin.PLATINUM, ECoin.GOLD, ECoin.ELECTRUM, ECoin.SILVER, ECoin.CUPPER)
 
 data class DEntry(val key: String = "", val value: String = "", val title: String = "", val desc: String = "")
+data class DAbility(val ability: EAbility, val color: Color)
 
 class CharActivity : ComponentActivity()
 {
@@ -109,13 +117,13 @@ class CharActivity : ComponentActivity()
         }
         EAbility.values().forEach { ability -> car.setAbilityBase(ability, ComTools.random(10, 20)) }
         car.setAbilityRacialsBonus(EAbility.CHARISMA, EAbility.INTELLIGENCE)
-        car.setAbilityExtraBonus(EAbility.STRENGTH, 1)
+        car.getAbility(EAbility.STRENGTH).byOther = 1
         car.background = Res.randomItem(EBackground.values())
 
         setContent {
             var carWealth: MutableState<Int> = rememberSaveable { mutableStateOf(car.wealth.total) }
             var carXp: MutableState<Int> = rememberSaveable { mutableStateOf(car.xp) }
-            var carName: MutableState<String> = rememberSaveable { mutableStateOf(car.name) }
+            var carName: MutableState<String> = rememberSaveable { mutableStateOf(car.nameWithNick) }
             var carNick: MutableState<String> = rememberSaveable { mutableStateOf(car.nick) }
             var carTitle: MutableState<String> = rememberSaveable { mutableStateOf(car.title) }
 
@@ -140,7 +148,7 @@ class CharActivity : ComponentActivity()
                         onChange = { nick, title ->
                             car.nick = nick
                             car.title = title
-                            carName.value = car.name
+                            carName.value = car.nameWithNick
                             carNick.value = car.nick
                             carTitle.value = car.title
                         })
@@ -189,7 +197,7 @@ class CharActivity : ComponentActivity()
                             Row(modifier = Modifier.fillMaxWidth())
                             {
                                 ShowHP(context = this@CharActivity, car = car,
-                                    onChangeData = { newHp -> car.hp.setValue(newHp) })
+                                    onChangeData = { newHp -> car.hp.value = newHp })
                             }
                             SpaceV()
                             // XP
@@ -219,6 +227,7 @@ class CharActivity : ComponentActivity()
                     SpaceV()
                     ShowHitDice(this@CharActivity, car)
                     SpaceV()
+                    ShowAbilities(context = this@CharActivity, car = car)
                 }
             }
         }
@@ -272,11 +281,54 @@ fun getImageRace(context: Context, race : ERace, gender : EGender) : ImageBitmap
 @Composable
 fun ShowAbilities(context: Context, car: DNDChar)
 {
-    Row(modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically)
+    var data: ArrayList<DAbility> = ArrayList()
+    val abilities = car.getAbilities()
+
+    data.add(DAbility(EAbility.STRENGTH, colorResource(id = R.color.clStrength)))
+    data.add(DAbility(EAbility.DEXTERITY, colorResource(id = R.color.clDexterity)))
+    data.add(DAbility(EAbility.CONSTITUTION, colorResource(id = R.color.clConstitution)))
+    data.add(DAbility(EAbility.INTELLIGENCE, colorResource(id = R.color.clIntelligence)))
+    data.add(DAbility(EAbility.WISDOM, colorResource(id = R.color.clWisdom)))
+    data.add(DAbility(EAbility.CHARISMA, colorResource(id = R.color.clCharisma)))
+
+    Row(modifier = Modifier.fillMaxWidth())
     {
+        data.forEachIndexed { index, item ->
+            Column(modifier = Modifier
+                .weight(1f)
+                .background(item.color))
+            {
+                val bonus : Int = abilities[item.ability]!!.bonus
 
-
+                Text(modifier = Modifier.fillMaxWidth(),
+                    text = Res.locale(item.ability),
+                    color = colorResource(id = R.color.clWhite),
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    fontSize = fontSizeResourse(R.dimen.fontNormal),
+                    fontWeight = FontWeight.Bold
+                )
+                Text(modifier = Modifier.fillMaxWidth(),
+                    text = (if(abilities[item.ability]!!.bonus >= 0){"+"}else{""}) + abilities[item.ability]!!.bonus.toString(),
+                    color = colorResource(id = R.color.clWhite),
+                    textAlign = TextAlign.Center,
+                    fontSize = fontSizeResourse(R.dimen.fontVeryLarge),
+                    fontWeight = FontWeight.Bold
+                )
+                Text(modifier = Modifier.fillMaxWidth(),
+                    text = abilities[item.ability]!!.base.toString(),
+                    color = colorResource(id = R.color.clWhite),
+                    textAlign = TextAlign.Center,
+                    fontSize = fontSizeResourse(R.dimen.fontNormal),
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            if(index < data.size -1)
+            {
+                SpaceH()
+            }
+        }
     }
 }
 

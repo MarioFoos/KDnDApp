@@ -11,14 +11,9 @@
 
     <TextView
         android:id="@+id/textHpTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        style="@style/text_title"
         android:layout_marginBottom="@dimen/controlMarginV"
         android:layout_weight="1"
-        android:textAlignment="viewStart"
-        android:textColor="@color/textNormalFace"
-        android:textSize="@dimen/fontLarge"
-        android:textStyle="bold"
         tools:text="Puntos de golpe" />
 
     <LinearLayout
@@ -67,13 +62,8 @@
 
         <TextView
             android:id="@+id/textHpCurrentDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dialogPadding"
-            android:textAlignment="viewStart"
-            android:textColor="@color/textNormalFace"
-            android:textSize="@dimen/fontNormal"
-            android:textStyle="bold"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
             tools:text="Actuales" />
 
     </LinearLayout>
@@ -99,7 +89,6 @@
                 android:layout_width="@dimen/butChangeW"
                 android:layout_height="@dimen/butChangeH"
                 android:text="@string/minus"
-                android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
             <TextView
@@ -109,7 +98,6 @@
                 android:layout_height="@dimen/editDialogH"
                 android:layout_marginHorizontal="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
-                android:textStyle="bold"
                 tools:text="1" />
 
             <com.mlf.kdndapp.ui.theme.PushButton
@@ -118,20 +106,14 @@
                 android:layout_width="@dimen/butChangeW"
                 android:layout_height="@dimen/butChangeH"
                 android:text="@string/plus"
-                android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/textHpMaxDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dialogPadding"
-            android:textAlignment="viewStart"
-            android:textColor="@color/textNormalFace"
-            android:textSize="@dimen/fontNormal"
-            android:textStyle="bold"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
             tools:text="Máximos" />
 
     </LinearLayout>
@@ -156,7 +138,6 @@
                 android:layout_width="@dimen/butChangeW"
                 android:layout_height="@dimen/butChangeH"
                 android:text="@string/minus"
-                android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
             <TextView
@@ -166,7 +147,6 @@
                 android:layout_height="@dimen/editDialogH"
                 android:layout_marginHorizontal="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
-                android:textStyle="bold"
                 tools:text="1" />
 
             <com.mlf.kdndapp.ui.theme.PushButton
@@ -175,20 +155,14 @@
                 android:layout_width="@dimen/butChangeW"
                 android:layout_height="@dimen/butChangeH"
                 android:text="@string/plus"
-                android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/textHpTempDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dialogPadding"
-            android:textAlignment="viewStart"
-            android:textColor="@color/textNormalFace"
-            android:textSize="@dimen/fontNormal"
-            android:textStyle="bold"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
             tools:text="Temporales" />
 
     </LinearLayout>
@@ -205,9 +179,8 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
-            android:text="@string/ok"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Aceptar" />
 
         <Button
             android:id="@+id/butHpCancel"
@@ -215,9 +188,8 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
-            android:text="@string/cancel"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Cancelar" />
     </LinearLayout>
 
 </LinearLayout>

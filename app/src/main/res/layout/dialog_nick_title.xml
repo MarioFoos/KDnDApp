@@ -11,12 +11,8 @@
 
     <TextView
         android:id="@+id/textNickTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/text_title"
         android:layout_marginBottom="@dimen/dialogMargins"
-        android:textColor="@color/textNormalFace"
-        android:textSize="@dimen/fontLarge"
-        android:textStyle="bold"
         tools:text="Apodo y título" />
 
     <LinearLayout
@@ -28,13 +24,9 @@
 
         <TextView
             android:id="@+id/textNickDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/text_desc"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
-            android:textColor="@color/textNormalFace"
-            android:textSize="@dimen/fontMedium"
-            android:textStyle="bold"
             tools:text="Apodo" />
 
         <EditText
@@ -44,7 +36,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:textStyle="bold"
             tools:ignore="Autofill,DuplicateSpeakableTextCheck,LabelFor,TouchTargetSizeCheck"
             tools:text="Apodo" />
     </LinearLayout>
@@ -57,13 +48,9 @@
 
         <TextView
             android:id="@+id/textTitleDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/text_desc"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
-            android:textColor="@color/textNormalFace"
-            android:textSize="@dimen/fontMedium"
-            android:textStyle="bold"
             tools:text="Título" />
 
         <EditText
@@ -73,7 +60,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:textStyle="bold"
             tools:ignore="Autofill,DuplicateSpeakableTextCheck,LabelFor,TouchTargetSizeCheck"
             tools:text="Título" />
     </LinearLayout>
@@ -92,7 +78,6 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
             android:layout_marginEnd="@dimen/dialogMargins"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Aceptar" />
 
@@ -101,7 +86,6 @@
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Canelar" />
     </LinearLayout>

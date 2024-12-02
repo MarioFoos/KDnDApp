@@ -10,12 +10,9 @@
 
     <TextView
         android:id="@+id/textCoinsTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/text_title"
         android:layout_marginBottom="@dimen/dialogMargins"
         android:textColor="@color/textNormalFace"
-        android:textSize="@dimen/fontLarge"
-        android:textStyle="bold"
         tools:text="Agregar o quitar monedas" />
 
     <LinearLayout
@@ -41,7 +38,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -51,7 +47,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -61,7 +56,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
-            android:textStyle="bold"
             tools:text="0" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -72,7 +66,6 @@
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -82,7 +75,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
     </LinearLayout>
     <LinearLayout
@@ -108,7 +100,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -118,7 +109,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
@@ -128,7 +118,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
-            android:textStyle="bold"
             tools:text="0" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -139,7 +128,6 @@
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -149,7 +137,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
     <LinearLayout
@@ -175,7 +162,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -185,7 +171,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
@@ -195,7 +180,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
-            android:textStyle="bold"
             tools:text="0" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -206,7 +190,6 @@
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -216,7 +199,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
     <LinearLayout
@@ -242,7 +224,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -252,7 +233,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
@@ -262,7 +242,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
-            android:textStyle="bold"
             tools:text="0" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -273,7 +252,6 @@
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -283,7 +261,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
@@ -309,7 +286,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -319,7 +295,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
@@ -329,7 +304,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
-            android:textStyle="bold"
             tools:text="0" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -340,7 +314,6 @@
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.mlf.kdndapp.ui.theme.PushButton
@@ -350,7 +323,6 @@
             android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
@@ -365,7 +337,6 @@
             android:id="@+id/butCoinsAdd"
             style="@style/but_brown_style"
             android:layout_height="@dimen/butDialogH"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Agregar" />
 
@@ -375,7 +346,6 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
             android:layout_marginHorizontal="@dimen/dialogMargins"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Quitar" />
 
@@ -384,7 +354,6 @@
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/butDialogH"
-            android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Cancelar" />
     </LinearLayout>

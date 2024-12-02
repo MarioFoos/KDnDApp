@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Gral fonts -->
+    <dimen name="fontVeryLarge">24sp</dimen>
     <dimen name="fontLarge">20sp</dimen>
     <dimen name="fontMedium">18sp</dimen>
     <dimen name="fontNormal">16sp</dimen>
     <dimen name="fontSmall">14sp</dimen>
     <dimen name="fontMini">12sp</dimen>
+    <dimen name="dialogFontTitle">@dimen/fontLarge</dimen>
+    <dimen name="dialogFontButton">@dimen/fontMedium</dimen>
+    <dimen name="dialogFontDesc">@dimen/fontMedium</dimen>
 
     <!-- Gral control fonts -->
     <dimen name="fontBut">@dimen/fontMedium</dimen>
@@ -56,9 +60,10 @@
     <dimen name="iconNumber">40dp</dimen>
     <dimen name="profileBarH">24dp</dimen>
 
+    <!-- ABILITIES -->
+    <dimen name="abilityH">60dp</dimen>
+
     <!-- Dialog -->
-    <dimen name="dialogFontTitle">@dimen/fontMedium</dimen>
-    <dimen name="dialogFontDesc">@dimen/fontNormal</dimen>
     <dimen name="dialogPadding">8dp</dimen>
     <dimen name="dialogStroke">2dp</dimen>
     <dimen name="dialogMargins">2dp</dimen>

@@ -1776,21 +1776,32 @@ Asimismo, si tienes inspiración podrás recompensar a otro personaje por una bu
 		<feats>Dotes</feats>
 		<primary_abilily>Característica principal</primary_abilily>
 		<!-- Dialogs -->
-		<hp_currents>HP actuales</hp_currents>
-		<hp_max>HP máximos</hp_max>
-		<hp_temp>HP temporales</hp_temp>
-		<add_xp>Agregar experiencia</add_xp>
-		<add_quit_coins>Agregar o quitar monedas</add_quit_coins>
-		<error>Error</error>
-		<not_enough_funds>Fondos insuficientes</not_enough_funds>
-		<nick_title>Apodo y título</nick_title>
-		<nick>Apodo</nick>
-		<title>Título</title>
 		<!-- Buttons -->
 		<but_ok>Aceptar</but_ok>
 		<but_cancel>Cancelar</but_cancel>
 		<but_add>Agregar</but_add>
 		<but_sub>Quitar</but_sub>
+		<!-- Puntos de golpe -->
+		<hp_currents>HP actuales</hp_currents>
+		<hp_max>HP máximos</hp_max>
+		<hp_temp>HP temporales</hp_temp>
+		<add_xp>Agregar experiencia</add_xp>
+		<!-- Riqueza -->
+		<add_quit_coins>Agregar o quitar monedas</add_quit_coins>
+		<!-- Errores -->
+		<error>Error</error>
+		<not_enough_funds>Fondos insuficientes</not_enough_funds>
+		<!-- Apodo y título -->
+		<nick_title>Apodo y título</nick_title>
+		<nick>Apodo</nick>
+		<title>Título</title>
+		<!-- Características -->
+		<base>Base</base>
+		<by_race>Racial</by_race>
+		<by_feat>Por dote</by_feat>
+		<by_level>Por nivel</by_level>
+		<by_temp>Temporal</by_temp>
+		<by_other>Otro</by_other>
 	</misc>
 	<formatted>
 		<hit_dice>1{klass_dice} por nivel de {klass}.</hit_dice>

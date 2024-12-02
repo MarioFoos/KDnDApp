@@ -89,11 +89,12 @@
     <!-- CARACTERÍSTICAS / ABILITIES -->
 
     <!-- CARACTERÍSTICAS / ABILITIES -->
-    <color name="clStrength">#FFFF4C4C</color>
-    <color name="clDexterity">#FFB366FF</color>
-    <color name="clConstitution">#FF33FF33</color>
-    <color name="clIntelligence">#FF80c0ff</color>
-    <color name="clWisdom">#FFE5E500</color>
-    <color name="clCharisma">#FFE57300</color>
+    <color name="clStrength">#FFe51717</color>
+    <color name="clDexterity">#FFe57300</color>
+    <color name="clConstitution">#FF00b31e</color>
+<!--    <color name="clIntelligence">#FF3377ff</color>-->
+    <color name="clIntelligence">#FF00a3d9</color>
+    <color name="clWisdom">#FF8a2ee5</color>
+    <color name="clCharisma">#FFb300b3</color>
 
 </resources>

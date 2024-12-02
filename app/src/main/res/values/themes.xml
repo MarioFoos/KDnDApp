@@ -11,10 +11,38 @@
         <item name="android:paddingTop">@dimen/dialogEditPaddingV</item>
         <item name="android:paddingBottom">@dimen/dialogEditPaddingV</item>
         <item name="android:background">@drawable/shape_edit</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColorHighlight">@color/editSelectedBg</item>
         <item name="android:textColorLink">@color/editSelectedBg</item>
         <item name="android:textCursorDrawable">@drawable/shape_edit_cursor</item>
         <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="text_title">
+        <item name="android:textSize">@dimen/dialogFontTitle</item>
+        <item name="android:textColor">@color/textNormalFace</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="text_info">
+        <item name="android:textSize">@dimen/dialogFontDesc</item>
+        <item name="android:textColor">@color/textNormalFace</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="text_desc">
+        <item name="android:textSize">@dimen/dialogFontDesc</item>
+        <item name="android:textColor">@color/textNormalFace</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
     </style>
 
     <style name="but_base_style">
@@ -22,6 +50,7 @@
         <item name="android:paddingStart">@dimen/butPaddingH</item>
         <item name="android:paddingEnd">@dimen/butPaddingH</item>
         <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:singleLine">true</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

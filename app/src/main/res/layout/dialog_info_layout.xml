@@ -11,22 +11,15 @@
 
     <TextView
         android:id="@+id/textInfoTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="viewStart"
-        android:textColor="@color/clBlack"
-        android:textSize="@dimen/dialogFontTitle"
-        android:textStyle="bold"
+        style="@style/text_title"
+        android:layout_marginBottom="@dimen/dialogMargins"
         tools:text="Titulo de prueba" />
 
     <TextView
         android:id="@+id/textInfoDesc"
+        style="@style/text_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:overScrollMode="ifContentScrolls"
-        android:textAlignment="viewStart"
-        android:textColor="@color/clBlack"
-        android:textSize="@dimen/dialogFontDesc"
         tools:text="Texto de prueba de la descripción" />
 
 </LinearLayout>

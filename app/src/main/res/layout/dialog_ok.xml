@@ -11,6 +11,7 @@
 
     <TextView
         android:id="@+id/textSimpleTitle"
+        style="@style/text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:overScrollMode="ifContentScrolls"
@@ -22,13 +23,9 @@
 
     <TextView
         android:id="@+id/textInfoDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/text_info"
         android:layout_marginTop="@dimen/controlMarginV"
         android:overScrollMode="ifContentScrolls"
-        android:textAlignment="viewStart"
-        android:textColor="@color/clBlack"
-        android:textSize="@dimen/dialogFontDesc"
         tools:text="Texto de prueba de la descripción" />
 
     <Button
@@ -37,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/butDialogH"
         android:layout_marginTop="@dimen/dialogPadding"
-        android:text="@string/ok"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+        tools:text="Aceptar" />
 
 </LinearLayout>
