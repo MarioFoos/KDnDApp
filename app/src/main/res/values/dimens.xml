@@ -43,6 +43,7 @@
     <dimen name="editDialogW">48dp</dimen>
     <dimen name="editDialogH">36dp</dimen>
     <dimen name="editWealthW">70dp</dimen>
+    <dimen name="editNickTitleW">240dp</dimen>
 
     <!-- RIQUEZA -->
     <dimen name="rowWealth">32dp</dimen>
@@ -64,6 +65,6 @@
 
     <!-- DIALOG EDIT-->
     <dimen name="dialogEditPaddingH">8dp</dimen>
-    <dimen name="dialogEditPaddingV">2dp</dimen>
+    <dimen name="dialogEditPaddingV">4dp</dimen>
 
 </resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutNickTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog"
+    android:gravity="end"
+    android:orientation="vertical"
+    android:padding="@dimen/dialogPadding">
+
+    <TextView
+        android:id="@+id/textNickTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:textColor="@color/textNormalFace"
+        android:textSize="@dimen/fontLarge"
+        android:textStyle="bold"
+        tools:text="Apodo y título" />
+
+    <LinearLayout
+        android:id="@+id/layoutNick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textNickDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/textNormalFace"
+            android:textSize="@dimen/fontMedium"
+            android:textStyle="bold"
+            tools:text="Apodo" />
+
+        <EditText
+            android:id="@+id/editNick"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editNickTitleW"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textStyle="bold"
+            tools:ignore="Autofill,DuplicateSpeakableTextCheck,LabelFor,TouchTargetSizeCheck"
+            tools:text="Apodo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textTitleDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/textNormalFace"
+            android:textSize="@dimen/fontMedium"
+            android:textStyle="bold"
+            tools:text="Título" />
+
+        <EditText
+            android:id="@+id/editTitle"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editNickTitleW"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textStyle="bold"
+            tools:ignore="Autofill,DuplicateSpeakableTextCheck,LabelFor,TouchTargetSizeCheck"
+            tools:text="Título" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutNickButtons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dialogPadding"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/butNickOk"
+            style="@style/but_brown_style"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/butDialogH"
+            android:layout_marginEnd="@dimen/dialogMargins"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Aceptar" />
+
+        <Button
+            android:id="@+id/butNickCancel"
+            style="@style/but_brown_style"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/butDialogH"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Canelar" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -73,7 +73,6 @@ import com.dndlib.res.ComTools
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.KDnDAppTheme
 
-
 private val coinIcons = arrayOf(R.drawable.coin_platinum, R.drawable.coin_gold,  R.drawable.coin_electrum, R.drawable.coin_silver, R.drawable.coin_cupper)
 private val coinTypes = arrayOf(ECoin.PLATINUM, ECoin.GOLD, ECoin.ELECTRUM, ECoin.SILVER, ECoin.CUPPER)
 
@@ -116,6 +115,9 @@ class CharActivity : ComponentActivity()
         setContent {
             var carWealth: MutableState<Int> = rememberSaveable { mutableStateOf(car.wealth.total) }
             var carXp: MutableState<Int> = rememberSaveable { mutableStateOf(car.xp) }
+            var carName: MutableState<String> = rememberSaveable { mutableStateOf(car.name) }
+            var carNick: MutableState<String> = rememberSaveable { mutableStateOf(car.nick) }
+            var carTitle: MutableState<String> = rememberSaveable { mutableStateOf(car.title) }
 
             KDnDAppTheme{
                 Box(modifier = Modifier
@@ -131,7 +133,17 @@ class CharActivity : ComponentActivity()
                     verticalArrangement = Arrangement.Top
                 ) {
                     // Nombre
-                    ShowName(this@CharActivity, car.name)
+                    ShowName(context = this@CharActivity,
+                        name = carName,
+                        nick = carNick,
+                        title = carTitle,
+                        onChange = { nick, title ->
+                            car.nick = nick
+                            car.title = title
+                            carName.value = car.name
+                            carNick.value = car.nick
+                            carTitle.value = car.title
+                        })
                     SpaceV()
                     // Oro
                     ShowWealth(context = this@CharActivity, wealth = carWealth,
@@ -758,24 +770,60 @@ fun ShowWealth(context: Context, wealth: MutableState<Int>,
     }
 }
 @Composable
-fun ShowName(context: Context, name: String)
+fun ShowName(context: Context,
+             name: MutableState<String>,
+             nick: MutableState<String>,
+             title: MutableState<String>,
+             onChange: (nick: String, title: String)->Unit = { _, _ -> })
 {
-    Row(verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center,
+    var gPosX by rememberSaveable { mutableStateOf(0f) }
+    var gPosY by rememberSaveable { mutableStateOf(0f) }
+
+    Column(verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxWidth()
             .background(colorResource(R.color.contentBg))
             .border(dimensionResource(R.dimen.contentStroke), colorResource(R.color.contentStroke))
             .padding(dimensionResource(R.dimen.contentPadding))
+            .onGloballyPositioned { coordinates ->
+                gPosX = coordinates.positionInWindow().x
+                gPosY = coordinates.positionInWindow().y
+            }
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = {},
+                    onLongPress = { offset ->
+                        dialogNickTitle(context = context, x = gPosX + offset.x, y = gPosY + offset.y,
+                            nick = nick.value,
+                            title = title.value,
+                            onAccept = { nick, title ->
+                                onChange(nick, title)
+                            })
+                    },
+                    onDoubleTap = {}
+                )
+            }
     ){
         // Nombre
-        Text(text = name,
+        Text(text = name.value,
             modifier = Modifier.fillMaxWidth(),
             fontSize = fontSizeResourse(R.dimen.fontName),
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             color = colorResource(R.color.contentFace)
         )
+        // Título
+        if(title.value.isNotEmpty())
+        {
+            Text(text = title.value,
+                modifier = Modifier.fillMaxWidth(),
+                fontSize = fontSizeResourse(R.dimen.fontNormal),
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                color = colorResource(R.color.contentFace)
+            )
+        }
     }
 }
 @Composable

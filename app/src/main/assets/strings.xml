@@ -1783,6 +1783,9 @@ Asimismo, si tienes inspiración podrás recompensar a otro personaje por una bu
 		<add_quit_coins>Agregar o quitar monedas</add_quit_coins>
 		<error>Error</error>
 		<not_enough_funds>Fondos insuficientes</not_enough_funds>
+		<nick_title>Apodo y título</nick_title>
+		<nick>Apodo</nick>
+		<title>Título</title>
 		<!-- Buttons -->
 		<but_ok>Aceptar</but_ok>
 		<but_cancel>Cancelar</but_cancel>

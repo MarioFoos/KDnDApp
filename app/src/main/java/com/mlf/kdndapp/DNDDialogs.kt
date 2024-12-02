@@ -7,12 +7,55 @@ import android.view.Gravity
 import android.view.View
 import android.view.Window
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
 import com.dndlib.base.ECoin
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.PushButton
+
+fun dialogNickTitle(context: Context, x: Float? = null, y: Float? = null,
+                    nick: String,
+                    title: String,
+                    onAccept: (nick: String, title: String)->Unit = { _, _ -> })
+{
+    val dialog = Dialog(context)
+
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.dialog_nick_title)
+
+    // Fijos
+    val butOk = dialog.findViewById(R.id.butNickOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butNickCancel)  as Button
+    val textNickTitle = dialog.findViewById(R.id.textNickTitle) as TextView
+    val textNickDesc = dialog.findViewById(R.id.textNickDesc) as TextView
+    val textTitleDesc = dialog.findViewById(R.id.textTitleDesc) as TextView
+
+    butOk.text = Res.locale("but_ok")
+    butCancel.text = Res.locale("but_cancel")
+    textNickTitle.text = Res.locale("nick_title")
+    textNickDesc.text = Res.locale("nick")
+    textTitleDesc.text = Res.locale("title")
+
+    // Variables
+    val editNick = dialog.findViewById(R.id.editNick) as EditText
+    val editTitle = dialog.findViewById(R.id.editTitle) as EditText
+
+    editNick.setText(nick)
+    editTitle.setText(title)
+    editNick.requestFocus()
+
+    butOk.setOnClickListener {
+        dialog.dismiss()
+        onAccept(editNick.text.toString(), editTitle.text.toString())
+    }
+    butCancel.setOnClickListener {
+        dialog.dismiss()
+    }
+    showDialogXY(dialog, x, y)
+}
 
 fun dialogXp(context: Context, x: Float? = null, y: Float? = null,
              onAccept: (addXp: Int)->Unit = { _ -> })

@@ -82,7 +82,7 @@
     <color name="editDisableText">@color/clYellow3</color>
     <color name="editDisableStroke">@color/clYellow3</color>
     <color name="editFocusStroke">@color/clYellow5</color>
-    <color name="editCursor">@color/clBlue2</color>
+    <color name="editCursor">@color/clYellow5</color>
     <color name="editSelectedText">@color/clWhite</color>
     <color name="editSelectedBg">@color/clBlue4</color>
 
