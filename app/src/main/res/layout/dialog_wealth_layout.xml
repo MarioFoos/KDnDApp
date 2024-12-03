@@ -12,7 +12,6 @@
         android:id="@+id/textCoinsTitle"
         style="@style/text_title"
         android:layout_marginBottom="@dimen/dialogMargins"
-        android:textColor="@color/textNormalFace"
         tools:text="Agregar o quitar monedas" />
 
     <LinearLayout
@@ -35,7 +34,6 @@
             android:id="@+id/butPlatinumDec10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
@@ -44,7 +42,6 @@
             android:id="@+id/butPlatinumDec1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
@@ -52,8 +49,7 @@
         <TextView
             android:id="@+id/textCoinsPlatinum"
             style="@style/edit_style"
-            android:layout_width="@dimen/editWealthW"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/editDialogWealthW"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
             tools:text="0" />
@@ -62,7 +58,6 @@
             android:id="@+id/butPlatinumInc1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
@@ -72,7 +67,6 @@
             android:id="@+id/butPlatinumInc10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
@@ -97,7 +91,6 @@
             android:id="@+id/butGoldDec10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
             tools:ignore="TouchTargetSizeCheck" />
@@ -106,7 +99,6 @@
             android:id="@+id/butGoldDec1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
             tools:ignore="TouchTargetSizeCheck" />
@@ -114,8 +106,7 @@
         <TextView
             android:id="@+id/textCoinsGold"
             style="@style/edit_style"
-            android:layout_width="@dimen/editWealthW"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/editDialogWealthW"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
             tools:text="0" />
@@ -124,7 +115,6 @@
             android:id="@+id/butGoldInc1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
@@ -134,7 +124,6 @@
             android:id="@+id/butGoldInc10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
             tools:ignore="TouchTargetSizeCheck" />
@@ -159,7 +148,6 @@
             android:id="@+id/butElectrumDec10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
             tools:ignore="TouchTargetSizeCheck" />
@@ -168,7 +156,6 @@
             android:id="@+id/butElectrumDec1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
             tools:ignore="TouchTargetSizeCheck" />
@@ -176,8 +163,7 @@
         <TextView
             android:id="@+id/textCoinsElectrum"
             style="@style/edit_style"
-            android:layout_width="@dimen/editWealthW"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/editDialogWealthW"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
             tools:text="0" />
@@ -186,7 +172,6 @@
             android:id="@+id/butElectrumInc1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
@@ -196,7 +181,6 @@
             android:id="@+id/butElectrumInc10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
             tools:ignore="TouchTargetSizeCheck" />
@@ -221,7 +205,6 @@
             android:id="@+id/butSilverDec10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
             tools:ignore="TouchTargetSizeCheck" />
@@ -230,7 +213,6 @@
             android:id="@+id/butSilverDec1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
             tools:ignore="TouchTargetSizeCheck" />
@@ -238,8 +220,7 @@
         <TextView
             android:id="@+id/textCoinsSilver"
             style="@style/edit_style"
-            android:layout_width="@dimen/editWealthW"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/editDialogWealthW"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
             tools:text="0" />
@@ -248,7 +229,6 @@
             android:id="@+id/butSilverInc1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
@@ -258,7 +238,6 @@
             android:id="@+id/butSilverInc10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
             tools:ignore="TouchTargetSizeCheck" />
@@ -283,7 +262,6 @@
             android:id="@+id/butCupperDec10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:text="@string/minus10"
             tools:ignore="TouchTargetSizeCheck" />
@@ -292,7 +270,6 @@
             android:id="@+id/butCupperDec1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus1"
             tools:ignore="TouchTargetSizeCheck" />
@@ -300,8 +277,7 @@
         <TextView
             android:id="@+id/textCoinsCupper"
             style="@style/edit_style"
-            android:layout_width="@dimen/editWealthW"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/editDialogWealthW"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:textAlignment="viewEnd"
             tools:text="0" />
@@ -310,7 +286,6 @@
             android:id="@+id/butCupperInc1"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_marginEnd="@dimen/dialogMargins"
             android:layout_weight="1"
             android:text="@string/plus1"
@@ -320,7 +295,6 @@
             android:id="@+id/butCupperInc10"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus10"
             tools:ignore="TouchTargetSizeCheck" />
@@ -336,7 +310,6 @@
         <Button
             android:id="@+id/butCoinsAdd"
             style="@style/but_brown_style"
-            android:layout_height="@dimen/butDialogH"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Agregar" />
 
@@ -344,7 +317,6 @@
             android:id="@+id/butCoinsSub"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butDialogH"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Quitar" />
@@ -353,7 +325,6 @@
             android:id="@+id/butCoinsCancel2"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butDialogH"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Cancelar" />
     </LinearLayout>

@@ -37,7 +37,6 @@
             android:id="@+id/butNumDec"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/minus"
             tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
@@ -46,7 +45,6 @@
             android:id="@+id/textNumValue"
             style="@style/edit_style"
             android:layout_width="@dimen/editDialogW"
-            android:layout_height="@dimen/editDialogH"
             android:layout_marginHorizontal="@dimen/dialogMargins"
             android:layout_weight="1"
             android:textAlignment="textEnd"
@@ -56,7 +54,6 @@
             android:id="@+id/butNumInc"
             style="@style/but_brown_style"
             android:layout_width="@dimen/butChangeW"
-            android:layout_height="@dimen/butChangeH"
             android:layout_weight="1"
             android:text="@string/plus"
             tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
@@ -74,7 +71,6 @@
             android:id="@+id/butNumOk"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butChangeH"
             android:layout_margin="@dimen/dialogMargins"
             android:text="@string/ok"
             tools:ignore="TouchTargetSizeCheck" />
@@ -83,7 +79,6 @@
             android:id="@+id/butNumCancel"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butChangeH"
             android:layout_margin="@dimen/dialogMargins"
             android:text="@string/cancel"
             tools:ignore="TouchTargetSizeCheck" />

@@ -32,22 +32,30 @@
     <dimen name="butStroke">2dp</dimen>
     <dimen name="butCorner">6dp</dimen>
 
-    <dimen name="butChangeW">48dp</dimen>
-    <dimen name="butChangeCantW">64dp</dimen>
-    <dimen name="butChangeH">36dp</dimen>
+    <!-- **************************** Dialogs **************************** -->
+    <dimen name="dialogPadding">8dp</dimen>
+    <dimen name="dialogStroke">2dp</dimen>
+    <dimen name="dialogMargins">2dp</dimen>
+    <!-- Botones -->
     <dimen name="butDialogH">40dp</dimen>
-    <dimen name="butDialogXpW">80dp</dimen>
+    <dimen name="butChangeW">50dp</dimen>
+    <dimen name="butChangeH">@dimen/butDialogH</dimen>
+    <!-- Edits -->
+    <dimen name="editDialogPaddingH">8dp</dimen>
+    <dimen name="editDialogPaddingV">4dp</dimen>
+    <dimen name="editDialogW">48dp</dimen>
+    <dimen name="editDialogH">36dp</dimen>
+    <dimen name="editDialogWealthW">70dp</dimen>
+    <dimen name="editDialogNickTitleW">240dp</dimen>
+    <!-- ***************************************************************** -->
 
     <!-- TEXTFIELD -->
     <dimen name="editBoxPaddingH">12dp</dimen>
     <dimen name="editBoxPaddingV">8dp</dimen>
     <dimen name="editFocusStroke">4dp</dimen>
-    <dimen name="editCursor">2dp</dimen>
     <dimen name="editNormalStroke">2dp</dimen>
-    <dimen name="editDialogW">48dp</dimen>
-    <dimen name="editDialogH">36dp</dimen>
-    <dimen name="editWealthW">70dp</dimen>
-    <dimen name="editNickTitleW">240dp</dimen>
+    <dimen name="editCursor">2dp</dimen>
+
 
     <!-- RIQUEZA -->
     <dimen name="rowWealth">32dp</dimen>
@@ -59,17 +67,5 @@
     <dimen name="iconGender">40dp</dimen>
     <dimen name="iconNumber">40dp</dimen>
     <dimen name="profileBarH">24dp</dimen>
-
-    <!-- ABILITIES -->
-    <dimen name="abilityH">60dp</dimen>
-
-    <!-- Dialog -->
-    <dimen name="dialogPadding">8dp</dimen>
-    <dimen name="dialogStroke">2dp</dimen>
-    <dimen name="dialogMargins">2dp</dimen>
-
-    <!-- DIALOG EDIT-->
-    <dimen name="dialogEditPaddingH">8dp</dimen>
-    <dimen name="dialogEditPaddingV">4dp</dimen>
 
 </resources>

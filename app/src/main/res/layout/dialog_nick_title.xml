@@ -32,10 +32,10 @@
         <EditText
             android:id="@+id/editNick"
             style="@style/edit_style"
-            android:layout_width="@dimen/editNickTitleW"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/editDialogNickTitleW"
             android:ems="10"
             android:inputType="text"
+            android:textAlignment="viewStart"
             tools:ignore="Autofill,DuplicateSpeakableTextCheck,LabelFor,TouchTargetSizeCheck"
             tools:text="Apodo" />
     </LinearLayout>
@@ -56,10 +56,10 @@
         <EditText
             android:id="@+id/editTitle"
             style="@style/edit_style"
-            android:layout_width="@dimen/editNickTitleW"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/editDialogNickTitleW"
             android:ems="10"
             android:inputType="text"
+            android:textAlignment="viewStart"
             tools:ignore="Autofill,DuplicateSpeakableTextCheck,LabelFor,TouchTargetSizeCheck"
             tools:text="Título" />
     </LinearLayout>
@@ -76,7 +76,6 @@
             android:id="@+id/butNickOk"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butDialogH"
             android:layout_marginEnd="@dimen/dialogMargins"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Aceptar" />
@@ -85,7 +84,6 @@
             android:id="@+id/butNickCancel"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butDialogH"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Canelar" />
     </LinearLayout>

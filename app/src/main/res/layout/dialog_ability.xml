@@ -2,14 +2,282 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutAbility"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog"
     android:orientation="vertical"
     android:padding="@dimen/dialogPadding">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textAbilityTitle"
         style="@style/text_title"
+        android:layout_marginBottom="@dimen/dialogMargins"
         tools:text="Característica" />
+
+    <LinearLayout
+        android:id="@+id/layoutAbilityBase"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/butAbilityBaseDec"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/minus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textAbilityBase"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editDialogW"
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:layout_weight="1"
+            tools:text="0" />
+
+        <Button
+            android:id="@+id/butAbilityBaseInc"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/plus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/butAbilityBaseDesc"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:gravity="end"
+            tools:text="Base" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAbilityRace"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/butAbilityRaceDec"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/minus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textAbilityRace"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editDialogW"
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:layout_weight="1"
+            tools:text="0" />
+
+        <Button
+            android:id="@+id/butAbilityRaceInc"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/plus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/butAbilityRaceDesc"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:gravity="end"
+            tools:text="Por raza" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAbilityFeat"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/butAbilityFeatDec"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/minus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textAbilityFeat"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editDialogW"
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:layout_weight="1"
+            tools:text="0" />
+
+        <Button
+            android:id="@+id/butAbilityFeatInc"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/plus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/butAbilityFeatDesc"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:gravity="end"
+            tools:text="Por dote" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAbilityLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/butAbilityLevelDec"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/minus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textAbilityLevel"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editDialogW"
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:layout_weight="1"
+            tools:text="0" />
+
+        <Button
+            android:id="@+id/butAbilityLevelInc"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/plus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/butAbilityLevelDesc"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textAlignment="viewEnd"
+            tools:text="Por nivel" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAbilityTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dialogMargins"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/butAbilityTempDec"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/minus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textAbilityTemp"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editDialogW"
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:layout_weight="1"
+            tools:text="0" />
+
+        <Button
+            android:id="@+id/butAbilityTempInc"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/plus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/butAbilityTempDesc"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textAlignment="viewEnd"
+            tools:text="Temporales" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAbilityOther"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/butAbilityOtherDec"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/minus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textAbilityOther"
+            style="@style/edit_style"
+            android:layout_width="@dimen/editDialogW"
+            android:layout_marginHorizontal="@dimen/dialogMargins"
+            android:layout_weight="1"
+            tools:text="0" />
+
+        <Button
+            android:id="@+id/butAbilityOtherInc"
+            style="@style/but_brown_style"
+            android:layout_width="@dimen/butChangeW"
+            android:layout_weight="1"
+            android:text="@string/plus"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/text_desc"
+            android:layout_marginStart="@dimen/dialogMargins"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textAlignment="viewEnd"
+            tools:text="Otro" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAbilityButtons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dialogPadding"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/butAbilityOk"
+            style="@style/but_brown_style"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/dialogMargins"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Agregar" />
+
+        <Button
+            android:id="@+id/butAbilityCancel"
+            style="@style/but_brown_style"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/dialogMargins"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Cancelar" />
+    </LinearLayout>
+
 </LinearLayout>

@@ -19,9 +19,7 @@
         android:id="@+id/textXpValue"
         style="@style/edit_style"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/controlMarginV"
-        android:textAlignment="viewEnd"
         android:textStyle="bold"
         tools:text="0" />
 
@@ -46,7 +44,6 @@
                 android:id="@+id/butXpDec1000"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/minus1000"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
@@ -55,7 +52,6 @@
                 android:id="@+id/butXpDec100"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/minus100"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
@@ -64,7 +60,6 @@
                 android:id="@+id/butXpDec10"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/minus10"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
@@ -73,7 +68,6 @@
                 android:id="@+id/butXpDec1"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/minus1"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
@@ -94,7 +88,6 @@
                 android:id="@+id/butXpInc1000"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/plus1000"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
@@ -103,7 +96,6 @@
                 android:id="@+id/butXpInc100"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/plus100"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
@@ -112,7 +104,6 @@
                 android:id="@+id/butXpInc10"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/plus10"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
@@ -121,7 +112,6 @@
                 android:id="@+id/butXpInc1"
                 style="@style/but_brown_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/butChangeH"
                 android:layout_marginVertical="@dimen/controlMarginV"
                 android:text="@string/plus1"
                 tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits,TouchTargetSizeCheck" />
@@ -139,7 +129,6 @@
             android:id="@+id/butXpOk"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Agregar" />
@@ -148,7 +137,6 @@
             android:id="@+id/butXpCancel"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Cancelar" />

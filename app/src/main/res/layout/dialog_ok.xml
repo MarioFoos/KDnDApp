@@ -16,9 +16,6 @@
         android:layout_height="wrap_content"
         android:overScrollMode="ifContentScrolls"
         android:textAlignment="viewStart"
-        android:textColor="@color/clBlack"
-        android:textSize="@dimen/dialogFontDesc"
-        android:textStyle="bold"
         tools:text="Error" />
 
     <TextView
@@ -32,7 +29,6 @@
         android:id="@+id/butSimpleOk"
         style="@style/but_brown_style"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/butDialogH"
         android:layout_marginTop="@dimen/dialogPadding"
         tools:ignore="TouchTargetSizeCheck"
         tools:text="Aceptar" />

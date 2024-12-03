@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -34,10 +33,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.BottomCenter
-import androidx.compose.ui.Alignment.Companion.Center
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
-import androidx.compose.ui.Alignment.Companion.TopCenter
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
@@ -60,7 +55,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.dndlib.DNDAbility
 import com.dndlib.DNDChar
 import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
@@ -78,7 +72,6 @@ import com.dndlib.base.EStageOfLife
 import com.dndlib.res.ComTools
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.KDnDAppTheme
-import java.util.EnumMap
 
 private val coinIcons = arrayOf(R.drawable.coin_platinum, R.drawable.coin_gold,  R.drawable.coin_electrum, R.drawable.coin_silver, R.drawable.coin_cupper)
 private val coinTypes = arrayOf(ECoin.PLATINUM, ECoin.GOLD, ECoin.ELECTRUM, ECoin.SILVER, ECoin.CUPPER)
@@ -282,8 +275,6 @@ fun getImageRace(context: Context, race : ERace, gender : EGender) : ImageBitmap
 fun ShowAbilities(context: Context, car: DNDChar)
 {
     var data: ArrayList<DAbility> = ArrayList()
-    val abilities = car.getAbilities()
-
     data.add(DAbility(EAbility.STRENGTH, colorResource(id = R.color.clStrength)))
     data.add(DAbility(EAbility.DEXTERITY, colorResource(id = R.color.clDexterity)))
     data.add(DAbility(EAbility.CONSTITUTION, colorResource(id = R.color.clConstitution)))
@@ -298,7 +289,7 @@ fun ShowAbilities(context: Context, car: DNDChar)
                 .weight(1f)
                 .background(item.color))
             {
-                val bonus : Int = abilities[item.ability]!!.bonus
+                val bonus : Int = car.getAbility(item.ability)!!.bonus
 
                 Text(modifier = Modifier.fillMaxWidth(),
                     text = Res.locale(item.ability),
@@ -310,14 +301,14 @@ fun ShowAbilities(context: Context, car: DNDChar)
                     fontWeight = FontWeight.Bold
                 )
                 Text(modifier = Modifier.fillMaxWidth(),
-                    text = (if(abilities[item.ability]!!.bonus >= 0){"+"}else{""}) + abilities[item.ability]!!.bonus.toString(),
+                    text = (if(bonus >= 0){"+"}else{""}) + bonus.toString(),
                     color = colorResource(id = R.color.clWhite),
                     textAlign = TextAlign.Center,
                     fontSize = fontSizeResourse(R.dimen.fontVeryLarge),
                     fontWeight = FontWeight.Bold
                 )
                 Text(modifier = Modifier.fillMaxWidth(),
-                    text = abilities[item.ability]!!.base.toString(),
+                    text = car.getAbility(item.ability)!!.toString(),
                     color = colorResource(id = R.color.clWhite),
                     textAlign = TextAlign.Center,
                     fontSize = fontSizeResourse(R.dimen.fontNormal),

@@ -34,19 +34,15 @@
                 android:id="@+id/butHpCurrentDec"
                 style="@style/but_brown_style"
                 android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
                 android:text="@string/minus"
-                android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/textHpCurrent"
                 style="@style/edit_style"
                 android:layout_width="@dimen/editDialogW"
-                android:layout_height="@dimen/editDialogH"
                 android:layout_marginHorizontal="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
-                android:textStyle="bold"
                 tools:text="1" />
 
             <com.mlf.kdndapp.ui.theme.PushButton
@@ -55,7 +51,6 @@
                 android:layout_width="@dimen/butChangeW"
                 android:layout_height="@dimen/butChangeH"
                 android:text="@string/plus"
-                android:textStyle="bold"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
@@ -87,7 +82,6 @@
                 android:id="@+id/butHpMaxDec"
                 style="@style/but_brown_style"
                 android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
                 android:text="@string/minus"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
@@ -95,7 +89,6 @@
                 android:id="@+id/textHpMax"
                 style="@style/edit_style"
                 android:layout_width="@dimen/editDialogW"
-                android:layout_height="@dimen/editDialogH"
                 android:layout_marginHorizontal="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
                 tools:text="1" />
@@ -104,7 +97,6 @@
                 android:id="@+id/butHpMaxInc"
                 style="@style/but_brown_style"
                 android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
                 android:text="@string/plus"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
@@ -136,7 +128,6 @@
                 android:id="@+id/butHpTempDec"
                 style="@style/but_brown_style"
                 android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
                 android:text="@string/minus"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
@@ -144,7 +135,6 @@
                 android:id="@+id/textHpTemp"
                 style="@style/edit_style"
                 android:layout_width="@dimen/editDialogW"
-                android:layout_height="@dimen/editDialogH"
                 android:layout_marginHorizontal="@dimen/dialogMargins"
                 android:textAlignment="textEnd"
                 tools:text="1" />
@@ -153,7 +143,6 @@
                 android:id="@+id/butHpTempInc"
                 style="@style/but_brown_style"
                 android:layout_width="@dimen/butChangeW"
-                android:layout_height="@dimen/butChangeH"
                 android:text="@string/plus"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
@@ -177,7 +166,6 @@
             android:id="@+id/butHpOk"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Aceptar" />
@@ -186,7 +174,6 @@
             android:id="@+id/butHpCancel"
             style="@style/but_brown_style"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/butDialogH"
             android:layout_margin="@dimen/dialogMargins"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Cancelar" />
