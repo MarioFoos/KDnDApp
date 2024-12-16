@@ -284,10 +284,28 @@ fun ShowAbilities(context: Context, car: DNDChar)
 
     Row(modifier = Modifier.fillMaxWidth())
     {
+        var posX by rememberSaveable { mutableStateOf(0f) }
+        var posY by rememberSaveable { mutableStateOf(0f) }
+
         data.forEachIndexed { index, item ->
             Column(modifier = Modifier
                 .weight(1f)
-                .background(item.color))
+                .background(item.color)
+                .onGloballyPositioned { coordinates ->
+                    posX = coordinates.positionInWindow().x
+                    posY = coordinates.positionInWindow().y
+                }
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onTap = { offset ->
+                            dialogAbility(context = context, x = posX + offset.x, y = posY + offset.y,
+                                car.getAbility(item.ability))
+                        },
+                        onDoubleTap = {},
+                        onLongPress = {}
+                    )
+                }
+            )
             {
                 val bonus : Int = car.getAbility(item.ability)!!.bonus
 
@@ -443,8 +461,8 @@ fun ShowClickeable(context: Context, entry: DEntry)
                                     title = entry.title, desc = entry.desc
                                 )
                             },
-                            onLongPress = {},
-                            onDoubleTap = {}
+                            onDoubleTap = {},
+                            onLongPress = {}
                         )
                     }
             )
@@ -633,6 +651,7 @@ fun ShowHP(context: Context, car: DNDChar,
                             desc = desc,
                         )
                     },
+                    onDoubleTap = {},
                     onLongPress = { offset ->
                         dialogHp(context = context, x = gPosX + offset.x, y = gPosY + offset.y,
                             hp = car.hp,
@@ -642,8 +661,7 @@ fun ShowHP(context: Context, car: DNDChar,
                                 showTemp = hp.temp
                                 onChangeData(hp)
                             })
-                    },
-                    onDoubleTap = {}
+                    }
                 )
             }
     )
@@ -676,14 +694,14 @@ fun ShowXP(context: Context,
                             desc = levelXp.toString()
                         )
                     },
+                    onDoubleTap = {},
                     onLongPress = { offset ->
                         dialogXp(context = context, x = gPosX + offset.x, y = gPosY + offset.y,
                             onAccept = { addXp ->
                                 levelXp.addXp(addXp)
                                 onChangeData(levelXp)
                             })
-                    },
-                    onDoubleTap = {}
+                    }
                 )
             }
     )
@@ -775,6 +793,7 @@ fun ShowWealth(context: Context, wealth: MutableState<Int>,
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = {},
+                    onDoubleTap = {},
                     onLongPress = {
                         dialogWealth2(context = context,
                             onAdd = { wealth ->
@@ -785,8 +804,7 @@ fun ShowWealth(context: Context, wealth: MutableState<Int>,
                                 dndWealth.substract(wealth)
                                 onSub(wealth)
                             })
-                    },
-                    onDoubleTap = {}
+                    }
                 )
             }
     )
@@ -836,6 +854,7 @@ fun ShowName(context: Context,
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = {},
+                    onDoubleTap = {},
                     onLongPress = { offset ->
                         dialogNickTitle(context = context, x = gPosX + offset.x, y = gPosY + offset.y,
                             nick = nick.value,
@@ -843,8 +862,7 @@ fun ShowName(context: Context,
                             onAccept = { nick, title ->
                                 onChange(nick, title)
                             })
-                    },
-                    onDoubleTap = {}
+                    }
                 )
             }
     ){
@@ -895,8 +913,8 @@ fun ShowProfileContent(modifier: Modifier = Modifier, size : Dp,
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = { offset -> onTap(gPosX + offset.x, gPosY + offset.y) },
-                    onLongPress = { offset -> onLongPress(gPosX + offset.x, gPosY + offset.y) },
-                    onDoubleTap = {}
+                    onDoubleTap = {},
+                    onLongPress = { offset -> onLongPress(gPosX + offset.x, gPosY + offset.y) }
                 )
             }
     )

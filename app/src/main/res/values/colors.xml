@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- PALESTAS -->
+    <!-- PALETAS -->
     <color name="clNone">#00000000</color>
     <color name="clBlack">#FF000000</color>
     <color name="clGray1">#FF606060</color>

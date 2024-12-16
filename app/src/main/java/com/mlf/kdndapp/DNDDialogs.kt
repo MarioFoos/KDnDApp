@@ -9,12 +9,37 @@ import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.dndlib.DNDAbility
 import com.dndlib.DNDHitPoints
 import com.dndlib.DNDWealth
 import com.dndlib.base.ECoin
 import com.dndlib.res.Res
 import com.mlf.kdndapp.ui.theme.PushButton
 
+fun dialogAbility(context: Context, x: Float? = null, y: Float? = null,
+                  ability: DNDAbility,
+                  onAccept: (ability: DNDAbility)->Unit = { _, -> })
+{
+    var curAbility: DNDAbility = ability
+    val dialog = Dialog(context)
+
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.dialog_ability)
+
+    // Fijos
+    val butOk = dialog.findViewById(R.id.butAbilityOk)  as Button
+    val butCancel = dialog.findViewById(R.id.butAbilityCancel)  as Button
+
+    butOk.setOnClickListener {
+        dialog.dismiss()
+        onAccept(curAbility)
+    }
+    butCancel.setOnClickListener {
+        dialog.dismiss()
+    }
+    showDialogXY(dialog, x, y)
+}
 fun dialogNickTitle(context: Context, x: Float? = null, y: Float? = null,
                     nick: String,
                     title: String,
